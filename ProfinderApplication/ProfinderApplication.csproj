@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9B09005A-709B-4E43-994F-B6098984547E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Agilent.OpenLab.ProfinderApplication</RootNamespace>
+    <AssemblyName>Agilent.OpenLab.ProfinderApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <PublishUrl>http://localhost/Agilent.TimeSquare.UI.ApplicationTemplate/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <StartAction>Program</StartAction>
+    <StartProgram>$(SolutionDir)\Development\bin\Debug\Agilent.OpenLab.ProfinderApplication.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <LangVersion>7.3</LangVersion>
+    <DefineConstants>DEBUG;TRACE;CODE_ANALYSIS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <PlatformTarget>x64</PlatformTarget>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <LangVersion>7.3</LangVersion>
+    <DefineConstants>TRACE;CODE_ANALYSIS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <PlatformTarget>x86</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\debug\</OutputPath>
+    <LangVersion>7.3</LangVersion>
+    <DefineConstants>DEBUG;TRACE;CODE_ANALYSIS</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <LangVersion>7.3</LangVersion>
+    <DefineConstants>TRACE;CODE_ANALYSIS</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Agilent.Diagnostics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.3rdParty.Diagnostics.1.55.0\lib\net45\Agilent.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.Common.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.CoreTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.CoreTypes.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.CoreTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.PluginInfrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.DataAccess.PluginInfrastructure.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.PluginInfrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.Diagnostics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.Diagnostics.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.Infrastructure.DefaultServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.DefaultServices.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Infrastructure.DefaultServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.Infrastructure.Services.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.Infrastructure.Interfaces.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Infrastructure.Services.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.Infrastructure.Interfaces.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.UI.ApplicationContext, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.ApplicationContext.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.UI.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.UI.CommonDefinitions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.CommonDefinitions.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.UI.Layout, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Layout.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.UI.Module, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Module.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.UI.Themes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.UI.Themes.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Themes.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.UI.Windows, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.UI.XamDocking, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.XamDocking.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.UI.XamMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.XamMenu.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.UI.XamOutlookBar, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.XamOutlookBar.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.DataPresenter.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.DataPresenter.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.DockManager.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.DockManager.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.Editors.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.Editors.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.OutlookBar.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.OutlookBar.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.Ribbon.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.Ribbon.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.3rdParty.Microsoft.Practices.2.1.505.3\lib\net45\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.UnityExtensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.3rdParty.Microsoft.Practices.2.1.505.3\lib\net45\Microsoft.Practices.Prism.UnityExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.3rdParty.Microsoft.Practices.2.1.505.3\lib\net45\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.3rdParty.Microsoft.Practices.2.1.505.3\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Agilent.OpenLAB.Framework.3rdParty.System.Windows.Interactivity.2.0.20525\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="CustomApplicationResouces.cs" />
+    <Compile Include="Properties\CustomResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CustomResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomApplicationViewModel.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CustomBootstrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\CustomResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>CustomResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Agilent.OpenLab.ProfinderApplication.exe.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\AppLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Glyph.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

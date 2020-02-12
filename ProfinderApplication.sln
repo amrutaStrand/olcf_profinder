@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfinderApplication", "ProfinderApplication\ProfinderApplication\ProfinderApplication.csproj", "{9B09005A-709B-4E43-994F-B6098984547E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfinderApplication", "ProfinderApplication\ProfinderApplication.csproj", "{9B09005A-709B-4E43-994F-B6098984547E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComoundTable", "ComoundTable\ComoundTable.csproj", "{93CBB6E3-ECC0-47BA-9E38-D62CCC782DB5}"
 EndProject
