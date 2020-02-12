@@ -1,8 +1,12 @@
 ﻿namespace Agilent.OpenLab.CompoundSpectrum
 {
     #region
-
     using System.Windows;
+
+    using Agilent.OpenLab.UI.Controls.AgtPlotControl;
+    using System;
+    using System.ComponentModel;
+
 
     #endregion
 
@@ -28,6 +32,13 @@
         #endregion
 
         #region Public Properties
+        private bool viewInitialized = false;
+        
+        /// <summary>
+        /// 
+        /// 
+        /// </summary>
+        public event EventHandler WinFormControlFocused;
 
         /// <summary>
         /// Gets or sets the model.
@@ -55,6 +66,19 @@
         #region Methods
 
         /// <summary>
+        ///     Gets PlotControl.
+        /// </summary>
+        public AgtPlotControl PlotControl
+        {
+            get
+            {
+                return this.Model != null ? this.Model.PlotControl : null;
+            }
+        }
+
+        #region Methods
+
+        /// <summary>
         /// Called when [loaded].
         /// </summary>
         /// <param name="sender">
@@ -67,6 +91,13 @@
         /// </remarks>
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
+            if (!this.viewInitialized)
+            {
+                this.plotControlHost.Child = this.PlotControl;
+                this.PlotControl.GotFocus += this.OnPlotControlGotFocus;
+                this.plotControlHost.Margin = new Thickness(0, 0, 0, 0);
+                this.viewInitialized = true;
+            }
         }
 
         /// <summary>
@@ -82,7 +113,37 @@
         /// </remarks>
         private void OnUnloaded(object sender, RoutedEventArgs e)
         {
+            if (this.viewInitialized)
+            {
+                this.PlotControl.GotFocus -= this.OnPlotControlGotFocus;
+            }
+
+            this.viewInitialized = false;
         }
+
+        /// <summary>
+        /// The on plot control got focus.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The e.
+        /// </param>
+        private void OnPlotControlGotFocus(object sender, EventArgs e)
+        {
+            if (this.WinFormControlFocused != null)
+            {
+                this.WinFormControlFocused(this, null);
+            }
+
+            // TODO:
+            // the following line will fix the issue regarding the focusing of UI modules
+            // however introduces problems with key events in win forms controls
+            // Keyboard.Focus(this);            
+            this.plotControlHost.Focus();
+        }
+        #endregion
 
         #endregion
     }

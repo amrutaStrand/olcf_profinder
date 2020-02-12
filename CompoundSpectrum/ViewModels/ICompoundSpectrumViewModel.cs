@@ -4,6 +4,8 @@
 
     using Agilent.OpenLab.Framework.UI.Common.Commands;
     using Agilent.OpenLab.Framework.UI.Layout.ModuleInterfaces;
+    using Agilent.OpenLab.UI.Controls.AgtPlotControl;
+
 
     #endregion
 
@@ -33,6 +35,10 @@
         /// </summary>
         ICompoundSpectrumView View { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        AgtPlotControl PlotControl { get; }
         #endregion
     }
 }

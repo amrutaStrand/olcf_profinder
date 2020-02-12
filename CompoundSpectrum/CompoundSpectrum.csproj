@@ -60,14 +60,38 @@
     <DocumentationFile>bin\Release\Agilent.OpenLab.Framework.UI.CompoundSpectrum.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Agilent.Acaml.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Acaml.2.1.27\lib\net45\Agilent.Acaml.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.Acaml21.Utilities, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Acaml.2.1.27\lib\net45\Agilent.Acaml21.Utilities.dll</HintPath>
+    </Reference>
     <Reference Include="Agilent.Diagnostics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Diagnostics.1.55.0\lib\net45\Agilent.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.BusinessObjectModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.Acaml.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.BusinessObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.Common.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Common.dll</HintPath>
     </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.Acaml.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.Acaml.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.Acaml.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.dll</HintPath>
+    </Reference>
     <Reference Include="Agilent.OpenLab.Framework.DataAccess.CoreTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.CoreTypes.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.CoreTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.Method, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.Method.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.Method.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.Method.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.Method.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.DataAccess.PluginInfrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.PluginInfrastructure.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.PluginInfrastructure.dll</HintPath>
@@ -114,6 +138,21 @@
     <Reference Include="Agilent.OpenLab.Framework.UI.XamOutlookBar, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.XamOutlookBar.dll</HintPath>
     </Reference>
+    <Reference Include="Agilent.OpenLab.UI.Controls.AgtPlotControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.UI.Controls.PlotControl.3.2.0.117\lib\net45\Agilent.OpenLab.UI.Controls.AgtPlotControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.UI.Controls.Geometry, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.UI.Controls.Geometry.3.2.0.117\lib\net45\Agilent.OpenLab.UI.Controls.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.UI.Controls.GraphObjectDataConverters, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.UI.Controls.GraphObjectDataConverters.3.2.0.117\lib\net45\Agilent.OpenLab.UI.Controls.GraphObjectDataConverters.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.UI.Controls.GraphObjects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.UI.Controls.GraphObjects.3.2.0.117\lib\net45\Agilent.OpenLab.UI.Controls.GraphObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.UI.DataStructures, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.UI.Controls.DataStructures.3.2.0.117\lib\net45\Agilent.OpenLab.UI.DataStructures.dll</HintPath>
+    </Reference>
     <Reference Include="InfragisticsWPF4.DataPresenter.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.DataPresenter.v14.2.dll</HintPath>
     </Reference>
@@ -146,6 +185,9 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="protobuf-net, Version=2.0.0.668, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Protobuf.2.0.0.668\lib\net45\protobuf-net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -218,6 +260,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Schema\ACAML.21.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

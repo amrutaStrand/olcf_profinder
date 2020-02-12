@@ -3,6 +3,8 @@
     #region
 
     using Agilent.OpenLab.Framework.UI.Module;
+    using Agilent.OpenLab.UI.Controls.AgtPlotControl;
+        using System.ComponentModel;
 
     using Microsoft.Practices.Unity;
 
@@ -16,6 +18,11 @@
     public partial class CompoundSpectrumViewModel : BaseViewModel, ICompoundSpectrumViewModel
     {
         #region Constructors and Destructors
+
+        /// <summary>
+        ///     The plot control.
+        /// </summary>
+        private AgtPlotControl plotControl;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CompoundSpectrumViewModel"/> class.
@@ -47,6 +54,22 @@
         /// <remarks>
         /// </remarks>
         public ICompoundSpectrumView View { get; set; }
+
+        /// <summary>
+        ///     Gets PlotControl.
+        /// </summary>
+        public AgtPlotControl PlotControl
+        {
+            get
+            {
+                if (this.plotControl == null)
+                {
+                    this.plotControl = new AgtPlotControl();
+                }
+
+                return this.plotControl;
+            }
+        }
 
         #endregion
     }
