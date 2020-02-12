@@ -1,0 +1,2875 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlLoadingErrorLog">
+            <summary>
+            The acaml loading error log.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlLoadingErrorLog.failedAcamls">
+            <summary>
+            The failed acamls.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlLoadingErrorLog.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlLoadingErrorLog"/> class.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlLoadingErrorLog.FailedAcamls">
+            <summary>
+            Gets the failed acamls.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlLoadingErrorLog.AddState(System.String,System.String)">
+            <summary>
+            Adds the state.
+            </summary>
+            <param name="storagePath">
+            The storage path.
+            </param>
+            <param name="message">
+            The message.
+            </param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataAlreadyLoadedException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataAlreadyLoadedException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataAlreadyLoadedException"/> class. 
+              Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataAlreadyLoadedException"/>.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataAlreadyLoadedException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataAlreadyLoadedException"/> class. 
+            Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataAlreadyLoadedException"/>.
+            </summary>
+            <param name="message">
+            Error message
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataAlreadyLoadedException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataAlreadyLoadedException"/> class. 
+            Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataAlreadyLoadedException"/>.
+            </summary>
+            <param name="message">
+            Error message
+            </param>
+            <param name="innerException">
+            Inner exception
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataAlreadyLoadedException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataAlreadyLoadedException"/> class. 
+            Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataAlreadyLoadedException"/>.
+            </summary>
+            <param name="info">
+            Serialization info
+            </param>
+            <param name="context">
+            Streaming context
+            </param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChecksumException">
+            <summary>
+            This exception is thrown if a checksum error occurs during data loading.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChecksumException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChecksumException"/> class. 
+              Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChecksumException"/>.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChecksumException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChecksumException"/> class. 
+            Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChecksumException"/>.
+            </summary>
+            <param name="message">
+            Error message
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChecksumException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChecksumException"/> class. 
+            Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChecksumException"/>.
+            </summary>
+            <param name="message">
+            Error message
+            </param>
+            <param name="innerException">
+            Inner exception
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChecksumException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChecksumException"/> class. 
+            Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChecksumException"/>.
+            </summary>
+            <param name="info">
+            Serialization info
+            </param>
+            <param name="context">
+            Streaming context
+            </param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader">
+            <summary>
+            Interface for loading distributed ACAML parts into one ACAML document.
+            The consumer is resposible to dispose the object.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader.LoadSequenceAcaml(System.IO.Stream)">
+            <summary>
+            Load Sequence-ACAML document.
+            </summary>
+            <param name="acamlStream">Stream with ACAML content.</param>
+            <exception cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException"> will be thown, if load operation failed.</exception>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader.DocId">
+            <summary>
+            Return ACAML Doc-ID from loaded Sequence-ACAML document.
+            </summary>
+            <exception cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException"> will be thown, if no Sequence-ACAML is loaded.</exception>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader.GetInjectionReferences">
+            <summary>
+            Get all injection references from Sequence-ACAML.
+            </summary>
+            <returns>Array of Injection-ACAML references.</returns>
+            <exception cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException"> will be thown, if no Sequence-ACAML is loaded.</exception>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader.CreatePrefetchLock">
+            <summary>
+            Create a disposable lock object.
+            The call will lock the Injection-ACAML prefetch cache.
+            A dispose of the returned object will unlock the cache.
+            This must be done, after all Injection-ACAMLs are prefetched.
+            </summary>
+            <returns>Disposable lock instance.</returns>
+            <remarks>
+            The same behaviour can be reached by callling the method pair <see cref="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader.BeginInjectionAcamlPrefetching"/>/<see cref="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader.EndInjectionAcamlPrefetching"/>.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader.PrefetchInjectionAcaml(Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionAcamlReference,System.IO.Stream)">
+            <summary>
+            Prefetch Injection-ACAML part into internal cache.
+            </summary>
+            <param name="reference">Injection reference of the Injection-ACAML.</param>
+            <param name="acamlStream">Stream with content of Injection-ACAML.</param>
+            <remarks>
+            The merge method must be called afterwards, to append the Injection-ACAMLs to the current ACAML document.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader.BeginInjectionAcamlPrefetching">
+            <summary>
+            Enable Injection-ACAML prefetch locking.
+            Lock the internal Injection-ACAML cache, so that merge of the Injection-ACAML parts will be blocked.
+            </summary>
+            <remarks>
+            A Sequence-ACAML must be loaded, otherwise an exception will be thrown.
+            Ensure, that the method <see cref="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader.EndInjectionAcamlPrefetching"/> is called,
+            when all Injection-ACAML parts where prefetched.
+            Otherwise each call of the merge method will be blocked.
+            </remarks>
+            <exception cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException"> will be thown, if no Sequence-ACAML is loaded.</exception>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader.EndInjectionAcamlPrefetching">
+            <summary>
+            Disable Injection-ACAML prefetch locking.
+            Unlock Injection-ACAML cache, to unlock merge of the Injection-ACAML parts.
+            </summary>
+            <remarks>
+            Must be called after prefetch of all Injection-ACAML parts.
+            Otherwise each call of the merge method will be blocked.
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader.IsPrefetchLockEnabled">
+            <summary>
+            Return true, if the Injection-ACAML prefetch locking is enabled.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader.MergeInjectionAcamls(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Merge prefetched Injection-ACAML parts into current Sequence-ACAML.
+            A merge of a specified set of Injection-ACAMLs is optional possible.
+            </summary>
+            <param name="injectionMeasDataIds">Enumeration of InjectionMeasData-IDs, for which injections will be merged (optional).</param>
+            <remarks>
+            The Injections-ACAML parts must be prefechted into the internal cache.
+            The merge operation will required no storage access.
+            </remarks>
+            <exception cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException"> will be thown, if merge operation failed.</exception>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader.GetFinalizedAcaml(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String)">
+            <summary>
+            Finalized ACAML document for usage.
+            Serveral fixes and rules will be applied.
+            Also a notification of type AsyncLoadingCompletedEvent is raised.
+            </summary>
+            <param name="storageProvider">The storage provider.</param>
+            <param name="documentStoragePath">Value to be stored in ACAML.DocumentStoragePath.</param>
+            <returns>
+            ACAML document.
+            </returns>
+            <exception cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException">will be thown, if no Sequence-ACAML is loaded.</exception>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.Versions">
+            <summary>
+            Defines global versions of types that can be serialized or exported.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.Versions.RawDataReaderPluginVersion">
+            <summary>
+              Current version of raw data reader plugin API.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlLoadingState">
+            <summary>
+            Defines ACAML loading states.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlLoadingState.NoError">
+            <summary>
+              ACAML was loaded successfully.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlLoadingState.AlreadyLoaded">
+            <summary>
+              ACAML with same document ID was already loaded.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlLoadingState.Failed">
+            <summary>
+              ACAML loading failed.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlParam">
+            <summary>
+              Defines ACAML param types.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlParam.None">
+            <summary>
+                None.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlParam.Identity">
+            <summary>
+                Ident param section.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlParam.Acquisition">
+            <summary>
+                Acquisition param section.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlParam.DataAnalysis">
+            <summary>
+                Data analysis param section.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlSection">
+            <summary>
+              Defines ACAML sections
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlSection.All">
+            <summary>
+                All sections.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlSection.Setup">
+            <summary>
+                Setup section.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlSection.MeasData">
+            <summary>
+                MeasData section.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlSection.Result">
+            <summary>
+                Result section.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChangeLevel">
+            <summary>
+            Defines change levels for data modification.
+            </summary>
+            <remarks>
+            Each committed data modification via a data provider triggers a DataChangedEvent together with a change level
+              to inform lookup caches which entries are invalidated.
+            </remarks>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChangeLevel.None">
+            <summary>
+            The none.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChangeLevel.Peak">
+            <summary>
+            The peak.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChangeLevel.Signal">
+            <summary>
+            The signal.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChangeLevel.Injection">
+            <summary>
+            The injection.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChangeLevel.Sample">
+            <summary>
+            The sample.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChangeLevel.ResultSet">
+            <summary>
+            The result set.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChangeLevel.Compound">
+            <summary>
+            The compound.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChangeLevel.Method">
+            <summary>
+            The method.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataChangeLevel.Global">
+            <summary>
+            The global.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlBusinessRule">
+            <summary>
+              Defines an ACAML check.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlBusinessRule.Messages">
+            <summary>
+              Get all messages related to failures.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlBusinessRule.ThrowIfFailed">
+            <summary>
+              Gets or sets a value indicating whether this rule is a breaking rule.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlBusinessRule.OrderNumber">
+            <summary>
+              Gets order number of this business rule.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlBusinessRule.Apply(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IACAML)">
+            <summary>
+            Apply rule to specified ACAML.
+            </summary>
+            <param name="storageFileAccess"></param>
+            <param name="acaml">ACAML document.</param>
+            <returns>
+            True if business rule was applied successfully.
+            </returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlFix">
+            <summary>
+              Defines an ACAML fix.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlFix.OrderNumber">
+            <summary>
+              Gets the order number of the fix.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlFix.Apply(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IACAML)">
+            <summary>
+            Applies fix to specified ACAML document
+            </summary>
+            <param name="pathHelper">The path helper.</param>
+            <param name="acaml">ACAML document to fix</param>
+            <returns>
+            True if fix was applied successfully.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlFix.NeedsFix(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IACAML)">
+            <summary>
+            Checks whether the fix is required for specified ACAML document
+            </summary>
+            <param name="pathHelper">The path helper.</param>
+            <param name="acaml">ACAML document to fix</param>
+            <returns>
+            True if fix is required.
+            </returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter">
+            <summary>
+              Defines an ACAML reader/writer
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter.EnforceAcamlBusinessRules">
+            <summary>
+                Gets or sets a value indicating whether ACAML business rules are enforced.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter.ValidateChecksumOnLoad">
+            <summary>
+                Gets or sets a value indicating whether checksum validation in done on read operations.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter.ValidateChecksumOnSave">
+            <summary>
+                Gets or sets a value indicating whether checksum validation in done on write operations.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter.ValidateSchemaOnLoad">
+            <summary>
+                Gets or sets a value indicating whether schema validation in done on read operations.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter.ValidateSchemaOnSave">
+            <summary>
+                Gets or sets a value indicating whether schema validation in done on write operations.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter.PrepareForDataModification">
+            <summary>
+                Gets or sets a value indicating whether ACAML documents are prepared for write access implicitly.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter.LoadAcamlMetadata(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Boolean)">
+            <summary>
+            Gets injection meta data items of specified ACAML file from work area.
+            </summary>
+            <param name="storageProvider"></param>
+            <param name="path">Path of ACAML file</param>
+            <param name="createIfMissing">OPTIONAL: Value indicating whether the injection meta data is created if missing. Default is <c>true</c> .</param>
+            <returns>
+            List of <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.CustomObjects.IInjectionMetaData" />.
+            </returns>
+            <remarks>
+            If <paramref name="createIfMissing" /> is set to <c>false</c> or if the specified ACAML file contains injection meta data, only the file's meta data section is queried. The remaining ACAML file is not loaded into in-memory object model. However,
+            if <paramref name="createIfMissing" /> is set to <c>true</c> and the specified ACAML file has no meta data, the ACAML file is completely loaded into memory, the meta data information is gathered and stored in the meta data section, and finally the ACAML document including the meta data is saved back to disk.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter.LoadAcamlMetadata(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.Boolean)">
+            <summary>
+            Gets injection meta data items of specified ACAML file from work area.
+            </summary>
+            <param name="storageProvider">The storage provider.</param>
+            <param name="path">Path of ACAML file</param>
+            <param name="version">The version.</param>
+            <param name="createIfMissing">OPTIONAL: Value indicating whether the injection meta data is created if missing. Default is <c>true</c> .</param>
+            <returns>
+            List of <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.CustomObjects.IInjectionMetaData" />.
+            </returns>
+            <remarks>
+            If <paramref name="createIfMissing" /> is set to <c>false</c> or if the specified ACAML file contains injection meta data, only the file's meta data section is queried. The remaining ACAML file is not loaded into in-memory object model. However,
+            if <paramref name="createIfMissing" /> is set to <c>true</c> and the specified ACAML file has no meta data, the ACAML file is completely loaded into memory, the meta data information is gathered and stored in the meta data section, and finally the ACAML document including the meta data is saved back to disk.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter.LoadAcamlMetadataAsync(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Loads the acaml metadata asynchronous.
+            </summary>
+            <param name="storageProvider"></param>
+            <param name="path">The path.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="createIfMissing">if set to <c>true</c> [create if missing].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter.LoadAcamlMetadataAsync(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Loads the acaml metadata asynchronous.
+            </summary>
+            <param name="storageProvider">The storage provider.</param>
+            <param name="path">The path.</param>
+            <param name="version">The version.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="createIfMissing">if set to <c>true</c> [create if missing].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter.LoadAcamlMetadata(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.Collections.Generic.IEnumerable{System.String},System.Boolean)">
+            <summary>
+            Gets injection meta data items of specified ACAML files from work area.
+            </summary>
+            <param name="storageProvider"></param>
+            <param name="paths">List of paths to ACAML files .</param>
+            <param name="createIfMissing">OPTIONAL: Value indicating whether the injection meta data is created if missing. Default is <c>true</c> .</param>
+            <returns>
+            Dictionary containing lists of <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.CustomObjects.IInjectionMetaData" /> for each specified ACAML file (key is path to file, value is list of meta data items).
+            </returns>
+            <remarks>
+            If <paramref name="createIfMissing" /> is set to <c>false</c> or if the specified ACAML files contain injection meta data, only the files' meta data sections are queried. The remaining part of the ACAML files is not loaded into in-memory object model. However,
+            if <paramref name="createIfMissing" /> is set to <c>true</c> and one of the specified ACAML files has no meta data, the particular ACAML file is completely loaded into memory, the meta data information is gathered and stored in the meta data section, and finally the ACAML document including the meta data is saved back to disk.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter.LoadAcamlMetadataAsync(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Gets injection meta data items of specified ACAML files from work area.
+            </summary>
+            <param name="storageProvider"></param>
+            <param name="paths">List of paths to ACAML files .</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="createIfMissing">OPTIONAL: Value indicating whether the injection meta data is created if missing. Default is <c>true</c> .</param>
+            <returns>
+            Dictionary containing lists of <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.CustomObjects.IInjectionMetaData" /> for each specified ACAML file (key is path to file, value is list of meta data items).
+            </returns>
+            <remarks>
+            If <paramref name="createIfMissing" /> is set to <c>false</c> or if the specified ACAML files contain injection meta data, only the files' meta data sections are queried. The remaining part of the ACAML files is not loaded into in-memory object model. However,
+            if <paramref name="createIfMissing" /> is set to <c>true</c> and one of the specified ACAML files has no meta data, the particular ACAML file is completely loaded into memory, the meta data information is gathered and stored in the meta data section, and finally the ACAML document including the meta data is saved back to disk.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter.CreateReader">
+            <summary>
+            Create reader for distributed ACAML.
+            </summary>
+            <returns>An instance of <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReader"/>.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlReaderWriter.CreateWriter(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IACAML,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Create writer for distributed ACAML.
+            </summary>
+            <param name="pathHelper">The path helper.</param>
+            <param name="acaml">ACAML document.</param>
+            <param name="fileName">Path to save ACAML document.</param>
+            <param name="saveOnlyChangedData">OPTIONAL: Value that indicates, if only changes should be saved.</param>
+            <param name="updateMetadata">OPTIONAL: Value that indicates whether of meta data is updated.</param>
+            <returns>
+            An instance of <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlWriter" />.
+            </returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader">
+            <summary>
+                ACAML signal loader.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.ExtractChromatogram(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType,Agilent.OpenLab.Framework.DataAccess.CoreTypes.ChromatogramExtractionParameters)">
+            <summary>
+            The extract chromatogram.
+            </summary>
+            <param name="storageProvider">
+            The storage provider.
+            </param>
+            <param name="workAreaName">
+            Name of the work area.
+            </param>
+            <param name="docId">
+            The doc id.
+            </param>
+            <param name="spectra">
+            The spectra.
+            </param>
+            <param name="metadataOfSignalToExtract">
+            The metadata of signal to extract.
+            </param>
+            <param name="chromatogramExtractionParameters">
+            The chromatogram extraction parameters.
+            </param>
+            <returns>
+            The <see cref="T:Agilent.OpenLab.Framework.DataAccess.CoreTypes.IChromData"/>.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.ExtractChromatograms(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType,System.Collections.Generic.IDictionary{Agilent.OpenLab.Framework.DataAccess.CoreTypes.IExtractionParameters,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType})">
+            <summary>
+            Extracts chromatograms.
+            </summary>
+            <param name="storageProvider">
+            The storage provider.
+            </param>
+            <param name="workAreaName">
+            Name of the work area.
+            </param>
+            <param name="docId">
+            ID of associated ACAML document
+            </param>
+            <param name="spectra">
+            The spectra matrix to extract from.
+            </param>
+            <param name="signalMetaDataAndParameters">
+            Set extraction parameters together with corresponding signal meta data (required for signal cache).
+            </param>
+            <returns>
+            List of <see cref="T:Agilent.OpenLab.Framework.DataAccess.CoreTypes.IChromData"/> along with corresponding .
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.ExtractSpectrum(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType,Agilent.OpenLab.Framework.DataAccess.CoreTypes.SpectrumExtractionParameters)">
+            <summary>
+            The extract spectrum.
+            </summary>
+            <param name="storageProvider">
+            The storage provider.
+            </param>
+            <param name="workAreaName">
+            </param>
+            <param name="docId">
+            The doc id.
+            </param>
+            <param name="spectra">
+            The spectra.
+            </param>
+            <param name="metadataOfSignalToExtract">
+            The metadata of signal to extract.
+            </param>
+            <param name="spectrumExtractionParameters">
+            The spectrum extraction parameters.
+            </param>
+            <returns>
+            The <see cref="T:Agilent.OpenLab.Framework.DataAccess.CoreTypes.ISpectrumData"/>.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.GetSignalInformation(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType)">
+            <summary>
+            Gets the signal information.
+            </summary>
+            <param name="storageProvider">
+            The storage provider.
+            </param>
+            <param name="workAreaName">
+            Name of the work area.
+            </param>
+            <param name="docId">
+            The document identifier.
+            </param>
+            <param name="signal">
+            The signal.
+            </param>
+            <returns>
+            The <see cref="T:Agilent.OpenLab.Framework.DataAccess.CoreTypes.ISignalInformation"/>.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.LoadChromatogram(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType)">
+            <summary>
+            The load chromatogram.
+            </summary>
+            <param name="storageProvider">
+            The storage provider.
+            </param>
+            <param name="workAreaName">
+            </param>
+            <param name="docId">
+            The doc id.
+            </param>
+            <param name="signal">
+            The signal.
+            </param>
+            <returns>
+            The <see cref="T:Agilent.OpenLab.Framework.DataAccess.CoreTypes.IChromData"/>.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.LoadInstrumentTrace(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType)">
+            <summary>
+            Loads instrument trace data.
+            </summary>
+            <param name="storageProvider">
+            The storage provider.
+            </param>
+            <param name="workAreaName">
+            The work area name.
+            </param>
+            <param name="docId">
+            ID of associated ACAML document
+            </param>
+            <param name="signal">
+            Signal measurement data
+            </param>
+            <returns>
+            Instrument trace data as <see cref="T:Agilent.OpenLab.Framework.DataAccess.CoreTypes.IChromData"/>.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.LoadGenericSignal(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType)">
+            <summary>
+            Loads generic signal data.
+            </summary>
+            <param name="storageProvider">
+            The storage provider.
+            </param>
+            <param name="workAreaName">
+            The work area name.
+            </param>
+            <param name="docId">
+            ID of associated ACAML document
+            </param>
+            <param name="signal">
+            Signal measurement data
+            </param>
+            <returns>
+            Generic signal data data as <see cref="T:Agilent.OpenLab.Framework.DataAccess.CoreTypes.IGenericData"/>.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.LoadSpectra(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType)">
+            <summary>
+            The load spectra.
+            </summary>
+            <param name="storageProvider">
+            The storage provider.
+            </param>
+            <param name="workAreaName">
+            </param>
+            <param name="docId">
+            The doc id.
+            </param>
+            <param name="signal">
+            The signal.
+            </param>
+            <returns>
+            The <see cref="T:Agilent.OpenLab.Framework.DataAccess.CoreTypes.ISpectraData"/>.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.ReadGenericAnalyticalResultData(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,Agilent.OpenLab.Framework.DataAccess.CoreTypes.IGenericAnalyticalResultDataInfo)">
+            <summary>
+            Reads the generic analytical result bytes.
+            </summary>
+            <param name="storageProvider">
+            The storage provider.
+            </param>
+            <param name="workAreaName">
+            Name of the work area.
+            </param>
+            <param name="genericAnalyticalResultDataInfo">
+            Info about generic analytical result data item.
+            </param>
+            <returns>
+            Byte array with the analytical results data.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.ReadGenericAnalyticalResultDataInfo(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionMeasDataType)">
+            <summary>
+            Reads the generic analytical result data. This returns the information about
+                all generic analytical results in all raw data files in specified injection. The actual data is retrieved in
+                a second step.
+            </summary>
+            <param name="storageProvider">
+            The storage provider.
+            </param>
+            <param name="workAreaName">
+            Name of the work area.
+            </param>
+            <param name="docId">
+            The document identifier.
+            </param>
+            <param name="injection">
+            The injection.
+            </param>
+            <returns>
+            Collection with metadata regarding analytical results
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.TriggerSignalPrefetching(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Collections.Generic.IEnumerable{Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.CustomObjects.AcamlInjectionId},System.Int32)">
+            <summary>
+            The trigger signal prefetching.
+            </summary>
+            <param name="storageProvider">
+            The storage provider.
+            </param>
+            <param name="workAreaName">
+            </param>
+            <param name="injectionOrder">
+            The injection order.
+            </param>
+            <param name="currentIndex">
+            The current index.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.UnloadSignalFromCache(System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType)">
+            <summary>
+            Unloads specified signal from raw data cache.
+            </summary>
+            <param name="docId">
+            ACAML document ID.
+            </param>
+            <param name="signalType">
+            The signal type.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.ExtractSpectra(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType,System.Collections.Generic.IDictionary{Agilent.OpenLab.Framework.DataAccess.CoreTypes.IExtractionParameters,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType})">
+            <summary>
+            Extracts spectra.
+            </summary>
+            <param name="storageProvider">
+            The storage provider.
+            </param>
+            <param name="workAreaName">
+            Name of the work area.
+            </param>
+            <param name="docId">
+            ID of associated ACAML document
+            </param>
+            <param name="spectra">
+            The spectra matrix to extract from.
+            </param>
+            <param name="signalMetaDataAndParameters">
+            Set extraction parameters together with corresponding signal meta data (required for signal cache).
+            </param>
+            <returns>
+            List of <see cref="T:Agilent.OpenLab.Framework.DataAccess.CoreTypes.ISpectrumData"/> along with corresponding meta data.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.LoadReferenceChromatogram(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Guid,System.String,System.String)">
+            <summary>
+            Loads raw chromatogram data.
+            </summary>
+            <param name="storageProvider">The storage provider.</param>
+            <param name="workAreaName">The work area name.</param>
+            <param name="docId">ID of associated ACAML document</param>
+            <param name="path">The path.</param>
+            <param name="traceId">The trace identifier.</param>
+            <returns>
+            Raw chromatogram data as <see cref="T:Agilent.OpenLab.Framework.DataAccess.CoreTypes.IChromData" />
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlSignalLoader.LoadReferenceSpectra(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Guid,System.String,System.String)">
+            <summary>
+            Loads raw spectra data.
+            </summary>
+            <param name="storageProvider">The storage provider.</param>
+            <param name="workAreaName">The work area name.</param>
+            <param name="docId">ID of associated ACAML document</param>
+            <param name="path">The path.</param>
+            <param name="traceId">The trace identifier.</param>
+            <returns>
+            Raw chromatogram data as <see cref="T:Agilent.OpenLab.Framework.DataAccess.CoreTypes.IChromData" />
+            </returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlStreamProxy">
+            <summary>
+              Defines stream proxy for ACAML
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlStreamProxy.FileBasedStream">
+            <summary>
+              Gets temp file stream
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlStreamProxy.TempFilePath">
+            <summary>
+              Gets path to backing temp file.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlStreamProxy.Dispose">
+            <summary>
+              Releases all resources and temporary files.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlStreamProxy.Read(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess,System.String)">
+            <summary>
+            Reads ACAML document into stream.
+            </summary>
+            <param name="fileAccess">The file access.</param>
+            <param name="path">Path of ACAML document</param>
+            <returns>
+              <c>True</c> if reading was successful.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlStreamProxy.Read(System.IO.Stream)">
+            <summary>
+            Reads ACAML document from specified stream into validated and migrated stream.
+            </summary>
+            <param name="stream">
+            Path of ACAML document
+            </param>
+            <returns>
+            <c>True</c> if reading was successful.
+            </returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataUpdateException">
+            <summary>
+            This exception is thrown if an error occurs during data updates.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataUpdateException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataUpdateException"/> class. 
+              Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataUpdateException"/>.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataUpdateException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataUpdateException"/> class. 
+            Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataUpdateException"/>.
+            </summary>
+            <param name="message">
+            Error message
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataUpdateException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataUpdateException"/> class. 
+            Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataUpdateException"/>.
+            </summary>
+            <param name="message">
+            Error message
+            </param>
+            <param name="innerException">
+            Inner exception
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataUpdateException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataUpdateException"/> class. 
+            Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataUpdateException"/>.
+            </summary>
+            <param name="info">
+            Serialization info
+            </param>
+            <param name="context">
+            Streaming context
+            </param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlLoadingErrorLog">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlLoadingErrorLog.FailedAcamls">
+            <summary>
+            Gets the failed acamls.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlWriter">
+            <summary>
+            Interface for serialized parts of an ACAML document.
+            The consumer is resposible to dispose the object.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlWriter.SequenceAcamlStream">
+            <summary>
+            Gets the serialized Sequence-ACAML stream.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlWriter.SetSequenceAcamlSaved">
+            <summary>
+            Mark Sequence-ACAML as successfully saved.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlWriter.InjectionAcamlsParts">
+            <summary>
+            Gets a dictionary of the serialized Injection-ACAML parts.
+            Key = InjectionMeasData.Id
+            Value = IInjectionAcamlPart
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IAcamlWriter.ClearChangesOnSaved">
+            <summary>
+            Clear the change flag on all saved content.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IDataProviderFactory">
+            <summary>
+              Defines factory for providers.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IDataProviderFactory.GetProvider``1(System.Guid)">
+            <summary>
+              Gets provider of specified type <typeparamref name="TProviderInterface" /> for specified ACAML document ID.
+            </summary>
+            <typeparam name="TProviderInterface"> Type of provider interface </typeparam>
+            <param name="docId"> ACAML document ID </param>
+            <returns> Instance of provider of type <typeparamref name="TProviderInterface" /> implementing <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IProvider" /> </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IDataProviderFactory.GetProvider``1(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IACAML)">
+            <summary>
+              Gets provider of specified type <typeparamref name="TProviderInterface" /> for specified ACAML object.
+            </summary>
+            <typeparam name="TProviderInterface"> Type of provider interface </typeparam>
+            <param name="acaml"> ACAML object </param>
+            <returns> Instance of provider of type <typeparamref name="TProviderInterface" /> implementing <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IProvider" /> </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IDataProviderFactory.GetProviderSet(System.Guid)">
+            <summary>
+              Gets provider set for specified ACAML object.
+            </summary>
+            <param name="docId"> Document ID of ACAML object </param>
+            <returns> List of providers associated with specified ACAML object implementing <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IProvider" /> . </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IDataProviderFactory.GetProviderSet(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IACAML)">
+            <summary>
+              Gets provider set for specified ACAML object.
+            </summary>
+            <param name="acaml"> ACAML object </param>
+            <returns> List of providers associated with specified ACAML object implementing <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IProvider" /> . </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IDataProviderFactory.IsRegistered(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IACAML)">
+            <summary>
+              Checks whether specified ACAML was registered and corresponding provider set exists.
+            </summary>
+            <param name="acaml"> ACAML document. </param>
+            <returns> <c>True</c> if specified ACAML was registered and provider set is available, otherwise <c>false</c> . </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IDataProviderFactory.RegisterAcaml(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IACAML)">
+            <summary>
+                Registers specified ACAML object.
+            </summary>
+            <param name="acaml"> ACAML object </param>
+            <returns>
+                <c>True</c> if registering ACAML document was successful, otherwise <c>false</c> .
+            </returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider">
+            <summary>
+            Defines a provider for data access/queries on global ACAML level.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.AgilentApplication">
+            <summary>
+                Gets or sets the Agilent application that has created the loaded ACAML file.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.DocumentInfo">
+            <summary>
+                Gets document info.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.InjectionsMetadata">
+            <summary>
+                Gets meta data of all injections.
+            </summary>
+            <remarks>
+                If no meta data available, it will be created.
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.Methods">
+            <summary>
+                Gets methods definitions.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.AddCustomCalculationResult(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ICustomCalcEmbeddedResultType)">
+            <summary>
+            Adds custom calculation result.
+            </summary>
+            <param name="customCalcEmbeddedResultType">
+            Custom calculation result to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.AddInjectionReportAction(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionReportActionType)">
+            <summary>
+            Adds a new injection report action.
+            </summary>
+            <param name="injectionReportAction">
+            Injection report action.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.AddMethodDefinition(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IMethodType)">
+            <summary>
+            Adds a new method definition.
+            </summary>
+            <param name="methodDefinition">Method definition.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.AddMethodDefinition(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper,System.String,System.DateTime,System.String)">
+            <summary>
+            Creates new method definition ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IMethodType" /> ) and adds it to the object model.
+            </summary>
+            <param name="pathHelper">The path helper.</param>
+            <param name="description">Method description.</param>
+            <param name="lastModifiedDate">Last modified date of method.</param>
+            <param name="dataFileReferencePath">Path to external file reference.</param>
+            <returns>
+            New method definition.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.ApplyMetadata(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.CustomObjects.IInjectionMetaData)">
+            <summary>
+            Applies changes in specified injection meta data to object model.
+            </summary>
+            <param name="injectionMetadata">
+            Modified injection meta data. 
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.ClearCustomCalculationResults">
+            <summary>
+                Removes all custom calculation results.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.ClearInjectionReportActions">
+            <summary>
+            Removes all injection report actions.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.ClearMethodDefinitions">
+            <summary>
+                Removes all method definition.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.GetInjectionMetadata(System.Guid)">
+            <summary>
+            Gets meta data of specified injection.
+            </summary>
+            <param name="injectionId">
+            The injection Id.
+            </param>
+            <returns>
+            Meta data of injection. 
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.GetInjectionReportActionType(System.Guid)">
+            <summary>
+            Gets first injection report action ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionReportActionType"/> ) with specified ID
+            </summary>
+            <param name="injectionReportActionId">
+            ID of injection report action 
+            </param>
+            <returns>
+            Injection report action (null if not found) 
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.GetInjectionReportActionTypes">
+            <summary>
+            Gets all injection report actions ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionReportActionType"/> ) 
+            </summary>
+            <returns>
+            Injection report action (null if not found) 
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.GetMethodDefinition(System.Guid)">
+            <summary>
+            Gets method definition ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IMethodType"/> ) by ID
+            </summary>
+            <param name="methodId">
+            ID of method 
+            </param>
+            <returns>
+            Method definition (null if not found) 
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.GetMethodDefinition(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.INonIdentParamBaseType)">
+            <summary>
+            Gets method definition ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IMethodType"/> ) from specified parameters.
+            </summary>
+            <param name="nonIdentParamBase">
+            Parameter base type. 
+            </param>
+            <returns>
+            Method definition (null if not found) 
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.GetMethodDefinition(System.String)">
+            <summary>
+            Gets method definition ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IMethodType"/> ) by data file reference (storage path).
+            </summary>
+            <param name="dataFileReferencePath">
+            Path to method file. 
+            </param>
+            <returns>
+            Method definition (null if not found) 
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.PerformExactFulltextSearch(System.String[])">
+            <summary>
+            Performs document-wide full text search and returns IDs of injections that contain specified keywords. Search is
+                based on all injection-related string properties in ACAML document.
+            </summary>
+            <param name="keywords">
+            List of keywords to search for. 
+            </param>
+            <returns>
+            List of <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.CustomObjects.AcamlInjectionId"/>
+            </returns>
+            <remarks>
+            Injections are identified via exact match. All specified keywords are combined using logical AND.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.PerformFuzzyFulltextSearch(System.String[])">
+            <summary>
+            Performs document-wide full text search and returns IDs of injections that contain specified keywords. Search is
+                based on all injection-related string properties in ACAML document.
+            </summary>
+            <param name="keywords">
+            List of keywords to search for. 
+            </param>
+            <returns>
+            List of <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.CustomObjects.AcamlInjectionId"/>
+            </returns>
+            <remarks>
+            Injections are identified via fuzzy match, i.e. values of string properties must only contain specified keywords.
+                All specified keywords are combined using logical AND.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.RefreshInjectionsMetadata(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Refreshes meta data items for specified injections.
+            </summary>
+            <param name="injectionIds">
+            List of injection IDs 
+            </param>
+            <returns>
+            List of refreshed meta data items. 
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.RemoveCustomCalculationResult(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ICustomCalcEmbeddedResultType)">
+            <summary>
+            Removes specified custom calculation result.
+            </summary>
+            <param name="customCalcEmbeddedResult">
+            Custom calculation result to remove.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.RemoveCustomCalculationResults(System.Guid)">
+            <summary>
+            Removes all custom calculation results of specified parent object.
+            </summary>
+            <param name="parentId">
+            ID of parent object.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.RemoveMethodDefinition(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IMethodType)">
+            <summary>
+            Removes specified method definition.
+            </summary>
+            <param name="methodDefinition">
+            Method definition to remove. 
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.RemoveUnusedCustomCalculationResults">
+            <summary>
+                Removes unused custom calculation results.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.RemoveUnusedMethodDefinitions">
+            <summary>
+            Removes unused method definitions.
+            </summary>
+            <returns>
+            IDs of removed unused method definitions.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.SetNewDocumentId">
+            <summary>
+                Sets new ACAML document ID.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IGlobalDataProvider.UpdateMethodDefinition(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IMethodType)">
+            <summary>
+            Updates specified method definition in object model, if it exists.
+            </summary>
+            <param name="methodDefinition">
+            Method definition to update. 
+            </param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionAcamlPart">
+            <summary>
+            Interface for Injection-ACAML part.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionAcamlPart.InjectionAcamlStream">
+            <summary>
+            Stream with content of Injection-ACAML.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionAcamlPart.SetSaved">
+            <summary>
+            Mark part as successfully saved.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionAcamlReference">
+            <summary>
+            Interface for referenced Injection-ACAML.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionAcamlReference.InjectionMeasDataId">
+            <summary>
+            InjectionMeasData ID, to which the Injection-ACAML belongs.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionAcamlReference.InjectionFileName">
+            <summary>
+            File name, in which the Injection-ACAML is located.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider">
+            <summary>
+                Defines a provider for data access/queries on injection level.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.Injections">
+            <summary>
+                Gets injections ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer" /> ).
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.MeasData">
+            <summary>
+                Gets all injection measurement data items
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.Peaks">
+            <summary>
+                Gets peaks of all signals in all injections.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.Results">
+            <summary>
+                Gets all injection results
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.Item(System.Guid)">
+            <summary>
+            Gets injections by ID.
+            </summary>
+            <param name="injectionId">
+            The injection Id.
+            </param>
+            <returns>
+            The <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer"/>.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.AddCalibrationStandardAmount(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IStandardCompoundAmountType)">
+            <summary>
+            Adds calibration standard amount to injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <param name="istdAmount">
+            Internal standard amount to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.AddDilutionFactors(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,System.Collections.Generic.IEnumerable{Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ICorrectionFactorType})">
+            <summary>
+            Adds dilution factors to injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <param name="dilutionFactors">
+            Dilution factors to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.AddInjectionCompound(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType)">
+            <summary>
+            Adds specified <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType"/> to object model.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <param name="injectionCompound">
+            Injection compound to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.AddInjectionCompounds(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,System.Collections.Generic.IEnumerable{Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType},System.Boolean)">
+            <summary>
+            Adds specified list of <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType"/> instances to object model.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <param name="injectionCompounds">
+            List of injection compounds to add.
+            </param>
+            <param name="clearExistingInjectionCompounds">
+            OPTIONAL: Value that indicates whether existing injection compound list in specified injection results should be
+                removed. Default is <c>true</c> .
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.AddInternalStandardAmount(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IStandardCompoundAmountType)">
+            <summary>
+            Adds specified internal standard amount to injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <param name="istdAmount">
+            Internal standard amount to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.AddMultipliers(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,System.Collections.Generic.IEnumerable{Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ICorrectionFactorType})">
+            <summary>
+            Adds multipliers to injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <param name="multipliers">
+            Multipliers to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.AddOverriddenMethodParameters(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,System.Collections.Generic.IEnumerable{Agilent.OpenLab.Framework.DataAccess.CoreTypes.IMethodParameterType})">
+            <summary>
+            Adds overridden method parameter to injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <param name="methodParameter">
+            Method parameter to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.AddRunType(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IRunTypeAndReplicationType)">
+            <summary>
+            Adds specified run type to injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <param name="runType">
+            Run type to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.AddSamplePurityResult(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISamplePurityContainer)">
+            <summary>
+            Adds specified sample purity result to injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <param name="samplePurity">
+            Sample purity to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.ClearCalibrationStandardAmounts(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Clears all calibration standard amounts from injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.ClearDilutionFactors(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Clears all dilution factors from injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.ClearInjectionCompounds(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Removes all injection compounds from specified injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.ClearInternalStandardAmounts(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Clears all internal standard amounts from injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.ClearMultipliers(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Clears all multipliers from injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.ClearOverriddenMethodParameters(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Clears all overridden method parameters from injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.ClearRunTypes(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Clears all run types from injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.CreateAndLinkDaMethodDefinition(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,System.String,System.String,System.DateTime)">
+            <summary>
+            Creates new method definition with reference to specified method path and assigns it to specified injection.
+            </summary>
+            <param name="storageProvider">The storage provider.</param>
+            <param name="injection">The injection.</param>
+            <param name="methodPath">Method file path.</param>
+            <param name="description">The description.</param>
+            <param name="lastModifiedDate">The last modified date.</param>
+            <remarks>
+            Method definitions that are unused (i.e. that have no reference pointing to them) are removed.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetCalibrationCurvesByInjectionCompound(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType)">
+            <summary>
+            Get calibration curve linked to specified injection compound.
+            </summary>
+            <param name="injectionCompound">
+            Injection compound.
+            </param>
+            <returns>
+            Linked calibration curve (if any, otherwise <c>null</c>).
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetCalibrationCurvesByPeak(System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.CalibPeakRoleEnum)">
+            <summary>
+            Gets calibration curves of specified peak.
+            </summary>
+            <param name="peakId">
+            Peak Id.
+            </param>
+            <param name="injection">
+            The injection.
+            </param>
+            <param name="calibPeakRoles">
+            OPTIONAL: Calibration roles of the peak. Can be specified as boolean flags.
+            </param>
+            <returns>
+            List of calibration curves.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetCalibrationStandardAmounts(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Gets calibration standard amounts associated with specified injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <returns>
+            List of calibration standards.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetDilutionFactors(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Gets the dilution factors of specified injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <returns>
+            List of dilution factors.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetIdentifiedPeaks(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType,System.Boolean,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.CalibPeakRoleEnum)">
+            <summary>
+            Gets list of identified peaks ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IIdentifiedPeakAggregation" /> ) of specified injection compound.
+            </summary>
+            <param name="injection">The injection.</param>
+            <param name="injectionCompound">Injection compound to query for identified peaks.</param>
+            <param name="doLookupCalibCurves">Value indicates whether associated calibration curves are looked up for each peak.</param>
+            <param name="calibPeakRoles">OPTIONAL: Calibration roles of the peak. Can be specified as boolean flags.</param>
+            <returns>
+            List of peaks aggregations.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetIdentifiedPeaks(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType,System.Predicate{Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType},System.Boolean,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.CalibPeakRoleEnum)">
+            <summary>
+            Gets list of identified peaks ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IIdentifiedPeakAggregation" /> ) of specified injection compound in
+            specified injection.
+            </summary>
+            <param name="injection">The injection.</param>
+            <param name="injectionCompound">Injection compound.</param>
+            <param name="signalFilter">Signal to restrict peak search.</param>
+            <param name="doLookupCalibCurves">Value indicates whether associated calibration curves are looked up for each peak.</param>
+            <param name="calibPeakRoles">OPTIONAL: Calibration roles of the peak. Can be specified as boolean flags.</param>
+            <returns>
+            List of peaks aggregations.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetInjection(System.Guid)">
+            <summary>
+            Gets injection ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer"/> ) by ID..
+            </summary>
+            <param name="injectionMeasDataId">
+            Id of <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionMeasDataType"/>.
+            </param>
+            <returns>
+            Injection container
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetInjectionCompounds(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,System.Predicate{Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType},System.Boolean)">
+            <summary>
+            Gets a list of injection compounds ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType"/> ). The query skips injection compounds
+                of type
+                <see cref="F:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.CompoundTypeEnum.Unknown"/>
+                .
+            </summary>
+            <param name="injection">
+            OPTIONAL: Injection context to restrict search scope. If not specified, all injection results
+                are considered.
+            </param>
+            <param name="filterPredicate">
+            OPTIONAL: Filter predicate to restrict search. If not specified, all injection compound
+                entries within context are returned.
+            </param>
+            <param name="ignoreUnknowns">
+            OPTIONAL: Value indicating whether unknown compounds are ignored. Default is <c>false</c> .
+            </param>
+            <returns>
+            List of injection compound entries that match all criteria
+            </returns>
+            <remarks>
+            This method is query cache-enabled.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetInjectionCompoundsByPeak(System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.CalibPeakRoleEnum)">
+            <summary>
+            Gets a list of injection compounds ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType"/> ) identified by given peak.
+            </summary>
+            <param name="peakId">
+            Peak ID.
+            </param>
+            <param name="injection">
+            The injection.
+            </param>
+            <param name="calibPeakRoles">
+            OPTIONAL: Calibration roles of the peak. Can be specified as boolean flags.
+            </param>
+            <returns>
+            List of injections compounds
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetInternalStandardAmounts(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Gets internal standard amounts associated with specified injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <returns>
+            List of ISTD amounts.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetMultipliers(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Gets the multipliers.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <returns>
+            List of multipliers.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetOverriddenMethodParameters(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Gets the overridden method parameters.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <returns>
+            List of method parameters.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetParentInjectionOfSignal(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType)">
+            <summary>
+            Gets the parent injection of specified signal.
+            </summary>
+            <param name="signal">
+            The signal.
+            </param>
+            <returns>
+            Parent injection.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetParentInjectionOfSignal(System.Guid)">
+            <summary>
+            Gets the parent injection of specified signal.
+            </summary>
+            <param name="signalId">
+            Signal ID.
+            </param>
+            <returns>
+            Parent injection.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetParentSample(System.Guid)">
+            <summary>
+            Gets parent sample ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer"/> ) for specified injection.
+            </summary>
+            <param name="injectionMeasDataId">
+            ID of injection setup ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionMeasDataType"/> )
+            </param>
+            <returns>
+            Parent sample.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetPeaksAndCompoundsAtAGlance(System.Collections.Generic.IEnumerable{System.Guid})">
+            <summary>
+            Gets all peaks and compounds at a glance for specified injections.
+            </summary>
+            <param name="injectionIds">
+            List of injection IDs
+            </param>
+            <returns>
+            Data structure containing a dictionary of compound names (key)
+                and a nested dictionary (value) of corresponding injection IDs (nested key) and a tuple of
+                InjectionCompound/Peak/Outlier Results (value).
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetPrimaryDataElementName(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Gets name of primary data element of specified injection. The primary data element is the first element within the
+                injection's binary data reference collection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <returns>
+            Name of primary data element
+            </returns>
+            <remarks>
+            If the binary data reference collection of specified injection contains directories, the name of the first
+                directory is returned. Otherwise, the first file name is returned.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetRunTypes(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Gets run types associated with specified injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <returns>
+            List of run types.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetSignalsProvider(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Gets signals provider for specified injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <returns>
+            Signals provider.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.GetSignalsProvider(System.Guid)">
+            <summary>
+            Gets appropriate signals provider for specified signal.
+            </summary>
+            <param name="signalId">
+            Signal ID.
+            </param>
+            <returns>
+            Signals provider responsible for specified signal.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.LinkAcqMethodDefinition(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IMethodType)">
+            <summary>
+            Assign specified method definition to injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <param name="methodDefinition">
+            Method definition to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.LinkCalibrationCurveToIdentifiedPeak(Agilent.OpenLab.Framework.DataAccess.CoreTypes.ICalibrationCurveType,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IIdentifiedPeakAggregation)">
+            <summary>
+            Links specified calibration curve with specified peak reference.
+            </summary>
+            <param name="calibrationCurve">
+            Calibration curve.
+            </param>
+            <param name="identifiedPeak">
+            Aggregated identified peak object.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.LinkCalibrationCurveToIdentifiedPeak(Agilent.OpenLab.Framework.DataAccess.CoreTypes.ICalibrationCurveType,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IPeakRefType)">
+            <summary>
+            Links calibration curve to specified peak reference.
+            </summary>
+            <param name="calibrationCurve">
+            Calibration curve.
+            </param>
+            <param name="peakRef">
+            Peak reference type.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.LinkCalibrationCurveToInjectionCompound(Agilent.OpenLab.Framework.DataAccess.CoreTypes.ICalibrationCurveType,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType)">
+            <summary>
+            Links the calibration curve to injection compound.
+            </summary>
+            <param name="calibrationCurve">
+            The calibration curve.
+            </param>
+            <param name="injectionCompound">
+            The injection compound.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.LinkDaMethodDefinition(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IMethodType)">
+            <summary>
+            Assign specified method definition to injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <param name="methodDefinition">
+            Method definition to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.LinkSampleContainerInfoToInjection(System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Links specified sample container info with specified injection.
+            </summary>
+            <param name="sampleContainerInfoId">
+            ID of sample container info.
+            </param>
+            <param name="injection">
+            Injection container.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.LinkSamplePurityToPeak(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISamplePurityContainer,System.Guid)">
+            <summary>
+            Links sample purity to specified peak.
+            </summary>
+            <param name="samplePurity">
+            Sample purity.
+            </param>
+            <param name="peakId">
+            ID of peak.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.LinkSamplePurityToSignal(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISamplePurityContainer,System.Guid)">
+            <summary>
+            Links sample purity to specified signal.
+            </summary>
+            <param name="samplePurity">
+            Sample purity.
+            </param>
+            <param name="signalId">
+            ID of signal.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.LinkSeparationMediumToInjection(System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Links specified separation medium with specified injection.
+            </summary>
+            <param name="separationMediumId">
+            Separation medium ID.
+            </param>
+            <param name="injectionContainer">
+            Injection container.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.LinkSeparationMediumToInjection(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionSeparationMediumType,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Links specified separation medium with specified injection.
+            </summary>
+            <param name="injectionSeparationMediumType">
+            Injection separation medium.
+            </param>
+            <param name="injectionContainer">
+            Injection container.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.RemoveInjectionCompound(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType)">
+            <summary>
+            Removes specified injection compound from specified injection result.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+            <param name="injectionCompound">
+            Injection compound to remove.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.UnlinkAcqMethodDefinition(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Unlinks acquisition method definition from specified injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.UnlinkAllSeparationMediaFromInjection(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Unlinks all separation media from specified injection.
+            </summary>
+            <param name="injectionContainer">
+            The injection Container.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.UnlinkDaMethodDefinition(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Unlinks DA method definition from specified injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.UnlinkIdentifiedPeakFromCalibrationCurve(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IIdentifiedPeakAggregation)">
+            <summary>
+            Unlinks the identified peak from calibration curve.
+            </summary>
+            <param name="identifiedPeak">
+            The identified Peak.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.UnlinkIdentifiedPeakFromCalibrationCurve(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IPeakRefType)">
+            <summary>
+            Unlinks calibration curve fro specified peak reference.
+            </summary>
+            <param name="peakRef">
+            The peak Ref.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.UnlinkInjectionCompoundFromCalibrationCurve(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType)">
+            <summary>
+            Unlinks the identified peak from calibration curve.
+            </summary>
+            <param name="injectionCompound">
+            The injection compound.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.UnlinkSampleContainerInfo(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Unlinks sample container info from injection.
+            </summary>
+            <param name="injection">
+            The injection.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.UnlinkSamplePurityFromPeak(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISamplePurityContainer)">
+            <summary>
+            Unlinks sample purity from peak.
+            </summary>
+            <param name="samplePurity">
+            Sample purity.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.UnlinkSamplePurityFromSignal(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISamplePurityContainer)">
+            <summary>
+            Unlinks sample purity from signal.
+            </summary>
+            <param name="samplePurity">
+            Sample purity.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.UnlinkSeparationMediumFromInjection(System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer)">
+            <summary>
+            Unlinks specified separation medium from specified injection.
+            </summary>
+            <param name="separationMediumId">
+            The separation Medium Id.
+            </param>
+            <param name="injectionContainer">
+            The injection Container.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IInjectionsProvider.UpdateInjectionCompound(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType)">
+            <summary>
+            Updates specified <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInjectionCompoundType"/> in object model.
+            </summary>
+            <param name="injection">
+            ID of parent injection.
+            </param>
+            <param name="injectionCompound">
+            Injection compound to update.
+            </param>
+            <remarks>
+            If the specified injection compound does not exist, it will be added.
+            </remarks>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IProvider">
+            <summary>
+              Defines a provider to access and modify data on the object model
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IProvider.DocId">
+            <summary>
+              Gets the ID of associated ACAML document
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IProvider.CurrentUserName">
+            <summary>
+            Gets or sets the name of the current user.
+            </summary>
+            <value>The name of the current user.</value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IProviderLookupCache">
+            <summary>
+              Defines a lookup cache for providers. 
+              A lookup cache contains indexes and dictionaries that provide additional views through the object model. 
+              A lookup cache can use methods of the provider it serves in order to fill its indices.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IProviderLookupCache.DocId">
+            <summary>
+              Gets or set the ACAML document ID to bind this cache to an ACAML object
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IProviderLookupCache.Clear">
+            <summary>
+              Clears all lookup tables.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IProviderLookupCache.DirtyDictionaryCount">
+            <summary>
+              Gets the number of lookup dictionaries that require an update
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IProviderLookupCache.HasDirtyDictionaries">
+            <summary>
+              Checks whether the lookup cache has dirty (invalid) dictionaries (e.g. due to data modifications)
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IProviderLookupCache.Reset">
+            <summary>
+              Resets entire cache.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.SignalTypeFilters">
+            <summary>
+            Defines filters for signal type queries.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.SignalTypeFilters.None">
+            <summary>
+            The none value.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.SignalTypeFilters.Chromatograms">
+            <summary>
+            The chromatograms value.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.SignalTypeFilters.ExtractedChromatograms">
+            <summary>
+            The extracted chromatograms value.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.SignalTypeFilters.ExtractedSpectra">
+            <summary>
+            The extracted spectra value.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.SignalTypeFilters.Spectra">
+            <summary>
+            The spectra value.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.SignalTypeFilters.InstrumentCurve">
+            <summary>
+            The instrument curve value.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException">
+            <summary>
+            This exception is thrown if an error occurs during data loading.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException"/> class. 
+              Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException"/>.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException"/> class. 
+            Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException"/>.
+            </summary>
+            <param name="message">
+            Error message
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException"/> class. 
+            Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException"/>.
+            </summary>
+            <param name="message">
+            Error message
+            </param>
+            <param name="innerException">
+            Inner exception
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException"/> class. 
+            Creates new <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.DataLoadingException"/>.
+            </summary>
+            <param name="info">
+            Serialization info
+            </param>
+            <param name="context">
+            Streaming context
+            </param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider">
+            <summary>
+              Defines a provider for data access/queries on resources level.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.CalibrationCurves">
+            <summary>
+                Gets calibration curves.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.Instruments">
+            <summary>
+                Gets instruments.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.SampleContainerInfos">
+            <summary>
+                Gets sample container infos.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.Resources">
+            <summary>
+                Gets the resources
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.SeparationMedia">
+            <summary>
+                Gets separation media.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.AddCalibrationCurve(Agilent.OpenLab.Framework.DataAccess.CoreTypes.ICalibrationCurveType)">
+            <summary>
+                Adds specified <see cref="T:Agilent.OpenLab.Framework.DataAccess.CoreTypes.ICalibrationCurveType" /> to object model.
+            </summary>
+            <param name="calibrationCurve"> Calibration curve to add. </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.AddInstrument(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInstrumentType)">
+            <summary>
+                Adds specified <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInstrumentType" /> to object model.
+            </summary>
+            <param name="instrument"> Instrument to add. </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.AddSampleContainerInfo(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleContainerInfoType)">
+            <summary>
+                Adds specified <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleContainerInfoType" /> to object model.
+            </summary>
+            <param name="sampleContainerInfo"> Sample container to add. </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.AddSeparationMedium(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISeparationMediumType)">
+            <summary>
+                Adds specified <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISeparationMediumType" /> to object model.
+            </summary>
+            <param name="separationMedium"> Separation medium to add. </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.GetCalibrationCurve(System.Guid)">
+            <summary>
+                Gets calibration curve ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.CoreTypes.ICalibrationCurveType" /> ) by ID
+            </summary>
+            <param name="calibrationCurveId"> ID of calibration curve </param>
+            <returns> Calibration curve (null if not found) </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.GetSeparationMedium(System.Guid)">
+            <summary>
+                Gets separation medium ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISeparationMediumType" /> ) by ID.
+            </summary>
+            <param name="separationMediumId"> ID of separation medium. </param>
+            <returns> Separation medium (null if not found). </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.RemoveCalibrationCurve(Agilent.OpenLab.Framework.DataAccess.CoreTypes.ICalibrationCurveType)">
+            <summary>
+                Removes specified calibration curve.
+            </summary>
+            <param name="calibrationCurve"> Calibration curve to remove. </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.RemoveInstrument(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IInstrumentType)">
+            <summary>
+                Removes specified instrument.
+            </summary>
+            <param name="instrument"> Instrument to remove. </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.RemoveSampleContainerInfo(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleContainerInfoType)">
+            <summary>
+                Removes specified sample container info.
+            </summary>
+            <param name="sampleContainerInfo"> Sample container info to remove. </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.RemoveSeparationMedium(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISeparationMediumType)">
+            <summary>
+                Removes specified separation medium.
+            </summary>
+            <param name="separationMedium"> Separation medium to remove. </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.RemoveUnusedCalibrationCurves">
+            <summary>
+                Removes unused calibration curves.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.RemoveUnusedInstruments">
+            <summary>
+                Removes unused instruments.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.RemoveUnusedSampleContainerInfos">
+            <summary>
+                Removes unused sample container infos.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.RemoveUnusedSeparationMedia">
+            <summary>
+                Removes unused separation media.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.IResourcesProvider.UpdateCalibrationCurve(Agilent.OpenLab.Framework.DataAccess.CoreTypes.ICalibrationCurveType)">
+            <summary>
+                Updates specified <see cref="T:Agilent.OpenLab.Framework.DataAccess.CoreTypes.ICalibrationCurveType" /> in object model.
+            </summary>
+            <param name="calibrationCurve"> Calibration curve to update. </param>
+            <remarks>
+                If the specified calibration curve does not exist, it will be added.
+            </remarks>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISampleContextProvider">
+            <summary>
+              Defines a provider for data access/queries on sample context level.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISampleContextProvider.MeasData">
+            <summary>
+                Gets result set (sample context) measurement data items
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISampleContextProvider.PackagingMode">
+            <summary>
+                Gets the packaging mode.
+            </summary>
+            <remarks>
+                Assumes an ACAML document only contains one result set!
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISampleContextProvider.Setups">
+            <summary>
+                Gets result set (sample context) setups.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISampleContextProvider.SampleContext">
+            <summary>
+                Gets sample context.
+            </summary>
+            <remarks>
+                Assumes an ACAML document only contains one result set!
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISampleContextProvider.ContentType">
+            <summary>
+                Gets content type.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISampleContextProvider.Instruments">
+            <summary>
+                Gets the instruments.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISampleContextProvider.LinkInstrumentToSampleContext(System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlSection)">
+            <summary>
+                Links specified instrument.
+            </summary>
+            <param name="instrumentId"> Instrument ID. </param>
+            <param name="acamlSection">Acaml section(s) to apply to (possible sections: Setup, MeasData, All).</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISampleContextProvider.UnlinkAllInstrumentsFromSampleContext">
+            <summary>
+                Unlinks all instruments.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISampleContextProvider.UnlinkInstrumentFromSampleContext(System.Guid)">
+            <summary>
+                Unlinks specified instrument .
+            </summary>
+            <param name="instrumentId"> Instrument ID. </param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider">
+            <summary>
+                Defines a provider for data access/queries on sample level.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.MeasData">
+            <summary>
+                Gets sample measurement data items.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.Samples">
+            <summary>
+                Gets samples ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer" /> ).
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.Setups">
+            <summary>
+                Gets sample setup data items
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.Item(System.Guid)">
+            <summary>
+            Gets samples by ID.
+            </summary>
+            <param name="sampleId">
+            The sample Id.
+            </param>
+            <returns>
+            The <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer"/>.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.AddCalibrationStandardAmount(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IStandardCompoundAmountType)">
+            <summary>
+            Adds calibration standard amount to sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <param name="istdAmount">
+            Internal standard amount to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.AddDilutionFactors(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer,System.Collections.Generic.IEnumerable{Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ICorrectionFactorType})">
+            <summary>
+            Adds dilution factors to sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <param name="dilutionFactors">
+            Dilution factors to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.AddInternalStandardAmount(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IStandardCompoundAmountType)">
+            <summary>
+            Adds specified internal standard amount to sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <param name="istdAmount">
+            Internal standard amount to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.AddMultipliers(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer,System.Collections.Generic.IEnumerable{Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ICorrectionFactorType})">
+            <summary>
+            Adds multipliers to sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <param name="multipliers">
+            Multipliers to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.AddRunType(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IRunTypeAndReplicationType)">
+            <summary>
+            Adds specified run type to sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <param name="runType">
+            Run type to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.AddSamplePuritySetup(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISamplePurityContainer)">
+            <summary>
+            Adds specified sample purity setup to sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <param name="samplePurity">
+            Sample purity to add.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.ClearCalibrationStandardAmounts(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Clears all calibration standard amounts from sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.ClearDilutionFactors(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Clears all dilution factors from sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.ClearInternalStandardAmounts(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Clears all internal standard amounts from sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.ClearMultipliers(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Clears all multipliers from injection.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.ClearRunTypes(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Clears all run types from sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.ClearSamplePurities(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Clears all sample purities from sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.GetCalibrationStandardAmounts(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Gets calibration standard amounts associated with specified sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <returns>
+            List of calibration amounts.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.GetDilutionFactors(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Gets the dilution factors of specified sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <returns>
+            List of dilution factors.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.GetInjections(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Gets injections of specified sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <remarks>
+            This method is query cache-enabled.
+            </remarks>
+            <returns>
+            List of injections.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.GetInstrument(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Gets the instrument of specified sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <returns>
+            Instrument used to acquire the sample.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.GetInternalStandardAmounts(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Gets internal standard amounts associated with specified sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <returns>
+            List of ISDT amounts.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.GetMultipliers(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Gets the multipliers.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <returns>
+            List of multipliers.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.GetRunTypes(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Gets run types associated with specified sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <returns>
+            List of run types.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.GetSample(System.Guid)">
+            <summary>
+            Gets sample ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer"/> ) based on specified ID.
+            </summary>
+            <param name="sampleSetupId">
+            Sample ID (ID of <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleSetupType"/>).
+            </param>
+            <returns>
+            The sample.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.GetSamplePurities(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Gets sample purities of sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <returns>
+            List of sample purities.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.LinkInstrumentToSample(System.Guid,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer,Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.AcamlSection)">
+            <summary>
+            Links instrument to sample.
+            </summary>
+            <param name="instrumentId">
+            ID of Instrument.
+            </param>
+            <param name="sample">
+            The sample.
+            </param>
+            <param name="acamlSection">
+            ACAML section(s) to apply to (possible sections: Setup, Measurement Data, All).
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.RemoveSamplePurity(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer,System.Guid)">
+            <summary>
+            Removes specified sample purity from sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+            <param name="samplePurityId">
+            ID of sample purity to remove.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISamplesProvider.UnlinkInstrument(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISampleDataContainer)">
+            <summary>
+            Unlinks instrument from sample.
+            </summary>
+            <param name="sample">
+            The sample.
+            </param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider">
+            <summary>
+                Defines a provider for data access/queries on signal level.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.ParentInjection">
+            <summary>
+                Gets parent injection.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.Peaks">
+            <summary>
+                Gets peaks of all signals in injection.
+            </summary>
+            <remarks>
+                This property is query cache-enabled.
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.SignalMeasData">
+            <summary>
+                Gets all signal data items.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.SignalResults">
+            <summary>
+                Gets all signal result.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.Signals">
+            <summary>
+                Gets all signals in injection.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.AddNoisePeriod(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.INoisePeriodType,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer)">
+            <summary>
+            Adds a noise period ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.INoisePeriodType"/> ) to specified signal.
+            </summary>
+            <param name="noisePeriod">
+            Noise period to add
+            </param>
+            <param name="signal">
+            The signal.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.AddNoisePeriods(System.Collections.Generic.IEnumerable{Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.INoisePeriodType},Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer)">
+            <summary>
+            Adds a noise period ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.INoisePeriodType"/> ) to specified signal.
+            </summary>
+            <param name="noisePeriods">
+            Set of noise period to add.
+            </param>
+            <param name="signal">
+            The signal.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.AddPeak(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IPeakType,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer)">
+            <summary>
+            Adds a peak ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IPeakType"/> ) to specified signal.
+            </summary>
+            <param name="peak">
+            Peak to add
+            </param>
+            <param name="signal">
+            The signal.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.AddPeaks(System.Collections.Generic.IEnumerable{Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IPeakType},Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer,System.Boolean)">
+            <summary>
+            Adds a list of peaks ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IPeakType"/> ) to specified signal.
+            </summary>
+            <param name="peaks">
+            List of peaks to add
+            </param>
+            <param name="signal">
+            The signal.
+            </param>
+            <param name="clearExistingPeaks">
+            OPTIONAL: Value that indicates whether existing peak lists in signal results should
+                be removed. If not specified, existing peaks will be removed.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.AddPeakDeletions(System.Collections.Generic.IEnumerable{Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.PeakDeletionType},Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer)">
+            <summary>
+            Adds a peak deletion ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.PeakDeletionType"/> ) to specified signal.
+            </summary>
+            <param name="peakDeletions">
+            Set of peak deletions to add.
+            </param>
+            <param name="signal">
+            The signal.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.AddProcessingSteps(System.Collections.Generic.IEnumerable{Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ProcessingStepType},Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer)">
+            <summary>
+            Adds processing steps ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ProcessingStepType"/> ) to specified signal.
+            </summary>
+            <param name="processingSteps">
+            Set of processing steps to add.
+            </param>
+            <param name="signal">
+            The signal.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.AddSignalAnnotations(System.Collections.Generic.IEnumerable{Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalAnnotationItemType},Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer)">
+            <summary>
+            Adds signal annotations ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalAnnotationItemType"/> ) to specified signal.
+            </summary>
+            <param name="signalAnnotations">
+            Set of signal annotations to add.
+            </param>
+            <param name="signal">
+            The signal.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.ClearNoisePeriods(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer)">
+            <summary>
+            Removes all noise periods from specified signal.
+            </summary>
+            <param name="signal">
+            The signal.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.ClearPeaks(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer)">
+            <summary>
+            Removes all peaks from specified signal.
+            </summary>
+            <param name="signal">
+            The signal.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.ClearPeakDeletions(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer)">
+            <summary>
+            Removes all peak deletions from specified signal.
+            </summary>
+            <param name="signal">
+            The signal.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.ClearProcessingSteps(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer)">
+            <summary>
+            Removes all processing steps from specified signal.
+            </summary>
+            <param name="signal">
+            The signal.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.ClearSignalAnnotations(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer)">
+            <summary>
+            Removes all signal annotations ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalAnnotationBaseType"/> ) from specified signal.
+            </summary>
+            <param name="signal">
+            The signal.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.ClearSignals">
+            <summary>
+                Removes all signals from specified injection.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.GetRawChromData(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Guid)">
+            <summary>
+            Gets raw chromatogram data of specified signal by ID
+            </summary>
+            <param name="storageProvider">
+                The storage provider.
+            </param>
+            <param name="workAreaName"></param>
+            <param name="signalId">
+                ID of signal measurement data
+            </param>
+            <returns>
+            Raw chromatogram data
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.GetRawChromData(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.String)">
+            <summary>
+            Gets signal raw data of specified signal by name
+            </summary>
+            <param name="storageProvider">
+                The storage provider.
+            </param>
+            <param name="workAreaName"></param>
+            <param name="signalName">
+                Signal name
+            </param>
+            <returns>
+            Raw chromatogram data
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.GetSignal(System.Guid)">
+            <summary>
+            Gets signal by ID.
+            </summary>
+            <param name="signalId">
+            Signal ID.
+            </param>
+            <returns>
+            Instance of <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer"/>.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.GetSignal(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType)">
+            <summary>
+            Gets a signal container by <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalType"/>.
+            </summary>
+            <param name="signal">
+            Signal type.
+            </param>
+            <returns>
+            Instance of <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer"/>.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.GetSignalIdsByType(Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.SignalTypeFilters)">
+            <summary>
+            Gets the ids of all signals matching the given type.
+            </summary>
+            <param name="typeFilters">
+            The type filters.
+            </param>
+            <returns>
+            List of signal IDs
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.GetSignalsByType(Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.SignalTypeFilters)">
+            <summary>
+            Gets a list of signals ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer"/> .
+            </summary>
+            <param name="signalTypeFilters">
+            OPTIONAL: Filter to restrict search to specific signal type. If not specified, all signals of type
+                <see cref="F:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.SignalTypeFilters.Chromatograms"/>
+                are returned.
+            </param>
+            <returns>
+            List of signals.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.GetSpectraData(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.Guid)">
+            <summary>
+            Gets raw spectra data of specified signal by ID
+            </summary>
+            <param name="storageProvider">
+                The storage provider.
+            </param>
+            <param name="workAreaName"></param>
+            <param name="signalId">
+                ID of signal measurement data
+            </param>
+            <returns>
+            Raw spectra data
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.GetSpectraData(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider,System.String,System.String)">
+            <summary>
+            Gets raw spectra data of specified signal by name
+            </summary>
+            <param name="storageProvider">
+                The storage provider.
+            </param>
+            <param name="workAreaName"></param>
+            <param name="signalName">
+                Signal name
+            </param>
+            <returns>
+            Raw spectra data
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.LinkSignalToPeak(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IPeakType)">
+            <summary>
+            Links signal to associated spectra list of given peak.
+            </summary>
+            <param name="signal">
+            The signal.
+            </param>
+            <param name="peak">
+            The peak.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.UnlinkAllSignalsFromPeak(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IPeakType)">
+            <summary>
+            Unlinks all signals from associated spectra list of given peak.
+            </summary>
+            <param name="peak">
+            The peak.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.UnlinkSignalFromPeak(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IPeakType)">
+            <summary>
+            Unlinks signal from associated spectra list of given peak.
+            </summary>
+            <param name="signal">
+            The signal.
+            </param>
+            <param name="peak">
+            The peak.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.ISignalsProvider.UpdatePeak(Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IPeakType,Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.ISignalContainer)">
+            <summary>
+            Updates peak ( <see cref="T:Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.IPeakType"/> ) in specified signals.
+            </summary>
+            <param name="peak">
+            Peak to add
+            </param>
+            <param name="signal">
+            The signal.
+            </param>
+        </member>
+    </members>
+</doc>

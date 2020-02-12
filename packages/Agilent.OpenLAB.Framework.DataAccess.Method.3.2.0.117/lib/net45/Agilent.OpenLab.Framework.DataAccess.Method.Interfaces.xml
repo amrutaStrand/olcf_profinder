@@ -1,0 +1,1222 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Agilent.OpenLab.Framework.DataAccess.Method.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.MethodChecksumException">
+            <summary>
+            Exception that indicates that the checksum for the method is modified or not-existent.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.MethodChecksumException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.MethodChecksumException"/> class.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.MethodChecksumException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.MethodChecksumException"/> class.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.MethodChecksumException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.MethodChecksumException"/> class.
+            </summary>
+            <param name="message">The error message that explains the reason for the exception.</param>
+            <param name="innerException">The exception that is the cause of the current exception, or a null reference (Nothing in Visual Basic) if no inner exception is specified.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.MethodChecksumException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.MethodChecksumException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.AuditEntryType">
+            <summary>
+            Distinguishes manually added audit trail entries from system generated entries.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.AuditEntryType.System">
+            <summary>
+            System generated entry
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.AuditEntryType.Manual">
+            <summary>
+            Manually generated entry
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.AuditReasonPromptingOption">
+            <summary>
+            Options for prompting of audit trail reasons.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.AuditReasonPromptingOption.NoPrompt">
+            <summary>
+            The no prompt
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.AuditReasonPromptingOption.AlwaysPrompt">
+            <summary>
+            The always prompt
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.AuditReasonPromptingOption.PromptOnSave">
+            <summary>
+            The prompt on save
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject">
+            <summary>
+            Access to the audit trail of an auditable object (method, ...).
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.AuditTrail">
+            <summary>
+            Gets the audit trail.
+            </summary>
+            <value>
+            The audit trail.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.AuditableObjectName">
+            <summary>
+            Gets the name of the auditable object.
+            </summary>
+            <value>
+            The name of the auditable object.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.AuditTrailSettings">
+            <summary>
+            Gets the audit trail settings.
+            </summary>
+            <value>
+            The audit trail settings.
+            </value>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.EnableAuditTrail">
+            <summary>
+            Enables the audit trail. Disabling is not
+            allowed.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.ManualEnableAuditTrail(System.String)">
+            <summary>
+            User activated audit trail. Logged.
+            </summary>
+            <param name="user">The user.</param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.HasVersions">
+            <summary>
+            Gets a value indicating whether  the audited entity has versions.
+            </summary>
+            <value>
+              <c>true</c> if the audited entity has versions; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the auditable object is read only.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.AddAuditTrailEntry(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditEvent,System.String,Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.AuditEntryType)">
+            <summary>
+            Adds an audit trail entry. Adds attributes to create a complete
+            audit trail entry. Version is left empty (will be filled in during save).
+            </summary>
+            <param name="auditEvent">The audit event.</param>
+            <param name="user">The user.</param>
+            <param name="entryType">Type of the entry.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.AddAuditTrailEntryWithCurrentVersion(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditEvent,System.String,Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.AuditEntryType)">
+            <summary>
+            Adds an audit trail entry. Adds attributes to create a complete
+            audit trail entry. Version is provided by the auditable object.
+            </summary>
+            <param name="auditEvent">The audit event.</param>
+            <param name="user">The user.</param>
+            <param name="entryType">Type of the entry.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.ClearAuditTrail(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditEvent,System.String,Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.AuditEntryType)">
+            <summary>
+            Clears the audit trail and adds a new entry to audit the clear action.
+            </summary>
+            <param name="auditEvent">The audit event.</param>
+            <param name="user">The user.</param>
+            <param name="entryType">Type of the entry.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.ClearSavedAuditEntries(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditEvent,System.String,Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.AuditEntryType)">
+            <summary>
+            Clears all saved audit entries from the  audit trail and adds a new entry to audit the clear action
+            (e.g. for SaveAs actions).
+            </summary>
+            <param name="auditEvent">The audit event.</param>
+            <param name="user">The user.</param>
+            <param name="entryType">Type of the entry.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.UpdateAuditTrail(System.String)">
+            <summary>
+            Updates the audit trail. Audit trail entries
+            are only added on demand.
+            </summary>
+            <param name="userName">
+            The user Name.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.RetrieveNewAuditTrailEntries">
+            <summary>
+            Request the latest audit trail updates.
+            </summary>
+            <returns>All audit trail entries since the last UpdateAuditTrail() call.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.ResetAuditTrailBaseline">
+            <summary>
+            Audit trail baseline is reset after this call.
+            All existing audit trail entries are removed - the comparison objects are reset.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.MarkAuditTrailEntriesAsReviewed(System.String)">
+            <summary>
+            Marks all non-reviewed entries as reviewed.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.AddReasonToAuditTrailEntries(System.String)">
+            <summary>
+            Adds the reason to all (new) audit trail entries.
+            </summary>
+            <param name="reason">The reason.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditableObject.MarkAuditTrailEntriesAsSaved">
+            <summary>
+            Marks all new entries as saved.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditEvent">
+            <summary>
+            An audit event. Must be augmented with additional attributes
+            to create and audit trail entry.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditEvent.Message">
+            <summary>
+            Gets the message.
+            </summary>
+            <value>
+            The message.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditEvent.Category">
+            <summary>
+            Gets the category.
+            </summary>
+            <value>
+            The category.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditEvent.Time">
+            <summary>
+            Gets the time.
+            </summary>
+            <value>
+            The time.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrail">
+            <summary>
+            The audit trail interface
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrail.Entries">
+            <summary>
+            Gets all audit entries.
+            </summary>
+            <value>
+            The audit entries.
+            </value>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrail.Serialize">
+            <summary>
+            Serializes the audit entries.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrail.Deserialize(System.IO.Stream)">
+            <summary>
+            Deserializes the audit entries.
+            
+            
+            </summary>
+            <param name="stream">The stream.</param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailEntry">
+            <summary>
+            An entry in the audit trail.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailEntry.EntryType">
+            <summary>
+            Gets the type of the entry.
+            </summary>
+            <value>
+            The type of the entry.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailEntry.Message">
+            <summary>
+            Gets the message.
+            </summary>
+            <value>
+            The message.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailEntry.UserName">
+            <summary>
+            Gets the name of the user who generated the entry.
+            </summary>
+            <value>
+            The name of the user.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailEntry.Time">
+            <summary>
+            Gets the time. Values through this interface are in local time.
+            Persistence is in Utc. Offset of local time to Utc is persisted
+            as well (but not yet available in the interface).
+            </summary>
+            <value>
+            The time.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailEntry.Category">
+            <summary>
+            Gets the category.
+            </summary>
+            <value>
+            The category.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailEntry.IsNew">
+            <summary>
+            Gets a value indicating whether this entry is new
+            (i.e. not yet saved)
+            </summary>
+            <value>
+              <c>true</c> if this instance is new; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailEntry.Reviewed">
+            <summary>
+            Gets information about the review of this entry (like name and date)
+            or null if this entry was not reviewed yet.
+            </summary>
+            <value>
+            The review information (like user name and date).
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailEntry.HostName">
+            <summary>
+            Gets the name of the host.
+            </summary>
+            <value>
+            The name of the host.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailEntry.Reason">
+            <summary>
+            Gets the reason.
+            </summary>
+            <value>
+            The reason.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailEntry.EntityVersion">
+            <summary>
+            Gets the entity version that generated the audit trail entry.
+            </summary>
+            <value>
+            The entity version.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailSettings">
+            <summary>
+            Audit Trail Settings
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailSettings.AuditTrailEnabled">
+            <summary>
+            Gets a value indicating whether audit trail is enabled.
+            </summary>
+            <value>
+              <c>true</c> if audit trail is enabled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailSettings.PromptingOption">
+            <summary>
+            Gets or sets the prompting options.
+            </summary>
+            <value>
+            The prompting options.
+            </value>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailSettings.Serialize">
+            <summary>
+            Serializes the audit entries.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IAuditTrailSettings.Deserialize(System.IO.Stream)">
+            <summary>
+            Deserializes the audit entries.
+            </summary>
+            <param name="stream">The stream.</param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod">
+            <summary>
+            Generic interface for methods. Common metadata,
+            dirty handling and generic access to parts for serialization 
+            and deserialization.
+            </summary>
+        </member>
+        <member name="E:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.IsDirtyChanged">
+            <summary>
+            Occurs when the dirty state of the method changes.
+            </summary>
+        </member>
+        <member name="E:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.ContentChanged">
+            <summary>
+            Occurs for each content change.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.InstanceIdentifier">
+            <summary>
+              Gets or sets the instance identifier.
+            </summary>
+            <value>The instance identifier.</value>
+            <remarks>
+              This a transient property that can be used to uniquely identify the current instance.
+              This property is not used internally.
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.Identifier">
+            <summary>
+            Gets or sets Identifier. This is persisted
+            and sticks with this instance of the method.
+            Still need to resolve whether we actually need two identifiers
+            (persistent versus transient).
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.Created">
+            <summary>
+            Gets created date/time.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.Creator">
+            <summary>
+            Gets the creator.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.Description">
+            <summary>
+            Gets or sets the description.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.LastModifiedBy">
+            <summary>
+            Gets user who made last modification.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.Modified">
+            <summary>
+            Gets Modified Date/Time.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.Version">
+            <summary>
+            Gets the method revision.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.Name">
+            <summary>
+            Gets or sets the method name name.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.IsDirty">
+            <summary>
+            Return whether the method is dirty.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.IsNewVersionRequired">
+            <summary>
+            Return whether a new revision is required 
+            (being dirty may not necessarily mean that
+            a new revision is required - although in general
+            it will be the case).
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.IsReadOnly">
+            <summary>
+            Gets a value indicating whether this method has been loaded
+            from a read-only storage location.
+            </summary>
+            <value>
+            <c>true</c> if this method is read only; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.StoragePath">
+            <summary>
+            The path where the method was loaded from.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.MethodTypeIdentification">
+            <summary>
+            Identifies the method type. Persisted in file. Persisted
+            value is checked against value in class during read, so this 
+            must not change over time. 
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.Parts">
+            <summary>
+            Returns all method parts for enumeration.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.CreateDefaultPartByTypeName(System.String)">
+            <summary>
+            Creates a default initialized part which
+            can hold content identified by type.
+            </summary>
+            <param name="typeName">The name of the type.</param>
+            <returns>A default initialized method part.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.GetPart(System.String,System.String)">
+            <summary>
+            Gets the part by type and item name.
+            </summary>
+            <param name="typeName">Name of the type.</param>
+            <param name="itemName">Name of the item.</param>
+            <returns>The part if it exists - null if it doesn't.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.AddPart(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodPart)">
+            <summary>
+            Add a part to the method.
+            </summary>
+            <param name="part">the part to be added</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.Clone">
+            <summary>
+            Returns a new entity with identical content.
+            </summary>
+            <returns>The cloned method</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.UpdateContentFromOtherMethod(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod)">
+            <summary>
+            Updates the content of the current method from another method.
+            </summary>
+            <param name="otherMethod">The other method.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.ResetDirtyState">
+            <summary>
+            Resets the dirty state of the method to
+            non-dirty.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.ApprovalState">
+            <summary>
+            Gets or sets the approval state of a method (e.g. Generic, Released or Obsolete)
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.DefaultApprovalState">
+            <summary>
+            Gets the default approval state (e.g. Generic)
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.GetApprovalStateDisplayString(System.String)">
+            <summary>
+            Gets the display string for a given approval state.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.AvailableApprovalStates">
+            <summary>
+            Gets the available approval states.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.ReportableInformation">
+            <summary>
+            Gets a reportable data structure for the method. 
+            This information is persisted.
+            </summary>
+            <value>
+            The reportable method information.
+            </value>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.UpdateReportableInformation">
+            <summary>
+            Updates the reportable information for the method
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.UpdateMethodInformationSection">
+            <summary>
+            Updates the method information section
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod.GetResource(System.String)">
+            <summary>
+            Gets the resource for a particular key. Allows a method implementation
+            to define the content of audit trail messages.
+            </summary>
+            <param name="key">The resource key.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodFactory">
+            <summary>
+            Factory interface to create a default instance of a method.
+            Factories are plugin that register to instantiate default methods that
+            can be deserialized from files with a particular type identifier.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodFactory.CreateDefaultMethod">
+            <summary>
+            Returns a default instance for
+            the type of method this factory returns.
+            Default means that the method is already
+            populated with default setpoints.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodFactory.CreateBlankMethod">
+            <summary>
+            Creates a blank method with no content at all.
+            Required for reading/writing.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodMetadata">
+            <summary>
+            Meta data for a method.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodMetadata.ApprovalState">
+            <summary>
+            The approval state of the method
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodPartFactory">
+            <summary>
+            A factory that creates parts of a particular type.
+            The method either knows the type directly or finds
+            a factory that can handle this type.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodPartFactory.CreateBlankMethodPart">
+            <summary>
+            Creates the blank method part.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter">
+            <summary>
+            Interface that allows to store every method that implements the IMethod interface
+            to a composite file
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.Save(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SaveOptions)">
+            <summary>
+            Saves the specified method using the specified options.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="saveOptions">The save options.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveAs(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SaveOptions)">
+            <summary>
+            Saves the method to a new path using the specified options.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="path">The path.</param>
+            <param name="saveOptions">The save options.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.Save(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod)">
+            <summary>
+            Saves the method to an OPC file. Location is
+            implicitly defined by the methods storage location.
+            Version is automatically set using the current date time.
+            </summary>
+            <param name="method">The method to be saved.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.Save(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String)">
+            <summary>
+            Saves the method to an OPC file. Location is
+            implicitly defined by the methods storage location.
+            Version is automatically set using the current date time.
+            </summary>
+            <param name="method">The method to be saved.</param>
+            <param name="workAreaName">Name of the work area which is used for upload.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.Save(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Saves the method to an OPC file. Location is
+            implicitly defined by the methods storage location.
+            Version is explicitly set.
+            </summary>
+            <param name="method">The method to be saved.</param>
+            <param name="versionInfo">The version information.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.Save(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.String)">
+            <summary>
+            Saves the method to an OPC file. Location is
+            implicitly defined by the methods storage location.
+            Version is explicitly set.
+            </summary>
+            <param name="method">The method to be saved.</param>
+            <param name="workAreaName">Name of the work area which is used for upload.</param>
+            <param name="versionInfo">The version information.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveBuffered(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod)">
+            <summary>
+            Saves the method to an OPC file. Location is
+            implicitly defined by the methods storage location.
+            Version is automatically set using the current date time.
+            </summary>
+            <param name="method">The method to be saved.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveBuffered(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String)">
+            <summary>
+            Saves the method to an OPC file. Location is
+            implicitly defined by the methods storage location.
+            Version is automatically set using the current date time.
+            </summary>
+            <param name="method">The method to be saved.</param>
+            <param name="workAreaName">Name of the work area which is used for upload.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveBuffered(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Saves the method to an OPC file. Location is
+            implicitly defined by the methods storage location.
+            Version is explicitly set.
+            </summary>
+            <param name="method">The method to be saved.</param>
+            <param name="versionInfo">The version information.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveBuffered(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.String)">
+            <summary>
+            Saves the method to an OPC file. Location is
+            implicitly defined by the methods storage location.
+            Version is explicitly set.
+            </summary>
+            <param name="method">The method to be saved.</param>
+            <param name="workAreaName">Name of the work area which is used for upload.</param>
+            <param name="versionInfo">The version information.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveToWorkArea(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod)">
+            <summary>
+            Saves the method to an OPC file in the default work area. The path is
+            implicitly defined by the methods storage location.
+            Sets the current date/time as the method version.
+            </summary>
+            <param name="method">The method to be saved.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveToWorkArea(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Saves the method to an OPC file in the default work area. The path is
+            implicitly defined by the methods storage location.
+            Sets the version explicitly.
+            </summary>
+            <param name="method">The method to be saved.</param>
+            <param name="version">The version.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveToWorkArea(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String)">
+            <summary>
+            Saves the method to an OPC file in the given work area. The path is
+            implicitly defined by the methods storage location.
+            Sets the current date/time as the method version.
+            </summary>
+            <param name="method">The method to be saved.</param>
+            <param name="workAreaName">The name of the workarea to save to.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveToWorkArea(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Saves the method to an OPC file in the given work area. The path is
+            implicitly defined by the methods storage location.
+            Sets the version explicitly.
+            </summary>
+            <param name="method">The method to be saved.</param>
+            <param name="workAreaName">The name of the workarea to save to.</param>
+            <param name="version">The version.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.Save(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.IO.Stream)">
+            <summary>
+            Saves the specified method into a stream.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="stream">The stream.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveAs(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String)">
+            <summary>
+            Save a method to a different location.
+            Sets the version automatically.
+            </summary>
+            <param name="method"></param>
+            <param name="path"></param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveAs(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String,System.String)">
+            <summary>
+            Save a method to a different location.
+            Sets the version automatically.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="path">The path.</param>
+            <param name="workAreaName">Name of the work area which is used for upload.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveAs(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Save a method to a different location.
+            Sets the version explicitly.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="path">The path.</param>
+            <param name="versionInfo">The version information.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveAs(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.String)">
+            <summary>
+            Save a method to a different location.
+            Sets the version explicitly.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="path">The path.</param>
+            <param name="versionInfo">The version information.</param>
+            <param name="workAreaName">Name of the work area which is used for upload.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveAsBuffered(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String)">
+            <summary>
+            Save a method to a different location.
+            Sets the version automatically.
+            </summary>
+            <param name="method"></param>
+            <param name="path"></param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveAsBuffered(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String,System.String)">
+            <summary>
+            Save a method to a different location.
+            Method is saved to specified work area before upload.
+            Sets the version automatically.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="path">The path.</param>
+            <param name="workAreaName">Name of the work area which is used for upload.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveAsBuffered(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Save a method to a different location.
+            Sets the version explicitly.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="path">The path.</param>
+            <param name="versionInfo">The version information.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveAsBuffered(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.String)">
+            <summary>
+            Save a method to a different location.
+            Method is saved to specified work area before upload.
+            Sets the version explicitly.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="path">The path.</param>
+            <param name="versionInfo">The version information.</param>
+            <param name="workAreaName"></param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveAsToWorkArea(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String,System.String)">
+            <summary>
+            Save a method to a different location into the given work area.
+            </summary>
+            <param name="method"></param>
+            <param name="path"></param>
+            <param name="workAreaName">The name of the workarea to save to.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveAsToWorkArea(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String,System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Save a method to a different location into the given work area.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="path">The path.</param>
+            <param name="workAreaName">The name of the workarea to save to.</param>
+            <param name="version">The version.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveAsToWorkArea(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String)">
+            <summary>
+            Save a method to a different location into the default work area.
+            </summary>
+            <param name="method"></param>
+            <param name="path"></param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.SaveAsToWorkArea(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethod,System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Save a method to a different location into the default work area.
+            </summary>
+            <param name="method">The method.</param>
+            <param name="path">The path.</param>
+            <param name="version">The version.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.Load(System.String)">
+            <summary>
+            Load a method from an OPC file. Needs a method instance
+            to use part factory methods.
+            Picks the latest version.
+            </summary>
+            <param name="path">The path to load from.</param>
+            <returns>The method</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.Load(System.String,System.String)">
+            <summary>
+            Load a method from an OPC file. Needs a method instance
+            to use part factory methods.
+            Picks the latest version.
+            </summary>
+            <param name="path">The path to load from.</param>
+            <param name="workAreaName">Name of the work area which is used for download.</param>
+            <returns>
+            The method
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.Load(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Load a method from an OPC file. Needs a method instance
+            to use part factory methods.
+            Picks an explicit version.
+            </summary>
+            <param name="path">The path to load from.</param>
+            <param name="version">The version.</param>
+            <returns>
+            The method
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.Load(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.String)">
+            <summary>
+            Load a method from an OPC file. Needs a method instance
+            to use part factory methods.
+            Picks an explicit version.
+            </summary>
+            <param name="path">The path to load from.</param>
+            <param name="workAreaName">Name of the work area which is used for download.</param>
+            <param name="version">The version.</param>
+            <returns>
+            The method
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.LoadAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Load a method from an OPC file. Needs a method instance
+            to use part factory methods.
+            Picks the latest version.
+            </summary>
+            <param name="path">The path to load from.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The method
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.LoadAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Load a method from an OPC file. Needs a method instance
+            to use part factory methods.
+            Picks the latest version.
+            </summary>
+            <param name="path">The path to load from.</param>
+            <param name="workAreaName">Name of the work area which is used for download.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The method
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.LoadAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.Threading.CancellationToken)">
+            <summary>
+            Load a method from an OPC file. Needs a method instance
+            to use part factory methods.
+            Picks an explicit version.
+            </summary>
+            <param name="path">The path to load from.</param>
+            <param name="version">The version.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The method
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.LoadAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Load a method from an OPC file. Needs a method instance
+            to use part factory methods.
+            Picks an explicit version.
+            </summary>
+            <param name="path">The path to load from.</param>
+            <param name="version">The version.</param>
+            <param name="workAreaName">Name of the work area which is used for download.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            The method
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.Load(System.IO.Stream)">
+            <summary>
+            Loads a method from a specified stream.
+            </summary>
+            <param name="stream">The stream.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.LoadFromWorkArea(System.String,System.String)">
+            <summary>
+            Load a method from an OPC file in the given work area. 
+            Needs a method instance to use part factory methods.
+            </summary>
+            <param name="path">The path to load from.</param>
+            <param name="workAreaName">The name of the workarea to load from.</param>
+            <returns>The method</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.LoadFromWorkArea(System.String)">
+            <summary>
+            Load a method from an OPC file in the default work area. 
+            Needs a method instance to use part factory methods.
+            </summary>
+            <param name="path">The path to load from.</param>
+            <returns>The method</returns>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.ReasonCallback">
+            <summary>
+            Callback that is invoked to provide a reason for saving
+            the changed method or to provide an option to cancel saving.
+            The method audit trail is updated with the reason provided here.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.ReadMetadata(System.String)">
+            <summary>
+                Reads the method metadata for a certain path.
+            </summary>
+            <param name="path">The path of the method for which the metadata should be read.</param>
+            <returns>The meta data</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.ReadMetadata(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+                Reads the method meta data of a certain file version.
+            </summary>
+            <param name="path">The method path</param>
+            <param name="version">The file version</param>
+            <returns>The meta data</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.ReadMetadata(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+                Reads the method meta data of several paths.
+            </summary>
+            <param name="paths">The paths of the methods for which the metadata should be read.</param>
+            <returns>A dictionary containing paths as keys and corresponding meta data as value.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.ReadMetadataAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+                 Reads the method meta data of several paths.
+            </summary>
+            <param name="path">The path of the method for which the metadata should be read.</param>
+            <param name="cancellationToken">A cancellation token in order to enable cancellation</param>
+            <returns>The meta data, if awaited.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.ReadMetadataAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.Threading.CancellationToken)">
+            <summary>
+                 Reads the method meta data of several paths.
+            </summary>
+            <param name="path">The path of the method for which the metadata should be read.</param>
+            <param name="version">The file version</param>
+            <param name="cancellationToken">A cancellation token in order to enable cancellation</param>
+            <returns>The meta data, if awaited.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodReaderWriter.ReadMetadataAsync(System.Collections.Generic.IEnumerable{System.String},System.Threading.CancellationToken)">
+            <summary>
+                 Reads the method meta data of several paths.
+            </summary>
+            <param name="paths">The paths of the methods for which the metadata should be read.</param>
+            <param name="cancellationToken">A cancellation token in order to enable cancellation</param>
+            <returns>The meta data, if awaited.</returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodPart">
+            <summary>
+            An item (setpoint) within a method. 
+            Note: Do not have an identification yet. Currently parts can only be identified by content type.
+            </summary>
+        </member>
+        <member name="E:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodPart.PartChanged">
+            <summary>
+            Notification that is sent when a part has changed.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodPart.ItemName">
+            <summary>
+            Gets or sets the name of the part item. Needs to be unique within all parts
+            of the same type.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodPart.TypeName">
+            <summary>
+            Gets the name of the item type. 
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodPart.Content">
+            <summary>
+            Gets or sets the embedded content as object.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodPart.CloneContent">
+            <summary>
+            Clones the embedded content as object.
+            </summary>
+            <returns>The cloned part as object.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodPart.Serialize">
+            <summary>
+            Gets the parts as string for serialization.
+            </summary>
+            <returns>The content as stream.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodPart.Deserialize(System.IO.Stream)">
+            <summary>
+            Initialize the content from a string.
+            </summary>
+            <param name="serializedContent">the string which holds the serialized content</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodPart.RetrieveAuditEvents">
+            <summary>
+            Request the latest audit trail updates.
+            Also resets the memory of all audit trail updates.
+            </summary>
+            <returns>All audit trail events since the last invocation.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodPart.FlushAuditEvents">
+            <summary>
+            Flushes the audit events. All captured events should be deleted
+            or comparison states should be reset.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IMethodPart.RetrieveReportableInformation">
+            <summary>
+            Requests the reportable information that matches the current
+            state of the method part.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IReportableMethodInformation">
+            <summary>
+            Information for the method that can be used for reporting
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IReportableMethodInformation.MethodConfiguration">
+            <summary>
+            Gets the method configuration.
+            </summary>
+            <value>
+            The method configuration.
+            </value>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IReportableMethodInformation.Serialize">
+            <summary>
+            Serializes the reportable information.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.IReportableMethodInformation.Deserialize(System.IO.Stream)">
+            <summary>
+            Deserializes the reportable information.
+            
+            
+            </summary>
+            <param name="stream">The stream.</param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.MethodPartTypeMappingAttribute">
+            <summary>
+            Need to apply to method factories to allow usage as a plugin.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.MethodPartTypeMappingAttribute.MethodPartTypeIdentifier">
+            <summary>
+            The type identifier that is mapped to the corresponding specific method part.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.MethodTypeMappingAttribute">
+            <summary>
+            Need to apply to methods to make allow usage as a plugin.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.MethodTypeMappingAttribute.MethodTypeIdentifier">
+            <summary>
+            The type identifier that is mapped to the corresponding specific method.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult">
+            <summary>
+            Result returned by the reason callback to provide a reason during save.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult.#ctor(System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult"/> struct.
+            </summary>
+            <param name="reason">The reason.</param>
+            <param name="cancelSave">if set to <c>true</c> [cancel save].</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult.Equals(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult)">
+            <summary>
+            Check for equality.
+            </summary>
+            <param name="other">The other.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/>, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns>
+              <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table. 
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult.op_Equality(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult,Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult)">
+            <summary>
+            Implements the operator ==.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult.op_Inequality(Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult,Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult)">
+            <summary>
+            Implements the operator !=.
+            </summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>
+            The result of the operator.
+            </returns>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult.Reason">
+            <summary>
+            Gets or sets the reason provided by the callback.
+            </summary>
+            <value>
+            The reason.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.ReasonCallbackResult.CancelSave">
+            <summary>
+            Gets or sets a value indicating whether it is requested to cancel the save operation.
+            </summary>
+            <value>
+              <c>true</c> if is requested to cancel the save operation; otherwise, <c>false</c>.
+            </value>
+        </member>
+    </members>
+</doc>
