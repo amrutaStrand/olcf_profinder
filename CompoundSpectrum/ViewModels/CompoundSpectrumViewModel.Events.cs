@@ -1,5 +1,8 @@
 ﻿namespace Agilent.OpenLab.CompoundSpectrum
 {
+    using DataTypes;
+    using Events;
+
     /// <summary>
     /// CompoundSpectrumViewModel
     /// </summary>
@@ -40,7 +43,12 @@
         private void SubscribeEvents()
         {
             // This might look like the following line of code:
-            // this.EventAggregator.GetEvent<SomethingHappenedEvent>().Subscribe(this.OnSomethingHappenedEvent);
+            this.EventAggregator.GetEvent<CompoundSelectionChanged>().Subscribe(this.CompoundSelectionChanged);
+
+        }
+
+        private void CompoundSelectionChanged(ICompoundGroup obj)
+        {
         }
 
         /// <summary>
@@ -52,7 +60,8 @@
         private void UnsubscribeEvents()
         {
             // This might look like the following line of code:
-            // this.EventAggregator.GetEvent<SomethingHappenedEvent>().Unsubscribe(this.OnSomethingHappenedEvent);
+            this.EventAggregator.GetEvent<CompoundSelectionChanged>().Unsubscribe(this.CompoundSelectionChanged);
+
         }
 
         #endregion

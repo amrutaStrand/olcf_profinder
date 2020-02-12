@@ -4,6 +4,10 @@
 
     using Agilent.OpenLab.Framework.UI.Module;
     using Agilent.OpenLab.UI.Controls.AgtPlotControl;
+    using Agilent.OpenLab.UI.Controls.AgtPlotControl.Basic;
+
+    using Agilent.OpenLab.UI.Controls.AgtPlotControl.GraphicElements;
+    using Agilent.OpenLab.UI.Controls.AgtPlotControl.GraphicObjects;
 
     using Microsoft.Practices.Unity;
 
@@ -69,6 +73,46 @@
                 return this.plotControl;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="paneManager"></param>
+        protected void InitializePaneProperties(AgtPaneManager paneManager)
+        {
+            paneManager.BackgroundBrush = GraphicToolsRepository.AgilentWhiteBrush;
+
+            paneManager.AxisX.AxisStyles.TickLabelFont = GraphicToolsRepository.FontArial8;
+            paneManager.AxisX.AxisTitle.SetTitle("Mass");
+            paneManager.AxisX.AxisTitle.Alignment = HorizontalAlignment.Center;
+            paneManager.AxisX.AxisTitle.Font = GraphicToolsRepository.FontArial8;
+            paneManager.AxisX.AxisTitle.Brush = GraphicToolsRepository.DefaultAxisTitleBrush;
+            paneManager.AxisX.AxisStyles.Extent = 15;
+
+            //            paneManager.AxisX.AxisStyles.TickLabelFont = new Font("Arial", 10, FontStyle.Regular, GraphicsUnit.Point);
+            //            paneManager.AxisY.AxisStyles.TickLabelFont = new Font("Arial", 10, FontStyle.Regular, GraphicsUnit.Pixel);
+
+            paneManager.AxisY.AxisStyles.TickLabelFont = GraphicToolsRepository.FontArial8;
+            paneManager.AxisY.AxisTitle.SetTitle("Count");
+            paneManager.AxisY.AxisTitle.IsVisible = false;
+            paneManager.AxisY.AxisTitle.Alignment = HorizontalAlignment.Center;
+            paneManager.AxisY.AxisStyles.SeparateExponent = true;
+            paneManager.AxisY.AxisTitle.Font = GraphicToolsRepository.FontArial8;
+            paneManager.AxisY.AxisTitle.Brush = GraphicToolsRepository.DefaultAxisTitleBrush;
+            paneManager.AxisY.AxisStyles.Extent = 40;
+            paneManager.BoundingBoxExpansion = new BoundingBoxExpansion(
+                5, 5, 5, 5, BoundingBoxExpansion.ExpansionMode.Relative);
+
+            paneManager.HorizontalAxisScalingAnchorPoint = AnchorPoint.Max;
+            paneManager.VerticalAxisScalingAnchorPoint = AnchorPoint.Min;
+
+            paneManager.MinimumPlotPaneWidth = 100;
+            paneManager.MinimumPlotPaneHeight = 50;
+            paneManager.MaximumAllowedRelativeLegendHeight = 0.5;
+
+            paneManager.LegendContainerSettings.LegendMode = LegendMode.AbovePlotPane;
+        }
+
         #endregion
     }
 }
