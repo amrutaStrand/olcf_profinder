@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfinderController", "Prof
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProfinderDevelopment", "ProfinderDevelopment\ProfinderDevelopment.csproj", "{EE107D46-1B6B-4571-8CE8-15F8E7211D14}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataTypes", "DataTypes\DataTypes.csproj", "{D35697EF-6866-4CB1-9754-4349798D00BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,14 @@ Global
 		{EE107D46-1B6B-4571-8CE8-15F8E7211D14}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EE107D46-1B6B-4571-8CE8-15F8E7211D14}.Release|x86.ActiveCfg = Release|Any CPU
 		{EE107D46-1B6B-4571-8CE8-15F8E7211D14}.Release|x86.Build.0 = Release|Any CPU
+		{D35697EF-6866-4CB1-9754-4349798D00BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D35697EF-6866-4CB1-9754-4349798D00BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D35697EF-6866-4CB1-9754-4349798D00BE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D35697EF-6866-4CB1-9754-4349798D00BE}.Debug|x86.Build.0 = Debug|Any CPU
+		{D35697EF-6866-4CB1-9754-4349798D00BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D35697EF-6866-4CB1-9754-4349798D00BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D35697EF-6866-4CB1-9754-4349798D00BE}.Release|x86.ActiveCfg = Release|Any CPU
+		{D35697EF-6866-4CB1-9754-4349798D00BE}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
