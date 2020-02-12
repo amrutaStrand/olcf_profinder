@@ -1,0 +1,47 @@
+﻿<Application 
+    x:Uid="Application_1" 
+    x:Class="Agilent.OpenLab.ProfinderApplication.App" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Exit="OnExit" 
+    SessionEnding="OnApplicationSessionEnding">
+    <Application.Resources>
+        <ResourceDictionary x:Uid="ResourceDictionary_1">
+            <ResourceDictionary.MergedDictionaries>
+                <!-- Agilent Color and Brushes -->
+                <ResourceDictionary x:Uid="ResourceDictionary_2" Source="/Agilent.OpenLab.Framework.UI.Themes;Component/AgilentStyles/AgilentColorsAndBrushes.xaml" />
+                <ResourceDictionary x:Uid="ResourceDictionary_18" Source="/Agilent.OpenLab.Framework.UI.Themes;Component/AgilentStyles/AgilentFonts.xaml" />
+                
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\Fonts.xaml" />
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicResources.xaml" />
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\Converters.xaml" />
+
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\RadioButton.xaml" />
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\CheckBox.xaml" />
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\Button.xaml" />
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\ToggleButton.xaml" />
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\TabItem.xaml"/>
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\Expander.xaml"/>
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\AutoDisabledImage.xaml"/>
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\Toolbar.xaml"/>
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\ComboBox.xaml"/>
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\ScrollViewer.xaml"/>
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\GroupBox.xaml"/>
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\TextBox.xaml"/>
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\ListBox.xaml"/>
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\ListView.xaml"/>
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\TreeView.xaml"/>
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\Label.xaml"/>
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\DialogBorder.xaml"/>
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\BasicStyles\ToolTip.xaml"/>
+
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\ToolbarSplitButton\ToolbarSplitButton.xaml"/>
+
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\InfragisticsStyles\Ribbon\RibbonOffice2013.xaml" />
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\InfragisticsStyles\DockManager\DockManagerOffice2013.xaml" />
+                <ResourceDictionary Source="/Agilent.OpenLab.Framework.UI.Themes;Component/Lucid\InfragisticsStyles\OutlookBar\OutlookBarOffice2013.xaml" />
+
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
