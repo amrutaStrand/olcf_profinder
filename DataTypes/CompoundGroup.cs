@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataTypes
 {
-    class CompoundGroup : ICompoundGroup
+    public class CompoundGroup : ICompoundGroup
     {
         public string Group { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public float RTTgt { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

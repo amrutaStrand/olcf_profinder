@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataTypes
 {
-    interface ICompoundGroup
+    public interface ICompoundGroup
     {
 
         string Group { get; set; }

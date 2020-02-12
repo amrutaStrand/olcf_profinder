@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DataTypes
 {
-    class Chromatogram : IChromatogram
+    public class Chromatogram : IChromatogram
     {
     }
 }
