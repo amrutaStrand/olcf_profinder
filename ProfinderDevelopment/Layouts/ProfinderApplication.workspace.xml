@@ -3,7 +3,7 @@
   <SingleViewWorkspace>
     <ControllerModules>
       <ControllerModule>
-        <Module>Agilent.OpenLab.ControllerModuleA</Module>
+        <Module>Agilent.OpenLab.ProfinderController</Module>
       </ControllerModule>
     </ControllerModules>
     <NavigationView>
@@ -12,10 +12,16 @@
           <Tag>Layout 1</Tag>
           <Modules>
             <DockingModule>
-              <Module>Agilent.OpenLab.UiModule1</Module>
+              <Module>Agilent.OpenLab.CompoundGroupsTable</Module>
             </DockingModule>
             <DockingModule>
-              <Module>Agilent.OpenLab.UiModule2</Module>
+              <Module>Agilent.OpenLab.ComoundTable</Module>
+            </DockingModule>
+            <DockingModule>
+              <Module>Agilent.OpenLab.CompoundChromatogram</Module>
+            </DockingModule>
+            <DockingModule>
+              <Module>Agilent.OpenLab.CompoundSpectrum</Module>
             </DockingModule>
           </Modules>
         </DockingView>
