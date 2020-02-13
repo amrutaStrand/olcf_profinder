@@ -35,8 +35,9 @@ namespace DataTypes
 
         double VolumeAvg { get; set; }
 
-        //IDictionary<string, ICompound> SampleWiseDataDictionary { get; set; }
-        // double TgtScorePctRSD { get; set; }
+        IDictionary<string, ICompound> SampleWiseDataDictionary { get; set; }
+        
+        //double TgtScorePctRSD { get; set; }
         double TargetMass { get; set; }
         double MassMedian { get; set; }
         double MassPpmRSD { get; set; }
