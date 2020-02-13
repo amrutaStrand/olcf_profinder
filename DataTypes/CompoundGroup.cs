@@ -22,7 +22,7 @@ namespace DataTypes
         public double AreaAvg { get; set; }
         public double HeightAvg { get; set; }
         public double VolumeAvg { get; set; }
-        //public IDictionary<string, ICompound> SampleWiseDataDictionary { get; set; }
+        public IDictionary<string, ICompound> SampleWiseDataDictionary { get; set; }
         //public double TgtScorePctRSD { get; set; }
         public double TargetMass { get; set; }
         public double MassMedian { get; set; }
