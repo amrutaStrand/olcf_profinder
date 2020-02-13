@@ -3,6 +3,7 @@
     #region
 
     using Agilent.OpenLab.Framework.UI.Common.Commands;
+    using Microsoft.Win32;
 
     #endregion
 
@@ -26,6 +27,42 @@
         /// <remarks>
         /// </remarks>
         public TriggerCommand<object> TriggerCommandB { get; private set; }
+
+        /// <summary>
+        /// Gets the trigger command B.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        public TriggerCommand<object> ExperimentSetupCommand { get; private set; }
+
+        /// <summary>
+        /// Gets the trigger command B.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        public TriggerCommand<object> FeatureExtractionCommand { get; private set; }
+
+        /// <summary>
+        /// Gets the trigger command B.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        public TriggerCommand<object> StatisticAnalysisCommand { get; private set; }
+
+        /// <summary>
+        /// Gets the trigger command B.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        public TriggerCommand<object> IdentificationCommand { get; private set; }
+
+        /// <summary>
+        /// Gets the trigger command B.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        public TriggerCommand<object> ReportCommand { get; private set; }
+
 
         #endregion
 
@@ -51,6 +88,38 @@
                 Hint = "Test Command Trigger B",
                 KeyTip = "B"
             };
+
+            this.ExperimentSetupCommand = new TriggerCommand<object>(this.SelectFile)
+            {
+                Caption = "Experiment Setup",
+                Hint = "Experiment Setup",
+                KeyTip = "E"
+            };
+            this.FeatureExtractionCommand = new TriggerCommand<object>(this.OnTestCommand)
+            {
+                Caption = "Feature Extraction",
+                Hint = "Feature Extraction",
+                KeyTip = "F"
+            };
+            this.StatisticAnalysisCommand = new TriggerCommand<object>(this.OnTestCommand)
+            {
+                Caption = "Statistic Analysis",
+                Hint = "Statistic Analysis",
+                KeyTip = "S"
+            };
+            this.IdentificationCommand = new TriggerCommand<object>(this.OnTestCommand)
+            {
+                Caption = "Identification",
+                Hint = "Identification",
+                KeyTip = "I"
+            };
+            this.ReportCommand = new SelectorCommand<object>(this.OnTestCommand)
+            {
+                Caption = "Report",
+                Hint = "Report",
+                KeyTip = "R"
+            };
+
         }
 
         /// <summary>
@@ -64,6 +133,31 @@
         private void OnTestCommand(object unused)
         {
         }
+
+        /// <summary>
+        /// Event handler for test command.
+        /// </summary>
+        /// <param name="unused">
+        /// The unused. 
+        /// </param>
+        /// <remarks>
+        /// </remarks>
+        private void SelectFile(object unused)
+        {
+            string filePath = null;
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+                filePath = openFileDialog.FileName;
+
+            if (filePath != null && filePath.Trim().Length > 0)
+            {
+                if (!filePath.Equals(FilePath))
+                {
+                    FilePath = filePath;
+                }
+            }
+        }
+
 
         #endregion
     }

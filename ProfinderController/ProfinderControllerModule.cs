@@ -39,23 +39,62 @@
         /// </remarks>
         protected override void ExtendMenu()
         {
-            // Create module menu definition with one group
-            var menuDefinition = new MenuGroupDefinition(this, this.Caption);
-            this.MenuService.CreateControllerModuleMenuGroup(menuDefinition);
+            var menuDefinition = new MenuDefinition(this, string.Empty);
 
-            // register module specific menu definition
-            // and retrieve associated nemu group manager
+            var tabDefinition = new MenuTabDefinition("Experiment Setup", "E");
+
+            menuDefinition.Add(tabDefinition);
+
+            var tabDefinition1 = new MenuTabDefinition("Process", "P");
+
+            menuDefinition.Add(tabDefinition1);
+
+            var groupDefinition1 = new MenuGroupDefinition(this, "Workflow");
+
+            tabDefinition1.Add(groupDefinition1);
+
+            var tabDefinition2 = new MenuTabDefinition("Export/Report", "R");
+
+            menuDefinition.Add(tabDefinition2);
+
+            this.MenuService.CreateControllerModuleMenu(menuDefinition);
+
             var viewModel = this.Container.Resolve<IProfinderControllerViewModel>();
+
             IMenuGroupManager groupManager = this.MenuService.GetMenuGroupManager(this.ModuleId);
+
             if (groupManager != null)
+
             {
+
                 groupManager.AddCommandTool(
-                    viewModel.ToggleCommandA,
-                    this.GetImageFromImageFile("Images/TestImage.png"));
+
+                    viewModel.ExperimentSetupCommand,
+
+                    this.GetImageFromImageFile("Images/TestImage.png"), this.GetImageFromImageFile("Images/TestImage.png"));
                 groupManager.AddCommandTool(
-                    viewModel.TriggerCommandB,
-                    this.GetImageFromImageFile("Images/TestImage.png"));
+
+                    viewModel.FeatureExtractionCommand,
+
+                    this.GetImageFromImageFile("Images/TestImage.png"), this.GetImageFromImageFile("Images/TestImage.png"));
+                groupManager.AddCommandTool(
+
+                    viewModel.StatisticAnalysisCommand,
+
+                    this.GetImageFromImageFile("Images/TestImage.png"), this.GetImageFromImageFile("Images/TestImage.png"));
+                groupManager.AddCommandTool(
+
+                    viewModel.IdentificationCommand,
+
+                    this.GetImageFromImageFile("Images/TestImage.png"), this.GetImageFromImageFile("Images/TestImage.png"));
+                groupManager.AddCommandTool(
+
+                    viewModel.ReportCommand,
+
+                    this.GetImageFromImageFile("Images/TestImage.png"), this.GetImageFromImageFile("Images/TestImage.png"));
+
             }
+
         }
 
         /// <summary>
