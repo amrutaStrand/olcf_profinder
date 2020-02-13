@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\Debug4\</OutputPath>
     <LangVersion>7.3</LangVersion>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Layouts\targetClient.workspace.xml">
+    <Content Include="Layouts\ProfinderApplication.workspace.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -83,6 +83,40 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ComoundTable\ComoundTable.csproj">
+      <Project>{93cbb6e3-ecc0-47ba-9e38-d62ccc782db5}</Project>
+      <Name>ComoundTable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CompoundChromatogram\CompoundChromatogram.csproj">
+      <Project>{943f800a-aef9-447b-8dcb-514f59e6dc84}</Project>
+      <Name>CompoundChromatogram</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CompoundGroupsTable\CompoundGroupsTable.csproj">
+      <Project>{af6ab015-d2b3-4c22-abf6-ad81799200a5}</Project>
+      <Name>CompoundGroupsTable</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CompoundSpectrum\CompoundSpectrum.csproj">
+      <Project>{0efcfd29-879d-4136-ade8-a163eab71479}</Project>
+      <Name>CompoundSpectrum</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataTypes\DataTypes.csproj">
+      <Project>{d35697ef-6866-4cb1-9754-4349798d00be}</Project>
+      <Name>DataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Events\Events.csproj">
+      <Project>{22043320-4570-42b0-9d52-937437119db1}</Project>
+      <Name>Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProfinderApplication\ProfinderApplication.csproj">
+      <Project>{9b09005a-709b-4e43-994f-b6098984547e}</Project>
+      <Name>ProfinderApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProfinderController\ProfinderController.csproj">
+      <Project>{3b066cce-3da3-4bc3-8112-93b45717d827}</Project>
+      <Name>ProfinderController</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

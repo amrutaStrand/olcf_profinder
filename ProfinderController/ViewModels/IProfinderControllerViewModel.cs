@@ -24,5 +24,35 @@
         /// <remarks>
         /// </remarks>
         TriggerCommand<object> TriggerCommandB { get; }
+        /// <summary>
+        /// Gets the trigger command B.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        TriggerCommand<object> ExperimentSetupCommand { get; }
+        /// <summary>
+        /// Gets the trigger command B.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        TriggerCommand<object> FeatureExtractionCommand { get; }
+        /// <summary>
+        /// Gets the trigger command B.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        TriggerCommand<object> StatisticAnalysisCommand { get; }
+        /// <summary>
+        /// Gets the trigger command B.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        TriggerCommand<object> IdentificationCommand { get; }
+        /// <summary>
+        /// Gets the trigger command B.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        TriggerCommand<object> ReportCommand { get; }
     }
 }

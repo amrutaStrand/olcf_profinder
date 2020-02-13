@@ -12,6 +12,26 @@
     {
         #region Constructors and Destructors
 
+        string filePath = null;
+        /// <summary>
+        /// Holds Cef file path
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        public string FilePath
+        {
+            get
+            {
+                return filePath;
+            }
+            set
+            {
+                filePath = value;
+                //parseFile();
+            }
+        }
+
+
         /// <summary>
         ///   Initializes a new instance of the <see cref = "ProfinderControllerViewModel" /> class.
         /// </summary>
