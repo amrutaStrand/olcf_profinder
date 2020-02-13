@@ -1,8 +1,15 @@
 ﻿namespace Agilent.OpenLab.CompoundGroupsTable
 {
+    using System;
+    using System.ComponentModel;
     #region
 
     using System.Windows;
+    using Agilent.OpenLab.CompoundGroupsTable.ViewModels;
+    using Agilent.OpenLab.UI.Controls.WinFormsControls;
+    using DataTypes;
+    using Infragistics.Win.UltraWinGrid;
+
 
     #endregion
 
@@ -23,11 +30,42 @@
         public CompoundGroupsTableView()
         {
             this.InitializeComponent();
+            this.ultraGrid = new AgtBaseUltraGrid();
+            this.ultraGrid.TableHeadersViewModel = new CompoundGroupsHeadersViewModel();
+            this.ultraGrid.ReadOnlyGrid = this.ultraGrid.TableHeadersViewModel.AllHeadersReadOnly();
+            this.ultraGrid.AfterRowActivate += this.OnAfterRowActivate;
+            this.ultraGrid.InitializeLayout += this.OnInitializeLayout;
+
+            this.ultraGrid.AfterSelectChange += this.AfterSelectChange;
+            // initialize the grid host control
+            this.GridControlHost.Child = this.ultraGrid;
+            this.GridControlHost.GotFocus += this.OnGridControlGotFocus;
+            this.GridControlHost.Margin = new Thickness(0, 0, 0, 0);
+
+            // activate grid validation
+            this.gridValidationManager = new GridValueValidationManager(this.ultraGrid);
+
         }
+
+        private void OnInitializeLayout(object sender, InitializeLayoutEventArgs e)
+        {
+            
+        }
+
 
         #endregion
 
         #region Public Properties
+        /// <summary>
+        ///     The grid validation manager.
+        /// </summary>
+        private readonly GridValueValidationManager gridValidationManager;
+
+        /// <summary>
+        ///     The ultra grid.
+        /// </summary>
+        private readonly AgtBaseUltraGrid ultraGrid;
+
 
         /// <summary>
         /// Gets or sets the model.
@@ -67,7 +105,45 @@
         /// </remarks>
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
+            this.ultraGrid.DataSource = this.Model.CompoundGroups;
         }
+
+        /// <summary>
+        /// The on grid control got focus.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The e.
+        /// </param>
+        private void OnGridControlGotFocus(object sender, EventArgs e)
+        {
+            this.GridControlHost.Focus();
+        }
+
+        /// <summary>
+        /// The on after row activate.
+        /// </summary>
+        /// <param name="sender">
+        /// The sender.
+        /// </param>
+        /// <param name="e">
+        /// The e.
+        /// </param>
+        private void OnAfterRowActivate(object sender, EventArgs e)
+        {
+            if (this.ultraGrid.ActiveRow != null)
+            {
+                var focusedCompoundGroup = this.ultraGrid.ActiveRow.ListObject as ICompoundGroup;
+                if (focusedCompoundGroup != null)
+                {
+                    this.Model.FocusedCompoundGroup = focusedCompoundGroup;
+                }
+            }
+        }
+
+
 
         /// <summary>
         /// Called when [unload].
@@ -83,6 +159,42 @@
         private void OnUnloaded(object sender, RoutedEventArgs e)
         {
         }
+
+        /// <summary>
+        ///     The unsubscribe event handlers.
+        /// </summary>
+        public void UnsubscribeEventHandlers()
+        {
+            this.ultraGrid.AfterRowActivate -= this.OnAfterRowActivate;
+            //this.ultraGrid.InitializeLayout -= this.OnInitializeLayout;
+            this.GridControlHost.GotFocus -= this.OnGridControlGotFocus;
+        }
+
+        private void AfterSelectChange(object sender, AfterSelectChangeEventArgs e)
+        {
+
+            BindingList<ICompoundGroup> selectedCompounds = new BindingList<ICompoundGroup>();
+
+            SelectedRowsCollection seletedRows = this.ultraGrid.Selected.Rows;
+            if (seletedRows != null)
+            {
+                RowEnumerator enumerator = seletedRows.GetEnumerator();
+                if (enumerator != null)
+                {
+                    while (enumerator.MoveNext())
+                    {
+                        UltraGridRow row = enumerator.Current;
+                        ICompoundGroup compound = row.ListObject as ICompoundGroup;
+                        if (compound != null)
+                            selectedCompounds.Add(compound);
+                    }
+                }
+            }
+            this.Model.SelectedCompoundGroups = selectedCompounds;
+
+        }
+
+
 
         #endregion
     }

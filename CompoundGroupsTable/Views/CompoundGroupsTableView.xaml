@@ -8,6 +8,7 @@
     Focusable="True"
     Loaded="OnLoaded" 
     Unloaded="OnUnloaded">
-    <Grid>                  
+    <Grid>
+        <WindowsFormsHost Focusable="True" Name="GridControlHost" Panel.ZIndex="1"></WindowsFormsHost>
     </Grid>
 </UserControl>

@@ -114,6 +114,12 @@
     <Reference Include="Agilent.OpenLab.Framework.UI.XamOutlookBar, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.XamOutlookBar.dll</HintPath>
     </Reference>
+    <Reference Include="Agilent.OpenLab.Infragistics.Win, Version=11.2.20112.2135, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WinForms.11.2.20112.21352\lib\net45\Agilent.OpenLab.Infragistics.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.UI.Controls.WinFormsControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.UI.Controls.WinFormsControls.3.2.0.117\lib\net45\Agilent.OpenLab.UI.Controls.WinFormsControls.dll</HintPath>
+    </Reference>
     <Reference Include="InfragisticsWPF4.DataPresenter.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.DataPresenter.v14.2.dll</HintPath>
     </Reference>
@@ -169,6 +175,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\CompoundGroupsHeadersViewModel.cs" />
+    <Compile Include="ViewModels\CompoundGroupsTableHeaders.cs" />
     <Compile Include="ViewModels\CompoundGroupsTableViewModel.Commands.cs" />
     <Compile Include="ViewModels\CompoundGroupsTableViewModel.Events.cs" />
     <Compile Include="CompoundGroupsTableModule.cs" />
@@ -218,6 +226,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataTypes\DataTypes.csproj">
+      <Project>{d35697ef-6866-4cb1-9754-4349798d00be}</Project>
+      <Name>DataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Events\Events.csproj">
+      <Project>{22043320-4570-42b0-9d52-937437119db1}</Project>
+      <Name>Events</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

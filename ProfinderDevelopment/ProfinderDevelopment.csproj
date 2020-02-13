@@ -16,7 +16,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug4\</OutputPath>
+    <OutputPath>bin\Debug5\</OutputPath>
     <LangVersion>7.3</LangVersion>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -100,14 +100,6 @@
     <ProjectReference Include="..\CompoundSpectrum\CompoundSpectrum.csproj">
       <Project>{0efcfd29-879d-4136-ade8-a163eab71479}</Project>
       <Name>CompoundSpectrum</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataTypes\DataTypes.csproj">
-      <Project>{d35697ef-6866-4cb1-9754-4349798d00be}</Project>
-      <Name>DataTypes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Events\Events.csproj">
-      <Project>{22043320-4570-42b0-9d52-937437119db1}</Project>
-      <Name>Events</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProfinderApplication\ProfinderApplication.csproj">
       <Project>{9b09005a-709b-4e43-994f-b6098984547e}</Project>

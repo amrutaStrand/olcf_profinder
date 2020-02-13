@@ -3,8 +3,11 @@
     #region
 
     using Agilent.OpenLab.Framework.UI.Module;
-
+    using DataTypes;
+    using Events;
     using Microsoft.Practices.Unity;
+    using System.Collections.Generic;
+    using System.ComponentModel;
 
     #endregion
 
@@ -28,6 +31,7 @@
         public CompoundGroupsTableViewModel(IUnityContainer container)
             : base(container)
         {
+            this.CompoundGroups = new BindingList<ICompoundGroup>();
             this.View = this.UnityContainer.Resolve<ICompoundGroupsTableView>();
             this.View.Model = this;
             this.SubscribeEvents();
@@ -47,6 +51,56 @@
         /// <remarks>
         /// </remarks>
         public ICompoundGroupsTableView View { get; set; }
+
+        /// <summary>
+        /// Gets or sets the CompoundGroups list.
+        /// </summary>
+        /// <value>
+        /// The compound groups list. 
+        /// </value>
+        /// <remarks>
+        /// </remarks>
+        public BindingList<ICompoundGroup> CompoundGroups { get; private set; }
+
+        BindingList<ICompoundGroup> selectedCompoundGroups;
+
+        /// <summary>
+        ///     Gets or sets the focused compound.
+        /// </summary>
+        public ICompoundGroup FocusedCompoundGroup { get; set; }
+
+        /// <summary>
+        /// To add the SelectedCompounds
+        /// </summary>
+        public BindingList<ICompoundGroup> SelectedCompoundGroups
+        {
+            get
+            {
+                return this.selectedCompoundGroups;
+            }
+
+            set
+            {
+                this.selectedCompoundGroups = value;
+                fireSelectionChanged(selectedCompoundGroups);
+            }
+        }
+
+        private void fireSelectionChanged(BindingList<ICompoundGroup> selectedCompounds)
+        {
+            List<ICompoundGroup> selected = new List<ICompoundGroup>();
+
+            IEnumerator<ICompoundGroup> enumerator = selectedCompounds.GetEnumerator();
+
+            while (enumerator.MoveNext())
+            {
+                selected.Add(enumerator.Current);
+            }
+
+            this.EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(selected);
+        }
+
+
 
         #endregion
     }
