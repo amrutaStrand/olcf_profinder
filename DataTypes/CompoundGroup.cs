@@ -8,20 +8,32 @@ namespace DataTypes
 {
     public class CompoundGroup : ICompoundGroup
     {
-        public string Group { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float RTTgt { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float RTMed { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool Found { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool Missed { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float ScoreTgtMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float ScoreMFEMax { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float HeightMed { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float MassAvg { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float RTAvg { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public bool Saturated { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float AreaAvg { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float HeightAvg { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public float VolumeAvg { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IDictionary<string, ICompound> SampleWiseDataDictionary { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Group { get; set; }
+        public double RTTgt { get; set; }
+        public double RTMed { get; set; }
+        public int Found { get; set; }
+        public int Missed { get; set; }
+        //public double ScoreTgtMax { get; set; }
+        public double ScoreMFEMax { get; set; }
+        public double HeightMed { get; set; }
+        public double MassAvg { get; set; }
+        public double RTAvg { get; set; }
+        public int Saturated { get; set; }
+        public double AreaAvg { get; set; }
+        public double HeightAvg { get; set; }
+        public double VolumeAvg { get; set; }
+        //public IDictionary<string, ICompound> SampleWiseDataDictionary { get; set; }
+        //public double TgtScorePctRSD { get; set; }
+        public double TargetMass { get; set; }
+        public double MassMedian { get; set; }
+        public double MassPpmRSD { get; set; }
+        public double RetentionTimeSpan { get; set; }
+        public double RetentionTimeWidthAtBase { get; set; }
+        public double RetentionTimeDifference { get; set; }
+        public string TimeSegment { get; set; }
+        public int SingleIonFeatures { get; set; }
+        public List<IChromatogram> Chromatograms { get; set; }
+        public List<ISpectrum> Spectrums { get; set; }
+        int ICompoundGroup.Saturated { get; set; }
     }
 }

@@ -10,31 +10,42 @@ namespace DataTypes
     {
 
         string Group { get; set; }
-        float RTTgt { get; set; }
-        float RTMed { get; set; }
+        double RTTgt { get; set; }
+        double RTMed { get; set; }
 
-        Boolean Found { get; set; }
+        int Found { get; set; }
 
-        Boolean Missed { get; set; }
+        int Missed { get; set; }
 
-        float ScoreTgtMax { get; set; }
+        //double ScoreTgtMax { get; set; }
 
-        float ScoreMFEMax { get; set; }
+        double ScoreMFEMax { get; set; }
 
-        float HeightMed { get; set; }
+        double HeightMed { get; set; }
 
-        float MassAvg { get; set; }
+        double MassAvg { get; set; }
 
-        float RTAvg { get; set; }
+        double RTAvg { get; set; }
 
-        Boolean Saturated { get; set; }
+        int Saturated { get; set; }
 
-        float AreaAvg { get; set; }
+        double AreaAvg { get; set; }
 
-        float HeightAvg { get; set; }
+        double HeightAvg { get; set; }
 
-        float VolumeAvg { get; set; }
+        double VolumeAvg { get; set; }
 
-        IDictionary<string, ICompound> SampleWiseDataDictionary { get; set; }
+        //IDictionary<string, ICompound> SampleWiseDataDictionary { get; set; }
+        // double TgtScorePctRSD { get; set; }
+        double TargetMass { get; set; }
+        double MassMedian { get; set; }
+        double MassPpmRSD { get; set; }
+        double RetentionTimeSpan { get; set; }
+        double RetentionTimeWidthAtBase { get; set; }
+        double RetentionTimeDifference { get; set; }
+        string TimeSegment { get; set; }
+        int SingleIonFeatures { get; set; }
+        List<IChromatogram> Chromatograms { get; set; }
+        List<ISpectrum> Spectrums { get; set; }
     }
 }
