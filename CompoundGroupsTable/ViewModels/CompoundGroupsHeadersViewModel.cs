@@ -28,7 +28,7 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = true
+                    Hidden = false
                 });
             this.AddHeader(
                 CompoundGroupsTableHeaders.RTgt,
@@ -40,7 +40,8 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = true
+                    Format = "F3",
+                    Hidden = false
                 });
             this.AddHeader(
                 CompoundGroupsTableHeaders.RTmed,
@@ -52,7 +53,8 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = true
+                    Format = "F3",
+                    Hidden = false
                 });
             this.AddHeader(
                 CompoundGroupsTableHeaders.Found,
@@ -64,7 +66,7 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = true
+                    Hidden = false
                 });
             this.AddHeader(
                 CompoundGroupsTableHeaders.Missed,
@@ -76,7 +78,7 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = true
+                    Hidden = false
                 });
             this.AddHeader(
                 CompoundGroupsTableHeaders.ScoreMFEMax,
@@ -88,7 +90,8 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = true
+                    Format = "F3",
+                    Hidden = false
                 });
             this.AddHeader(
                 CompoundGroupsTableHeaders.HeightMed,
@@ -100,7 +103,8 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = true
+                    Format = "F3",
+                    Hidden = false
                 });
             this.AddHeader(
                 CompoundGroupsTableHeaders.MassAvg,
@@ -112,7 +116,8 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = true
+                    Format = "F3",
+                    Hidden = false
                 });
             this.AddHeader(
                 CompoundGroupsTableHeaders.RtAvg,
@@ -124,7 +129,8 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = true
+                    Format = "F3",
+                    Hidden = false
                 });
             this.AddHeader(
                 CompoundGroupsTableHeaders.MassMedian,
@@ -136,7 +142,8 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = true
+                    Format = "F3",
+                    Hidden = false
                 });
             this.AddHeader(
                 CompoundGroupsTableHeaders.TargetMass,
@@ -148,7 +155,8 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = true
+                    Format = "F3",
+                    Hidden = false
                 });
 
         }

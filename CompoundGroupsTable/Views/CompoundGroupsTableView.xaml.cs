@@ -1,6 +1,7 @@
 ﻿namespace Agilent.OpenLab.CompoundGroupsTable
 {
     using System;
+    using System.Linq;
     using System.ComponentModel;
     #region
 
@@ -35,8 +36,8 @@
             this.ultraGrid.ReadOnlyGrid = this.ultraGrid.TableHeadersViewModel.AllHeadersReadOnly();
             this.ultraGrid.AfterRowActivate += this.OnAfterRowActivate;
             this.ultraGrid.InitializeLayout += this.OnInitializeLayout;
-
             this.ultraGrid.AfterSelectChange += this.AfterSelectChange;
+
             // initialize the grid host control
             this.GridControlHost.Child = this.ultraGrid;
             this.GridControlHost.GotFocus += this.OnGridControlGotFocus;
@@ -166,7 +167,7 @@
         public void UnsubscribeEventHandlers()
         {
             this.ultraGrid.AfterRowActivate -= this.OnAfterRowActivate;
-            //this.ultraGrid.InitializeLayout -= this.OnInitializeLayout;
+            this.ultraGrid.InitializeLayout -= this.OnInitializeLayout;
             this.GridControlHost.GotFocus -= this.OnGridControlGotFocus;
         }
 
@@ -193,6 +194,21 @@
             this.Model.SelectedCompoundGroups = selectedCompounds;
 
         }
+
+        /// <summary>
+        ///     The update focus.
+        /// </summary>
+        public void UpdateFocus()
+        {
+            this.ultraGrid.ActiveRow = null;
+            this.ultraGrid.Selected.Rows.Clear();
+            var rowToSelect = this.ultraGrid.Rows.FirstOrDefault(row => row.ListObject == this.Model.FocusedCompoundGroup);
+            if (rowToSelect != null)
+            {
+                rowToSelect.Activate();
+            }
+        }
+
 
 
 
