@@ -32,8 +32,6 @@ namespace DataTypes
         public double RetentionTimeDifference { get; set; }
         public string TimeSegment { get; set; }
         public int SingleIonFeatures { get; set; }
-        public List<IChromatogram> Chromatograms { get; set; }
-        public List<ISpectrum> Spectrums { get; set; }
         int ICompoundGroup.Saturated { get; set; }
     }
 }

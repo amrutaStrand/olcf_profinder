@@ -46,7 +46,5 @@ namespace DataTypes
         double RetentionTimeDifference { get; set; }
         string TimeSegment { get; set; }
         int SingleIonFeatures { get; set; }
-        List<IChromatogram> Chromatograms { get; set; }
-        List<ISpectrum> Spectrums { get; set; }
     }
 }
