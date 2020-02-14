@@ -15,6 +15,12 @@
         /// </value>
         IComoundTableViewModel Model { get; set; }
 
+        /// <summary>
+        ///     The update focus.
+        /// </summary>
+        void UpdateFocus();
+
+
         #endregion
     }
 }
