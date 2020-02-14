@@ -31,12 +31,12 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Hidden = false
                 });
             this.AddHeader(
-                CompoundGroupsTableHeaders.RTgt,
+                CompoundGroupsTableHeaders.RTTgt,
                 new TableHeader
                 {
-                    Caption = "Tgt. RT",
+                    Caption = "RT (Tgt)",
                     Description = "The target RT",
-                    Name = CompoundGroupsTableHeaders.RTgt,
+                    Name = CompoundGroupsTableHeaders.RTTgt,
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
@@ -47,7 +47,7 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                 CompoundGroupsTableHeaders.RTmed,
                 new TableHeader
                 {
-                    Caption = "Med. RT",
+                    Caption = "RT (med)",
                     Description = "The median RT",
                     Name = CompoundGroupsTableHeaders.RTmed,
                     Width = 100,
@@ -84,7 +84,7 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                 CompoundGroupsTableHeaders.ScoreMFEMax,
                 new TableHeader
                 {
-                    Caption = "MFE max. score",
+                    Caption = "Score (MFE, max)",
                     Description = "The maximum MFE score.",
                     Name = CompoundGroupsTableHeaders.ScoreMFEMax,
                     Width = 100,
@@ -97,7 +97,7 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                 CompoundGroupsTableHeaders.HeightMed,
                 new TableHeader
                 {
-                    Caption = "Med. Height",
+                    Caption = "Height (med)",
                     Description = "The median height",
                     Name = CompoundGroupsTableHeaders.HeightMed,
                     Width = 100,
@@ -110,7 +110,7 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                 CompoundGroupsTableHeaders.MassAvg,
                 new TableHeader
                 {
-                    Caption = "Avg. Mass",
+                    Caption = "Mass (avg)",
                     Description = "The average mass",
                     Name = CompoundGroupsTableHeaders.MassAvg,
                     Width = 100,
@@ -123,7 +123,7 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                 CompoundGroupsTableHeaders.RtAvg,
                 new TableHeader
                 {
-                    Caption = "Avg. RT",
+                    Caption = "RT (avg)",
                     Description = "The average RT",
                     Name = CompoundGroupsTableHeaders.RtAvg,
                     Width = 100,
@@ -136,7 +136,7 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                 CompoundGroupsTableHeaders.MassMedian,
                 new TableHeader
                 {
-                    Caption = "Med. Mass",
+                    Caption = "Mass (med)",
                     Description = "The median mass",
                     Name = CompoundGroupsTableHeaders.MassMedian,
                     Width = 100,
@@ -149,7 +149,7 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                 CompoundGroupsTableHeaders.TargetMass,
                 new TableHeader
                 {
-                    Caption = "Tgt. Mass",
+                    Caption = "Mass (Tgt)",
                     Description = "The target mass",
                     Name = CompoundGroupsTableHeaders.TargetMass,
                     Width = 100,

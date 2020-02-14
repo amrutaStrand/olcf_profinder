@@ -18,12 +18,12 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
         /// <summary>
         ///     The target RT header.
         /// </summary>
-        public const string RTgt = "RT (Tgt)";
+        public const string RTTgt = "RTTgt";
 
         /// <summary>
         ///     The median RT header.
         /// </summary>
-        public const string RTmed = "RT (med)";
+        public const string RTmed = "RTMed";
 
         /// <summary>
         ///     The Found header.
@@ -38,32 +38,32 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
         /// <summary>
         ///     The Maximum MFE score Header.
         /// </summary>
-        public const string ScoreMFEMax = "Score (MFE, max)";
+        public const string ScoreMFEMax = "ScoreMFEMax";
 
         /// <summary>
         ///     The Median Height header.
         /// </summary>
-        public const string HeightMed = "Height (med)";
+        public const string HeightMed = "HeightMed";
 
         /// <summary>
         ///     The Average Mass Header.
         /// </summary>
-        public const string MassAvg = "Mass (avg)";
+        public const string MassAvg = "MassAvg";
 
         /// <summary>
         ///     The Average RT Header.
         /// </summary>
-        public const string RtAvg = "RT (avg)";
+        public const string RtAvg = "RTAvg";
 
         /// <summary>
         ///     The Median Mass Header.
         /// </summary>
-        public const string MassMedian = "Mass (med)";
+        public const string MassMedian = "MassMedian";
 
         /// <summary>
         ///     The Target Mass Header.
         /// </summary>
-        public const string TargetMass = "Mass (tgt)";
+        public const string TargetMass = "TargetMass";
 
         #endregion
 
