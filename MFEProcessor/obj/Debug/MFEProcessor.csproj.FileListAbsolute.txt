@@ -62,3 +62,4 @@ D:\C#\olcf_profinder\MFEProcessor\bin\Debug\CoreCombineIdentification.dll
 D:\C#\olcf_profinder\MFEProcessor\obj\Debug\MFEProcessor.csproj.CopyComplete
 D:\C#\olcf_profinder\MFEProcessor\obj\Debug\MFEProcessor.dll
 D:\C#\olcf_profinder\MFEProcessor\obj\Debug\MFEProcessor.pdb
+D:\C#\olcf_profinder\MFEProcessor\obj\Debug\MFEProcessor.csprojAssemblyReference.cache

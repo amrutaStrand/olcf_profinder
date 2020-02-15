@@ -38,6 +38,7 @@
 
             List<string> sampleFiles = new List<string>();
 
+            sampleFiles.Add(filePath);
             MFEProcessor.MFE mfe = new MFEProcessor.MFE(sampleFiles);
             List<DataTypes.ICompoundGroup> compoundGroups = mfe.Execute();
 
