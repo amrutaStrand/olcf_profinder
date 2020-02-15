@@ -1,4 +1,16 @@
-﻿using System.IO;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
+
+//namespace AgtQualAutomation
+//{
+//    class CmdRecursiveMFE
+//    {
+//    }
+//}
+using System.IO;
 using System.Text.RegularExpressions;
 using Agilent.MassSpectrometry.CommandModel;
 using System;

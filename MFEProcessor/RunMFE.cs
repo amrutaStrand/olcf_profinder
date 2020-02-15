@@ -111,10 +111,6 @@ namespace MFEProcessor
                                                                 runLoadTimeScripts);
 
                     ExecuteCommand(qualAppLogic, cmdOpenAnalysis);
-                    Console.WriteLine("Helloo");
-                //}
-                //try
-                //{
                     
                     RunScript(qualAppLogic, analysisFiles);
                     IEnumerable<Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup> cpdGroups = qualAppLogic.DataStore.CompoundGroups;
@@ -125,12 +121,7 @@ namespace MFEProcessor
                         DataTypes.CompoundGroup compoundGroup = getICompoundGroup(cpdGroup, analysisFiles) as DataTypes.CompoundGroup;
                         compoundGroups.Add(compoundGroup);
                     }
-                    //return compoundGroups;
-                //}
-                //catch(Exception e)
-                //{
-                //    throw e;
-                //}
+                Console.ReadKey();
             }
             catch (MSDAApplicationException msdaExep)
             {
