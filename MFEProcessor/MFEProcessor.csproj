@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{24F0A795-222E-44EA-86E2-4C5C2390447E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MFEProcessor</RootNamespace>
+    <AssemblyName>MFEProcessor</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BaseCommon, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\BaseCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="BaseDataAccess, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\BaseDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="BaseError, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\BaseError.dll</HintPath>
+    </Reference>
+    <Reference Include="BaseMsUtils, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\BaseMsUtils.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreCombinedIdentificationPlus, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreCombinedIdentificationPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreCommand, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreCommand.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreCompoundCorrelationEngine, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreCompoundCorrelationEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreDbSearch, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreDbSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreDefinitions, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreDefinitions.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreFindCompounds, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreFindCompounds.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreMassHunter, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreMassHunter.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreTraceListeners, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreTraceListeners.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreTypes, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="DataTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\DataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="MassProfiler, Version=7.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\MassProfiler.dll</HintPath>
+    </Reference>
+    <Reference Include="MfeBase, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\MfeBase.dll</HintPath>
+    </Reference>
+    <Reference Include="PFDBManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\PFDBManager.dll</HintPath>
+    </Reference>
+    <Reference Include="ProfinderLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\ProfinderLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="QualAppLogic, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\QualAppLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="QualDefinitions, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\QualDefinitions.dll</HintPath>
+    </Reference>
+    <Reference Include="RecursiveMfe, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\RecursiveMfe.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CmdFilterCompoundGroupsMFE.cs" />
+    <Compile Include="CmdFilterCompoundGroupsMFEPost.cs" />
+    <Compile Include="CmdFindByMFE.cs" />
+    <Compile Include="CmdRecursiveMFE.cs" />
+    <Compile Include="MFE.cs" />
+    <Compile Include="PFCmdCommandBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RequiredDLL\BaseCommon.dll" />
+    <Content Include="RequiredDLL\BaseDataAccess.dll" />
+    <Content Include="RequiredDLL\BaseError.dll" />
+    <Content Include="RequiredDLL\BaseMsUtils.dll" />
+    <Content Include="RequiredDLL\CoreCombinedIdentificationPlus.dll" />
+    <Content Include="RequiredDLL\CoreCommand.dll" />
+    <Content Include="RequiredDLL\CoreCompoundCorrelationEngine.dll" />
+    <Content Include="RequiredDLL\CoreDbSearch.dll" />
+    <Content Include="RequiredDLL\CoreDefinitions.dll" />
+    <Content Include="RequiredDLL\CoreFindCompounds.dll" />
+    <Content Include="RequiredDLL\CoreMassHunter.dll" />
+    <Content Include="RequiredDLL\CoreTraceListeners.dll" />
+    <Content Include="RequiredDLL\CoreTypes.dll" />
+    <Content Include="RequiredDLL\DataTypes.dll" />
+    <Content Include="RequiredDLL\MassProfiler.dll" />
+    <Content Include="RequiredDLL\MfeBase.dll" />
+    <Content Include="RequiredDLL\PFDBManager.dll" />
+    <Content Include="RequiredDLL\ProfinderLogic.dll" />
+    <Content Include="RequiredDLL\QualAppLogic.dll" />
+    <Content Include="RequiredDLL\QualDefinitions.dll" />
+    <Content Include="RequiredDLL\RecursiveMfe.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
