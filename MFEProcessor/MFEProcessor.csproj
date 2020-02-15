@@ -170,7 +170,6 @@
     <Compile Include="CmdFilterCompoundGroupsMFEPost.cs" />
     <Compile Include="CmdFindByMFE.cs" />
     <Compile Include="CmdRecursiveMFE.cs" />
-    <Compile Include="MFERun.cs" />
     <Compile Include="RunMFE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

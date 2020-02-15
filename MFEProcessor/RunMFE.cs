@@ -53,7 +53,7 @@ namespace MFEProcessor
         {
             try
             {
-                Assembly.LoadFile(@"D:\.pool\Assembly\Bin\BaseTof.dll");
+                // Assembly.LoadFile(@"D:\.pool\Assembly\Bin\BaseTof.dll");
                 IActionItemCollection actions = qualAppLogic.Invoke(cmdQualCommand) as IActionItemCollection;
 
             }catch(Exception e)

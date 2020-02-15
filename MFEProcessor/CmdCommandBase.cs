@@ -17,7 +17,7 @@ namespace MFEProcessor
     /// base class for Profinder command objects
     /// </summary>
     [Obfuscation]
-    public abstract class CmdCommandBase : QualCommandBase
+    public abstract class PFCmdCommandBase : QualCommandBase
     {
         /// <summary>
         /// Reference to ProfinderLogic instance
@@ -43,7 +43,7 @@ namespace MFEProcessor
         /// c'tor
         /// </summary>
         /// <param name="appManager"></param>
-        public CmdCommandBase(ProfinderLogic appManager)
+        public PFCmdCommandBase(ProfinderLogic appManager)
             : base(appManager)
         {
             m_PFLogic = appManager;

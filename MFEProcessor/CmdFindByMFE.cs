@@ -13,7 +13,7 @@ namespace MFEProcessor
     /// Command to execute recursive Molecular Feature Extractor (rMFE)
     /// </summary>
     [CommandClass("CmdFindByMFE")]
-    public class CmdFindByMFE : CmdCommandBase
+    public class CmdFindByMFE : PFCmdCommandBase
     {
         private List<ICompoundGroup> m_cpdGroupList;
         SortedDictionary<string, IFindCpdResults> m_cpdResults = null;

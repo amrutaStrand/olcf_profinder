@@ -18,7 +18,7 @@ namespace MFEProcessor
     /// re-alignment and shuffling algorithm
     /// </summary>
     [CommandClass("CmdRecursiveMFE")]
-    public class CmdRecursiveMFE : CmdCommandBase
+    public class CmdRecursiveMFE : PFCmdCommandBase
     {
         private struct clcFileItem     // to keep item has the same count. Recursive engine requires this.
         {

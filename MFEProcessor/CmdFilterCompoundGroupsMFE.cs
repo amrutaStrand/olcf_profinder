@@ -13,7 +13,7 @@ namespace MFEProcessor
     /// Applies compound group level abundance and quality filters after molecular feature extraction
     /// </summary>
     [CommandClass("CmdFilterCompoundGroupsMFE")]
-    public class CmdFilterCompoundGroupsMFE : CmdCommandBase
+    public class CmdFilterCompoundGroupsMFE : PFCmdCommandBase
     {
         private Dictionary<string, string> m_sampleGroupDict;
         private IPSetCpdGroupFilters m_psetFilters;
