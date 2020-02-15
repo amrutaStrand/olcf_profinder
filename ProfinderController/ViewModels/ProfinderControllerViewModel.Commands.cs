@@ -146,6 +146,9 @@
         {
             string filePath = null;
             OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.RestoreDirectory = true;
+            //ileDialog.Filter = "*.d";
+
             if (openFileDialog.ShowDialog() == true)
                 filePath = openFileDialog.FileName;
 
@@ -153,9 +156,10 @@
             {
                 if (!filePath.Equals(FilePath))
                 {
-                    FilePath = filePath;
+                   //ilePath = filePath;
                 }
             }
+            FilePath = @"C:\Users\shyam\Desktop\D01B.d";
         }
 
 

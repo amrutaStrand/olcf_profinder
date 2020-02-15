@@ -3,9 +3,11 @@
     #region
 
     using Agilent.OpenLab.Framework.UI.Module;
-
+    using Events;
     using Microsoft.Practices.Unity;
-
+    using System;
+    using System.Collections.Generic;
+    using MFEProcessor;
     #endregion
 
     public partial class ProfinderControllerViewModel : BaseViewModel, IProfinderControllerViewModel
@@ -27,8 +29,20 @@
             set
             {
                 filePath = value;
-                //parseFile();
+                runMFE();
             }
+        }
+
+        private void runMFE()
+        {
+
+            List<string> sampleFiles = new List<string>();
+
+            MFEProcessor.MFE mfe = new MFEProcessor.MFE(sampleFiles);
+            List<DataTypes.ICompoundGroup> compoundGroups = mfe.Execute();
+
+            EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(compoundGroups);
+            
         }
 
 

@@ -47,8 +47,10 @@ namespace MFEProcessor
         /// 
         /// 
         /// </summary>
-        public void Execute()
+        public List<DataTypes.ICompoundGroup> Execute()
         {
+            List<DataTypes.ICompoundGroup> compoundGroups = new List<DataTypes.ICompoundGroup>();
+
             try
             {
                 qualAppLogic.AppExecutionMode = AppExecutionMode.WorkListAutomation;
@@ -93,10 +95,9 @@ namespace MFEProcessor
                 CmdFilterCompoundGroupsMFEPost cgpMfePost = new CmdFilterCompoundGroupsMFEPost(qualAppLogic, m_analysisFiles);
                 ExecuteCommand(qualAppLogic, cgpMfePost);
                 IEnumerable<Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup> cpdGroups = qualAppLogic.DataStore.CompoundGroups;
-                List<DataTypes.CompoundGroup> compoundGroups = new List<DataTypes.CompoundGroup>();
                 foreach (Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup cpdGroup in cpdGroups)
                 {
-                    DataTypes.CompoundGroup compoundGroup = getICompoundGroup(cpdGroup, m_analysisFiles) as DataTypes.CompoundGroup;
+                    DataTypes.ICompoundGroup compoundGroup = getICompoundGroup(cpdGroup, m_analysisFiles) as DataTypes.CompoundGroup;
                     compoundGroups.Add(compoundGroup);
                 }
                 Console.WriteLine(compoundGroups.Count);
@@ -106,10 +107,11 @@ namespace MFEProcessor
             {
                 throw e;
             }
+            return compoundGroups;
 
         }
 
-        private static DataTypes.CompoundGroup getICompoundGroup(Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup cpdGroup, List<string> analysisFiles)
+        private static DataTypes.ICompoundGroup getICompoundGroup(Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup cpdGroup, List<string> analysisFiles)
         {
             DataTypes.CompoundGroup compoundGroup = new DataTypes.CompoundGroup();
             if (cpdGroup == null)
