@@ -259,12 +259,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="Schema\ACAML.21.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DataTypes\DataTypes.csproj">
       <Project>{d35697ef-6866-4cb1-9754-4349798d00be}</Project>
       <Name>DataTypes</Name>
@@ -273,6 +267,12 @@
       <Project>{22043320-4570-42b0-9d52-937437119db1}</Project>
       <Name>Events</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Schema\ACAML.21.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

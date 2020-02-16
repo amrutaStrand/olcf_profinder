@@ -209,9 +209,6 @@
     <Resource Include="Images\TestImage.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DataTypes\DataTypes.csproj">
       <Project>{d35697ef-6866-4cb1-9754-4349798d00be}</Project>
       <Name>DataTypes</Name>
@@ -224,6 +221,9 @@
       <Project>{24f0a795-222e-44ea-86e2-4c5c2390447e}</Project>
       <Name>MFEProcessor</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
