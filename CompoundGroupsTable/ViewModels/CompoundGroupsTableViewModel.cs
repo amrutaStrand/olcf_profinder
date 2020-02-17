@@ -88,20 +88,15 @@
 
         private void fireSelectionChanged(BindingList<ICompoundGroup> selectedCompounds)
         {
-            List<ICompoundGroup> selected = new List<ICompoundGroup>();
-
             IEnumerator<ICompoundGroup> enumerator = selectedCompounds.GetEnumerator();
-
-            while (enumerator.MoveNext())
-            {
-                selected.Add(enumerator.Current);
+            ICompoundGroup obj = null;
+            while (enumerator.MoveNext()) {
+                ICompoundGroup temp = enumerator.Current;
+                if (obj == null)
+                    obj = temp;
             }
-
-            this.EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(selected);
+            EventAggregator.GetEvent<CompoundSelectionChanged>().Publish(obj);
         }
-
-
-
         #endregion
     }
 }

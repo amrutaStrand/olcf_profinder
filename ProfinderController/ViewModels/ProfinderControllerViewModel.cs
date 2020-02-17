@@ -39,9 +39,10 @@
             List<string> sampleFiles = new List<string>();
 
             sampleFiles.Add(filePath);
-            MFEProcessor.MFE mfe = new MFEProcessor.MFE(sampleFiles);
-            List<DataTypes.ICompoundGroup> compoundGroups = mfe.Execute();
-
+            //MFEProcessor.MFE mfe = new MFEProcessor.MFE(sampleFiles);
+            //List<DataTypes.ICompoundGroup> compoundGroups = mfe.Execute();
+            ProfinderDummyDataGenerator generator = new ProfinderDummyDataGenerator();
+            List<DataTypes.ICompoundGroup> compoundGroups = generator.GenerateDemoData(5, 10);
             EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(compoundGroups);
             
         }
