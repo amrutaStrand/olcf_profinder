@@ -84,7 +84,6 @@
             int colorArraySize = colorArray.Length;
             while (ce.MoveNext())
             {
-
                 Color color = colorArray[colorCounter];
                 colorCounter = (colorCounter + 1) % colorArraySize;
                 MsSpectrumGraphObject mso = GetMsSpectrumGraphObject(ce.Current, color);

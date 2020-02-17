@@ -398,6 +398,5 @@ namespace MFEProcessor
                 //    + " : " + progress.StageMessage); 
             }
         }
-
     }
 }
