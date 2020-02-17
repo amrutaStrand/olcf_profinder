@@ -211,6 +211,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ChromatogramDataProvider.cs" />
     <Compile Include="ViewModels\CompoundChromatogramViewModel.Commands.cs" />
     <Compile Include="ViewModels\CompoundChromatogramViewModel.Events.cs" />
     <Compile Include="CompoundChromatogramModule.cs" />

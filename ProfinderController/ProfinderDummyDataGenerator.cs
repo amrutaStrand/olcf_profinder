@@ -48,7 +48,7 @@ namespace Agilent.OpenLab.ProfinderController
                 IPeak peak = new Peak();
                 peak.X = random.NextDouble() * 100;
                 peak.Y = random.NextDouble() * 400;
-                peak.Name = sampleName;
+                peak.Name = "M+H";
                 peaks.Add(peak);
             }
             spectrum.Peaks = peaks;
