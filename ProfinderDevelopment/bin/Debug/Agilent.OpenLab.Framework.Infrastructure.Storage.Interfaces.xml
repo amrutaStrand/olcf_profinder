@@ -1,0 +1,2820 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange">
+            <summary>
+            Class to represent a date based search range
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.FixedDateRange">
+            <summary>
+            Fixed data ranges
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.FixedDateRange.Undefined">
+            <summary>
+            The undefined date range
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.FixedDateRange.Today">
+            <summary>
+            data range: today
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.FixedDateRange.Yesterday">
+            <summary>
+            data range: yesterday
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.FixedDateRange.ThisWeek">
+            <summary>
+            data range: this week
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.FixedDateRange.LastWeek">
+            <summary>
+            data range: last week
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.FixedDateRange.ThisMonth">
+            <summary>
+            date range: this month
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.FixedDateRange.LastMonth">
+            <summary>
+            date range: last month
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.FixedDateRange.ThisYear">
+            <summary>
+            date range: this year
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.FixedDateRange.LastYear">
+            <summary>
+            date range: last year
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.DateRelation">
+            <summary>
+            Relation to the specified search date.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.DateRelation.Undefined">
+            <summary>
+            The undefined relation
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.DateRelation.Before">
+            <summary>
+            Before the specified date
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.DateRelation.After">
+            <summary>
+            After the specified date
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.#ctor(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.FixedDateRange)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange"/> class.
+            </summary>
+            <param name="dateRange">The date range.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.#ctor(System.DateTime,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.DateRelation)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange"/> class.
+            </summary>
+            <param name="date">The date.</param>
+            <param name="relation">The relation.</param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.Relation">
+            <summary>
+            Gets the relation.
+            </summary>
+            <value>
+            The relation.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.Date">
+            <summary>
+            Gets the date1.
+            </summary>
+            <value>
+            The date1.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange.DateRange">
+            <summary>
+            Gets the date range.
+            </summary>
+            <value>
+            The date range.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileVersionException">
+            <summary>
+            The file version exception.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileVersionException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileVersionException"/> class.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileVersionException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileVersionException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileVersionException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileVersionException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <param name="innerException">
+            The inner exception.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileVersionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileVersionException"/> class.
+            </summary>
+            <param name="info">
+            The info.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileVersionException.CurrentVersion">
+            <summary>
+            Gets or sets CurrentVersion.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileVersionException.FileVersion">
+            <summary>
+            Gets or sets FileVersion.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileVersionException.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            The get object data.
+            </summary>
+            <param name="info">
+            The info.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileVersionException.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            The get object data.
+            </summary>
+            <param name="info">
+            The info.
+            </param>
+            <param name="context">
+            The context.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            </exception>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileAttributes">
+            <summary>
+              Enumerates file attributes.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileAttributes.None">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileAttributes.ReadOnly">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileAttributes.Hidden">
+            <summary>
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileAttributes.System">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderAttributes">
+            <summary>
+              Enumerates generic folder attributes.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderAttributes.None">
+            <summary>
+              No attribute associated with the given folder.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderAttributes.Root">
+            <summary>
+              Indicates that folder is a root folder of file system that storage is based on.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderAttributes.CanContainFiles">
+            <summary>
+            Indicates whether the folder can hold files
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderAttributes.CreateFolderSupported">
+            <summary>
+            Indicates whether folders can be created in the given folder
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderAttributes.CanBeProjectFolder">
+            <summary>
+            Indicates whether the folder can be a project folder
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderAttributes.CanBeStorageFolder">
+            <summary>
+            Indicates whether the folder can be a storage folder
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderAttributes.ReadOnly">
+            <summary>
+            Indicates that the folder is read-only
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderAttributes.Archived">
+            <summary>
+            Indicates that the folder is archived
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IFileVersionInfo">
+            <summary>
+            IFileVersionInfo facade
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IFileVersionInfo.CheckinComment">
+            <summary>
+            Gets the checkin comment.
+            </summary>
+            <value>The checkin comment.</value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IFileVersionInfo.Created">
+            <summary>
+            Gets the created.
+            </summary>
+            <value>The created.</value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IFileVersionInfo.CreatedBy">
+            <summary>
+            Gets the created by.
+            </summary>
+            <value>The created by.</value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IFileVersionInfo.IsCurrentVersion">
+            <summary>
+            Gets a value indicating whether this instance is current version.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is current version; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IFileVersionInfo.VersionLabel">
+            <summary>
+            Gets the application version label.
+            </summary>
+            <value>The application version label.</value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IFileVersionInfo.FileVersion">
+            <summary>
+            Gets the file version.
+            </summary>
+            <value>The file version.</value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IFileVersionInfo.AbsolutePath">
+            <summary>
+            Gets the absolute path.
+            </summary>
+            <value>The absolute path.</value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFileInfo">
+            <summary>
+            Generic File Info interface
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFileInfo.Attributes">
+            <summary>
+              Gets the file attributes.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFileInfo.CreationTime">
+            <summary>
+              Gets the file  creation time.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFileInfo.LastModifiedTime">
+            <summary>
+              Gets the last write time.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFileInfo.Length">
+            <summary>
+              Gets the length of the file.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFileInfo.Name">
+            <summary>
+              Gets the name.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFileInfo.Path">
+            <summary>
+              Gets the file path.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFileInfo.IsAttributeSet(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileAttributes)">
+            <summary>
+              Determines whether file attributes are set.
+            </summary>
+            <param name = "attributes">file attributes.</param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFolderInfo">
+            <summary>
+            Generic folder Info interface
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFolderInfo.Attributes">
+            <summary>
+              Gets the attributes.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFolderInfo.CreationTime">
+            <summary>
+              Gets the creation time.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFolderInfo.LastModifiedTime">
+            <summary>
+              Gets the last write time.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFolderInfo.Name">
+            <summary>
+              Gets the name.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFolderInfo.Path">
+            <summary>
+              Gets the folder path.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFolderInfo.IsAttributeSet(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderAttributes)">
+            <summary>
+              Determines whether folder attributes are set.
+            </summary>
+            <param name = "attributes">Folder attributes.</param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper">
+            <summary>
+              Defines a path helper.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.Combine(System.String[])">
+            <summary>
+            Combines specified elements to a path. The elements must not contain any path separators.
+            </summary>
+            <param name="elements">Path elements.</param>
+            <returns>An absolute non-versioned path constructed from the elements.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.GetFileExtension(System.String)">
+            <summary>
+              Gets file extension of specified path.
+            </summary>
+            <param name = "filePath">File path.</param>
+            <returns>File extension.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.GetFileName(System.String)">
+            <summary>
+              Gets file name of specified path.
+            </summary>
+            <param name = "filePath">File path.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.GetFileNameWithoutExtension(System.String)">
+            <summary>
+              Gets file name of specified path without its extension.
+            </summary>
+            <param name = "filePath">File path.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.GetInvalidFileNameChars">
+            <summary>
+              Gets an array of characters that are invalid for file names.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.GetParentFolderName(System.String)">
+            <summary>
+            Gets name of parent folder.
+            </summary>
+            <param name="path">Path.</param>
+            <returns>The name of the parent folder of the element pointed to by path.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.GetParentFolderPath(System.String)">
+            <summary>
+            Gets path of parent folder.
+            </summary>
+            <param name="path">Path.</param>
+            <returns>The absolute path to the parent folder of the element pointed to by path.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.GetPathComparer">
+            <summary>
+              Gets path comparer.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.IsPathValid(System.String)">
+            <summary>
+              Determines whether specified path is valid.
+            </summary>
+            <param name = "path">Path to check.</param>
+            <returns><see langword = "true" /> if path is valid; otherwise <see langword = "false" />.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.IsSubpathOf(System.String,System.String)">
+            <summary>
+              Determines whether specified subpath is real subpath of given path.
+            </summary>
+            <param name = "path">Path (absolute path).</param>
+            <param name = "subpath">Subpath to check (absolute path).</param>
+            <returns><c>True</c> if <paramref name = "subpath" /> is subpath of <paramref name = "path" />; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.IsPathRooted(System.String)">
+            <summary>
+              Determines whether specified path is absolute or relative.
+            </summary>
+            <param name = "path">Path.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.Split(System.String)">
+            <summary>
+              Splits specified path into its elements.
+            </summary>
+            <param name = "path">Path (relative or absolute).</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.GetInvalidPathChars">
+            <summary>
+              Gets an array of characters that are invalid for path names.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.GetRelativePath(System.String,System.String)">
+            <summary>
+              Convert specified absolute path to a path relative to given relative-To path.
+            </summary>
+            <param name="absolutePath"> Absolute path to convert. </param>
+            <param name="relativeTo"> Path used as relative source. </param>
+            <returns> Relative path if specified paths have common root, ortherwise <c>null</c> . </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.GetDirectoryName(System.String)">
+            <summary>
+              Gets directory part of specified path.
+            </summary>
+            <param name="path"> Path (absolute path). </param>
+            <returns> Directory name. </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.GetPathWithoutFileName(System.String)">
+            <summary>
+              Gets directory name of specified path.
+            </summary>
+            <param name="path"> Path (asbolute path). </param>
+            <returns> Directory name. </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.NormalizePath(System.String)">
+            <summary>
+            Normalizes the path with respect to path separators.
+            </summary>
+            <param name="path">The path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.NormalizeAbsolutePath(System.String)">
+            <summary>
+            Normalizes a path that the caller guarantees to
+            be a valid absolute path.
+            Normalization means: change path separators to standard, prepend drive letters
+            (if path without drive letter is considered absolute), resolves navigation elements.
+            </summary>
+            <param name="path">
+            The absolute path.
+            </param>
+            <returns>
+            The normalized path as <see cref="T:System.String"/>.
+            </returns>
+            <exception cref="T:System.ArgumentException">When the path is not a valid path.</exception>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.MaxPathElementLength">
+            <summary>
+            Gets the maximum length of the path element.
+            </summary>
+            <value>
+            The maximum length of the path element.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper.MaxPathLength">
+            <summary>
+            Gets the maximum length of the path.
+            </summary>
+            <value>
+            The maximum length of the path.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchable">
+            <summary>
+            Search interface for storage
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchable.Search(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchParameters)">
+            <summary>
+            Searches the storage using the specified search parameters.
+            </summary>
+            <param name="searchParameters">The search parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchable.SearchAsync(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchParameters,System.Threading.CancellationToken)">
+            <summary>
+            Searches the storage using the specified search parameters.
+            Asynchronous flavor.
+            </summary>
+            <param name="searchParameters">The search parameters.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchParameters">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchParameters.ResultsPerPage">
+            <summary>
+            Gets the results per page. Min is 1 - Max is 50.
+            </summary>
+            <value>
+            The results per page.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchParameters.SearchQuery">
+            <summary>
+            Gets the search query.
+            </summary>
+            <value>
+            The search query.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchParameters.ResultAttributes">
+            <summary>
+            Gets the result attributes.
+            </summary>
+            <value>
+            The result attributes.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchParameters.SortAttribute">
+            <summary>
+            Gets the sort attribute.
+            </summary>
+            <value>
+            The sort attribute.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchParameters.SortDirection">
+            <summary>
+            Gets the sort direction.
+            </summary>
+            <value>
+            The sort direction.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchParameters.StartPage">
+            <summary>
+            Gets the start page. Min is 1.
+            </summary>
+            <value>
+            The start page.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchQuery">
+            <summary>
+            A query to be executed on the storage system
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchQuery.SearchConditions">
+            <summary>
+            Gets the search conditions. Conditions are combined through logical AND.
+            </summary>
+            <value>
+            The search conditions.
+            </value>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchQuery.AddSearchCondition(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchCondition)">
+            <summary>
+            Adds the search condition.
+            </summary>
+            <param name="searchCondition">The search condition.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchQuery.AddSearchConditions(System.Collections.Generic.IEnumerable{Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchCondition})">
+            <summary>
+            Adds the search conditions.
+            </summary>
+            <param name="newSearchConditions">The search conditions.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchCondition">
+            <summary>
+            Interface for search conditions
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.PathCondition">
+            <summary>
+            Condition to constrain data to a particular project.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.PathCondition.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.PathCondition"/> class.
+            </summary>
+            <param name="path">Name of the project.</param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.PathCondition.Path">
+            <summary>
+            Gets or sets the path.
+            </summary>
+            <value>
+            The path.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.AcquisitionOperatorCondition">
+            <summary>
+            Condition to constrain data to a user that acquired it.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.AcquisitionOperatorCondition.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.AcquisitionOperatorCondition" /> class.
+            </summary>
+            <param name="userName">Name of the user.</param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.AcquisitionOperatorCondition.UserName">
+            <summary>
+            Gets or sets the user name.
+            </summary>
+            <value>
+            The path.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileNameCondition">
+            <summary>
+            Condition to constrain result files to a particular name pattern.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileNameCondition.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileNameCondition"/> class.
+            </summary>
+            <param name="fileNamePattern">The file name pattern.</param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.FileNameCondition.FileNamePattern">
+            <summary>
+            Gets the file name pattern.
+            </summary>
+            <value>
+            The file name pattern.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.AcquiredDateCondition">
+            <summary>
+            Condition to constrain result files to a particular acquired date.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.AcquiredDateCondition.#ctor(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.AcquiredDateCondition"/> class.
+            </summary>
+            <param name="dateCondition">The date condition.</param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.AcquiredDateCondition.AcquiredDateSearchRange">
+            <summary>
+            Gets the acquired date search range.
+            </summary>
+            <value>
+            The acquired date search range.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.LastProcessedDateCondition">
+            <summary>
+            Condition to constrain result files to a particular acquired date.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.LastProcessedDateCondition.#ctor(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.DateSearchRange)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.LastProcessedDateCondition" /> class.
+            </summary>
+            <param name="dateSearchRange">The date search range.</param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.LastProcessedDateCondition.LastProcessedDateSearchRange">
+            <summary>
+            Gets the last processed date search range.
+            </summary>
+            <value>
+            The last processed date search range.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VerbatimCondition">
+            <summary>
+            Condition to constrain results by using a literal query string.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VerbatimCondition.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VerbatimCondition"/> class.
+            </summary>
+            <param name="queryText">The query text.</param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VerbatimCondition.QueryText">
+            <summary>
+            Gets the query text.
+            </summary>
+            <value>
+            The query text.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchResult">
+            <summary>
+            Access to the properties of a search result.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchResult.Path">
+            <summary>
+            Gets the full path of the file.
+            </summary>
+            <value>
+            The path.
+            </value>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchResult.GetResultsValue``1(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttribute{``0})">
+            <summary>
+            Gets the result value for a particular attribute.
+            </summary>
+            <typeparam name="T">The value type</typeparam>
+            <param name="searchAttribute">The search attribute.</param>
+            <returns>Value of type T or default(T) in case property doesn't exist.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchResult.GetResultsValueAsString(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttribute)">
+            <summary>
+            Gets the result value as string.
+            </summary>
+            <param name="searchAttribute">The search attribute.</param>
+            <returns>Value as string or empty string if property doesn't exist.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchResult.HasResultsValue(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttribute)">
+            <summary>
+            Determines whether the result has a result value for the specified search attribute.
+            </summary>
+            <param name="searchAttribute">The search attribute.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchResults">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchResults.HasMoreResults">
+            <summary>
+            Gets a value indicating whether this instance has more results.
+            </summary>
+            <value>
+            <c>true</c> if this instance has more results; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchResults.Results">
+            <summary>
+            Gets the results.
+            </summary>
+            <value>
+            The results.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser">
+            <summary>
+              Defines a storage browser.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.RootFolderNames">
+            <summary>
+            Gets the root folder names.
+            </summary>
+            <value>The root folder names.</value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.StorageRootFolder">
+            <summary>
+            Gets the single global root folder of the underlying storage for storage implementations where this is defined.
+            Returns null otherwise.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetCurrentDirectory">
+            <summary>
+              Gets the current directory.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFileInfo(System.String)">
+            <summary>
+              Gets the file info.
+            </summary>
+            <param name = "filePath">The file path.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFileInfoAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets the file information asynchronous.
+            </summary>
+            <param name="filePath">The file path.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            File information structure.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFileInfos(System.String)">
+            <summary>
+            Gets file infos of files in specified folder.
+            </summary>
+            <param name="folderPath">
+            The folder path.
+            </param>
+            <returns>
+            Array of file information structures for files in folderPath.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFileInfos(System.String,System.String)">
+            <summary>
+            Gets file infos of files in specified folder.
+            </summary>
+            <param name="folderPath">
+            The folder path.
+            </param>
+            <param name="searchPattern">
+            The search Pattern.
+            </param>
+            <returns>
+            Array of file information structures for files in folderPath and matching the optional searchPattern.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFileOrFolderUrl(System.String)">
+            <summary>
+            Returns the URL for the given file or folder path.
+            </summary>
+            <param name="fileOrFolderPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFilePathNames(System.String,System.String)">
+            <summary>
+              Gets names of files in specified folder.
+            </summary>
+            <param name = "folderPath">Folder path.</param>
+            <param name = "searchPattern">OPTIONAL: Search pattern.</param>
+            <returns>Array of file path names.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFilePathNamesAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+              Gets names of files in specified folder async.
+            </summary>
+            <param name = "folderPath">Folder path.</param>
+            <param name = "searchPattern">OPTIONAL: Search pattern.</param>
+            <param name="cancellationToken"></param>
+            <returns>Array of file path names.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFolderInfo(System.String)">
+            <summary>
+              Gets the folder info.
+            </summary>
+            <param name = "folderPath">The folder path.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFolderInfos(System.String)">
+            <summary>
+              Gets folder infos of subfolders.
+            </summary>
+            <param name = "folderPath">The folder path.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFolderPathNames(System.String,System.String)">
+            <summary>
+              Gets subfolders.
+            </summary>
+            <param name = "folderPath">Folder path.</param>
+            <param name = "searchPattern">OPTIONAL: search pattern</param>
+            <returns>Array of folder path names.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFolderPathNamesAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets the folder path names contained in given folder, according to given search pattern
+            </summary>
+            <param name="folderPath"></param>
+            <param name="searchPattern"></param>
+            <param name="cancellationToken"></param>
+            <returns>Array of folder path names.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetParentFolder(System.String)">
+            <summary>
+              Gets the parent folder.
+            </summary>
+            <param name = "fileOrFolderPath">The file or folder path.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetRootFolder(System.String)">
+            <summary>
+            Gets the root folder.
+            </summary>
+            <param name="path">The path for which rootfolder should be returned.</param>
+            <returns>
+            Root folder information ( <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IGenericFolderInfo"/> ).
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFileVersions(System.String)">
+            <summary>
+            Gets the file versions.
+            </summary>
+            <param name="filePath">The file path.</param>
+            <returns>
+            Array with file version information. For Excalibur only VersionLabel has to be considered.
+            FileVersion is only internal.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFileVersionsAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets the file version.
+            </summary>
+            <param name="filePath"></param>
+            <param name="cancellationToken"></param>
+            <returns>
+            Array with file version information. For Excalibur only VersionLabel has to be considered.
+            FileVersion is only internal.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFileVersionLabels(System.String)">
+            <summary>
+            Gets the file version labels.
+            </summary>
+            <param name="filePath">The file path.</param>
+            <returns>
+            Array with file version labels. 
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFileVersionLabelsAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets the file version labels.
+            </summary>
+            <param name="filePath"></param>
+            <param name="cancellationToken"></param>
+            <returns>
+            Array with file version labels. 
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetLastestFileVersion(System.String)">
+            <summary>
+            Gets the lastest file version.
+            </summary>
+            <param name="filePath">The file path.</param>
+            <returns>
+            Null if no version is defined for this file or storage provider does not support versions.
+            Otherwise latest version for this file.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFileMetaData(System.String)">
+            <summary>
+            Gets the file meta data.
+            </summary>
+            <param name="filePath">The file path.</param>
+            <returns>
+            Null if metadata does not exist or storage provider does not support metadata retrieval.
+            Otherwise returns string with metadata.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageBrowser.GetFileMetaData(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Gets the file meta data.
+            </summary>
+            <param name="filePath">The file path.</param>
+            <param name="version">The version.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageCapabilities">
+            <summary>
+            Provide information about the capabilities of the storage provider
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageCapabilities.SupportsVersions">
+            <summary>
+            Gets a value indicating whether the storage provider supports versions.
+            </summary>
+            <value>
+              <c>true</c> if [supports versions]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageCapabilities.SupportsSearch">
+            <summary>
+            Gets a value indicating whether the storage provider supports search.
+            </summary>
+            <value>
+              <c>true</c> if [supports search]; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageCapabilities.SupportsTransparentZips">
+            <summary>
+            Gets a value indicating whether the storage provider supports transparent zips.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageCapabilities.IsLCDFStorage">
+            <summary>
+            Gets a value indicating whether the storage has a fixed LCDF folder hierarchy.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess">
+            <summary>
+            Abstract reading and saving of files. So clients to not need to
+            know whether they are saving or loading from work area or repository.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess.OpenFile(System.String)">
+            <summary>
+            Opens a file for reading from the underlying storage (repository/work area or work area only)
+            </summary>
+            <param name="path">The path (absolute path only).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess.OpenFile(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Opens a file for reading from the underlying storage (repository/work area or work area only)
+            </summary>
+            <param name="path">The path (absolute path only).</param>
+            <param name="versionInfo">The version information.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess.OpenFileAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Opens a file for reading from the underlying storage (repository/work area or work area only) asynchronous.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess.OpenFileAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.Threading.CancellationToken)">
+            <summary>
+            Opens a file for reading from the underlying storage (repository/work area or work area only) asynchronous.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="versionInfo">The version information.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess.SaveFile(System.String,System.IO.Stream)">
+            <summary>
+            Saves a file to the underlying storage (work area/repository or work area only)
+            </summary>
+            <param name="path">The path where to save the data (absolute path).</param>
+            <param name="data">The data (as stream).</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess.SaveFile(System.String,System.IO.Stream,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Saves a file to the underlying storage (work area/repository or work area only)
+            </summary>
+            <param name="path">The path where to save the data (absolute path).</param>
+            <param name="data">The data (as stream).</param>
+            <param name="versionInfo">The version information.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess.DeleteFile(System.String)">
+            <summary>
+            Deletes a file in the underlying storage (work area/repository) - and only there
+            i.e. delete in repository does not delete the corresponding file in work area.
+            </summary>
+            <param name="path">The path to the file to be deleted.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess.IsFile(System.String)">
+            <summary>
+              Determines whether the specified path is file.
+            </summary>
+            <param name = "path">Path to check.</param>
+            <returns><see langword = "true" /> if the specified path is file; otherwise, <see langword = "false" />.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess.IsFileAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Determines whether the specified path is file in an asynchronous, cancellable manner.
+            </summary>
+            <param name = "path">Path to check.</param>
+            <param name="cancellationToken">Cancellation token for aborting this method</param>
+            <returns><see langword = "true" /> if the specified path is file; otherwise, <see langword = "false" />.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess.IsFolder(System.String)">
+            <summary>
+              Determines whether the specified path is folder.
+            </summary>
+            <param name = "path">Path to check.</param>
+            <returns><see langword = "true" /> if the specified path is folder; otherwise, <see langword = "false" />.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess.IsFolderAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Determines whether the specified path is folder in an asynchronous, cancellable manner.
+            </summary>
+            <param name = "path">Path to check.</param>
+            <param name="cancellationToken">Cancellation token for aborting this method</param>
+            <returns><see langword = "true" /> if the specified path is folder; otherwise, <see langword = "false" />.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess.Exists(System.String)">
+            <summary>
+              Determines whether the path exists.
+            </summary>
+            <param name = "path">Path to check.</param>
+            <returns><see langword = "true" /> if the specified path exists; otherwise, <see langword = "false" />.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileAccess.ExistsAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+              Determines whether the path exists in an asynchronous, cancellable manner.
+            </summary>
+            <param name = "path">Path to check.</param>
+            <param name="cancellationToken">Cancellation token for aborting this method</param>
+            <returns><see langword = "true" /> if the specified path exists; otherwise, <see langword = "false" />.</returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess">
+            <summary>
+            Interface for file set access.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess.CreateFileSet(System.String)">
+            <summary>
+            Creates an empty fileset and persists it in work area.
+            </summary>
+            <param name="fileSetPath">The file set path.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess.AddFileAsync(System.String,System.String)">
+            <summary>
+            Adds a file to the given fileset asynchronously.
+            </summary>
+            <param name="fileSetPath">The file set path.</param>
+            <param name="fileNameOrPath">The file name or path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess.AddFileAsync(System.String,System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Adds a file to the given fileset asynchronously and sets a version.
+            </summary>
+            <param name="fileSetPath">The file set path.</param>
+            <param name="fileNameOrPath">The file name or path.</param>
+            <param name="version">The version.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess.RemoveFileAsync(System.String,System.String)">
+            <summary>
+            Removes a file from the given filset asynchronous.
+            </summary>
+            <param name="fileSetPath">The file set path.</param>
+            <param name="fileNameOrPath">The file nameor path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess.SetVersionAsync(System.String,System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Sets the version of a file in the fileset asynchronous.
+            </summary>
+            <param name="fileSetPath">The file set path.</param>
+            <param name="fileNameOrPath">The file name or path.</param>
+            <param name="version">The version.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess.SetVersionAsync(System.String,System.Collections.Generic.IEnumerable{System.String},Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Sets the version of a file in the fileset asynchronous.
+            </summary>
+            <param name="fileSetPath">The file set path.</param>
+            <param name="fileNamesOrPaths">The file names or paths.</param>
+            <param name="version">The version.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess.SetVersionAsync(System.String,System.Collections.Generic.IReadOnlyDictionary{System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo})">
+            <summary>
+            Sets the version of a file in the fileset asynchronous.
+            </summary>
+            <param name="fileSetPath">The file set path.</param>
+            <param name="versionMap">The version map.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess.GetFileVersion(System.String,System.String)">
+            <summary>
+            Gets the file version for a given file as specified in the fileset.
+            </summary>
+            <param name="fileSetPath">The file set path.</param>
+            <param name="fileNameOrPath">The file name or path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess.GetFileVersions(System.String)">
+            <summary>
+            Gets the version information of all files in the fileset. Files are returned
+            as absolute paths.
+            </summary>
+            <param name="fileSetPath">The file set path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess.UploadFileSetAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.Threading.CancellationToken)">
+            <summary>
+            Uploads the file set asynchronous.
+            </summary>
+            <param name="fileSetPath">The file set path.</param>
+            <param name="version">The version.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess.UploadFileSetAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Uploads the file set asynchronous.
+            </summary>
+            <param name="fileSetPath">The file set path.</param>
+            <param name="version">The version.</param>
+            <param name="customComment">Comment that should be applied to the uploaded fileset.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess.DownloadFileSetAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.Threading.CancellationToken)">
+            <summary>
+            Downloads all files defined in a fileset - asynchronous operation.
+            </summary>
+            <param name="fileSetPath">Path to the fileset</param>
+            <param name="version">The version to download</param>
+            <param name="cancellationToken">The cancellation token</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess.BufferedUploadFileSetAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Uploads a file set using buffered upload.
+            </summary>
+            <param name="fileSetPath">The file set path.</param>
+            <param name="version">The version.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageFileSetAccess.BufferedUploadFileSetAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.String)">
+            <summary>
+            Uploads a file set using buffered upload.
+            </summary>
+            <param name="fileSetPath">The file set path.</param>
+            <param name="version">The version.</param>
+            <param name="customComment">Comment that should be applied to the uploaded fileset.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider">
+            <summary>
+              Defines a storage provider
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider.Id">
+            <summary>
+              Gets the storage id.
+            </summary>
+            <value> The id. </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider.DefaultWorkArea">
+            <summary>
+            Gets the default work area. This always exists.
+            </summary>
+            <value>
+            The default work area.
+            </value>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider.CloseWorkArea(System.String)">
+            <summary>
+            Closes the work area. All persisted information about this work area is removed.
+            </summary>
+            <param name="workAreaName">Name of the work area.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider.GetWorkArea(System.String)">
+            <summary>
+            Gets a work area by name. Returns either an existing in memory instance,
+            a persisted instance or a new one. Can be used to retrieve local or
+            remote work areas. Distinction is done by naming convention.
+            </summary>
+            <param name="workAreaName">Name of the work area. If the name contains an @@ sequence this
+            describes a remote work area. The syntax is then workareaName@@hostName. If this pattern
+            is not contained the name identifies a local work area.
+            </param>
+            <returns>Returns an access interface to the work area.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider.GetWorkArea(System.String,System.String)">
+            <summary>
+            Gets a remote work area by name. Returns either an existing in memory instance,
+            a persisted instance or a new one.
+            </summary>
+            <param name="hostname">The hostname for the remote work area.</param>
+            <param name="workAreaName">Name of the work area.</param>
+            <returns>
+            Returns an access interface to the work area.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider.IsStorageAvailableAsync(System.Threading.CancellationToken)">
+            <summary>
+            Determines whether storage is available (async).
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>
+            Tuple with connection status and server description when connection fail
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageProvider.IsStorageAvailable(System.Int32)">
+            <summary>
+            Determines whether storage is available within the given timeout.
+            </summary>
+            <param name="timeoutInSeconds">The timeout in seconds.</param>
+            <returns>
+            Tuple with connection status and server description when connection fail
+            </returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageType">
+            <summary>
+              the storage type identifier
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageType.Unsupported">
+            <summary>
+              storage is not supported
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageType.Local">
+            <summary>
+              Local file system
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageType.DataStore">
+            <summary>
+              DataStore repository
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess">
+            <summary>
+            Storage provider methods that access repository storage
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess.CreateFolder(System.String)">
+            <summary>
+            Creates a folder in the repository.
+            </summary>
+            <param name="folderPath">The absolute path of the folder to create.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess.CreateFolder(System.String,System.String)">
+            <summary>
+            Creates a folder in the repository under a given parent path.
+            </summary>
+            <param name="parentFolderPath">The parent folder path.</param>
+            <param name="newFolderName">The name of the new folder.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess.CreateFolderAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Creates a folder in the repository.
+            </summary>
+            <param name="folderPath">The absolute path of the folder to create.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess.DeleteFolder(System.String)">
+            <summary>
+            Deletes a folder in repository. Nothing happens in any work area.
+            </summary>
+            <param name="folderPath">Full path to the folder to be deleted in repository.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess.SaveFileBuffered(System.String,System.IO.Stream)">
+            <summary>
+            Saves a file to the underlying storage (work area/repository or work area only)
+            </summary>
+            <param name="path">The path where to save the data (absolute path).</param>
+            <param name="data">The data (as stream).</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess.SaveFileBuffered(System.String,System.IO.Stream,System.String)">
+            <summary>
+            Saves a file to the underlying storage (work area/repository or work area only)
+            </summary>
+            <param name="path">The path where to save the data (absolute path).</param>
+            <param name="data">The data (as stream).</param>
+            <param name="workAreaName"></param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess.SaveFileBuffered(System.String,System.IO.Stream,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Saves a file to the underlying storage (work area/repository or work area only)
+            </summary>
+            <param name="path">The path where to save the data (absolute path).</param>
+            <param name="data">The data (as stream).</param>
+            <param name="versionInfo">The version information.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess.SaveFileBuffered(System.String,System.IO.Stream,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.String)">
+            <summary>
+            Saves a file to the underlying storage (work area/repository or work area only)
+            </summary>
+            <param name="path">The path where to save the data (absolute path).</param>
+            <param name="data">The data (as stream).</param>
+            <param name="versionInfo">The version information.</param>
+            <param name="workAreaName"></param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess.OpenFile(System.String,System.String)">
+            <summary>
+            Opens a file for reading from the underlying storage (repository/work area or work area only)
+            </summary>
+            <param name="path">The path (absolute path only).</param>
+            <param name="workAreaName">Name of the work area which is used for download.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess.OpenFile(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.String)">
+            <summary>
+            Opens a file for reading from the underlying storage (repository/work area or work area only)
+            </summary>
+            <param name="path">The path (absolute path only).</param>
+            <param name="versionInfo">The version information.</param>
+            <param name="workAreaName">Name of the work area which is used for download.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess.OpenFileAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Opens a file for reading from the underlying storage (repository/work area or work area only) asynchronous.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="workAreaName">Name of the work area which is used for download.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess.OpenFileAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Opens a file for reading from the underlying storage (repository/work area or work area only) asynchronous.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="versionInfo">The version information.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="workAreaName">Name of the work area which is used for download.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess.SaveFile(System.String,System.IO.Stream,System.String)">
+            <summary>
+            Saves a file to the underlying storage (work area/repository or work area only)
+            </summary>
+            <param name="path">The path where to save the data (absolute path).</param>
+            <param name="data">The data (as stream).</param>
+            <param name="workAreaName">Name of the work area which is used for upload.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryAccess.SaveFile(System.String,System.IO.Stream,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.String)">
+            <summary>
+            Saves a file to the underlying storage (work area/repository or work area only)
+            </summary>
+            <param name="path">The path where to save the data (absolute path).</param>
+            <param name="data">The data (as stream).</param>
+            <param name="versionInfo">The version information.</param>
+            <param name="workAreaName">Name of the work area which is used for upload.</param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryTransfer">
+            <summary>
+            Methods related to the transfer between repository and work area
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryTransfer.UploadFileAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Uploads the file from the default work area to repository storage.
+            Allows for optional cancellation. 
+            Creates an application version from the current DateTime value.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryTransfer.UploadFileAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Uploads the file from the default work area to repository storage.
+            Allows for optional cancellation. 
+            Creates an application version from the current DateTime value.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="customComment">Comment that should be applied to the uploaded file.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryTransfer.UploadFileAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.Threading.CancellationToken)">
+            <summary>
+            Uploads the file from the default work area to repository storage.
+            Allows for optional cancellation.
+            Pass an explicit application version.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="versionInfo">The version information.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryTransfer.UploadFileAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Uploads the file from the default work area to repository storage.
+            Allows for optional cancellation.
+            Pass an explicit application version.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="versionInfo">The version information.</param>
+            <param name="customComment">Comment that should be applied to the uploaded file.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryTransfer.UploadFileBufferedAsync(System.String)">
+            <summary>
+            Uploads the file from the default work area to repository storage.
+            Uses buffered upload.
+            Creates an application version from the current DateTime value.
+            </summary>
+            <param name="path">The path.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryTransfer.UploadFileBufferedAsync(System.String,System.String)">
+            <summary>
+            Uploads the file from the default work area to repository storage.
+            Uses buffered upload.
+            Creates an application version from the current DateTime value.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="customComment">Comment that should be applied to the uploaded file.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryTransfer.UploadFileBufferedAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Uploads the file from the default work area to repository storage.
+            Uses buffered upload.
+            Pass an explicit application version.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="versionInfo">The version information.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryTransfer.UploadFileBufferedAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.String)">
+            <summary>
+            Uploads the file from the default work area to repository storage.
+            Uses buffered upload.
+            Pass an explicit application version.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="versionInfo">The version information.</param>
+            <param name="customComment">Comment that should be applied to the uploaded file.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryTransfer.DownloadFileAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Downloads the file from repository storage to the the default work area.
+            Picks the latest version.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryTransfer.DownloadFileAsync(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo,System.Threading.CancellationToken)">
+            <summary>
+            Downloads the file from repository storage to the the default work area.
+            Allows for optional cancellation.
+            Picks the specified application version.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="versionInfo">The version information.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryTransfer.DownloadFile(System.String)">
+            <summary>
+            Downloads the file from repository storage to the the default work area.
+            Synchronous call.
+            Picks the latest version.
+            </summary>
+            <param name="path">The path.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryTransfer.DownloadFile(System.String,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo)">
+            <summary>
+            Downloads the file from repository storage to the the default work area.
+            Synchronous version.
+            Picks the specified application version.
+            </summary>
+            <param name="path">The path.</param>
+            <param name="versionInfo">The version information.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageRepositoryTransfer.RequiresUpload(System.String)">
+            <summary>
+            Test whether a file requires upload (i.e. has been created
+            or changed in workarea and is not yet uploaded).
+            </summary>
+            <param name="path">The file path.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess">
+            <summary>
+            Storage provider methods that access work area storage.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.Name">
+            <summary>
+            Gets the name of the work area. For remote work areas
+            this name contains the host.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.GetHashValue(System.String)">
+            <summary>
+            Get the hash string value of the given file
+            </summary>
+            <param name="filePath">The file path</param>
+            <returns>Hash value of the file</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.GetFiles(System.String)">
+            <summary>
+            Gets the files in a particular folder.
+            </summary>
+            <param name="folderPath">The folder path.</param>
+            <returns>Enumeration of file paths for files in the folder.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.GetFolders(System.String)">
+            <summary>
+            Gets the folders in a particular folder.
+            </summary>
+            <param name="folderPath">The folder path.</param>
+            <returns>Enumeration of folder paths for folders in the folder.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.CreateFile(System.String)">
+            <summary>
+            Creates a new file in work area and returns a stream to write to it.
+            </summary>
+            <param name="path">The path where to create the file (absolute path).</param>
+            <returns>A stream to write into.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.OpenWrite(System.String)">
+            <summary>
+            Opens a file in work area for writing
+            </summary>
+            <param name="path">The path (absolute path only).</param>
+            <returns>Stream opened for writing</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.CopyFile(System.String,System.String)">
+            <summary>
+            Copies a file in the work area.
+            </summary>
+            <param name="sourcePath">The path of the source file (absolute path).</param>
+            <param name="targetPath">The target path (absolute path).</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.MoveFile(System.String,System.String)">
+            <summary>
+            Moves a file in the work area.
+            </summary>
+            <param name="sourcePath">The path of the source file.</param>
+            <param name="targetPath">The new location of the file.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.ExportFile(System.String)">
+            <summary>
+            Exports the file from work area (source path) to a file system path (return value).
+            </summary>
+            <param name="sourcePath">The full path to the source file (work area).</param>
+            <returns>A file system path where the file has been copied to.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.ExportFile(System.String,System.String)">
+            <summary>
+            Exports the file from work area (source path) to a file system path (target path).
+            </summary>
+            <param name="sourcePath">The full path to the source file (work area).</param>
+            <param name="targetPath">The full path to the target file (file system).</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.ImportFile(System.String,System.String)">
+            <summary>
+            Imports the file from file system into work area.
+            </summary>
+            <param name="sourcePath">The full path to the source file (file system).</param>
+            <param name="targetPath">The full path to the target file (work area).</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.TryAddToCache(System.String)">
+            <summary>
+            Try to add a file to the cache.
+            </summary>
+            <param name="path"> The path to the file that we want to add to the cache.</param>
+            <returns> A <see cref="T:System.Boolean"/> value that indicates whether the file could be added to the cache. </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.ExtractZipToDirectory(System.String,System.String)">
+            <summary>
+            Extract a zip fil to the destination directory given.
+            </summary>
+            <param name="zipFilePath">Absolute path to the zip file in the work area.</param>
+            <param name="directoryPath">Path to a directory in the workarea where the extracted files should be stored.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.ExtractZipToDirectoryAsync(System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Extract a zip fil to the destination directory given.
+            </summary>
+            <param name="zipFilePath">Absolute path to the zip file in the work area.</param>
+            <param name="directoryPath">Path to a directory in the workarea where the extracted files should be stored.</param>
+            <param name="cancellationToken">The cancellation token.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IStorageWorkAreaAccess.ExtractZip(System.String)">
+            <summary>
+            Extract a zip file to the location of the zip file. The root folder is the name of the zip w/o zip extension.
+            </summary>
+            <param name="zipFilePath">Absolute path to the zip file in the work area.</param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ITransferProcess">
+            <summary>
+            ITransferProcess facade
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ITransferProcess.IsCanceled">
+            <summary>
+            Gets a value indicating whether this instance is canceled.
+            </summary>
+            <value>
+            	<c>true</c> if this instance is canceled; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ITransferProcess.PercentOfProgress">
+            <summary>
+            Gets the percent of progress.
+            </summary>
+            <value>The percent of progress.</value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ITransparentZipHandler">
+            <summary>
+            Methods for transparent zip handling
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ITransparentZipHandler.IsTransparentZip(System.String)">
+            <summary>
+            Determines whether a file is part of a transparent zip.
+            </summary>
+            <param name="storagePath">The path to the file as returned by file browsing methods.</param>
+            <returns>Truee, if the file is embedded in a transparent zip, false if it is an individual file.</returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IVersionedFileInfo">
+            <summary>
+            IVersionedFileInfo facade
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IVersionedFileInfo.CheckoutBy">
+            <summary>
+            Gets the checkout by.
+            </summary>
+            <value>The checkout by.</value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IVersionedFileInfo.StateAttributes">
+            <summary>
+            Gets the state attributes.
+            </summary>
+            <value>The state attributes.</value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IVersionedFileInfo.VersionLabel">
+            <summary>
+            Gets the version label.
+            </summary>
+            <value>The version label.</value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IVersionedFolderInfo">
+            <summary>
+            IVersionedFolderInfo facade
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IVersionedFolderInfo.CreatedBy">
+            <summary>
+            Gets the created by.
+            </summary>
+            <value>The created by.</value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IVersionedFolderInfo.LastModifiedBy">
+            <summary>
+            Gets the last modified by.
+            </summary>
+            <value>The last modified by.</value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IVersionStorageProvider">
+            <summary>
+            IVersionStorageProvider facade
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IVersionStorageProvider.GetFileHistory(System.String)">
+            <summary>
+            Gets the file history.
+            </summary>
+            <param name="filePath">The file path.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IVersionStorageProvider.GetFileHistory(System.String,System.String)">
+            <summary>
+            Gets the file history.
+            </summary>
+            <param name="filePath">The file path.</param>
+            <param name="versionLabel">The version label.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IVersionStorageProvider.GetVersionedFolderInfo(System.String)">
+            <summary>
+              Gets the folder info.
+            </summary>
+            <param name = "folderPath">The folder path.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IVersionStorageProvider.GetVersionedFolderInfos(System.String)">
+            <summary>
+              Gets folder infos of subfolders.
+            </summary>
+            <param name = "folderPath">The folder path.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IVersionStorageProvider.GetVersionedFileInfo(System.String)">
+            <summary>
+              Gets the file info.
+            </summary>
+            <param name = "filePath">The file path.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IVersionStorageProvider.GetVersionedFileInfos(System.String)">
+            <summary>
+              Gets file infos of files in specified folder.
+            </summary>
+            <param name = "folderPath">The folder path.</param>
+            <returns></returns>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.MethodContentType">
+            <summary>
+            The method content type.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.MethodContentType.Unknown">
+            <summary>
+            The unknown.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.UploadMode">
+            <summary>
+            Options how to upload after the save
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.UploadMode.None">
+            <summary>
+            No upload
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.UploadMode.Immediate">
+            <summary>
+            Upload immediately. Save call returns after upload is complete.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.UploadMode.Buffered">
+            <summary>
+            Upload buffered. Save call returns once upload is queued.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SaveOptions">
+            <summary>
+            Options for method saving
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SaveOptions.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SaveOptions"/> class.
+            Default values are immediate upload and a new version label using VersionInfo default constructor.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SaveOptions.Version">
+            <summary>
+            Gets or sets the version. If null is passed then 
+            the version is determined automatically.
+            </summary>
+            <value>
+            The version.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SaveOptions.Reason">
+            <summary>
+            Gets or sets the reason. Pass null or empty to
+            save without reason.
+            </summary>
+            <value>
+            The reason.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SaveOptions.WorkAreaName">
+            <summary>
+            Gets or sets the name of the work area where the files
+            will be saved to locally.
+            </summary>
+            <value>
+            The name of the work area.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SaveOptions.UploadMode">
+            <summary>
+            Gets or sets a value indicating whether the method should also be uploaded.
+            </summary>
+            <value>
+              <c>true</c> if method should be uploaded; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.MethodStatusType">
+            <summary>
+            The status type.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.MethodStatusType.Draft">
+            <summary>
+            The draft.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.MethodStatusType.Reviewed">
+            <summary>
+            The reviewed.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.MethodStatusType.Final">
+            <summary>
+            The final.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ResultContentType">
+            <summary>
+            The type of the result returned from the search
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ResultContentType.Undefined">
+            <summary>
+            The undefined type
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ResultContentType.SingleSample">
+            <summary>
+            Single sample result
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ResultContentType.Sequence">
+            <summary>
+            Sequence result
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttributes">
+            <summary>
+            Definition of all known search attributes
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttributes.FilePath">
+            <summary>
+            The file path
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttributes.FileName">
+            <summary>
+            The file name
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttributes.ResultContentType">
+            <summary>
+            The result content type
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttributes.AcquisitionOperator">
+            <summary>
+            The acquisition operator
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttributes.AcquisitionTime">
+            <summary>
+            The acquisition time
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttributes.AcquisitionInstrument">
+            <summary>
+            The acquisition instrument
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttributes.SequenceName">
+            <summary>
+            The sequence name
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttributes.SampleName">
+            <summary>
+            The sample name
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttribute">
+            <summary>
+            Non-typed search attribute
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttribute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttribute"/> class.
+            </summary>
+            <param name="name">The name.</param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttribute.Name">
+            <summary>
+            Gets the name.
+            </summary>
+            <value>
+            The name.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttribute`1">
+            <summary>
+            A search attribute
+            </summary>
+            <typeparam name="T">Type of the attribute</typeparam>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttribute`1.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttribute`1"/> class.
+            </summary>
+            <param name="name">The name.</param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttribute`1.SearchAttributeType">
+            <summary>
+            Gets the type of the search attribute.
+            </summary>
+            <value>
+            The type of the search attribute.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchParameters">
+            <summary>
+            Class that defines the search parameters.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchParameters.#ctor(System.Int32,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchQuery,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchParameters"/> class.
+            </summary>
+            <param name="resultsPerPage">The results per page.</param>
+            <param name="searchQuery">The search query.</param>
+            <param name="startPage">The start page.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchParameters.#ctor(System.Int32,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchQuery,System.Int32,System.Collections.Generic.List{Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttribute},Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchAttribute,Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchResultSortDirection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchParameters" /> class.
+            </summary>
+            <param name="resultsPerPage">The results per page.</param>
+            <param name="searchQuery">The search query.</param>
+            <param name="startPage">The start page.</param>
+            <param name="resultAttributes">The search attributes.</param>
+            <param name="sortAttribute">The sort attribute.</param>
+            <param name="sortDirection">The sort direction.</param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchParameters.ResultsPerPage">
+            <summary>
+            Gets the results per page.
+            </summary>
+            <value>
+            The results per page.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchParameters.SearchQuery">
+            <summary>
+            Gets the search query.
+            </summary>
+            <value>
+            The search query.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchParameters.ResultAttributes">
+            <summary>
+            Gets the result attributes.
+            </summary>
+            <value>
+            The result attributes.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchParameters.SortAttribute">
+            <summary>
+            Gets the sort attribute.
+            </summary>
+            <value>
+            The sort attribute.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchParameters.StartPage">
+            <summary>
+            Gets the start page.
+            </summary>
+            <value>
+            The start page.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchParameters.SortDirection">
+            <summary>
+            Gets the sort direction.
+            </summary>
+            <value>
+            The sort direction.
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchQuery">
+            <summary>
+            Represents a search query as a collection of conditions
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchQuery.SearchConditions">
+            <summary>
+            Provide all current search conditions.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchQuery.AddSearchCondition(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchCondition)">
+            <summary>
+            Adds the search condition.
+            </summary>
+            <param name="searchCondition">The search condition.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchQuery.AddSearchConditions(System.Collections.Generic.IEnumerable{Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.ISearchCondition})">
+            <summary>
+            Adds the search conditions.
+            </summary>
+            <param name="newSearchConditions">The search conditions.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchResultSortDirection">
+            <summary>
+            Enum to specify the search direction.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchResultSortDirection.Ascending">
+            <summary>
+            The ascending sort order
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.SearchResultSortDirection.Descending">
+            <summary>
+            The descencing sort order
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageException">
+            <summary>
+            Storage exception.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref = "T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageException" /> class.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <param name="inner">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageException.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageException"/> class.
+            </summary>
+            <param name="innerException">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageException"/> class with serialized data.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is null. 
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0). 
+            </exception>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFolderNotFoundException">
+            <summary>
+            Storage exception: folder not found.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFolderNotFoundException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref = "T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFolderNotFoundException" /> class.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFolderNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFolderNotFoundException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFolderNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFolderNotFoundException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <param name="inner">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFolderNotFoundException.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFolderNotFoundException"/> class.
+            </summary>
+            <param name="innerException">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFolderNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFolderNotFoundException"/> class with serialized data.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is null. 
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0). 
+            </exception>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFileNotFoundException">
+            <summary>
+            Storage exception: file not found.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFileNotFoundException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref = "T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFileNotFoundException" /> class.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFileNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFileNotFoundException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFileNotFoundException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFileNotFoundException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <param name="inner">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFileNotFoundException.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFileNotFoundException"/> class.
+            </summary>
+            <param name="innerException">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFileNotFoundException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageFileNotFoundException"/> class with serialized data.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is null. 
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0). 
+            </exception>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageNotAvailableException">
+            <summary>
+            Thrown when a (remote) storage system is not available
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageNotAvailableException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref = "T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageNotAvailableException" /> class.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageNotAvailableException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageNotAvailableException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageNotAvailableException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageNotAvailableException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <param name="inner">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageNotAvailableException.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageNotAvailableException"/> class.
+            </summary>
+            <param name="innerException">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageNotAvailableException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageException"/> class with serialized data.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is null. 
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0). 
+            </exception>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StoragePermissionException">
+            <summary>
+            Thrown when a (remote) storage system is not available
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StoragePermissionException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref = "T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StoragePermissionException" /> class.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StoragePermissionException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StoragePermissionException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StoragePermissionException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StoragePermissionException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <param name="inner">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StoragePermissionException.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StoragePermissionException"/> class.
+            </summary>
+            <param name="innerException">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StoragePermissionException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageException"/> class with serialized data.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is null. 
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0). 
+            </exception>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo">
+            <summary>
+            Helper class to create formatted version labels. 
+            Optionally the checksum can be specified in addition to the label to avoid
+            ambiguities in case of version overwrites. This VersionInfo
+            instance then only refers to a specific file.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo"/> class.
+            Version is set to current data time.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo"/> class.
+            </summary>
+            <param name="label">The label.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo"/> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="checksum">The checksum of the file that this version refers to.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo.#ctor(System.String,System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo"/> class.
+            </summary>
+            <param name="label">The label.</param>
+            <param name="timestamp">The timestamp.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo.#ctor(System.DateTime)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo"/> class.
+            </summary>
+            <param name="timestamp">The timestamp.</param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo.Checksum">
+            <summary>
+            Returns the checksum that is associated with this version.
+            Checksum is specific for a particular file;
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo.VersionLabel">
+            <summary>
+            Gets the version label.
+            </summary>
+            <value>
+            The version label.
+            </value>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionInfo.TryCompare(System.String,System.String,System.Int32@)">
+            <summary>
+            This method is used to compare two instances of string and returns an integer that indicates whether 
+            the first instance is earlier than, the same as, or later than the second instance.
+            For comparison, the specified strings representation of a date and time are converted to their DateTime 
+            equivalent using the format "yyyy-MMdd-HHmm-ssfff", which is the format used for storing the time stamp as a string version label.
+            </summary>
+            <param name="versionLabel1"></param>
+            <param name="versionLabel2"></param>
+            <param name="comparisonResult"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionedState">
+            <summary>
+            VersionedState enum
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionedState.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.VersionedState.CheckedOut">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.WorkAreaDoesNotExistException">
+            <summary>
+            Thrown when a (remote) work area does not exist
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.WorkAreaDoesNotExistException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref = "T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.WorkAreaDoesNotExistException" /> class.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.WorkAreaDoesNotExistException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.WorkAreaDoesNotExistException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.WorkAreaDoesNotExistException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.WorkAreaDoesNotExistException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <param name="inner">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.WorkAreaDoesNotExistException.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.WorkAreaDoesNotExistException"/> class.
+            </summary>
+            <param name="innerException">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.WorkAreaDoesNotExistException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.WorkAreaDoesNotExistException"/> class.
+            </summary>
+            <param name="info">The <see cref="T:System.Runtime.Serialization.SerializationInfo" /> that holds the serialized object data about the exception being thrown.</param>
+            <param name="context">The <see cref="T:System.Runtime.Serialization.StreamingContext" /> that contains contextual information about the source or destination.</param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileInfo">
+            <summary>
+            Base class for a generic file representation.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileInfo.Attributes">
+            <summary>
+              Gets the file attributes.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileInfo.CreationTime">
+            <summary>
+              Gets the file  creation time.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileInfo.LastModifiedTime">
+            <summary>
+              Gets the last write time.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileInfo.Length">
+            <summary>
+              Gets the length of the file.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileInfo.Name">
+            <summary>
+              Gets the name.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileInfo.Path">
+            <summary>
+              Gets the file path.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileInfo.IsAttributeSet(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFileAttributes)">
+            <summary>
+            Determines whether file attributes are set.
+            </summary>
+            <param name="attributes">
+            file attributes.
+            </param>
+            <returns>
+            The is attribute set.
+            </returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderInfo">
+            <summary>
+            Base class for a generic folder representation.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderInfo.Attributes">
+            <summary>
+              Gets the attributes.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderInfo.CreationTime">
+            <summary>
+              Gets the creation time.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderInfo.LastModifiedTime">
+            <summary>
+            Gets or sets the last modified time.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderInfo.Name">
+            <summary>
+              Gets the name.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderInfo.Path">
+            <summary>
+              Gets the folder path.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderInfo.IsAttributeSet(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericFolderAttributes)">
+            <summary>
+            Determines whether folder attributes are set.
+            </summary>
+            <param name="attributes">
+            Folder attributes.
+            </param>
+            <returns>
+            The is attribute set.
+            </returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericPathComparer">
+            <summary>
+            Represents a generic path comparer.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericPathComparer.caseSensitive">
+            <summary>
+            The case sensitive.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericPathComparer.pathHelper">
+            <summary>
+            The path helper.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericPathComparer.#ctor(Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.IPathHelper,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericPathComparer"/> class.
+            </summary>
+            <param name="pathHelper">
+            Path helper.
+            </param>
+            <param name="caseSensitive">
+            if set to <see langword="true"/> [case sensitive].
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericPathComparer.Equals(System.String,System.String)">
+            <summary>
+            Checks if specified paths are equal.
+            </summary>
+            <param name="x">
+            First path.
+            </param>
+            <param name="y">
+            Second path.
+            </param>
+            <returns>
+            The equals.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericPathComparer.GetHashCode(System.String)">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+            <param name="obj">
+            The path.
+            </param>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.
+            </returns>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.GenericPathComparer.AreNamesEqual(System.String,System.String)">
+            <summary>
+            Ares the names equal.
+            </summary>
+            <param name="x">
+            First name.
+            </param>
+            <param name="y">
+            Name ot compare.
+            </param>
+            <returns>
+            The are names equal.
+            </returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.SearchException">
+            <summary>
+            Thrown when the execution of search fails for whatever reason.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.SearchException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref = "T:Agilent.OpenLab.Framework.Common.SearchException" /> class.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.SearchException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.SearchException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.SearchException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.SearchException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <param name="inner">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.SearchException.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.SearchException"/> class.
+            </summary>
+            <param name="innerException">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.SearchException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.StorageException"/> class with serialized data.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is null. 
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0). 
+            </exception>
+            <remarks>
+            </remarks>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,13 @@
+E:\gitlab repos\olcf_profinder\DataTypes\bin\Debug\DataTypes.dll.config
+E:\gitlab repos\olcf_profinder\DataTypes\bin\Debug\DataTypes.dll
+E:\gitlab repos\olcf_profinder\DataTypes\bin\Debug\DataTypes.pdb
+E:\gitlab repos\olcf_profinder\DataTypes\bin\Debug\Microsoft.Practices.Prism.dll
+E:\gitlab repos\olcf_profinder\DataTypes\bin\Debug\Microsoft.Practices.Prism.UnityExtensions.dll
+E:\gitlab repos\olcf_profinder\DataTypes\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+E:\gitlab repos\olcf_profinder\DataTypes\bin\Debug\Microsoft.Practices.Unity.dll
+E:\gitlab repos\olcf_profinder\DataTypes\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+E:\gitlab repos\olcf_profinder\DataTypes\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+E:\gitlab repos\olcf_profinder\DataTypes\obj\Debug\DataTypes.csprojAssemblyReference.cache
+E:\gitlab repos\olcf_profinder\DataTypes\obj\Debug\DataTypes.csproj.CopyComplete
+E:\gitlab repos\olcf_profinder\DataTypes\obj\Debug\DataTypes.dll
+E:\gitlab repos\olcf_profinder\DataTypes\obj\Debug\DataTypes.pdb

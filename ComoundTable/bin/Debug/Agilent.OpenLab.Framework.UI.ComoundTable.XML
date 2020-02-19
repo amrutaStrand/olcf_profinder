@@ -1,0 +1,305 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Agilent.OpenLab.ComoundTable</name>
+    </assembly>
+    <members>
+        <member name="T:Agilent.OpenLab.ComoundTable.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.Properties.Resources.ComoundTableCaption">
+            <summary>
+              Looks up a localized string similar to ComoundTable.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.Properties.Resources.ComoundTableHint">
+            <summary>
+              Looks up a localized string similar to ComoundTable.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.ComoundTable.ComoundTableViewModel">
+            <summary>
+            ComoundTableViewModel
+            </summary>
+            <summary>
+            ComoundTableViewModel
+            </summary>
+            <summary>
+            ComoundTableViewModel
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.ComoundTableViewModel.ToggleCommandA">
+            <summary>
+            Gets the toggle command A.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.ComoundTableViewModel.TriggerCommandB">
+            <summary>
+            Gets the trigger command B.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableViewModel.InitializeCommands">
+            <summary>
+            Initializes the commands.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableViewModel.OnTestCommand(System.Object)">
+            <summary>
+            Event handler for test command.
+            </summary>
+            <param name="unused">
+            The unused. 
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="F:Agilent.OpenLab.ComoundTable.ComoundTableViewModel.unhandledSomethingEventMonitored">
+            <summary>
+            parameters used to track unhandled events
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableViewModel.SubscribeEvents">
+            <summary>
+            Subscribes the events.
+            </summary>
+            <remarks>
+            Subscribe to any events the module has to react on.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableViewModel.UnsubscribeEvents">
+            <summary>
+            Unsubscribes the events.
+            </summary>
+            <remarks>
+            Unsubscribe any events previously subscribed.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableViewModel.#ctor(Microsoft.Practices.Unity.IUnityContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.ComoundTable.ComoundTableViewModel"/> class.
+            </summary>
+            <param name="container">
+            The container. 
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.ComoundTableViewModel.View">
+            <summary>
+            Gets or sets the view.
+            </summary>
+            <value>
+            The view. 
+            </value>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableViewModel.OnActivated">
+            <summary>
+            Called when [activated].
+            </summary>
+            <remarks>
+            This method is called when the module gets activated. This is usually the case when the 
+            module switches from hidden state to visible state. To optimize performance, modules 
+            should not directly process events if they are hidden, but should only track those 
+            events and handle them only if the module becomes visible again. The module should 
+            track unprocessed events in the event handlers (if the module is not active) and should 
+            process the events in this method if the module becomes active again.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableViewModel.OnDeactivated">
+            <summary>
+            Called when [deactivated].
+            </summary>
+            <remarks>
+            This method is called when the module gets deactivated. This is usually the case when
+            the module switches from visible state to hidden state. Usually there is not much to do 
+            in this method.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableViewModel.OnLoaded">
+            <summary>
+            Called when [loaded].
+            </summary>
+            <remarks>
+            Use this method to load user settings.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableViewModel.OnUnload">
+            <summary>
+            Called when [unload].
+            </summary>
+            <remarks>
+            Use this method to save user settings. This is also the place to unsubscribe any
+            subscribed events.
+            </remarks>
+        </member>
+        <member name="T:Agilent.OpenLab.ComoundTable.ComoundTableModule">
+            <summary>
+            ComoundTableModule
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableModule.#ctor(Microsoft.Practices.Unity.IUnityContainer)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.ComoundTable.ComoundTableModule"/> class.
+            </summary>
+            <param name="container">
+            The container. 
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableModule.ExtendMenu">
+            <summary>
+            Extends the menu.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableModule.RegisterTypes">
+            <summary>
+            Registers the types.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.ComoundTableModule.Caption">
+            <summary>
+            Gets the caption.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.ComoundTableModule.Image">
+            <summary>
+            Gets the image.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.ComoundTableModule.KeyTip">
+            <summary>
+            Gets the key tip.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.ComoundTableModule.Tooltip">
+            <summary>
+            Gets the tooltip.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.ComoundTable.IComoundTableViewModel">
+            <summary>
+            IComoundTableViewModel
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.IComoundTableViewModel.ToggleCommandA">
+            <summary>
+            Gets the toggle command A.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.IComoundTableViewModel.TriggerCommandB">
+            <summary>
+            Gets the trigger command B.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.IComoundTableViewModel.View">
+            <summary>
+            Gets the view.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.ComoundTable.IComoundTableView">
+            <summary>
+            IComoundTableView
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.IComoundTableView.Model">
+            <summary>
+            Gets or sets the model.
+            </summary>
+            <value>
+            The model. 
+            </value>
+        </member>
+        <member name="T:Agilent.OpenLab.ComoundTable.ComoundTableView">
+            <summary>
+            Interaction logic for ComoundTableView.xaml
+            </summary>
+            <remarks>
+            </remarks>
+            <summary>
+            ComoundTableView
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.ComoundTable.ComoundTableView"/> class.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.ComoundTable.ComoundTableView.Model">
+            <summary>
+            Gets or sets the model.
+            </summary>
+            <value>
+            The model. 
+            </value>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableView.OnLoaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when [loaded].
+            </summary>
+            <param name="sender">
+            The sender. 
+            </param>
+            <param name="e">
+            The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data. 
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableView.OnUnloaded(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Called when [unload].
+            </summary>
+            <param name="sender">
+            The sender. 
+            </param>
+            <param name="e">
+            The <see cref="T:System.Windows.RoutedEventArgs"/> instance containing the event data. 
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.ComoundTable.ComoundTableView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+    </members>
+</doc>

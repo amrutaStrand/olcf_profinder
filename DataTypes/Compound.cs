@@ -8,7 +8,7 @@ namespace DataTypes
 {
     public class Compound : ICompound
     {
-        public string FileName { get; set; }
+        public string FileName { get ; set; }
         public double Mass { get; set; }
         public double RT { get; set; }
         public double Area { get; set; }
