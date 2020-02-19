@@ -1,0 +1,1402 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Agilent.OpenLab.Framework.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Agilent.OpenLab.Framework.Common.AsyncHelpers">
+            <summary>
+                Helper class to call asynchronous methods from synchronous ones. You shouldn't do
+                this normally, but sometimes, you have to.
+                Taken from here: http://stackoverflow.com/questions/5095183/how-would-i-run-an-async-taskt-method-synchronously
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncHelpers.RunSync(System.Func{System.Threading.Tasks.Task})">
+            <summary>
+                Execute's an async Task{T} method which has a void return value synchronously
+            </summary>
+            <param name="task">Task{T} method to execute</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncHelpers.RunSync(System.Func{System.Threading.Tasks.Task},System.Action{System.Action,System.Boolean})">
+            <summary>
+                Execute's an async Task{T} method which has a void return value synchronously
+            </summary>
+            <param name="task">Task{T} method to execute</param>
+            <param name="setStopAction">Set the cancel action</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncHelpers.RunSync``1(System.Func{System.Threading.Tasks.Task{``0}})">
+            <summary>
+                Execute's an async Task{T} method which has a T return type synchronously
+            </summary>
+            <typeparam name="T">Return Type</typeparam>
+            <param name="task">Task{T} method to execute</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncHelpers.RunSync``1(System.Func{System.Threading.Tasks.Task{``0}},System.Action{System.Action,System.Boolean})">
+            <summary>
+                Execute's an async Task{T} method which has a T return type synchronously
+            </summary>
+            <typeparam name="T">Return Type</typeparam>
+            <param name="task">Task{T} method to execute</param>
+            <param name="setStopAction">Set the cancel action</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncHelpers.RunCancelableAsync(System.Threading.CancellationToken,System.Threading.Tasks.Task,System.Int32)">
+            <summary>
+            Run a task which can be canceled. If cancelation detected throws OperationCanceledException.
+            </summary>
+            <param name="cancellationToken"></param>
+            <param name="task">task to execute</param>
+            <param name="sleepTime">thread sleep time before next status check</param>
+            <returns>awaitable task</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncHelpers.RunCancelableAsync``1(System.Threading.CancellationToken,System.Threading.Tasks.Task{``0},System.Int32)">
+            <summary>
+            Runs a task and allows cancellation at any time.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="task">The task.</param>
+            <param name="sleepTime">The sleep time.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncHelpers.Yield">
+            <summary>
+            Creates an awaitable task that asynchronously yields back to the current context when awaited
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.AsyncTaskManager">
+            <summary>
+            This class manages asynchronous backgound tasks.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.AsyncTaskManager.SyncRoot">
+            <summary>
+            The sync root.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.AsyncTaskManager.tasks">
+            <summary>
+            The tasks.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.AsyncTaskManager.instance">
+            <summary>
+            The instance.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.AsyncTaskManager.token">
+            <summary>
+            The token.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.AsyncTaskManager.tokenSource">
+            <summary>
+            The token source.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncTaskManager.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:Agilent.OpenLab.Framework.Common.AsyncTaskManager"/> class from being created. 
+              Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.AsyncTaskManager.Instance">
+            <summary>
+              Get instance of BackgroundThreadManager.
+            </summary>
+            <remarks>
+              The call to this property is thread-safe.
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.AsyncTaskManager.CancellationToken">
+            <summary>
+              Gets cancellation token.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncTaskManager.Reset">
+            <summary>
+            Reset instance of BackgroundThreadManager
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncTaskManager.AbortAll">
+            <summary>
+            Aborts all currently running background tasks.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncTaskManager.Dispose">
+            <summary>
+            Releases all resources.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncTaskManager.Remove(System.Int32)">
+            <summary>
+            Removes specified task.
+            </summary>
+            <param name="taskId">
+            ID of task to unregister.
+            </param>
+            <remarks>
+            This method must be called in order to release a finished tasks.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncTaskManager.Start(System.Action)">
+            <summary>
+            Starts specified action in new background task.
+            </summary>
+            <param name="action">
+            Action to start in a background task.
+            </param>
+            <returns>
+            Task.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncTaskManager.Wait(System.Int32,System.Int32)">
+            <summary>
+            Waits for specified task.
+            </summary>
+            <param name="taskId">
+            Task ID.
+            </param>
+            <param name="timeout">
+            OPTIONAL: Number of milliseconds to wait. Default is -1 (wait infinitely).
+            </param>
+            <returns>
+            <c>True</c> if the Task completed execution within the allotted time; otherwise <c>false</c>.
+            </returns>
+            <remarks>
+            Propagates unhandled exceptions occured within task by throwing an AggregateException.
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncTaskManager.Count">
+            <summary>
+            Gets the number of tasks.
+            </summary>
+            <returns>
+            The count.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.AsyncTaskManager.WaitForAll">
+            <summary>
+            Waits for all registered background thread to be finished.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.CustomAttributes.SetpointsBindingAttribute">
+            <summary>
+            Used for transformation plugin types:
+              Custom class attribute to bind a setpoint container to a transformation.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.CustomAttributes.SetpointsBindingAttribute.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.CustomAttributes.SetpointsBindingAttribute"/> class.
+            </summary>
+            <param name="setpointContainerType">
+            Type of setpoint container.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.CustomAttributes.SetpointsBindingAttribute.SetpointContainerType">
+            <summary>
+              Gets the type of setpoint container.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.CustomAttributes.UIBindingAttribute">
+            <summary>
+            Used for transformation plugin types:
+              Custom class attribute to bind a transformation UI to a transformation.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.CustomAttributes.UIBindingAttribute.#ctor(System.Type)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.CustomAttributes.UIBindingAttribute"/> class.
+            </summary>
+            <param name="transformationUIType">
+            Type of transformation UI.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.CustomAttributes.UIBindingAttribute.#ctor(System.Type,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.CustomAttributes.UIBindingAttribute"/> class.
+            </summary>
+            <param name="transformationUIType">
+            Type of transformation UI.
+            </param>
+            <param name="displayOrder">
+            Display order. 
+            </param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.CustomAttributes.UIBindingAttribute.DisplayOrder">
+            <summary>
+              Gets the display order.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.CustomAttributes.UIBindingAttribute.TransformationUIType">
+            <summary>
+              Gets the type of transformation UI.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.DateTimeExtensions">
+            <summary>
+            Extension methods for date time.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.DateTimeExtensions.ToStringForCurrentCultureWithGmtOffset(System.DateTime)">
+            <summary>
+            Translate DateTime value to a string for current culture with GMT offset.
+            </summary>
+            <param name="dateTime">The date time value</param>
+            <returns>dateTime formatted according to CurrentCulture with time zone offset appended </returns>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.DateTimeExtensions.FormatStringForCurrentCultureWithGmtOffset">
+            <summary>
+            Gets the format string for current culture with GMT offset.
+            </summary>
+            <value>
+            The format string for current culture with GMT offset.
+            </value>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.DateTimeExtensions.ToStringUsingStandardFormat(System.DateTime)">
+            <summary>
+            Format the date time value according to a standard format. Use this
+            to make sure all display strings are formatted identically and the
+            format can be changed at a central location (OLCF).
+            </summary>
+            <param name="dateTime">The date time.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.DateTimeExtensions.FormatStringForStandardFormat">
+            <summary>
+            Gets the format string for standard format. Use this
+            to make sure all display strings are formatted identically and the
+            format can be changed at a central location (OLCF).
+            </summary>
+            <value>
+            The format string for standard format.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.DateTimeExtensions.FormatStringForIsoFormat">
+            <summary>
+            Gets the format string for a display friendly iso format.
+            </summary>
+            <value>
+            The format string for iso format.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.DateTimeExtensions.DateFormatStringForStandardFormat">
+            <summary>
+            Gets the format string that specifies standard format date display. 
+            </summary>
+            <value>
+            The format string for standard format.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.DateTimeExtensions.DateFormatSpecificationStringForStandardFormat">
+            <summary>
+            Gets the date format specification string for standard format.
+            This is the format string in brackets.
+            </summary>
+            <value>
+            The date format specification string for standard format.
+            </value>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.DateTimeExtensions.DateFormatStringForIsoFormat">
+            <summary>
+            Gets the format string for specifying the display date iso format.
+            </summary>
+            <value>
+            The format string for iso format.
+            </value>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.DateTimeExtensions.NormalizeDateTimeKind(System.DateTime)">
+            <summary>
+            Convert unspecified date time values into UTC.
+            Leave local and UTC date time values unchanged.
+            </summary>
+            <param name="dateTime">The date time value</param>
+            <returns>DateTime values, where kind is local or UTC, but never unspecified.</returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.IEnumerableExtensions">
+            <summary>
+            Extension methods for the IEnumerable classes
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.IEnumerableExtensions.ToHashSet``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Turns any list into a hash set with only unique values
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.IEnumerableExtensions.Count(System.Collections.IEnumerable)">
+            <summary>
+            Returns the count of any generic IEnumerable
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.BuildLabel">
+            <summary>
+              Looks up a localized string similar to Build {0}.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Error_CannotFindValidMethodFilePathInAcaml">
+            <summary>
+              Looks up a localized string similar to Cannot find valid method file path in specified ACAML method definition..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Error_ContentCannotBeValidated">
+            <summary>
+              Looks up a localized string similar to The content could not be validated..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Error_KeywordNotContainLineBreak">
+            <summary>
+              Looks up a localized string similar to Keyword must not contain line break..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Error_NotACustomLocation">
+            <summary>
+              Looks up a localized string similar to The location is not a custom location.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Error_PackageContainsUnsupportedIdentification">
+            <summary>
+              Looks up a localized string similar to Package contains unsupported identification value &apos;{0}&apos;..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Error_PackageDoesNotContainIdentificationPart">
+            <summary>
+              Looks up a localized string similar to Package does not contain identification part..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Error_UnableToValidateSignature">
+            <summary>
+              Looks up a localized string similar to Unable to validate file signatures. Error value = {0}.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Exception_CannotRaiseEvent">
+            <summary>
+              Looks up a localized string similar to Cannot raise event &apos;{0}&apos;. Event is either not registered or given types of event and event arguments do not match..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Exception_CannotSubscribeToEvent">
+            <summary>
+              Looks up a localized string similar to Cannot subscribe to event &apos;{0}&apos;. Event is either not registered or given types of event and event arguments do not match..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Exception_CannotUnsubscribeFromEvent">
+            <summary>
+              Looks up a localized string similar to Cannot unsubscribe from event &apos;{0}&apos;. Event is either not registered or given types of event and event arguments do not match..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Exception_NoStorageProviderAvailable">
+            <summary>
+              Looks up a localized string similar to No storage provider available..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Exception_ReadOnlyDictionary">
+            <summary>
+              Looks up a localized string similar to The dictionary is read-only..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Exception_StorageProviderNotFound">
+            <summary>
+              Looks up a localized string similar to Storage provider &apos;{0}&apos; was not found..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.Exception_StorageProviderNotInstantiated">
+            <summary>
+              Looks up a localized string similar to Storage provider &apos;{0}&apos; cannot be instantiated..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.ParamValidator_CheckGreaterThan">
+            <summary>
+              Looks up a localized string similar to Parameter required to be greater than {0}.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.ParamValidator_CheckLessThan">
+            <summary>
+              Looks up a localized string similar to Parameter required to be less than {0}.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.ParamValidator_CheckNotSame">
+            <summary>
+              Looks up a localized string similar to Parameter {0} must be same as {1}..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.ParamValidator_CheckNullOrEmpty">
+            <summary>
+              Looks up a localized string similar to Parameter requires not to be an empty string..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.ParamValidator_CheckType">
+            <summary>
+              Looks up a localized string similar to Expected argument type is {0}, but actual type was {1}..
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Properties.Resources.VersionLabel">
+            <summary>
+              Looks up a localized string similar to Version {0} - Build {1}.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3">
+            <summary>
+            Dictionary with two keys
+            </summary>
+            <typeparam name="TKey1">The primary key.</typeparam>
+            <typeparam name="TKey2">The secondary key.</typeparam>
+            <typeparam name="TValue">The value.</typeparam>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3"/> class. 
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.#ctor(System.Collections.Generic.List{`0},System.Collections.Generic.List{`1},System.Collections.Generic.List{`2})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3"/> class. 
+            constructor with passed data
+            </summary>
+            <param name="listKey1">
+            List of primary keys.
+            </param>
+            <param name="listKey2">
+            List of secondary keys.
+            </param>
+            <param name="list">
+            List of values.
+            </param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.Values">
+            <summary>
+            Returns all values
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.Count">
+            <summary>
+            Get the count
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.Item(`0)">
+            <summary>
+            Get value by primary key.
+            </summary>
+            <param name="key1">Primary key.</param>
+            <returns>The value associated with the primary key.</returns>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.Item(`1)">
+            <summary>
+            Get value by secondary key.
+            </summary>
+            <param name="key2">Secondary key</param>
+            <returns>The value associated with the secondary key.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.Add(`0,`1,`2)">
+            <summary>
+            Add value to dictionary
+            </summary>
+            <param name="key1">Primary key</param>
+            <param name="key2">Secondary key</param>
+            <param name="value">The value</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.TryRemove(`0)">
+            <summary>
+            Remove by primary key.
+            </summary>
+            <param name="key1">Primary key.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.TryRemove(`1)">
+            <summary>
+            Remove by secondary key.
+            </summary>
+            <param name="key2">Secondary key.</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.TryGetValue(`0,`2@)">
+            <summary>
+            Get the value by primary key
+            </summary>
+            <param name="key1">The primary key.</param>
+            <param name="value">The value.</param>
+            <returns>The value associated with the primary key.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.TryGetValue(`1,`2@)">
+            <summary>
+            Get the value by secondary key
+            </summary>
+            <param name="key2">The secondary key</param>
+            <param name="value">The value</param>
+            <returns>The value associated with the secondary key.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.ContainsKey(`0)">
+            <summary>
+            Test for primary key
+            </summary>
+            <param name="key1"></param>
+            <returns>Value indicating whether a value exists for the given primary key.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.ContainsKey(`1)">
+            <summary>
+            Test for secondary key
+            </summary>
+            <param name="key2">The secondary key.</param>
+            <returns>Value indicating whether a value exists for the given primary key.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.Any">
+            <summary>
+            Test if any elements available
+            </summary>
+            <returns>Value indicating whether any values exist.</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionary`3.Any(System.Func{System.Collections.Generic.KeyValuePair{`1,`2},System.Boolean})">
+            <summary>
+            Test for elements according to a predicate
+            </summary>
+            <param name="func">The predicate</param>
+            <returns>Value indicating whether any values exist which match the given predicate.</returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionaryException">
+            <summary>
+            Exception for TwoKeyConcurrentDictionary
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionaryException.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionaryException"/> class. 
+            constructor
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionaryException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionaryException"/> class. 
+            exception with message
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionaryException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionaryException"/> class. 
+            constructor
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <param name="exception">
+            The inner exception.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionaryException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.TwoKeyConcurrentDictionaryException"/> class. 
+            constructor
+            </summary>
+            <param name="info">
+            The serialization info.
+            </param>
+            <param name="streamingContext">
+            The streaming context.
+            </param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.Utilities.AppInfo">
+            <summary>
+                TODO: Update summary.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.PropertyNameCompany">
+            <summary>
+                The property name company.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.PropertyNameCopyright">
+            <summary>
+                The property name copyright.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.PropertyNameProduct">
+            <summary>
+                The property name product.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.PropertyNameTitle">
+            <summary>
+                The property name title.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.HotFixesList">
+            <summary>
+                The hot fixes list.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.buildNumber">
+            <summary>
+                The buildNumber.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.company">
+            <summary>
+                The company.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.copyright">
+            <summary>
+                The copyright.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.description">
+            <summary>
+                The description.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.fullversion">
+            <summary>
+                The fullversion.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.installedmodules">
+            <summary>
+                The installedmodules.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.product">
+            <summary>
+                The product.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.productGroup">
+            <summary>
+                The product group.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.productGroupVersion">
+            <summary>
+                The product group version.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.productShortName">
+            <summary>
+                The product short name.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.title">
+            <summary>
+                The title.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.version">
+            <summary>
+                The version.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.#ctor">
+            <summary>
+                Prevents a default instance of the <see cref="T:Agilent.OpenLab.Framework.Common.Utilities.AppInfo" /> class from being created.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.BuildNumber">
+            <summary>
+                Gest the Build Number
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.Company">
+            <summary>
+                Gets the product's company name.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.Copyright">
+            <summary>
+                Gets the copyright information for the product.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.Description">
+            <summary>
+                Gets the description about the application.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.FullVersion">
+            <summary>
+                Get the full version information
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.InstalledModules">
+            <summary>
+                Gets the description about the installed modules.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.Product">
+            <summary>
+                Gets the product's full name.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.ProductGroup">
+            <summary>
+                Gets the product's group.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.ProductGroupVersion">
+            <summary>
+                Gets the product group version.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.ProductShortName">
+            <summary>
+                Gets the product's short name.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.Title">
+            <summary>
+                Gets the title property, which is displayed in the About dialogs window title and splash screen
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.Version">
+            <summary>
+                Gets the application's version information to show.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.ProductNameWithFullVersion">
+            <summary>
+            Gets the product's full name with the full version information
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.AssemblyDirectory">
+            <summary>
+                Gets entry assembly directory
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.BuildProductInfoLine(Agilent.OpenLab.Framework.Diagnostics.PluginInfo)">
+            <summary>
+            The build product info line.
+            </summary>
+            <param name="pluginInfo">
+            The PluginInfo data structure.
+            </param>
+            <returns>
+            The <see cref="T:System.String"/>.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.AppInfo.CalculatePropertyValue``1(System.String)">
+            <summary>
+            Gets the specified property value either from a specific attribute.
+            </summary>
+            <typeparam name="T">
+            Attribute type that we're trying to retrieve.
+            </typeparam>
+            <param name="propertyName">
+            Property name to use on the attribute.
+            </param>
+            <returns>
+            The resulting string to use for a property.
+                Returns null if no data could be retrieved.
+            </returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.Utilities.EventSubscribers">
+            <summary>
+            TODO: Update summary.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.EventSubscribers.Get(System.Object,System.String)">
+            <summary>
+            Gets the delegeates which are bound to the event.
+            </summary>
+            <param name="target">
+            The instance.
+            </param>
+            <param name="eventName">
+            Name of the event.
+            </param>
+            <returns>
+            </returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.Utilities.ParamValidator">
+            <summary>
+            Provides functionality to check parameter values.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.ParamValidator.CheckGreaterThan``1(``0,``0,System.String)">
+            <summary>
+            Checks that the specified value is greater than the reference value
+            </summary>
+            <param name="value">
+            The value to test.
+            </param>
+            <param name="mustBeGreaterThan">
+            Reference value
+            </param>
+            <param name="parameterName">
+            The name of the parameter.
+            </param>
+            <returns>
+            The value to test.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Occurs if the specified value is less or equal than the reference value.
+            </exception>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.ParamValidator.CheckEqualOrGreaterThan``1(``0,``0,System.String)">
+            <summary>
+            Checks that the specified value is greater than the reference value
+            </summary>
+            <param name="value">
+            The value to test.
+            </param>
+            <param name="mustBeEqualOrGreaterThan">
+            Reference value
+            </param>
+            <param name="parameterName">
+            The name of the parameter.
+            </param>
+            <returns>
+            The value to test.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Occurs if the specified value is less than the reference value.
+            </exception>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.ParamValidator.CheckLessThan``1(``0,``0,System.String)">
+            <summary>
+            Checks that the specified value is less than the reference value
+            </summary>
+            <param name="value">
+            The value to test.
+            </param>
+            <param name="mustBeLessThan">
+            Reference value
+            </param>
+            <param name="parameterName">
+            The name of the parameter.
+            </param>
+            <returns>
+            The value to test.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Occurs if the specified value is greater or equal than the reference value.
+            </exception>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.ParamValidator.CheckEqualOrLessThan``1(``0,``0,System.String)">
+            <summary>
+            Checks that the specified value is equal or less than the reference value
+            </summary>
+            <param name="value">
+            The value to test.
+            </param>
+            <param name="mustBeEqualOrLessThan">
+            Reference value
+            </param>
+            <param name="parameterName">
+            The name of the parameter.
+            </param>
+            <returns>
+            The value to test.
+            </returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            Occurs if the specified value is greater than the reference value.
+            </exception>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.ParamValidator.CheckNotNull``1(``0,System.String)">
+            <summary>
+            Checks that specified value is not null.
+            </summary>
+            <typeparam name="T">
+            The type of the value.
+            </typeparam>
+            <param name="value">
+            The value to test.
+            </param>
+            <param name="parameterName">
+            Name of the parameter.
+            </param>
+            <returns>
+            The specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Occurs if the specified value is 
+            <code>
+            null
+            </code>
+            .
+            </exception>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.ParamValidator.CheckNotNullAndOfType``1(System.Object,System.String)">
+            <summary>
+            Checks that the specified value is not 
+            <code>
+            null
+            </code>
+            
+              and that it is of the specified type.
+            </summary>
+            <typeparam name="T">
+            </typeparam>
+            <param name="value">
+            The value to test.
+            </param>
+            <param name="parameterName">
+            The name of the parameter.
+            </param>
+            <returns>
+            The value to test.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Occurs if the specified value is 
+            <code>
+            null
+            </code>
+            or of type not assignable from the specified type.
+            </exception>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.ParamValidator.CheckNotNullOrEmpty(System.String,System.String)">
+            <summary>
+            Checks that the specified value is not 
+            <code>
+            null
+            </code>
+            or empty (a zero length string).
+            </summary>
+            <param name="value">
+            The value to test.
+            </param>
+            <param name="parameterName">
+            Name of the parameter.
+            </param>
+            <returns>
+            The specified value.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Occurs if the specified value is 
+            <code>
+            null
+            </code>
+            or empty (a zero length string).
+            </exception>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.ParamValidator.CheckSame``1(``0,``0)">
+            <summary>
+            Checks that the specified <paramref name="source"/> has a reference to the same object as given <paramref name="target"/>.
+            </summary>
+            <typeparam name="T">
+            </typeparam>
+            <param name="source">
+            The source reference to test.
+            </param>
+            <param name="target">
+            The target.
+            </param>
+            <returns>
+            The source reference.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+            Occurs if the <paramref name="source"/> and <paramref name="target"/> do not point to the same object.
+            </exception>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.Utilities.StringStream">
+            <summary>
+            The string stream.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Utilities.StringStream.encoding">
+            <summary>
+            The encoding.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.StringStream.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.Utilities.StringStream"/> class.
+            </summary>
+            <param name="content">
+            The content that will be streamed using Encoding.Unicode.
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.StringStream.#ctor(System.String,System.Text.Encoding)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.Utilities.StringStream"/> class.
+            </summary>
+            <param name="content">
+            The content.
+            </param>
+            <param name="encoding">
+            The encoding.
+            </param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.StringStream.String">
+            <summary>
+            Gets String.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.StringStream.ConvertToString(System.IO.Stream)">
+            <summary>
+            The convert to string.
+            </summary>
+            <param name="stream">
+            The stream.
+            </param>
+            <returns>
+            The convert to string.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.StringStream.ConvertToString(System.IO.Stream,System.Text.Encoding)">
+            <summary>
+            Converts to string.
+            </summary>
+            <param name="stream">
+            The stream.
+            </param>
+            <param name="encoding">
+            The encoding.
+            </param>
+            <returns>
+            The convert to string.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.StringStream.ConvertToString(System.Byte[])">
+            <summary>
+            The convert to string.
+            </summary>
+            <param name="content">
+            The content.
+            </param>
+            <returns>
+            The convert to string.
+            </returns>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.Utilities.TempFileStream">
+            <summary>
+            Provide a stream, which content is stored in a temporary file.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.TempFileStream.#ctor">
+            <summary>
+            Create emtpy stream.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.TempFileStream.#ctor(System.IO.Stream)">
+            <summary>
+            Create stream and copy content of source stream.
+            </summary>
+            <param name="sourceStream">Stream, which content is copied this stream.</param>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.TempFileStream.CanRead">
+            <summary>
+            Can read.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.TempFileStream.CanSeek">
+            <summary>
+            Can seek.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.TempFileStream.CanWrite">
+            <summary>
+            Can write.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.TempFileStream.Length">
+            <summary>
+            Get length.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Utilities.TempFileStream.Position">
+            <summary>
+            Get / set position.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.TempFileStream.Flush">
+            <summary>
+            Flush.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.TempFileStream.SetLength(System.Int64)">
+            <summary>
+            Set length
+            </summary>
+            <param name="value">Length</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.TempFileStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Seek.
+            </summary>
+            <param name="offset">Offset</param>
+            <param name="origin">Origin</param>
+            <returns></returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.TempFileStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Read.
+            </summary>
+            <param name="buffer">Buffer</param>
+            <param name="offset">Offset</param>
+            <param name="count">Count</param>
+            <returns>Count</returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.TempFileStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Write.
+            </summary>
+            <param name="buffer">Buffer</param>
+            <param name="offset">Offset</param>
+            <param name="count">Count</param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Utilities.TempFileStream.Dispose(System.Boolean)">
+            <summary>
+            Releases the unmanaged resources used by the <see cref="T:System.IO.Stream" /> and optionally releases the managed resources.
+            </summary>
+            <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.Notification.NotificationServiceBase">
+            <summary>
+            Base class for service to subscribe/unsubscribe to events.
+            </summary>
+            <remarks>
+            Deriving subclasses should be implemented as sealed singletons.
+            </remarks>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Notification.NotificationServiceBase.SyncRoot">
+            <summary>
+            The sync root.
+            </summary>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Notification.NotificationServiceBase.RegisteredEvents">
+            <summary>
+              Gets or sets the events.
+            </summary>
+            <value>The events.</value>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Notification.NotificationServiceBase.Get``1">
+            <summary>
+            Gets event specified by its type.
+            </summary>
+            <typeparam name="TEvent">
+            Type of event
+            </typeparam>
+            <returns>
+            Instance of specified event.
+            </returns>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Notification.NotificationServiceBase.Raise``2(``1)">
+            <summary>
+            Raises event specified by its type
+            </summary>
+            <typeparam name="TEvent">
+            Type of event to raise.
+            </typeparam>
+            <typeparam name="TEventArgs">
+            Type of event args.
+            </typeparam>
+            <param name="args">
+            Event arguments
+            </param>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Notification.NotificationServiceBase.Subscribe``2(System.Action{``1})">
+            <summary>
+            Subscribes given action to an event of specified type.
+            </summary>
+            <typeparam name="TEvent">
+            Type of event to subscribe to.
+            </typeparam>
+            <typeparam name="TEventArgs">
+            Type of event args.
+            </typeparam>
+            <param name="action">
+            Action to execute when event is raised.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Notification.NotificationServiceBase.Unsubscribe``2(System.Action{``1})">
+            <summary>
+            Unsubscribes given action from event of specified type.
+            </summary>
+            <typeparam name="TEvent">
+            Type of event to unsubscribe from.
+            </typeparam>
+            <typeparam name="TEventArgs">
+            Type of event args.
+            </typeparam>
+            <param name="action">
+            Action to unsubscribe.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.Notification.InfrastructureEventBase`1">
+            <summary>
+            Base class for infrastructure event.
+            </summary>
+            <typeparam name="TEventArgs">
+            The type of the event args.
+            </typeparam>
+            <remarks>
+            This class is thread-safe.
+            </remarks>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Notification.InfrastructureEventBase`1.actions">
+            <summary>
+            The actions.
+            </summary>
+        </member>
+        <member name="F:Agilent.OpenLab.Framework.Common.Notification.InfrastructureEventBase`1.syncRoot">
+            <summary>
+            The sync root.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Notification.InfrastructureEventBase`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.Notification.InfrastructureEventBase`1"/> class. 
+              Initializes a new instance of the <see cref="T:System.Object"/> class.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Notification.InfrastructureEventBase`1.Actions">
+            <summary>
+              Gets list of actions for a specific event.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="P:Agilent.OpenLab.Framework.Common.Notification.InfrastructureEventBase`1.SyncRoot">
+            <summary>
+              Gets synchronization object.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Notification.InfrastructureEventBase`1.Reset">
+            <summary>
+            Removes all subscriptions.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Notification.InfrastructureEventBase`1.Subscribe(System.Action{`0})">
+            <summary>
+            Subscribes specified action to this event.
+            </summary>
+            <param name="action">
+            Action to be executed when event is raised.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Notification.InfrastructureEventBase`1.Unsubscribe(System.Action{`0})">
+            <summary>
+            Unsubscribes specified action from this event.
+            </summary>
+            <param name="action">
+            Action to be unsubscribed.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Notification.InfrastructureEventBase`1.Raise(`0)">
+            <summary>
+            Raises event.
+              This causes all subscribed actions to be executed.
+            </summary>
+            <param name="args">
+            Event arguments passed to all actions.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.Notification.IInfrastructureEvent">
+            <summary>
+            Defines basic infrastructre event.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.Notification.IInfrastructureEvent.Reset">
+            <summary>
+            Removes all subscriptions.
+            </summary>
+        </member>
+        <member name="T:Agilent.OpenLab.Framework.Common.NotificationException">
+            <summary>
+            Notification exception.
+            </summary>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.NotificationException.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref = "T:Agilent.OpenLab.Framework.Common.NotificationException" /> class.
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.NotificationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.NotificationException"/> class. 
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.NotificationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.NotificationException"/> class.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+            <param name="inner">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.NotificationException.#ctor(System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.NotificationException"/> class.
+            </summary>
+            <param name="innerException">
+            The inner exception.
+            </param>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:Agilent.OpenLab.Framework.Common.NotificationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Agilent.OpenLab.Framework.Common.NotificationException"/> class with serialized data.
+            </summary>
+            <param name="info">
+            The <see cref="T:System.Runtime.Serialization.SerializationInfo"/> that holds the serialized object data about the exception being thrown.
+            </param>
+            <param name="context">
+            The <see cref="T:System.Runtime.Serialization.StreamingContext"/> that contains contextual information about the source or destination.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            The <paramref name="info"/> parameter is null. 
+            </exception>
+            <exception cref="T:System.Runtime.Serialization.SerializationException">
+            The class name is null or <see cref="P:System.Exception.HResult"/> is zero (0). 
+            </exception>
+            <remarks>
+            </remarks>
+        </member>
+    </members>
+</doc>
