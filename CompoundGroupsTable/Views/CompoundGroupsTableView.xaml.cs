@@ -136,7 +136,7 @@
         {
             if (this.ultraGrid.ActiveRow != null)
             {
-                var focusedCompoundGroup = this.ultraGrid.ActiveRow.ListObject as ICompoundGroup;
+                var focusedCompoundGroup = this.ultraGrid.ActiveRow.ListObject as ICompoundGroupItem;
                 if (focusedCompoundGroup != null)
                 {
                     this.Model.FocusedCompoundGroup = focusedCompoundGroup;
@@ -174,7 +174,7 @@
         private void AfterSelectChange(object sender, AfterSelectChangeEventArgs e)
         {
 
-            BindingList<ICompoundGroup> selectedCompounds = new BindingList<ICompoundGroup>();
+            BindingList<ICompoundGroupItem> selectedCompounds = new BindingList<ICompoundGroupItem>();
 
             SelectedRowsCollection seletedRows = this.ultraGrid.Selected.Rows;
             if (seletedRows != null)
@@ -185,7 +185,7 @@
                     while (enumerator.MoveNext())
                     {
                         UltraGridRow row = enumerator.Current;
-                        ICompoundGroup compound = row.ListObject as ICompoundGroup;
+                        ICompoundGroupItem compound = row.ListObject as ICompoundGroupItem;
                         if (compound != null)
                             selectedCompounds.Add(compound);
                     }

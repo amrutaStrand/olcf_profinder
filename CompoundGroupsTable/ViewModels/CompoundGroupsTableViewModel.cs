@@ -1,5 +1,6 @@
 ﻿namespace Agilent.OpenLab.CompoundGroupsTable
 {
+    using Agilent.OpenLab.CompoundGroupsTable.ViewModels;
     #region
 
     using Agilent.OpenLab.Framework.UI.Module;
@@ -31,7 +32,7 @@
         public CompoundGroupsTableViewModel(IUnityContainer container)
             : base(container)
         {
-            this.CompoundGroups = new BindingList<ICompoundGroup>();
+            this.CompoundGroups = new BindingList<ICompoundGroupItem>();
             this.View = this.UnityContainer.Resolve<ICompoundGroupsTableView>();
             this.View.Model = this;
             this.SubscribeEvents();
@@ -60,19 +61,19 @@
         /// </value>
         /// <remarks>
         /// </remarks>
-        public BindingList<ICompoundGroup> CompoundGroups { get; private set; }
+        public BindingList<ICompoundGroupItem> CompoundGroups { get; private set; }
 
-        BindingList<ICompoundGroup> selectedCompoundGroups;
+        BindingList<ICompoundGroupItem> selectedCompoundGroups;
 
         /// <summary>
         ///     Gets or sets the focused compound.
         /// </summary>
-        public ICompoundGroup FocusedCompoundGroup { get; set; }
+        public ICompoundGroupItem FocusedCompoundGroup { get; set; }
 
         /// <summary>
         /// To add the SelectedCompounds
         /// </summary>
-        public BindingList<ICompoundGroup> SelectedCompoundGroups
+        public BindingList<ICompoundGroupItem> SelectedCompoundGroups
         {
             get
             {
@@ -86,14 +87,14 @@
             }
         }
 
-        private void fireSelectionChanged(BindingList<ICompoundGroup> selectedCompounds)
+        private void fireSelectionChanged(BindingList<ICompoundGroupItem> selectedCompounds)
         {
-            IEnumerator<ICompoundGroup> enumerator = selectedCompounds.GetEnumerator();
+            IEnumerator<ICompoundGroupItem> enumerator = selectedCompounds.GetEnumerator();
             ICompoundGroup obj = null;
             while (enumerator.MoveNext()) {
-                ICompoundGroup temp = enumerator.Current;
+                ICompoundGroupItem temp = enumerator.Current;
                 if (obj == null)
-                    obj = temp;
+                    obj = temp.CompoundGroupInfo;
             }
             EventAggregator.GetEvent<CompoundSelectionChanged>().Publish(obj);
         }

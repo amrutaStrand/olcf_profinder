@@ -1,10 +1,10 @@
 ﻿namespace Agilent.OpenLab.CompoundGroupsTable
 {
+    using Agilent.OpenLab.CompoundGroupsTable.ViewModels;
     #region
 
     using Agilent.OpenLab.Framework.UI.Common.Commands;
     using Agilent.OpenLab.Framework.UI.Layout.ModuleInterfaces;
-    using DataTypes;
     using System.ComponentModel;
 
     #endregion
@@ -38,17 +38,17 @@
         /// <summary>
         /// Gets the compound groups list.
         /// </summary>
-        BindingList<ICompoundGroup> CompoundGroups { get; }
+        BindingList<ICompoundGroupItem> CompoundGroups { get; }
 
         /// <summary>
         /// Gets the selected compound groups list.
         /// </summary>
-        BindingList<ICompoundGroup> SelectedCompoundGroups { get; set; }
+        BindingList<ICompoundGroupItem> SelectedCompoundGroups { get; set; }
 
         /// <summary>
         ///     Gets or sets the focused compound.
         /// </summary>
-        ICompoundGroup FocusedCompoundGroup { get; set; }
+        ICompoundGroupItem FocusedCompoundGroup { get; set; }
 
         #endregion
     }

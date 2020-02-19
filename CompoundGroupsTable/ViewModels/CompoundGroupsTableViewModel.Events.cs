@@ -4,6 +4,7 @@
     using DataTypes;
     using System.Collections.Generic;
     using System;
+    using Agilent.OpenLab.CompoundGroupsTable.ViewModels;
 
     /// <summary>
     /// CompoundGroupsTableViewModel
@@ -53,7 +54,7 @@
             CompoundGroups.Clear();
             IEnumerator<ICompoundGroup> enumerator = obj.GetEnumerator();
             while(enumerator.MoveNext())
-                CompoundGroups.Add(enumerator.Current);
+                CompoundGroups.Add(new CompoundGroupItem(enumerator.Current));
 
         }
 

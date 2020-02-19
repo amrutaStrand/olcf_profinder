@@ -175,11 +175,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\CompoundGroupItem.cs" />
     <Compile Include="ViewModels\CompoundGroupsHeadersViewModel.cs" />
     <Compile Include="ViewModels\CompoundGroupsTableHeaders.cs" />
     <Compile Include="ViewModels\CompoundGroupsTableViewModel.Commands.cs" />
     <Compile Include="ViewModels\CompoundGroupsTableViewModel.Events.cs" />
     <Compile Include="CompoundGroupsTableModule.cs" />
+    <Compile Include="ViewModels\ICompoundGroupItem.cs" />
     <Compile Include="ViewModels\ICompoundGroupsTableViewModel.cs" />
     <Compile Include="ViewModels\CompoundGroupsTableViewModel.cs" />
     <Compile Include="ViewModels\CompoundGroupsTableViewModel.Infrastructure.cs" />
