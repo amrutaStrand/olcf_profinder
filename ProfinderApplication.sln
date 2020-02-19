@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Events", "Events\Events.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFEProcessor", "MFEProcessor\MFEProcessor.csproj", "{24F0A795-222E-44EA-86E2-4C5C2390447E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TICPlot", "TICPlot\TICPlot.csproj", "{216EF1B0-2A84-4E02-A8BD-87B6F98D2622}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,14 @@ Global
 		{24F0A795-222E-44EA-86E2-4C5C2390447E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{24F0A795-222E-44EA-86E2-4C5C2390447E}.Release|x86.ActiveCfg = Release|Any CPU
 		{24F0A795-222E-44EA-86E2-4C5C2390447E}.Release|x86.Build.0 = Release|Any CPU
+		{216EF1B0-2A84-4E02-A8BD-87B6F98D2622}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{216EF1B0-2A84-4E02-A8BD-87B6F98D2622}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{216EF1B0-2A84-4E02-A8BD-87B6F98D2622}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{216EF1B0-2A84-4E02-A8BD-87B6F98D2622}.Debug|x86.Build.0 = Debug|Any CPU
+		{216EF1B0-2A84-4E02-A8BD-87B6F98D2622}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{216EF1B0-2A84-4E02-A8BD-87B6F98D2622}.Release|Any CPU.Build.0 = Release|Any CPU
+		{216EF1B0-2A84-4E02-A8BD-87B6F98D2622}.Release|x86.ActiveCfg = Release|Any CPU
+		{216EF1B0-2A84-4E02-A8BD-87B6F98D2622}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
