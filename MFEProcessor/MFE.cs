@@ -14,6 +14,7 @@ using Agilent.MassSpectrometry.DataAnalysis.PFDBStorage;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections;
 using System.Threading.Tasks;
+
 namespace MFEProcessor
 {
     /// <summary>
@@ -22,9 +23,9 @@ namespace MFEProcessor
     public class MFE
     {
         private List<string> m_analysisFiles;
-        static ProfinderLogic qualAppLogic = new ProfinderLogic();
+        ProfinderLogic qualAppLogic;
 
-        struct StrcuctFindCpdItem           // struct are used for parallel processing
+        struct StrcuctFindCpdItem
         {
             public Agilent.MassSpectrometry.DataAnalysis.ICompound icompound;
             public Agilent.MassSpectrometry.DataAnalysis.ICpdDetails idetails;
@@ -53,56 +54,11 @@ namespace MFEProcessor
 
             try
             {
-                qualAppLogic.AppExecutionMode = AppExecutionMode.WorkListAutomation;
-                Console.WriteLine("Initializing ..");
-                CmdInitializeApplication cmdInit = new CmdInitializeApplication(qualAppLogic);
-
-                ExecuteCommand(qualAppLogic, cmdInit);
-                
-                QualFeatureConfig.InitRegistryFromAppConfig();
-                AppFeatureConfig.Configuration.SetKeyState(AppFeatureConfig.Key_ProfinderApp, true);
-                qualAppLogic.AppProgressEvent += new AppProgressEventHandler(OnAppProgressEvent);
-                IAppState appState = qualAppLogic as IAppState;
-                AnalysisMethodLoadOptions loadMethod = AnalysisMethodLoadOptions.LoadFromWorklist;
-                if (m_analysisFiles.Count > 0)
-                {
-                    bool loadResults = false;
-                    bool runLoadTimeScripts = false;
-
-                    //Console.WriteLine("Opening " + analysisName);
-                    CmdOpenAnalysisFile cmdOpenAnalysis = new CmdOpenAnalysisFile
-                                                                (qualAppLogic,
-                                                                m_analysisFiles.ToArray(),
-                                                                loadMethod,
-                                                                loadResults,
-                                                                runLoadTimeScripts);
-
-                    ExecuteCommand(qualAppLogic, cmdOpenAnalysis);
-                }
-                List<Analysis> Analyses = new List<Analysis>();
-                foreach (string analysisPath in m_analysisFiles)
-                {
-                    Analysis anlysis = qualAppLogic.DataHeirarchy.AnalysisStore.Values.Cast<Analysis>().First(a => a.FilePath == analysisPath);
-                    Analyses.Add(anlysis);
-                }
-                CmdFindByMFE cmdMFE1 = new CmdFindByMFE(qualAppLogic, MFEMode.RECURSIVE_STAGE_1, Analyses);
-                ExecuteCommand(qualAppLogic, cmdMFE1);
-                CmdRecursiveMFE rmfe = new CmdRecursiveMFE(qualAppLogic, Analyses);
-                ExecuteCommand(qualAppLogic, rmfe);
-                CmdFilterCompoundGroupsMFE cgMfe = new CmdFilterCompoundGroupsMFE(qualAppLogic, m_analysisFiles);
-                ExecuteCommand(qualAppLogic, cgMfe);
-                CmdFindByMFE cmdMFE2 = new CmdFindByMFE(qualAppLogic, MFEMode.RECURSIVE_STAGE_2, Analyses);
-                ExecuteCommand(qualAppLogic, cmdMFE2);
-                CmdFilterCompoundGroupsMFEPost cgpMfePost = new CmdFilterCompoundGroupsMFEPost(qualAppLogic, m_analysisFiles);
-                ExecuteCommand(qualAppLogic, cgpMfePost);
-                IEnumerable<Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup> cpdGroups = qualAppLogic.DataStore.CompoundGroups;
-                //Console.WriteLine(qualAppLogic.DataStore.Capacity);
-                foreach (Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup cpdGroup in cpdGroups)
-                {
-                    DataTypes.ICompoundGroup compoundGroup = getICompoundGroup(cpdGroup, m_analysisFiles) as DataTypes.CompoundGroup;
-                    compoundGroups.Add(compoundGroup);
-                }
-                //Console.WriteLine(compoundGroups.Count);
+                InitiaizeApplication();
+                SetConfiguration();
+                List<Analysis>  Analyses = CreateAnalysis(m_analysisFiles);
+                ExecuteScript(Analyses, m_analysisFiles);
+                compoundGroups = FindCompounds();
             }
             catch (Exception e)
             {
@@ -111,7 +67,82 @@ namespace MFEProcessor
             return compoundGroups;
         }
 
-        private static DataTypes.ICompoundGroup getICompoundGroup(Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup cpdGroup, List<string> analysisFiles)
+        private void InitiaizeApplication()
+        {
+            qualAppLogic = new ProfinderLogic();
+            qualAppLogic.AppExecutionMode = AppExecutionMode.WorkListAutomation;
+            Console.WriteLine("Initializing ..");
+            CmdInitializeApplication cmdInit = new CmdInitializeApplication(qualAppLogic);
+            ExecuteCommand(qualAppLogic, cmdInit);
+        }
+
+        private void SetConfiguration()
+        {
+            QualFeatureConfig.InitRegistryFromAppConfig();
+            AppFeatureConfig.Configuration.SetKeyState(AppFeatureConfig.Key_ProfinderApp, true);
+            Console.WriteLine("Configuration Set");
+        }
+
+        private List<Analysis> CreateAnalysis(List<string> m_analysisFiles)
+        {
+            Console.WriteLine("Creating Analysis");
+            List<Analysis> Analyses = new List<Analysis>();
+            if (m_analysisFiles.Count <= 0)
+                return Analyses;
+            AnalysisMethodLoadOptions loadMethod = AnalysisMethodLoadOptions.LoadFromWorklist;
+            
+            bool loadResults = false;
+            bool runLoadTimeScripts = false;
+            CmdOpenAnalysisFile cmdOpenAnalysis = new CmdOpenAnalysisFile
+                                                        (qualAppLogic,
+                                                        m_analysisFiles.ToArray(),
+                                                        loadMethod,
+                                                        loadResults,
+                                                        runLoadTimeScripts);
+
+            ExecuteCommand(qualAppLogic, cmdOpenAnalysis);
+            
+            
+            foreach (string analysisPath in m_analysisFiles)
+            {
+                Analysis anlysis = qualAppLogic.DataHeirarchy.AnalysisStore.Values.Cast<Analysis>().First(a => a.FilePath == analysisPath);
+                Analyses.Add(anlysis);
+            }
+            Console.WriteLine("Analysis Creation Done");
+            return Analyses;
+        }
+
+        private void ExecuteScript(List<Analysis> analyses, List<string> m_analysisFiles)
+        {
+            CmdFindByMFE cmdMFE1 = new CmdFindByMFE(qualAppLogic, MFEMode.RECURSIVE_STAGE_1, analyses);
+            ExecuteCommand(qualAppLogic, cmdMFE1);
+            CmdRecursiveMFE rmfe = new CmdRecursiveMFE(qualAppLogic, analyses);
+            ExecuteCommand(qualAppLogic, rmfe);
+            CmdFilterCompoundGroupsMFE cgMfe = new CmdFilterCompoundGroupsMFE(qualAppLogic, m_analysisFiles);
+            ExecuteCommand(qualAppLogic, cgMfe);
+            CmdFindByMFE cmdMFE2 = new CmdFindByMFE(qualAppLogic, MFEMode.RECURSIVE_STAGE_2, analyses);
+            ExecuteCommand(qualAppLogic, cmdMFE2);
+            CmdFilterCompoundGroupsMFEPost cgpMfePost = new CmdFilterCompoundGroupsMFEPost(qualAppLogic, m_analysisFiles);
+            ExecuteCommand(qualAppLogic, cgpMfePost);
+            Console.WriteLine("Algorithm Execution Completed");
+        }
+
+        private List<DataTypes.ICompoundGroup> FindCompounds()
+        {
+            Console.WriteLine("Finding Compound Groups");
+            List<DataTypes.ICompoundGroup> compoundGroups = new List<DataTypes.ICompoundGroup>();
+            IEnumerable<Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup> cpdGroups = qualAppLogic.DataStore.CompoundGroups;
+            if (cpdGroups == null || cpdGroups.Count() == 0)
+                return compoundGroups;
+            foreach (Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup cpdGroup in cpdGroups)
+            {
+                DataTypes.ICompoundGroup compoundGroup = getICompoundGroup(cpdGroup, m_analysisFiles) as DataTypes.CompoundGroup;
+                compoundGroups.Add(compoundGroup);
+            }
+            return compoundGroups;
+        }
+
+        private DataTypes.ICompoundGroup getICompoundGroup(Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup cpdGroup, List<string> analysisFiles)
         {
             DataTypes.CompoundGroup compoundGroup = new DataTypes.CompoundGroup();
             if (cpdGroup == null)
@@ -157,7 +188,7 @@ namespace MFEProcessor
             return compoundGroup;
         }
 
-        private static ConcurrentDictionary<int, ProfinderLogic.Strcuctplots> getPlots(Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup cpdGroup, List<string> analysisFiles)
+        private ConcurrentDictionary<int, ProfinderLogic.Strcuctplots> getPlots(Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup cpdGroup, List<string> analysisFiles)
         {
             var plotDict = new ConcurrentDictionary<int, ProfinderLogic.Strcuctplots>();
             var dictAnalysisID = qualAppLogic.DataHeirarchy.AnalysisStore.Cast<DictionaryEntry>()
@@ -378,25 +409,9 @@ namespace MFEProcessor
             return spectrum;
         }
 
-        private static void ExecuteCommand(AppManager qualAppLogic, IQualCommand cmdQualCommand)
+        private void ExecuteCommand(AppManager qualAppLogic, IQualCommand cmdQualCommand)
         {
             IActionItemCollection actions = qualAppLogic.Invoke(cmdQualCommand) as IActionItemCollection;
-            //Write out any warning ors informational messages
-            foreach (IUserMessage userMessage in actions.UserMessages)
-            {
-                //string message = String.Format(  Resource.Warning_Message_0 ,
-                //    userMessage.Message ) ;
-                Console.WriteLine(userMessage);
-            }
-        }
-        internal void OnAppProgressEvent(object sender, AppProgressEventArgs args)
-        {
-            for (int idx = 0; idx < args.AppProgressItems.Length; idx++)
-            {
-                AppProgressItem progress = args.AppProgressItems[idx];
-                //m_messageReporter.ReportMessage(progress.PercentComplete.ToString()
-                //    + " : " + progress.StageMessage); 
-            }
         }
     }
 }
