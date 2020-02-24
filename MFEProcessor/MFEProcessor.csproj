@@ -34,83 +34,87 @@
   <ItemGroup>
     <Reference Include="BaseCommon, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\BaseCommon.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\BaseCommon.dll</HintPath>
     </Reference>
     <Reference Include="BaseDataAccess, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\BaseDataAccess.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\BaseDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="BaseError, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\BaseError.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\BaseError.dll</HintPath>
     </Reference>
     <Reference Include="BaseMsUtils, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\BaseMsUtils.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\BaseMsUtils.dll</HintPath>
     </Reference>
     <Reference Include="CoreCombinedIdentificationPlus, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreCombinedIdentificationPlus.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\CoreCombinedIdentificationPlus.dll</HintPath>
     </Reference>
     <Reference Include="CoreCommand, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreCommand.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\CoreCommand.dll</HintPath>
     </Reference>
     <Reference Include="CoreCompoundCorrelationEngine, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreCompoundCorrelationEngine.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\CoreCompoundCorrelationEngine.dll</HintPath>
     </Reference>
     <Reference Include="CoreDbSearch, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreDbSearch.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\CoreDbSearch.dll</HintPath>
     </Reference>
     <Reference Include="CoreDefinitions, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreDefinitions.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\CoreDefinitions.dll</HintPath>
     </Reference>
     <Reference Include="CoreFindCompounds, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreFindCompounds.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\CoreFindCompounds.dll</HintPath>
     </Reference>
     <Reference Include="CoreMassHunter, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreMassHunter.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\CoreMassHunter.dll</HintPath>
     </Reference>
     <Reference Include="CoreTraceListeners, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreTraceListeners.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\CoreTraceListeners.dll</HintPath>
     </Reference>
     <Reference Include="CoreTypes, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\CoreTypes.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\CoreTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="DataTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\DataTypes.dll</HintPath>
     </Reference>
     <Reference Include="MassProfiler, Version=7.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\MassProfiler.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\MassProfiler.dll</HintPath>
     </Reference>
     <Reference Include="MfeBase, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\MfeBase.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\MfeBase.dll</HintPath>
     </Reference>
     <Reference Include="PFDBManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\PFDBManager.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\PFDBManager.dll</HintPath>
     </Reference>
     <Reference Include="ProfinderLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\ProfinderLogic.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\ProfinderLogic.dll</HintPath>
     </Reference>
     <Reference Include="QualAppLogic, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\QualAppLogic.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\QualAppLogic.dll</HintPath>
     </Reference>
     <Reference Include="QualDefinitions, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\QualDefinitions.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\QualDefinitions.dll</HintPath>
     </Reference>
     <Reference Include="RecursiveMfe, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\MFEExecutor - Copy (2)\RequiredDLL\RecursiveMfe.dll</HintPath>
+      <HintPath>C:\Archer\BatchExtractor\MFEProcessor\RequiredDLL\RecursiveMfe.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -131,33 +135,45 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="RequiredDLL\agtsampleinforw.dll" />
     <Content Include="RequiredDLL\BaseCommon.dll" />
     <Content Include="RequiredDLL\BaseDataAccess.dll" />
     <Content Include="RequiredDLL\BaseError.dll" />
     <Content Include="RequiredDLL\BaseMsUtils.dll" />
+    <Content Include="RequiredDLL\BaseTof.dll" />
+    <Content Include="RequiredDLL\BioConfirmAlgorithm.dll" />
+    <Content Include="RequiredDLL\BioconfirmDefinitions.dll" />
+    <Content Include="RequiredDLL\BioConfirmTypes.dll" />
+    <Content Include="RequiredDLL\BioFindCpdsProtein.dll" />
+    <Content Include="RequiredDLL\CoreAgileIntegrator.dll" />
+    <Content Include="RequiredDLL\CoreAmdisDeconvolution.dll" />
     <Content Include="RequiredDLL\CoreCombinedIdentificationPlus.dll" />
+    <Content Include="RequiredDLL\CoreCombineIdentification.dll" />
     <Content Include="RequiredDLL\CoreCommand.dll" />
     <Content Include="RequiredDLL\CoreCompoundCorrelationEngine.dll" />
+    <Content Include="RequiredDLL\CoreDataAccess.dll" />
     <Content Include="RequiredDLL\CoreDbSearch.dll" />
     <Content Include="RequiredDLL\CoreDefinitions.dll" />
     <Content Include="RequiredDLL\CoreFindCompounds.dll" />
     <Content Include="RequiredDLL\CoreMassHunter.dll" />
+    <Content Include="RequiredDLL\CoreSpectralLibrarySearch.dll" />
     <Content Include="RequiredDLL\CoreTraceListeners.dll" />
     <Content Include="RequiredDLL\CoreTypes.dll" />
     <Content Include="RequiredDLL\DataTypes.dll" />
+    <Content Include="RequiredDLL\MassHunterEngine.dll" />
     <Content Include="RequiredDLL\MassProfiler.dll" />
     <Content Include="RequiredDLL\MfeBase.dll" />
+    <Content Include="RequiredDLL\MFEProcessor.dll" />
+    <Content Include="RequiredDLL\MongoDB.Driver.dll" />
+    <Content Include="RequiredDLL\PeptideServer.dll" />
     <Content Include="RequiredDLL\PFDBManager.dll" />
     <Content Include="RequiredDLL\ProfinderLogic.dll" />
     <Content Include="RequiredDLL\QualAppLogic.dll" />
     <Content Include="RequiredDLL\QualDefinitions.dll" />
+    <Content Include="RequiredDLL\QualReportGenerator.dll" />
     <Content Include="RequiredDLL\RecursiveMfe.dll" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataTypes\DataTypes.csproj">
-      <Project>{d35697ef-6866-4cb1-9754-4349798d00be}</Project>
-      <Name>DataTypes</Name>
-    </ProjectReference>
+    <Content Include="RequiredDLL\SequenceAndModProfileSelection.dll" />
+    <Content Include="RequiredDLL\SpectralDataReader.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
