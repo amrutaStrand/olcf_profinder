@@ -60,6 +60,7 @@ namespace MFEProcessor
                 ExecuteCommand(qualAppLogic, cmdInit);
                 
                 QualFeatureConfig.InitRegistryFromAppConfig();
+                AppFeatureConfig.Configuration.SetKeyState(AppFeatureConfig.Key_ProfinderApp, true);
                 qualAppLogic.AppProgressEvent += new AppProgressEventHandler(OnAppProgressEvent);
                 IAppState appState = qualAppLogic as IAppState;
                 AnalysisMethodLoadOptions loadMethod = AnalysisMethodLoadOptions.LoadFromWorklist;
@@ -95,20 +96,19 @@ namespace MFEProcessor
                 CmdFilterCompoundGroupsMFEPost cgpMfePost = new CmdFilterCompoundGroupsMFEPost(qualAppLogic, m_analysisFiles);
                 ExecuteCommand(qualAppLogic, cgpMfePost);
                 IEnumerable<Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup> cpdGroups = qualAppLogic.DataStore.CompoundGroups;
+                //Console.WriteLine(qualAppLogic.DataStore.Capacity);
                 foreach (Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup cpdGroup in cpdGroups)
                 {
                     DataTypes.ICompoundGroup compoundGroup = getICompoundGroup(cpdGroup, m_analysisFiles) as DataTypes.CompoundGroup;
                     compoundGroups.Add(compoundGroup);
                 }
-                Console.WriteLine(compoundGroups.Count);
-                Console.ReadKey();
+                //Console.WriteLine(compoundGroups.Count);
             }
             catch (Exception e)
             {
                 throw e;
             }
             return compoundGroups;
-
         }
 
         private static DataTypes.ICompoundGroup getICompoundGroup(Agilent.MassSpectrometry.DataAnalysis.ICompoundGroup cpdGroup, List<string> analysisFiles)
@@ -119,7 +119,7 @@ namespace MFEProcessor
                 return null;
             }
 
-            compoundGroup.Group = cpdGroup.CompoundGroupName;
+            compoundGroup.Group = cpdGroup.CompoundGroupNumber+"";
             compoundGroup.RTTgt = cpdGroup.TargetRetentionTime;
             compoundGroup.RTMed = cpdGroup.RetentionTimeMedian;
             compoundGroup.Found = cpdGroup.FrequencyFound;
