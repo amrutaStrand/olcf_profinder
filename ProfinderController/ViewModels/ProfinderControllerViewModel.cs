@@ -37,8 +37,8 @@
         {
 
             List<string> sampleFiles = new List<string>();
-            sampleFiles.Add(@"C:\Users\harika\Desktop\OLCF\D01B.d");
-            sampleFiles.Add(@"C:\Users\harika\Desktop\OLCF\D02B.d");
+            sampleFiles.Add(@"E:\profinder_explore\Profinder\D01B.d");
+            sampleFiles.Add(@"E:\profinder_explore\Profinder\D02B.d");
             MFEProcessor.MFE mfe = new MFEProcessor.MFE(sampleFiles);
             List<DataTypes.ICompoundGroup> compoundGroups = mfe.Execute();
             //ProfinderDummyDataGenerator generator = new ProfinderDummyDataGenerator();

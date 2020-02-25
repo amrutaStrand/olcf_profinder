@@ -1,4 +1,3 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
@@ -24,6 +23,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFEProcessor", "MFEProcessor\MFEProcessor.csproj", "{24F0A795-222E-44EA-86E2-4C5C2390447E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TICPlot", "TICPlot\TICPlot.csproj", "{216EF1B0-2A84-4E02-A8BD-87B6F98D2622}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TICPlotDataExtractor", "TICPlotDataExtractor\TICPlotDataExtractor.csproj", "{F8C1E797-164E-40D7-B55E-83CE7E66459A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -121,6 +122,14 @@ Global
 		{216EF1B0-2A84-4E02-A8BD-87B6F98D2622}.Release|Any CPU.Build.0 = Release|Any CPU
 		{216EF1B0-2A84-4E02-A8BD-87B6F98D2622}.Release|x86.ActiveCfg = Release|Any CPU
 		{216EF1B0-2A84-4E02-A8BD-87B6F98D2622}.Release|x86.Build.0 = Release|Any CPU
+		{F8C1E797-164E-40D7-B55E-83CE7E66459A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8C1E797-164E-40D7-B55E-83CE7E66459A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8C1E797-164E-40D7-B55E-83CE7E66459A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F8C1E797-164E-40D7-B55E-83CE7E66459A}.Debug|x86.Build.0 = Debug|Any CPU
+		{F8C1E797-164E-40D7-B55E-83CE7E66459A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8C1E797-164E-40D7-B55E-83CE7E66459A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8C1E797-164E-40D7-B55E-83CE7E66459A}.Release|x86.ActiveCfg = Release|Any CPU
+		{F8C1E797-164E-40D7-B55E-83CE7E66459A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
