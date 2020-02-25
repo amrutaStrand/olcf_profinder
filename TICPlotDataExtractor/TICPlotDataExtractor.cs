@@ -10,24 +10,29 @@ using Agilent.MassSpectrometry.DataAnalysis.Qualitative;
 
 namespace TICPlotDataExtractor
 {
-    class Program
+    public static class TICPlotDataExtractor
     {
-        static void Main(string[] args)
+        public static Dictionary<string, TICData> Extract(List<string> FileList)
+
         {
+            Dictionary<string, TICData> result = new Dictionary<string, TICData>();
             //QualFeatureConfig.InitRegistryFromAppConfig();
             AppFeatureConfig.Configuration.SetKeyState(AppFeatureConfig.Key_ProfinderApp, true);
             //IMsStreamsProvider msStreamsProvider = new MsStreamsLocalFsProvider(new RawDataReader(new System.IO.FileStream(args[0], System.IO.FileMode.Open)), args[0]);
-            foreach (string filename in args)
+            foreach (string filename in FileList)
             {
-                ITICData tICData = DOReadTICTest1(filename);
+                TICData tICData = DOReadTICTest1(filename) as TICData;
 
-                Console.WriteLine("File Name: " + filename + "\nNo. of Data Points in TIC " + tICData.XArray.Length);
+                //Console.WriteLine("File Name: " + filename + "\nNo. of Data Points in TIC " + tICData.XArray.Length);
+                result.Add(filename, tICData);
             }
+
+            return result;
             
-            Console.ReadKey();
+            //Console.ReadKey();
             
         }
-        public static ITICData DOReadTICTest1(string FileName)  // data file name, such as c:\temp\mydata.d
+        private static ITICData DOReadTICTest1(string FileName)  // data file name, such as c:\temp\mydata.d
 
         {
             IDataAccess dataAccessor = new DataAccess() as IDataAccess;
