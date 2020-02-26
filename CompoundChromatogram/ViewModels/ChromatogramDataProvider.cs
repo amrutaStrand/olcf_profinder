@@ -9,8 +9,9 @@
 namespace Agilent.OpenLab.CompoundChromatogram
 {
     using System;
-
+    using System.Collections.Generic;
     using Agilent.OpenLab.Framework.DataAccess.CoreTypes;
+    using DataTypes;
 
     /// <summary>
     ///     The peak description.
@@ -38,6 +39,101 @@ namespace Agilent.OpenLab.CompoundChromatogram
     }
 
     /// <summary>
+    /// 
+    /// </summary>
+    public class CustomeData : IData
+    {
+        double[] xValues;
+        double[] yValues;
+        /// <summary>
+        /// 
+        /// </summary>
+        public double[] XValues { get { return xValues; } set { xValues = value; } }
+        /// <summary>
+        /// 
+        /// </summary>
+        public double[] YValues { get { return yValues; } set { yValues = value; } }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="list"></param>
+        public CustomeData( List <DataPoint> list)
+        {
+            List<double> xarray = new List<double>();
+            List<double> yarray = new List<double>();
+            foreach(DataPoint point in list)
+            {
+                xarray.Add(point.X);
+                yarray.Add(point.Y);
+            }
+            if (xarray.Count == yarray.Count)
+            {
+                XValues = xarray.ToArray();
+                YValues = yarray.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        private CustomeData( double[] x, double[] y)
+        {
+            XValues = x;
+            YValues = y;
+        }
+
+        
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public IData Clone()
+        {
+            return new CustomeData(xValues, yValues);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public double GetShift()
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="delta"></param>
+        public void MarkAsShifted(double delta)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="delta"></param>
+        public void Shift(double delta)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dataToSubtract"></param>
+        public void Subtract(IData dataToSubtract)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    /// <summary>
     ///     The chromatogram data provider.
     /// </summary>
     public static class ChromatogramDataProvider
@@ -45,47 +141,29 @@ namespace Agilent.OpenLab.CompoundChromatogram
         #region Public Methods and Operators
 
         /// <summary>
-        /// The create chromatogram data.
+        /// generates IChromeData object
         /// </summary>
-        /// <param name="xMin">
-        /// The xmin.
-        /// </param>
-        /// <param name="xStep">
-        /// The x step.
-        /// </param>
-        /// <param name="numberDataPoints">
-        /// The number data points.
-        /// </param>
-        /// <param name="noiseAmplitude">
-        /// The noise amplitude.
-        /// </param>
-        /// <param name="peakDescriptions">
-        /// The peak descriptions.
-        /// </param>
-        /// <returns>
-        /// The <see cref="IChromData"/>.
-        /// </returns>
+        /// <param name="chromatogram"></param>
+        /// <returns></returns>
         public static IChromData CreateChromatogramData(
-            double xMin,
-            double xStep,
-            int numberDataPoints,
-            double noiseAmplitude,
-            params PeakDescription[] peakDescriptions)
+            IChromatogram chromatogram)
         {
-            var yData = new double[numberDataPoints];
-            for (var i = 0; i < numberDataPoints; ++i)
-            {
-                yData[i] = 0.0;
-            }
 
-            foreach (var peakDescription in peakDescriptions)
-            {
-                AddPeak(yData, xMin, xStep, peakDescription);
-            }
+            //var yData = new double[numberDataPoints];
+            //for (var i = 0; i < numberDataPoints; ++i)
+            //{
+            //    yData[i] = 0.0;
+            //}
 
-            AddNoise(yData, noiseAmplitude);
-            var data = new EquidistantData(yData, xMin, xStep);
-            var chromData = new ChromData(data, XUnit.Minutes, "something");
+            //foreach (var peakDescription in peakDescriptions)
+            //{
+            //    AddPeak(yData, xMin, xStep, peakDescription);
+            //}
+
+            //AddNoise(yData, noiseAmplitude);
+            //var data = new EquidistantData(yData, xMin, xStep);
+            IData data = new CustomeData(chromatogram.Data); 
+            var chromData = new ChromData(data, XUnit.Minutes, "Abundance");
 
             return chromData;
         }

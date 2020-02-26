@@ -85,17 +85,37 @@
         }
         private void CompoundSelectionChanged(ICompoundGroup obj)
         {
-
-            List<ChromatogramGraphObject> chromatogramObjects = new List<ChromatogramGraphObject>();
-            for (int i = 0; i < 10; i++)
+            if (obj != null)
             {
-                Color color = colorArray[i % colorArray.Length];
-                chromatogramObjects.Add(
-                    this.CreateChromatogramGraphObject(
-                        "Signal "+ (i+1), color, 0.0, 0.1, 1000, 4, 3, 5, 60, 200, 1));
+                List<ChromatogramGraphObject> chromatogramObjects = new List<ChromatogramGraphObject>();
+                var samplesDict = obj.SampleWiseDataDictionary;
+                int i = 0;
+                foreach (string samplename in samplesDict.Keys)
+                {
+                    Color color = colorArray[i % colorArray.Length];
 
+                    chromatogramObjects.Add(
+                            this.CreateChromatogramGraphObject(
+                                samplename, color, samplesDict[samplename]));
+
+
+
+                    i++;
+                }
                 updatePlotControl(chromatogramObjects);
             }
+            
+
+            //List<ChromatogramGraphObject> chromatogramObjects = new List<ChromatogramGraphObject>();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    Color color = colorArray[i % colorArray.Length];
+            //    chromatogramObjects.Add(
+            //        this.CreateChromatogramGraphObject(
+            //            "Signal "+ (i+1), color, 0.0, 0.1, 1000, 4, 3, 5, 60, 200, 1));
+
+            //    updatePlotControl(chromatogramObjects);
+            //}
         }
 
         private void updatePlotControl(List<ChromatogramGraphObject> msSpectrumGraphObjects)
@@ -139,67 +159,23 @@
         /// <param name="color">
         /// The color.
         /// </param>
-        /// <param name="xmin">
-        /// The xmin.
-        /// </param>
-        /// <param name="xstep">
-        /// The xstep.
-        /// </param>
-        /// <param name="numberOfPoints">
-        /// The number of points.
-        /// </param>
-        /// <param name="numberOfPeaks">
-        /// The number of peaks.
-        /// </param>
-        /// <param name="minWidth">
-        /// The min width.
-        /// </param>
-        /// <param name="maxWidth">
-        /// The max width.
-        /// </param>
-        /// <param name="minHeight">
-        /// The min height.
-        /// </param>
-        /// <param name="maxHeight">
-        /// The max height.
-        /// </param>
-        /// <param name="maxNoise">
-        /// The max noise.
-        /// </param>
+        /// <param name="compound"></param>
         /// <returns>
         /// The <see cref="ChromatogramGraphObject"/>.
         /// </returns>
         private ChromatogramGraphObject CreateChromatogramGraphObject(
             string signalName,
             Color color,
-            double xmin,
-            double xstep,
-            int numberOfPoints,
-            int numberOfPeaks,
-            double minWidth,
-            double maxWidth,
-            double minHeight,
-            double maxHeight,
-            double maxNoise)
+            ICompound compound)
         {
             var chromatogramObject =
                 new ChromatogramGraphObject(
                     AcamlSignalConverter.AcamlSignalToCommonSignal(
                         ChromatogramDataProvider.CreateChromatogramData(
-                            xmin,
-                            xstep,
-                            numberOfPoints,
-                            maxNoise,
-                            ChromatogramDataProvider.CreatePeakDesctiptions(
-                                numberOfPeaks,
-                                minWidth,
-                                maxWidth,
-                                minHeight,
-                                maxHeight,
-                                xmin,
-                                xmin + xstep * numberOfPoints))));
+                          compound.Chromatogram
+                           )));
             chromatogramObject.DisplaySettings.Color = color;
-            chromatogramObject.Hint = string.Format("Datapoints: {0}", numberOfPoints);
+            chromatogramObject.Hint = string.Format("Datapoints: {0}", compound.Chromatogram.Data.Count);
             chromatogramObject.HintTitle = signalName;
             chromatogramObject.CreateLegendObject(signalName);
             chromatogramObject.CreateLegendObject(new List<string> { signalName, chromatogramObject.Hint });
