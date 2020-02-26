@@ -9,6 +9,6 @@
     Loaded="OnLoaded" 
     Unloaded="OnUnloaded">
     <Grid x:Uid="plotGrid" Name="plotGrid">
-        <WindowsFormsHost x:Uid="plotControlHost" Focusable="True" Name="plotControlHost" Grid.Row="0" Grid.Column="0" Panel.ZIndex="1"></WindowsFormsHost>
+        <WindowsFormsHost x:Uid="plotControlHost" Focusable="True" Name="plotControlHost" Grid.Row="0" Grid.Column="0" Panel.ZIndex="1" Margin="10"></WindowsFormsHost>
     </Grid>
 </UserControl>
