@@ -100,7 +100,7 @@
                 Hint = "Experiment Setup",
                 KeyTip = "E"
             };
-            this.FeatureExtractionCommand = new TriggerCommand<object>(this.OnTestCommand)
+            this.FeatureExtractionCommand = new TriggerCommand<object>(this.runMFE)
             {
                 Caption = "Feature Extraction",
                 Hint = "Feature Extraction",

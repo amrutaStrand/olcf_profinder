@@ -34,7 +34,7 @@
             }
         }
 
-        private void runMFE()
+        private void runMFE(object unused)
         {
 
             //List<string> sampleFiles = new List<string>();
