@@ -4,6 +4,7 @@
 
     using Agilent.OpenLab.Framework.UI.Common.Commands;
     using Agilent.OpenLab.Framework.UI.Layout.ModuleInterfaces;
+    using Agilent.OpenLab.UI.Controls.AgtPlotControl;
 
     #endregion
 
@@ -32,6 +33,12 @@
         /// Gets the view.
         /// </summary>
         ITICPlotView View { get; }
+
+        /// <summary>
+        ///     Gets PlotControl.
+        /// </summary>
+        AgtPlotControl PlotControl { get; }
+
 
         #endregion
     }

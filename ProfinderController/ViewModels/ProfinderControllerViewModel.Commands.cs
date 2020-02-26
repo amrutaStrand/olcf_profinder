@@ -8,6 +8,7 @@
     using Microsoft.WindowsAPICodePack.Dialogs;
     using System.Collections.Generic;
     using System;
+    using Events;
 
     #endregion
 
@@ -194,7 +195,7 @@
             //        System.Windows.Forms.MessageBox.Show("Files found: " + files.Length.ToString(), "Message");
             //    }
             //}
-            
+
         }
 
 

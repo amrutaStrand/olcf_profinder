@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Agilent.OpenLab.TICPlot</RootNamespace>
     <AssemblyName>Agilent.OpenLab.TICPlot</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
@@ -60,11 +60,41 @@
     <DocumentationFile>bin\Release\Agilent.OpenLab.Framework.UI.TICPlot.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Agilent.Acaml.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Acaml.2.1.27\lib\net45\Agilent.Acaml.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.Acaml21.Utilities, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Acaml.2.1.27\lib\net45\Agilent.Acaml21.Utilities.dll</HintPath>
+    </Reference>
     <Reference Include="Agilent.Diagnostics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.3rdParty.Diagnostics.1.55.0\lib\net45\Agilent.Diagnostics.dll</HintPath>
     </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.BusinessObjectModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.Acaml.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.BusinessObjectModel.dll</HintPath>
+    </Reference>
     <Reference Include="Agilent.OpenLab.Framework.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.Common.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.Acaml.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.Acaml.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.Acaml.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.CoreTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.CoreTypes.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.CoreTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.Method, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.Method.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.Method.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.Method.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.Method.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.PluginInfrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.PluginInfrastructure.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.PluginInfrastructure.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.Diagnostics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.Diagnostics.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Diagnostics.dll</HintPath>
@@ -108,6 +138,42 @@
     <Reference Include="Agilent.OpenLab.Framework.UI.XamOutlookBar, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.XamOutlookBar.dll</HintPath>
     </Reference>
+    <Reference Include="Agilent.OpenLab.Infragistics.Win, Version=11.2.20112.2135, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WinForms.11.2.20112.21352\lib\net45\Agilent.OpenLab.Infragistics.Win.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.UI.Controls.AgtPlotControl, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.UI.Controls.PlotControl.3.2.0.117\lib\net45\Agilent.OpenLab.UI.Controls.AgtPlotControl.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.UI.Controls.Geometry, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.UI.Controls.Geometry.3.2.0.117\lib\net45\Agilent.OpenLab.UI.Controls.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.UI.Controls.GraphObjects, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.UI.Controls.GraphObjects.3.2.0.117\lib\net45\Agilent.OpenLab.UI.Controls.GraphObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.UI.Controls.WinFormsControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.UI.Controls.WinFormsControls.3.2.0.117\lib\net45\Agilent.OpenLab.UI.Controls.WinFormsControls.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.UI.DataStructures, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.UI.Controls.DataStructures.3.2.0.117\lib\net45\Agilent.OpenLab.UI.DataStructures.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.DataPresenter.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.DataPresenter.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.DockManager.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.DockManager.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.Editors.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.Editors.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.OutlookBar.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.OutlookBar.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.Ribbon.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.Ribbon.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="InfragisticsWPF4.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.v14.2.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.Prism, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.3rdParty.Microsoft.Practices.2.1.505.3\lib\net45\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
@@ -122,15 +188,24 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="protobuf-net, Version=2.0.0.668, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Protobuf.2.0.0.668\lib\net45\protobuf-net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.System.Windows.Interactivity.2.0.20525\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,6 +214,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\TICGraphObject.cs" />
     <Compile Include="ViewModels\TICPlotViewModel.Commands.cs" />
     <Compile Include="ViewModels\TICPlotViewModel.Events.cs" />
     <Compile Include="TICPlotModule.cs" />
@@ -188,6 +264,23 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Schema\ACAML.21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataTypes\DataTypes.csproj">
+      <Project>{d35697ef-6866-4cb1-9754-4349798d00be}</Project>
+      <Name>DataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Events\Events.csproj">
+      <Project>{22043320-4570-42b0-9d52-937437119db1}</Project>
+      <Name>Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TICPlotDataExtractor\TICPlotDataExtractor.csproj">
+      <Project>{f8c1e797-164e-40d7-b55e-83ce7e66459a}</Project>
+      <Name>TICPlotDataExtractor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

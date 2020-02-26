@@ -29,7 +29,8 @@
             set
             {
                 filePaths = value;
-                runMFE();
+                EventAggregator.GetEvent<SamplesAdded>().Publish(filePaths);
+                //runMFE();
             }
         }
 
