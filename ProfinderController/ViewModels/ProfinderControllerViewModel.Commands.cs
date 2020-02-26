@@ -4,6 +4,10 @@
 
     using Agilent.OpenLab.Framework.UI.Common.Commands;
     using Microsoft.Win32;
+    using System.IO;
+    using Microsoft.WindowsAPICodePack.Dialogs;
+    using System.Collections.Generic;
+    using System;
 
     #endregion
 
@@ -144,22 +148,53 @@
         /// </remarks>
         private void SelectFile(object unused)
         {
-            string filePath = null;
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            List<string> files = new List<string>();
+            CommonOpenFileDialog openFileDialog = new CommonOpenFileDialog();
+            openFileDialog.IsFolderPicker = true;
+            openFileDialog.Multiselect = true;
             openFileDialog.RestoreDirectory = true;
+
+
+            
+            
             //ileDialog.Filter = "*.d";
 
-            if (openFileDialog.ShowDialog() == true)
-                filePath = openFileDialog.FileName;
-
-            if (filePath != null && filePath.Trim().Length > 0)
+            if (openFileDialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                if (!filePath.Equals(FilePath))
+                var iter = openFileDialog.FileNames.GetEnumerator();
+                while (iter.MoveNext())
                 {
-                   //ilePath = filePath;
+                    if (iter.Current.EndsWith(".d"))
+                    {
+                        files.Add(iter.Current);
+                    }
+                    else
+                    {
+                        throw new Exception("Selecter is not a \".d\" folder.");
+                    }
                 }
             }
-            FilePath = @"D:\Profinder\D01B.d";
+
+            if (files.Count != 0 )
+            {
+                if (!files.Equals(FilePaths))
+                {
+                    FilePaths = files;
+                }
+            }
+            //using (var fbd = new FolderBrowserDialog())
+            //{
+
+            //    DialogResult result = fbd.ShowDialog();
+
+            //    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+            //    {
+            //        string[] files = Directory.GetFiles(fbd.SelectedPath);
+
+            //        System.Windows.Forms.MessageBox.Show("Files found: " + files.Length.ToString(), "Message");
+            //    }
+            //}
+            
         }
 
 

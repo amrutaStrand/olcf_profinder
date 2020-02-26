@@ -14,21 +14,21 @@
     {
         #region Constructors and Destructors
 
-        string filePath = null;
+        List<string> filePaths = null;
         /// <summary>
         /// Holds Cef file path
         /// </summary>
         /// <remarks>
         /// </remarks>
-        public string FilePath
+        public List<string> FilePaths
         {
             get
             {
-                return filePath;
+                return filePaths;
             }
             set
             {
-                filePath = value;
+                filePaths = value;
                 runMFE();
             }
         }
@@ -36,10 +36,10 @@
         private void runMFE()
         {
 
-            List<string> sampleFiles = new List<string>();
-            sampleFiles.Add(@"D:\Profinder\D01B.d");
-            sampleFiles.Add(@"D:\Profinder\D02B.d");
-            MFEProcessor.MFE mfe = new MFEProcessor.MFE(sampleFiles);
+            //List<string> sampleFiles = new List<string>();
+            //sampleFiles.Add(@"D:\Profinder\D01B.d");
+            //sampleFiles.Add(@"D:\Profinder\D02B.d");
+            MFEProcessor.MFE mfe = new MFEProcessor.MFE(FilePaths);
             List<DataTypes.ICompoundGroup> compoundGroups = mfe.Execute();
             //ProfinderDummyDataGenerator generator = new ProfinderDummyDataGenerator();
             //List<DataTypes.ICompoundGroup> compoundGroups = generator.GenerateDemoData(20, 20);
