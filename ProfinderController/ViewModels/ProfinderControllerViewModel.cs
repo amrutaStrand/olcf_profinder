@@ -8,6 +8,7 @@
     using System;
     using System.Collections.Generic;
     using MFEProcessor;
+    using Agilent.OpenLab.Framework.UI.Layout;
     #endregion
 
     public partial class ProfinderControllerViewModel : BaseViewModel, IProfinderControllerViewModel
@@ -45,7 +46,15 @@
             //ProfinderDummyDataGenerator generator = new ProfinderDummyDataGenerator();
             //List<DataTypes.ICompoundGroup> compoundGroups = generator.GenerateDemoData(20, 20);
             EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(compoundGroups);
-            
+            SetApplicationState();
+        }
+
+        private void SetApplicationState()
+        {
+            var applicationStateService = UnityContainer.Resolve<IApplicationStateService>();
+            applicationStateService.SetApplicationState("MFEExecuted", true, ApplicationStateUpdateMode.Immediate);
+            applicationStateService.ResetApplicationStates();
+            applicationStateService.ApplyApplicationStates();
         }
 
 

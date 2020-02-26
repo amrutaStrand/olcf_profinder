@@ -7,7 +7,8 @@
       </ControllerModule>
     </ControllerModules>
     <NavigationView>
-      <SubViews>
+      <SubViewNavigationType>ExternalControlled</SubViewNavigationType>
+        <SubViews>
         <DockingView>
           <Tag>Layout 1</Tag>
           <Modules>
@@ -22,9 +23,17 @@
             </DockingModule>
             <DockingModule>
               <Module>Agilent.OpenLab.CompoundChromatogram</Module>
+              <Required>false</Required>
+              <SupportedStates>
+                <string>MFEExecuted</string>
+              </SupportedStates>
             </DockingModule>
             <DockingModule>
               <Module>Agilent.OpenLab.CompoundSpectrum</Module>
+              <Required>false</Required>
+              <SupportedStates>
+                <string>MFEExecuted</string>
+              </SupportedStates>
             </DockingModule>
           </Modules>
         </DockingView>
