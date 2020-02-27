@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug33\</OutputPath>
+    <OutputPath>bin\Debug30\</OutputPath>
     <LangVersion>7.3</LangVersion>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -58,6 +58,18 @@
       <Project>{0efcfd29-879d-4136-ade8-a163eab71479}</Project>
       <Name>CompoundSpectrum</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataTypes\DataTypes.csproj">
+      <Project>{d35697ef-6866-4cb1-9754-4349798d00be}</Project>
+      <Name>DataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Events\Events.csproj">
+      <Project>{22043320-4570-42b0-9d52-937437119db1}</Project>
+      <Name>Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MFEProcessor\MFEProcessor.csproj">
+      <Project>{24f0a795-222e-44ea-86e2-4c5c2390447e}</Project>
+      <Name>MFEProcessor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProfinderApplication\ProfinderApplication.csproj">
       <Project>{9b09005a-709b-4e43-994f-b6098984547e}</Project>
       <Name>ProfinderApplication</Name>
@@ -65,6 +77,10 @@
     <ProjectReference Include="..\ProfinderController\ProfinderController.csproj">
       <Project>{3b066cce-3da3-4bc3-8112-93b45717d827}</Project>
       <Name>ProfinderController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TICPlotDataExtractor\TICPlotDataExtractor.csproj">
+      <Project>{f8c1e797-164e-40d7-b55e-83ce7e66459a}</Project>
+      <Name>TICPlotDataExtractor</Name>
     </ProjectReference>
     <ProjectReference Include="..\TICPlot\TICPlot.csproj">
       <Project>{216ef1b0-2a84-4e02-a8bd-87b6f98d2622}</Project>
