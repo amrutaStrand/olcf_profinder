@@ -44,6 +44,17 @@ namespace Agilent.OpenLab.TICPlot.ViewModels
             this.Color = Color.Black;
 
         }
+        public TICGraphObject(ITICData data, Color graphColor)
+        {
+            Data = ArgumentValidator.CheckNotNull(data, "data");
+            this.TransformationHandler.DataBoundingBox = new BoundingBox2D(
+                this.Data.XArray.Min(),
+                this.Data.YArray.Min(),
+                this.Data.XArray.Max(),
+                this.Data.YArray.Max());
+            this.Color = graphColor;
+
+        }
         #endregion
 
         #region Public Properties
