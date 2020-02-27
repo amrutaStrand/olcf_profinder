@@ -71,27 +71,28 @@
 
                     viewModel.ExperimentSetupCommand,
 
-                    this.GetImageFromImageFile("Images/TestImage.png"), this.GetImageFromImageFile("Images/TestImage.png"));
+                    this.GetImageFromImageFile("Images/experiment-setup.png"), this.GetImageFromImageFile("Images/experiment-setup.png"));
+
                 groupManager.AddCommandTool(
 
                     viewModel.FeatureExtractionCommand,
 
-                    this.GetImageFromImageFile("Images/TestImage.png"), this.GetImageFromImageFile("Images/TestImage.png"));
+                    this.GetImageFromImageFile("Images/feature-extraction.png"), this.GetImageFromImageFile("Images/feature-extraction.png"));
                 groupManager.AddCommandTool(
 
                     viewModel.StatisticAnalysisCommand,
 
-                    this.GetImageFromImageFile("Images/TestImage.png"), this.GetImageFromImageFile("Images/TestImage.png"));
+                    this.GetImageFromImageFile("Images/statistical-analysis.png"), this.GetImageFromImageFile("Images/statistical-analysis.png"));
                 groupManager.AddCommandTool(
 
                     viewModel.IdentificationCommand,
 
-                    this.GetImageFromImageFile("Images/TestImage.png"), this.GetImageFromImageFile("Images/TestImage.png"));
+                    this.GetImageFromImageFile("Images/compound-identification.png"), this.GetImageFromImageFile("Images/compound-identification.png"));
                 groupManager.AddCommandTool(
 
                     viewModel.ReportCommand,
 
-                    this.GetImageFromImageFile("Images/TestImage.png"), this.GetImageFromImageFile("Images/TestImage.png"));
+                    this.GetImageFromImageFile("Images/report-create.png"), this.GetImageFromImageFile("Images/report-create.png"));
 
             }
 
