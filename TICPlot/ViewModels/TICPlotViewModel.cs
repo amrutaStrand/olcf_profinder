@@ -14,6 +14,7 @@
     using DataTypes;
     using Events;
     using Agilent.OpenLab.TICPlot.ViewModels;
+    using System.Drawing;
 
     #endregion
 
@@ -160,6 +161,24 @@
             paneManager.LegendContainerSettings.LegendMode = LegendMode.AbovePlotPane;
         }
 
+
+        Color[] colorArray = new Color[] {
+                                            Color.Magenta,
+                                            Color.Red,
+                                            Color.Blue,
+                                            Color.Green,
+                                            Color.Cyan,
+                                            Color.BlueViolet,
+                                            Color.Black,
+                                            Color.Chocolate,
+                                            Color.Coral,
+                                            Color.DarkSlateBlue,
+                                            Color.AliceBlue,
+                                            Color.Aqua,
+                                            Color.Goldenrod,
+                                            Color.Honeydew
+                                            };
+
         private void CreateGraphObjects()
         {
             if (Data == null)
@@ -168,7 +187,8 @@
             foreach (string sample in Data.Keys)
             {
                 TICData sampleData = Data[sample];
-                GraphBaseObject graphObject = new TICGraphObject(sampleData);
+                Color graphColor = colorArray[index % colorArray.Length];
+                GraphBaseObject graphObject = new TICGraphObject(sampleData, graphColor);
                 PlotControl.AddItem(index, 0, graphObject);
                 index++;
             }
