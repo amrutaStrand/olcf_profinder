@@ -217,6 +217,11 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\TestImage.png" />
+    <Resource Include="Images\compound-identification.png" />
+    <Resource Include="Images\experiment-setup.png" />
+    <Resource Include="Images\feature-extraction.png" />
+    <Resource Include="Images\report-create.png" />
+    <Resource Include="Images\statistical-analysis.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataTypes\DataTypes.csproj">
