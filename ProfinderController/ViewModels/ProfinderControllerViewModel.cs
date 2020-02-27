@@ -14,6 +14,19 @@
     public partial class ProfinderControllerViewModel : BaseViewModel, IProfinderControllerViewModel
     {
         #region Constructors and Destructors
+        /// <summary>
+        ///   Initializes a new instance of the <see cref = "ProfinderControllerViewModel" /> class.
+        /// </summary>
+        /// <param name = "container">The container.</param>
+        public ProfinderControllerViewModel(IUnityContainer container)
+            : base(container)
+        {
+            this.InitializeCommands();
+            this.SubscribeEvents();
+            SetApplicationState("InitialState");
+        }
+
+        #endregion    
 
         List<string> filePaths = null;
         /// <summary>
@@ -56,19 +69,6 @@
             applicationStateService.SetApplicationState(state, true, ApplicationStateUpdateMode.Immediate);
             applicationStateService.ApplyApplicationStates();
         }
-
-
-        /// <summary>
-        ///   Initializes a new instance of the <see cref = "ProfinderControllerViewModel" /> class.
-        /// </summary>
-        /// <param name = "container">The container.</param>
-        public ProfinderControllerViewModel(IUnityContainer container)
-            : base(container)
-        {
-            this.InitializeCommands();
-            this.SubscribeEvents();
-        }
-
-        #endregion                    
+                
     }
 }
