@@ -266,7 +266,7 @@ namespace Agilent.OpenLab.ProfinderApplication
         {
             get
             {
-                return "ProfinderApplicationLayout.xml";
+                return "ProfinderApplication.workspace.xml";
             }
         }
 
