@@ -31,7 +31,7 @@
             {
                 filePaths = value;
                 EventAggregator.GetEvent<SamplesAdded>().Publish(filePaths);
-                //runMFE();
+                SetApplicationState("SamplesAdded");
             }
         }
 
@@ -46,14 +46,14 @@
             //ProfinderDummyDataGenerator generator = new ProfinderDummyDataGenerator();
             //List<DataTypes.ICompoundGroup> compoundGroups = generator.GenerateDemoData(20, 20);
             EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(compoundGroups);
-            SetApplicationState();
+            SetApplicationState("MFEExecuted");
         }
 
-        private void SetApplicationState()
+        private void SetApplicationState(string state)
         {
             var applicationStateService = UnityContainer.Resolve<IApplicationStateService>();
-            applicationStateService.SetApplicationState("MFEExecuted", true, ApplicationStateUpdateMode.Immediate);
             applicationStateService.ResetApplicationStates();
+            applicationStateService.SetApplicationState(state, true, ApplicationStateUpdateMode.Immediate);
             applicationStateService.ApplyApplicationStates();
         }
 

@@ -14,23 +14,32 @@
           <Modules>
             <DockingModule>
               <Module>Agilent.OpenLab.CompoundGroupsTable</Module>
+              <SupportedStates>
+                <string>MFEExecuted</string>
+              </SupportedStates>
             </DockingModule>
             <DockingModule>
               <Module>Agilent.OpenLab.ComoundTable</Module>
+              <SupportedStates>
+                <string>MFEExecuted</string>
+              </SupportedStates>
             </DockingModule>
             <DockingModule>
               <Module>Agilent.OpenLab.TICPlot</Module>
+              <SupportedStates>
+                <string>SamplesAdded</string>
+              </SupportedStates>
             </DockingModule>
             <DockingModule>
               <Module>Agilent.OpenLab.CompoundChromatogram</Module>
-              <Required>false</Required>
+              <Required>true</Required>
               <SupportedStates>
                 <string>MFEExecuted</string>
               </SupportedStates>
             </DockingModule>
             <DockingModule>
               <Module>Agilent.OpenLab.CompoundSpectrum</Module>
-              <Required>false</Required>
+              <Required>true</Required>
               <SupportedStates>
                 <string>MFEExecuted</string>
               </SupportedStates>
