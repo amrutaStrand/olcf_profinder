@@ -141,7 +141,7 @@
             paneManager.AxisX.AxisStyles.Extent = 15;
 
             paneManager.AxisY.AxisStyles.TickLabelFont = GraphicToolsRepository.FontArial8;
-            paneManager.AxisY.AxisTitle.SetTitle("Count");
+            paneManager.AxisY.AxisTitle.SetTitle("Counts");
             paneManager.AxisY.AxisTitle.IsVisible = false;
             paneManager.AxisY.AxisTitle.Alignment = UI.Controls.AgtPlotControl.GraphicElements.HorizontalAlignment.Center;
             paneManager.AxisY.AxisStyles.SeparateExponent = true;

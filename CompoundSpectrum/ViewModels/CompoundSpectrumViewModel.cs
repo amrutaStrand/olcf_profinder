@@ -82,7 +82,7 @@
             paneManager.BackgroundBrush = GraphicToolsRepository.AgilentWhiteBrush;
 
             paneManager.AxisX.AxisStyles.TickLabelFont = GraphicToolsRepository.FontArial8;
-            paneManager.AxisX.AxisTitle.SetTitle("Mass");
+            paneManager.AxisX.AxisTitle.SetTitle("m/z");
             paneManager.AxisX.AxisTitle.Alignment = HorizontalAlignment.Center;
             paneManager.AxisX.AxisTitle.Font = GraphicToolsRepository.FontArial8;
             paneManager.AxisX.AxisTitle.Brush = GraphicToolsRepository.DefaultAxisTitleBrush;
@@ -92,7 +92,7 @@
             //            paneManager.AxisY.AxisStyles.TickLabelFont = new Font("Arial", 10, FontStyle.Regular, GraphicsUnit.Pixel);
 
             paneManager.AxisY.AxisStyles.TickLabelFont = GraphicToolsRepository.FontArial8;
-            paneManager.AxisY.AxisTitle.SetTitle("Count");
+            paneManager.AxisY.AxisTitle.SetTitle("Counts");
             paneManager.AxisY.AxisTitle.IsVisible = false;
             paneManager.AxisY.AxisTitle.Alignment = HorizontalAlignment.Center;
             paneManager.AxisY.AxisStyles.SeparateExponent = true;

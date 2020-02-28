@@ -108,8 +108,8 @@
             };
             this.StatisticAnalysisCommand = new TriggerCommand<object>(this.OnTestCommand)
             {
-                Caption = "Statistic Analysis",
-                Hint = "Statistic Analysis",
+                Caption = "Statistical Analysis",
+                Hint = "Statistical Analysis",
                 KeyTip = "S"
             };
             this.IdentificationCommand = new TriggerCommand<object>(this.OnTestCommand)
