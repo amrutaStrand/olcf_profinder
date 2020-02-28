@@ -1,5 +1,8 @@
 ﻿namespace Agilent.OpenLab.CompoundGroupsTable
 {
+
+    using Agilent.OpenLab.UI.Controls.WinFormsControls;
+
     /// <summary>
     /// ICompoundGroupsTableView
     /// </summary>
@@ -20,6 +23,10 @@
         /// </summary>
         void UpdateFocus();
 
+        /// <summary>
+        /// 
+        /// </summary>
+        AgtBaseUltraGrid UltraGrid { get; }
 
         #endregion
     }

@@ -56,6 +56,11 @@
             while(enumerator.MoveNext())
                 CompoundGroups.Add(new CompoundGroupItem(enumerator.Current));
 
+            View.UltraGrid.Selected.Rows.Clear();
+            if (View.UltraGrid.Rows.Count > 0)
+                View.UltraGrid.Selected.Rows.Add(View.UltraGrid.Rows[0]);
+
+
         }
 
         /// <summary>

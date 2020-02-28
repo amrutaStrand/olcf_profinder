@@ -65,7 +65,7 @@
         /// <summary>
         ///     The ultra grid.
         /// </summary>
-        private readonly AgtBaseUltraGrid ultraGrid;
+        public readonly AgtBaseUltraGrid ultraGrid;
 
 
         /// <summary>
@@ -86,6 +86,16 @@
             set
             {
                 this.DataContext = value;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public AgtBaseUltraGrid UltraGrid {
+            get
+            {
+                return ultraGrid;
             }
         }
 
