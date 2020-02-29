@@ -1,14 +1,17 @@
 ﻿namespace Agilent.OpenLab.CompoundChromatogram
 {
+
+    using Agilent.OpenLab.UI.Controls.AgtPlotControl.Interfaces;
+    using Agilent.OpenLab.UI.Controls.GraphObjects;
+    using Agilent.OpenLab.UI.DataStructures.Signals.Interfaces;
+    using System.Collections.Generic;
+    using System.Drawing;
     using Events;
     using DataTypes;
-    using System.Drawing;
-    using System.Collections.Generic;
-    
-    using Agilent.OpenLab.UI.Controls.AgtPlotControl;
+
     using Agilent.OpenLab.UI.Controls.AgtPlotControl.Basic;
-    using Agilent.OpenLab.UI.Controls.GraphObjects;
     using Agilent.OpenLab.UI.DataStructures.Converters;
+    using Agilent.OpenLab.Framework.DataAccess.CoreTypes;
 
 
     /// <summary>
@@ -169,7 +172,7 @@
             ICompound compound)
         {
             var chromatogramObject =
-                new ChromatogramGraphObject(
+                new FilledChromatogramGraphObject(
                     AcamlSignalConverter.AcamlSignalToCommonSignal(
                         ChromatogramDataProvider.CreateChromatogramData(
                           compound.Chromatogram
