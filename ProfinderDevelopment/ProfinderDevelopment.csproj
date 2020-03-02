@@ -116,6 +116,30 @@
     <Reference Include="Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.Infrastructure.Interfaces.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.dll</HintPath>
     </Reference>
+    <Reference Include="BaseError, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\BaseError.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreDbSearch, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\CoreDbSearch.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreFindCompounds, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\CoreFindCompounds.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreSpectralLibrarySearch, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\CoreSpectralLibrarySearch.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreTraceListeners, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\CoreTraceListeners.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreTypes, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\CoreTypes.dll</HintPath>
+    </Reference>
     <Reference Include="InfragisticsWPF4.DataPresenter.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.DataPresenter.v14.2.dll</HintPath>
     </Reference>
@@ -133,6 +157,54 @@
     </Reference>
     <Reference Include="InfragisticsWPF4.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.v14.2.dll</HintPath>
+    </Reference>
+    <Reference Include="MassHunterEngine, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\MassHunterEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="MfeBase, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\MfeBase.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=1.10.0.62, Culture=neutral, PublicKeyToken=f686731cfb9cc103, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="PeptideServer, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\PeptideServer.dll</HintPath>
+    </Reference>
+    <Reference Include="PFDBManager, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\PFDBManager.dll</HintPath>
+    </Reference>
+    <Reference Include="ProfinderLogic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\ProfinderLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="QualAppLogic, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\QualAppLogic.dll</HintPath>
+    </Reference>
+    <Reference Include="QualDefinitions, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\QualDefinitions.dll</HintPath>
+    </Reference>
+    <Reference Include="QualReportGenerator, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\QualReportGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="RecursiveMfe, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\RecursiveMfe.dll</HintPath>
+    </Reference>
+    <Reference Include="SequenceAndModProfileSelection, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\SequenceAndModProfileSelection.dll</HintPath>
+    </Reference>
+    <Reference Include="SpectralDataReader, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\SpectralDataReader.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
