@@ -8,6 +8,7 @@
     using System.Drawing;
     using Events;
     using DataTypes;
+    using Utils;
 
     using Agilent.OpenLab.UI.Controls.AgtPlotControl.Basic;
     using Agilent.OpenLab.UI.DataStructures.Converters;
@@ -28,22 +29,7 @@
 
         #endregion
 
-        Color[] colorArray = new Color[] {
-                                            Color.Magenta,
-                                            Color.Red,
-                                            Color.Blue,
-                                            Color.Green,
-                                            Color.Cyan,
-                                            Color.BlueViolet,
-                                            Color.Black,
-                                            Color.Chocolate,
-                                            Color.Coral,
-                                            Color.DarkSlateBlue,
-                                            Color.AliceBlue,
-                                            Color.Aqua,
-                                            Color.Goldenrod,
-                                            Color.Honeydew
-                                            };
+        Color[] colorArray = ColorConstants.COLOR_ARRAY;
 
         #region Methods
 

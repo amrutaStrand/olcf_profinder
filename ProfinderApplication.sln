@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TICPlot", "TICPlot\TICPlot.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TICPlotDataExtractor", "TICPlotDataExtractor\TICPlotDataExtractor.csproj", "{F8C1E797-164E-40D7-B55E-83CE7E66459A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utils", "Utils\Utils.csproj", "{932E37E1-B6DE-4E8C-A7F9-5719340D05ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -130,6 +132,14 @@ Global
 		{F8C1E797-164E-40D7-B55E-83CE7E66459A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F8C1E797-164E-40D7-B55E-83CE7E66459A}.Release|x86.ActiveCfg = Release|Any CPU
 		{F8C1E797-164E-40D7-B55E-83CE7E66459A}.Release|x86.Build.0 = Release|Any CPU
+		{932E37E1-B6DE-4E8C-A7F9-5719340D05ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{932E37E1-B6DE-4E8C-A7F9-5719340D05ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{932E37E1-B6DE-4E8C-A7F9-5719340D05ED}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{932E37E1-B6DE-4E8C-A7F9-5719340D05ED}.Debug|x86.Build.0 = Debug|Any CPU
+		{932E37E1-B6DE-4E8C-A7F9-5719340D05ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{932E37E1-B6DE-4E8C-A7F9-5719340D05ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{932E37E1-B6DE-4E8C-A7F9-5719340D05ED}.Release|x86.ActiveCfg = Release|Any CPU
+		{932E37E1-B6DE-4E8C-A7F9-5719340D05ED}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

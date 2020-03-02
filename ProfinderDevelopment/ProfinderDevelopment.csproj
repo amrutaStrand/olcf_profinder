@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug30\</OutputPath>
+    <OutputPath>bin\Debug35\</OutputPath>
     <LangVersion>7.3</LangVersion>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -85,6 +85,10 @@
     <ProjectReference Include="..\TICPlot\TICPlot.csproj">
       <Project>{216ef1b0-2a84-4e02-a8bd-87b6f98d2622}</Project>
       <Name>TICPlot</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{932e37e1-b6de-4e8c-a7f9-5719340d05ed}</Project>
+      <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

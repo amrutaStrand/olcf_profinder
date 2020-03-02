@@ -13,6 +13,7 @@
     using System.Collections.Generic;
     using DataTypes;
     using Events;
+    using Utils;
     using Agilent.OpenLab.TICPlot.ViewModels;
     using System.Drawing;
 
@@ -162,22 +163,7 @@
         }
 
 
-        Color[] colorArray = new Color[] {
-                                            Color.Magenta,
-                                            Color.Red,
-                                            Color.Blue,
-                                            Color.Green,
-                                            Color.Cyan,
-                                            Color.BlueViolet,
-                                            Color.Black,
-                                            Color.Chocolate,
-                                            Color.Coral,
-                                            Color.DarkSlateBlue,
-                                            Color.AliceBlue,
-                                            Color.Aqua,
-                                            Color.Goldenrod,
-                                            Color.Honeydew
-                                            };
+        Color[] colorArray = ColorConstants.COLOR_ARRAY;
 
         private void CreateGraphObjects()
         {
