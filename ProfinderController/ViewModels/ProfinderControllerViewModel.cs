@@ -9,6 +9,7 @@
     using System.Collections.Generic;
     using MFEProcessor;
     using Agilent.OpenLab.Framework.UI.Layout;
+    using Agilent.OpenLab.Framework.UI.Common.Services;
     #endregion
 
     public partial class ProfinderControllerViewModel : BaseViewModel, IProfinderControllerViewModel
@@ -48,7 +49,7 @@
             }
         }
 
-        private void runMFE(object unused)
+        private void runMFE()
         {
 
             //List<string> sampleFiles = new List<string>();
@@ -69,6 +70,15 @@
             applicationStateService.SetApplicationState(state, true, ApplicationStateUpdateMode.Immediate);
             applicationStateService.ApplyApplicationStates();
         }
-                
+
+        private void runMFEWithBusyIndicator(object unused)
+        {
+            var busyIndicatorService = UnityContainer.Resolve<IBusyIndicatorService>();
+            using (new BusyIndicator(busyIndicatorService, "Running MFE", false))
+            {
+                runMFE();
+            }
+        }
+
     }
 }
