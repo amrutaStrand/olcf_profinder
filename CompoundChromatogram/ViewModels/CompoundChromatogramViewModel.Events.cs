@@ -74,6 +74,7 @@
         }
         private void CompoundSelectionChanged(ICompoundGroup obj)
         {
+            this.PlotControl.RemoveAllItems();
             if (obj != null)
             {
                 List<ChromatogramGraphObject> chromatogramObjects = new List<ChromatogramGraphObject>();
@@ -93,18 +94,10 @@
                 }
                 updatePlotControl(chromatogramObjects);
             }
+           
             
 
-            //List<ChromatogramGraphObject> chromatogramObjects = new List<ChromatogramGraphObject>();
-            //for (int i = 0; i < 10; i++)
-            //{
-            //    Color color = colorArray[i % colorArray.Length];
-            //    chromatogramObjects.Add(
-            //        this.CreateChromatogramGraphObject(
-            //            "Signal "+ (i+1), color, 0.0, 0.1, 1000, 4, 3, 5, 60, 200, 1));
-
-            //    updatePlotControl(chromatogramObjects);
-            //}
+            
         }
 
         private void updatePlotControl(List<ChromatogramGraphObject> msSpectrumGraphObjects)
