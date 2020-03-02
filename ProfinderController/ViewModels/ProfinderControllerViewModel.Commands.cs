@@ -9,6 +9,7 @@
     using System.Collections.Generic;
     using System;
     using Events;
+    using Agilent.OpenLab.Framework.UI.Common.Services;
 
     #endregion
 
@@ -100,7 +101,7 @@
                 Hint = "Experiment Setup",
                 KeyTip = "E"
             };
-            this.FeatureExtractionCommand = new TriggerCommand<object>(this.runMFE)
+            this.FeatureExtractionCommand = new ToggleCommand<object>(this.runMFEWithBusyIndicator)
             {
                 Caption = "Feature Extraction",
                 Hint = "Feature Extraction",
@@ -138,6 +139,8 @@
         private void OnTestCommand(object unused)
         {
         }
+
+        
 
         /// <summary>
         /// Event handler for test command.
@@ -183,18 +186,6 @@
                     FilePaths = files;
                 }
             }
-            //using (var fbd = new FolderBrowserDialog())
-            //{
-
-            //    DialogResult result = fbd.ShowDialog();
-
-            //    if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
-            //    {
-            //        string[] files = Directory.GetFiles(fbd.SelectedPath);
-
-            //        System.Windows.Forms.MessageBox.Show("Files found: " + files.Length.ToString(), "Message");
-            //    }
-            //}
 
         }
 
