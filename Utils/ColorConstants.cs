@@ -5,8 +5,9 @@ namespace Utils
     public class ColorConstants
     {
         public static Color[] COLOR_ARRAY = new Color[] {
-                                            Color.Magenta,
+                                            Color.Black,
                                             Color.Red,
+                                            Color.Magenta,
                                             Color.Blue,
                                             Color.Green,
                                             Color.Cyan,

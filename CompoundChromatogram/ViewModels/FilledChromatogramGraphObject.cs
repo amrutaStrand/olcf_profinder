@@ -127,6 +127,7 @@ namespace Agilent.OpenLab.CompoundChromatogram
                         {
                             try
                             {
+                                pen.Width = 2;
                                 graphics.DrawLine(pen, point, point2);
                                 //graphics.DrawLine(pen, point, xPoint);
                                 //graphics.DrawLine(pen, point2, xPoint);
