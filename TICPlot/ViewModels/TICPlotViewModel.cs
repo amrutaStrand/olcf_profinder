@@ -147,16 +147,16 @@
             paneManager.AxisX.AxisTitle.Alignment = HorizontalAlignment.Center;
             paneManager.AxisX.AxisTitle.Font = GraphicToolsRepository.FontArial8;
             paneManager.AxisX.AxisTitle.Brush = GraphicToolsRepository.DefaultAxisTitleBrush;
-            paneManager.AxisX.AxisStyles.Extent = 15;
+            paneManager.AxisX.AxisStyles.Extent = 20;
 
             paneManager.AxisY.AxisStyles.TickLabelFont = GraphicToolsRepository.FontArial8;
             paneManager.AxisY.AxisTitle.SetTitle("Counts");
-            paneManager.AxisY.AxisTitle.IsVisible = false;
+            paneManager.AxisY.AxisTitle.IsVisible = true;
             paneManager.AxisY.AxisTitle.Alignment = UI.Controls.AgtPlotControl.GraphicElements.HorizontalAlignment.Center;
             paneManager.AxisY.AxisStyles.SeparateExponent = true;
             paneManager.AxisY.AxisTitle.Font = GraphicToolsRepository.FontArial8;
             paneManager.AxisY.AxisTitle.Brush = GraphicToolsRepository.DefaultAxisTitleBrush;
-            paneManager.AxisY.AxisStyles.Extent = 40;
+            paneManager.AxisY.AxisStyles.Extent = 30;
             paneManager.BoundingBoxExpansion = new BoundingBoxExpansion(
                 5, 5, 5, 5, BoundingBoxExpansion.ExpansionMode.Relative);
 
