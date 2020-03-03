@@ -13,6 +13,7 @@
     using Agilent.OpenLab.UI.Controls.AgtPlotControl.Basic;
     using Agilent.OpenLab.UI.DataStructures.Converters;
     using Agilent.OpenLab.Framework.DataAccess.CoreTypes;
+    using Agilent.OpenLab.UI.Controls.AgtPlotControl.ObjectTransformation;
 
 
     /// <summary>
@@ -116,6 +117,13 @@
             this.PlotControl.GraphManager.ShowLegend = true;
             this.PlotControl.GraphManager.ShowSignalHints = true;
             this.PlotControl.ControlSettings.PaneSelectionMode = PaneSelectionMode.None;
+
+            var objectTransformation = new FullScaleRelativeObjectTransform();
+            PlotControl.GraphManager.SetObjectTransform(objectTransformation);
+
+            plotControl.GraphManager.LinkXAxis = true;
+            plotControl.GraphManager.LinkYAxis = true;
+
             foreach (var paneManager in this.plotControl.GraphManager.PaneManagers())
             {
                 this.InitializePaneProperties(paneManager);
