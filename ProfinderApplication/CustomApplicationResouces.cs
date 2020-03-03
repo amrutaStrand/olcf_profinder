@@ -65,7 +65,7 @@ namespace Agilent.OpenLab.ProfinderApplication
             {
                 // TODO: remove or implement
                 //return base.ApplicationName;
-                return "Agilent MassHunter Profinder";
+                return "Agilent MassHunter Mass Profiler NG";
             }
         }
 
@@ -81,7 +81,7 @@ namespace Agilent.OpenLab.ProfinderApplication
             get
             {
                 // TODO: remove or implement
-                return "Profinder";
+                return "Mass Profiler NG";
             }
         }
 
@@ -112,7 +112,7 @@ namespace Agilent.OpenLab.ProfinderApplication
             get
             {
                 // TODO: remove or implement
-                return "Agilent MassHunter Profinder";
+                return "Agilent MassHunter";
             }
         }
 
@@ -128,7 +128,7 @@ namespace Agilent.OpenLab.ProfinderApplication
             get
             {
                 // TODO: remove or implement
-                return "Agilent MassHunter Profinder";
+                return "Agilent MassHunter";
             }
         }
 
