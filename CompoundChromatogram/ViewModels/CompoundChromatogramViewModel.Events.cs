@@ -166,9 +166,11 @@
                            )));
             chromatogramObject.DisplaySettings.Color = color;
             chromatogramObject.Hint = string.Format("Datapoints: {0}", compound.Chromatogram.Data.Count);
-            chromatogramObject.HintTitle = signalName;
+            chromatogramObject.HintTitle = compound.Chromatogram.Title;
             chromatogramObject.CreateLegendObject(signalName);
-            chromatogramObject.CreateLegendObject(new List<string> { signalName, chromatogramObject.Hint });
+            chromatogramObject.CreateLegendObject(new List<string> { chromatogramObject.HintTitle
+                //,signalName, chromatogramObject.Hint
+            });
 
             return chromatogramObject;
         }

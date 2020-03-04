@@ -168,8 +168,9 @@
             spectrumGraphObject.CreateLegendObject(
                 new List<string>
                     {
-                        string.Format("{0};  #Datapoints = {1}", spectrumName, spectrumData.Data.XValues.Length),
-                        string.Format("Max. Abundance: {0:0}", spectrumData.Data.YValues.Max())
+                        spectrumData.Name
+                        //,string.Format("{0};  #Datapoints = {1}", spectrumName, spectrumData.Data.XValues.Length),
+                        //string.Format("Max. Abundance: {0:0}", spectrumData.Data.YValues.Max()),
                     });
             spectrumGraphObject.MassOfPrecursorIon = GetMassOfMostAbundantIon(spectrumData);
             spectrumGraphObject.DisplaySettings.ShowPrecursorIonAnnotation = true;
@@ -204,7 +205,9 @@
                 counter++;
             }
 
-            return new SpectrumData(new Data(xValues, yValues), XUnit.MassToCharge, "Counts", 13.56);
+            SpectrumData spectrumData =  new SpectrumData(new Data(xValues, yValues), XUnit.MassToCharge, "Counts", 13.56);
+            spectrumData.Name = compound.Spectrum.Name;
+            return spectrumData;
 
         }
         #endregion
