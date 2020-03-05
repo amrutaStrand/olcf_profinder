@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug35\</OutputPath>
+    <OutputPath>bin\Debug37\</OutputPath>
     <LangVersion>7.3</LangVersion>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -65,6 +65,10 @@
     <ProjectReference Include="..\Events\Events.csproj">
       <Project>{22043320-4570-42b0-9d52-937437119db1}</Project>
       <Name>Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FeatureExtractionUI\FeatureExtractionUI.csproj">
+      <Project>{90cbd26b-9483-4148-8ca6-07544c998d8a}</Project>
+      <Name>FeatureExtractionUI</Name>
     </ProjectReference>
     <ProjectReference Include="..\MFEProcessor\MFEProcessor.csproj">
       <Project>{24f0a795-222e-44ea-86e2-4c5c2390447e}</Project>

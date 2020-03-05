@@ -51,6 +51,14 @@
                 <string>MFEExecuted</string>
               </SupportedStates>
             </DockingModule>
+            <DockingModule>
+              <Module>Agilent.OpenLab.FeatureExtractionUI</Module>
+              <Required>false</Required>
+              <SupportedStates>
+                <string>InitialState</string>
+                <string>MFEExecuted</string>
+              </SupportedStates>
+            </DockingModule>
           </Modules>
         </DockingView>
       </SubViews>
