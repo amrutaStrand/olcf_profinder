@@ -198,6 +198,7 @@
     <Compile Include="CmdFilterCompoundGroupsMFEPost.cs" />
     <Compile Include="CmdFindByMFE.cs" />
     <Compile Include="CmdRecursiveMFE.cs" />
+    <Compile Include="InputParameters.cs" />
     <Compile Include="MFE.cs" />
     <Compile Include="PFCmdCommandBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
