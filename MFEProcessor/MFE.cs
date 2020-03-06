@@ -70,7 +70,7 @@ namespace MFEProcessor
 
         private void SetParameters()
         {
-            //InputParameters.SetAlignmentParameters(qualAppLogic);
+            InputParameters.SetAlignmentParameters(qualAppLogic);
         }
 
         private void InitiaizeApplication()

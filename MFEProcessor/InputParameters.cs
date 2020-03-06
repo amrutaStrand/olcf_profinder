@@ -10,22 +10,19 @@ namespace MFEProcessor
 {
     public class InputParameters
     {
-        private static void SavePSet(ProfinderLogic AppLogic, ParameterSet pset, string usageKey)
+        private static void SavePSet(ProfinderLogic AppLogic, IParameterSet pset, string usageKey)
         {
             pset.UsageKey = usageKey;
             IParameterSet[] Pset = { pset as ParameterSet };
             var cmdSetParam = new CmdSetParameters(AppLogic, Pset);
             cmdSetParam.Execute();
         }
+
         public static void SetAlignmentParameters(ProfinderLogic AppLogic)
         {
-            PSetAlignmentInfo alignmentInfo = new PSetAlignmentInfo();
+            IPSetAlignmentInfo alignmentInfo = AppLogic[QualDAMethod.ParamKeyAlignmentInformation] as IPSetAlignmentInfo;
             alignmentInfo.RTMinutes = 0.8;
             SavePSet(AppLogic, alignmentInfo, QualDAMethod.ParamKeyAlignmentInformation);
-            //alignmentInfo.UsageKey = QualDAMethod.ParamKeyAlignmentInformation;
-            //IParameterSet[] Pset = { alignmentInfo as ParameterSet };
-            //var cmdSetParam = new CmdSetParameters(AppLogic, Pset);
-            //cmdSetParam.Execute();
         }
     }
 }
