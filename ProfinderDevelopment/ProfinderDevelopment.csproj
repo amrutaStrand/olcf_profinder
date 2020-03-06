@@ -34,12 +34,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Layouts\ProfinderApplicationLayout.xml">
+    <Content Include="Layouts\ProfinderApplication.workspace01.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Layouts\ProfinderApplication.workspace00.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Layouts\ProfinderApplicationLayout00.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Layouts\ProfinderApplication.workspace.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Layouts\ProfinderApplicationLayout01.xml" />
+    <Content Include="Layouts\ProfinderApplicationLayout.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ComoundTable\ComoundTable.csproj">
