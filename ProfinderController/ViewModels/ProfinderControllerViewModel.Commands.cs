@@ -95,7 +95,13 @@
                 KeyTip = "B"
             };
 
-            this.ExperimentSetupCommand = new TriggerCommand<object>(this.SetExperimentSetupState)
+            //this.ExperimentSetupCommand = new TriggerCommand<object>(this.SetExperimentSetupState)
+            //{
+            //    Caption = "Experiment Setup",
+            //    Hint = "Experiment Setup",
+            //    KeyTip = "E"
+            //};
+            this.ExperimentSetupCommand = new TriggerCommand<object>(this.SelectFile)
             {
                 Caption = "Experiment Setup",
                 Hint = "Experiment Setup",
