@@ -57,6 +57,7 @@ namespace MFEProcessor
                 InitiaizeApplication();
                 SetConfiguration();
                 List<Analysis>  Analyses = CreateAnalysis(m_analysisFiles);
+                SetParameters();
                 ExecuteScript(Analyses, m_analysisFiles);
                 compoundGroups = FindCompounds();
             }
@@ -65,6 +66,11 @@ namespace MFEProcessor
                 throw e;
             }
             return compoundGroups;
+        }
+
+        private void SetParameters()
+        {
+            InputParameters.SetAlignmentParameters(qualAppLogic);
         }
 
         private void InitiaizeApplication()

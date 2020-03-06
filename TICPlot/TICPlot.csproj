@@ -67,13 +67,13 @@
       <HintPath>..\packages\Agilent.OpenLAB.Acaml.2.1.27\lib\net45\Agilent.Acaml21.Utilities.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.Diagnostics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.3rdParty.Diagnostics.1.55.0\lib\net45\Agilent.Diagnostics.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Diagnostics.1.55.0\lib\net45\Agilent.Diagnostics.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.BusinessObjectModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.Acaml.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.BusinessObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.Common.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Common.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.Common.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Common.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.Acaml.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.dll</HintPath>
@@ -97,46 +97,46 @@
       <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.PluginInfrastructure.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.PluginInfrastructure.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.Diagnostics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.Diagnostics.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Diagnostics.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.Diagnostics.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Diagnostics.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.Infrastructure.DefaultServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.DefaultServices.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Infrastructure.DefaultServices.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.DefaultServices.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Infrastructure.DefaultServices.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.Infrastructure.Services.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.Infrastructure.Interfaces.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Infrastructure.Services.Interfaces.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.Infrastructure.Interfaces.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Infrastructure.Services.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.Infrastructure.Interfaces.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.Infrastructure.Interfaces.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Infrastructure.Storage.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.UI.ApplicationContext, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.ApplicationContext.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.ApplicationContext.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.UI.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Common.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Common.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.UI.CommonDefinitions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.CommonDefinitions.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.CommonDefinitions.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.UI.Layout, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Layout.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Layout.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.UI.Module, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Module.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Module.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.UI.Themes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.UI.Themes.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Themes.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.UI.Themes.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Themes.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.UI.Windows, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Windows.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.Windows.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.UI.XamDocking, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.XamDocking.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.XamDocking.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.UI.XamMenu, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.XamMenu.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.XamMenu.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.UI.XamOutlookBar, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.XamOutlookBar.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.XamOutlookBar.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Infragistics.Win, Version=11.2.20112.2135, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WinForms.11.2.20112.21352\lib\net45\Agilent.OpenLab.Infragistics.Win.dll</HintPath>
@@ -175,16 +175,16 @@
       <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.v14.2.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Prism, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.3rdParty.Microsoft.Practices.2.1.505.3\lib\net45\Microsoft.Practices.Prism.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Microsoft.Practices.2.1.505.3\lib\net45\Microsoft.Practices.Prism.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Prism.UnityExtensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.3rdParty.Microsoft.Practices.2.1.505.3\lib\net45\Microsoft.Practices.Prism.UnityExtensions.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Microsoft.Practices.2.1.505.3\lib\net45\Microsoft.Practices.Prism.UnityExtensions.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.3rdParty.Microsoft.Practices.2.1.505.3\lib\net45\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Microsoft.Practices.2.1.505.3\lib\net45\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>$(SolutionDir)\packages\Agilent.OpenLAB.Framework.3rdParty.Microsoft.Practices.2.1.505.3\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Microsoft.Practices.2.1.505.3\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -263,12 +263,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="Schema\ACAML.21.xsd">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\DataTypes\DataTypes.csproj">
       <Project>{d35697ef-6866-4cb1-9754-4349798d00be}</Project>
       <Name>DataTypes</Name>
@@ -285,6 +279,12 @@
       <Project>{932e37e1-b6de-4e8c-a7f9-5719340d05ed}</Project>
       <Name>Utils</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Schema\ACAML.21.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{93CBB6E3-ECC0-47BA-9E38-D62CCC782DB5}</ProjectGuid>
+    <ProjectGuid>{90CBD26B-9483-4148-8CA6-07544C998D8A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Agilent.OpenLab.ComoundTable</RootNamespace>
-    <AssemblyName>Agilent.OpenLab.ComoundTable</AssemblyName>
+    <RootNamespace>Agilent.OpenLab.FeatureExtractionUI</RootNamespace>
+    <AssemblyName>Agilent.OpenLab.FeatureExtractionUI</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <FileUpgradeFlags>
@@ -38,36 +38,62 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <LangVersion>7.3</LangVersion>
     <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>true</RunCodeAnalysis>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <DocumentationFile>bin\Debug\Agilent.OpenLab.Framework.UI.ComoundTable.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <LangVersion>7.3</LangVersion>
     <DefineConstants>TRACE;CODE_ANALYSIS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <DocumentationFile>bin\Release\Agilent.OpenLab.Framework.UI.ComoundTable.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\Agilent.OpenLab.Framework.UI.FeatureExtractionUI.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Agilent.Acaml.Core">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.Acaml.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.Acaml21.Utilities">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.Acaml21.Utilities.dll</HintPath>
+    </Reference>
     <Reference Include="Agilent.Diagnostics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Diagnostics.1.55.0\lib\net45\Agilent.Diagnostics.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.CompoundChromatogram">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.OpenLab.CompoundChromatogram.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.BusinessObjectModel">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.OpenLab.Framework.BusinessObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.Common.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.Common.dll</HintPath>
     </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.OpenLab.Framework.DataAccess.AcamlInfrastructure.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.OpenLab.Framework.DataAccess.AcamlObjectModel.dll</HintPath>
+    </Reference>
     <Reference Include="Agilent.OpenLab.Framework.DataAccess.CoreTypes, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.CoreTypes.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.CoreTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.Method">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.OpenLab.Framework.DataAccess.Method.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.Framework.DataAccess.Method.Interfaces">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.OpenLab.Framework.DataAccess.Method.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="Agilent.OpenLab.Framework.DataAccess.PluginInfrastructure, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.DataAccess.PluginInfrastructure.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.DataAccess.PluginInfrastructure.dll</HintPath>
@@ -114,11 +140,26 @@
     <Reference Include="Agilent.OpenLab.Framework.UI.XamOutlookBar, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.UI.3.2.0.117\lib\net45\Agilent.OpenLab.Framework.UI.XamOutlookBar.dll</HintPath>
     </Reference>
-    <Reference Include="Agilent.OpenLab.Infragistics.Win, Version=11.2.20112.2135, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WinForms.11.2.20112.21352\lib\net45\Agilent.OpenLab.Infragistics.Win.dll</HintPath>
+    <Reference Include="Agilent.OpenLab.UI.Controls.AgtPlotControl">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.OpenLab.UI.Controls.AgtPlotControl.dll</HintPath>
     </Reference>
-    <Reference Include="Agilent.OpenLab.UI.Controls.WinFormsControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Agilent.OpenLAB.UI.Controls.WinFormsControls.3.2.0.117\lib\net45\Agilent.OpenLab.UI.Controls.WinFormsControls.dll</HintPath>
+    <Reference Include="Agilent.OpenLab.UI.Controls.Geometry">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.OpenLab.UI.Controls.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.UI.Controls.GraphObjectDataConverters">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.OpenLab.UI.Controls.GraphObjectDataConverters.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.UI.Controls.GraphObjects">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.OpenLab.UI.Controls.GraphObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="Agilent.OpenLab.UI.DataStructures">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.OpenLab.UI.DataStructures.dll</HintPath>
+    </Reference>
+    <Reference Include="DataTypes">
+      <HintPath>..\CompoundChromatogram\bin\Debug\DataTypes.dll</HintPath>
+    </Reference>
+    <Reference Include="Events">
+      <HintPath>..\CompoundChromatogram\bin\Debug\Events.dll</HintPath>
     </Reference>
     <Reference Include="InfragisticsWPF4.DataPresenter.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.DataPresenter.v14.2.dll</HintPath>
@@ -156,8 +197,6 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.System.Windows.Interactivity.2.0.20525\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -166,7 +205,6 @@
     <Reference Include="WindowsBase">
       <RequiredTargetFramework>3.0</RequiredTargetFramework>
     </Reference>
-    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,22 +213,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ComoundTableViewModel.Commands.cs" />
-    <Compile Include="ViewModels\ComoundTableViewModel.Events.cs" />
-    <Compile Include="ComoundTableModule.cs" />
-    <Compile Include="ViewModels\CompoundTableHeaders.cs" />
-    <Compile Include="ViewModels\CompoundTableHeadersViewModel.cs" />
-    <Compile Include="ViewModels\IComoundTableViewModel.cs" />
-    <Compile Include="ViewModels\ComoundTableViewModel.cs" />
-    <Compile Include="ViewModels\ComoundTableViewModel.Infrastructure.cs" />
-    <Compile Include="Views\IComoundTableView.cs" />
-    <Compile Include="Views\ComoundTableView.xaml.cs">
-      <DependentUpon>ComoundTableView.xaml</DependentUpon>
+    <Compile Include="ViewModels\FeatureExtractionUIViewModel.Commands.cs" />
+    <Compile Include="ViewModels\FeatureExtractionUIViewModel.Events.cs" />
+    <Compile Include="FeatureExtractionUIModule.cs" />
+    <Compile Include="ViewModels\IFeatureExtractionUIViewModel.cs" />
+    <Compile Include="ViewModels\FeatureExtractionUIViewModel.cs" />
+    <Compile Include="ViewModels\FeatureExtractionUIViewModel.Infrastructure.cs" />
+    <Compile Include="Views\IFeatureExtractionUIView.cs" />
+    <Compile Include="Views\FeatureExtractionUIView.xaml.cs">
+      <DependentUpon>FeatureExtractionUIView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ComoundTableModule.IModuleInfo.cs" />
+    <Compile Include="FeatureExtractionUIModule.IModuleInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\ComoundTableView.xaml">
+    <Page Include="Views\FeatureExtractionUIView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -223,16 +259,6 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataTypes\DataTypes.csproj">
-      <Project>{d35697ef-6866-4cb1-9754-4349798d00be}</Project>
-      <Name>DataTypes</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Events\Events.csproj">
-      <Project>{22043320-4570-42b0-9d52-937437119db1}</Project>
-      <Name>Events</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

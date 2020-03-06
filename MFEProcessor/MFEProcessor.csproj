@@ -96,10 +96,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>RequiredDLL\CoreCompoundCorrelationEngine.dll</HintPath>
     </Reference>
-    <Reference Include="CoreDataAccess, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>RequiredDLL\CoreDataAccess.dll</HintPath>
-    </Reference>
     <Reference Include="CoreDbSearch, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>RequiredDLL\CoreDbSearch.dll</HintPath>
@@ -202,6 +198,7 @@
     <Compile Include="CmdFilterCompoundGroupsMFEPost.cs" />
     <Compile Include="CmdFindByMFE.cs" />
     <Compile Include="CmdRecursiveMFE.cs" />
+    <Compile Include="InputParameters.cs" />
     <Compile Include="MFE.cs" />
     <Compile Include="PFCmdCommandBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
