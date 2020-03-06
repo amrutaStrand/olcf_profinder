@@ -95,7 +95,7 @@
                 KeyTip = "B"
             };
 
-            this.ExperimentSetupCommand = new TriggerCommand<object>(this.SelectFile)
+            this.ExperimentSetupCommand = new TriggerCommand<object>(this.SetExperimentSetupState)
             {
                 Caption = "Experiment Setup",
                 Hint = "Experiment Setup",
@@ -140,7 +140,20 @@
         {
         }
 
-        
+        /// <summary>
+        /// Event handler for test command.
+        /// </summary>
+        /// <param name="unused">
+        /// The unused. 
+        /// </param>
+        /// <remarks>
+        /// </remarks>
+        private void SetExperimentSetupState(object unused)
+        {
+            this.SetApplicationState("ExperimentSetup");
+        }
+
+
 
         /// <summary>
         /// Event handler for test command.

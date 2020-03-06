@@ -52,7 +52,7 @@
         /// <summary>
         /// list samples to show in table
         /// </summary>
-        public BindingList<ISample> Samples => throw new System.NotImplementedException();
+        public BindingList<ISample> Samples { get; set; }
 
         /// <summary>
         /// list of selected samples
