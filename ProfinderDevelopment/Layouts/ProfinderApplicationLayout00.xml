@@ -1,0 +1,31 @@
+<Workspaces>
+  <Id>00000000-0000-0000-0000-000000000000</Id>
+  <SingleViewWorkspace>
+    <ControllerModules>
+      <ControllerModule>
+        <Module>Agilent.OpenLab.ProfinderController</Module>
+      </ControllerModule>
+    </ControllerModules>
+    <NavigationView>
+      <SubViews>
+        <DockingView>
+          <Tag>Layout 1</Tag>
+          <Modules>
+            <DockingModule>
+              <Module>Agilent.OpenLab.CompoundGroupsTable</Module>
+            </DockingModule>
+            <DockingModule>
+              <Module>Agilent.OpenLab.ComoundTable</Module>
+            </DockingModule>
+            <DockingModule>
+              <Module>Agilent.OpenLab.CompoundChromatogram</Module>
+            </DockingModule>
+            <DockingModule>
+              <Module>Agilent.OpenLab.CompoundSpectrum</Module>
+            </DockingModule>
+          </Modules>
+        </DockingView>
+      </SubViews>
+    </NavigationView>
+  </SingleViewWorkspace>
+</Workspaces>
