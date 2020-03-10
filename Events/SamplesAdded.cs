@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.Prism.Events;
+﻿using DataTypes;
+using Microsoft.Practices.Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Events
 {
-    public class SamplesAdded : CompositePresentationEvent<List<string>>
+    public class SamplesAdded : CompositePresentationEvent<List<ISample>>
     {
     }
 }

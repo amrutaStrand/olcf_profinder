@@ -1,4 +1,6 @@
-﻿namespace Agilent.OpenLab.TICPlot
+﻿using Events;
+
+namespace Agilent.OpenLab.TICPlot
 {
     /// <summary>
     /// TICPlotViewModel
@@ -41,6 +43,7 @@
         {
             // This might look like the following line of code:
             // this.EventAggregator.GetEvent<SomethingHappenedEvent>().Subscribe(this.OnSomethingHappenedEvent);
+            EventAggregator.GetEvent<SamplesAdded>().Subscribe(UpdateData);
         }
 
         /// <summary>
@@ -53,6 +56,7 @@
         {
             // This might look like the following line of code:
             // this.EventAggregator.GetEvent<SomethingHappenedEvent>().Unsubscribe(this.OnSomethingHappenedEvent);
+            EventAggregator.GetEvent<SamplesAdded>().Subscribe(UpdateData);
         }
 
         #endregion
