@@ -82,12 +82,12 @@
             //else throw exception
         }
 
-        private void runMFE(MFEInputParameters mfeInputParameters)
+        private void runMFE(MFEInputParameters mfeInputs)
         {
             if (MFEExecutor == null)
                 return; //TODO - throw exception
             
-            List<DataTypes.ICompoundGroup> compoundGroups = MFEExecutor.Execute();
+            List<DataTypes.ICompoundGroup> compoundGroups = MFEExecutor.Execute(mfeInputs);
             
             EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(compoundGroups);
             SetApplicationState("MFEExecuted");

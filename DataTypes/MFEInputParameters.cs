@@ -9,11 +9,15 @@ namespace DataTypes
 {
     public class MFEInputParameters
     {
-        public IPSetAlignmentInfo pSetAlignmentInfo;
 
-        public MFEInputParameters(IPSetAlignmentInfo pSetAlignmentInfo)
+        public Dictionary<String, object> AllParameters {
+            get;
+            private set;
+        }
+
+        public MFEInputParameters()
         {
-            this.pSetAlignmentInfo = pSetAlignmentInfo;
+            AllParameters = new Dictionary<string, object>();
         }
 
     }

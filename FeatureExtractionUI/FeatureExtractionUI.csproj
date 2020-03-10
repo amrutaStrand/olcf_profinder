@@ -269,6 +269,10 @@
       <Project>{22043320-4570-42b0-9d52-937437119db1}</Project>
       <Name>Events</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{932e37e1-b6de-4e8c-a7f9-5719340d05ed}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

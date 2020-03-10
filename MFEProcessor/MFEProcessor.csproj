@@ -194,7 +194,7 @@
     <Compile Include="CmdFilterCompoundGroupsMFEPost.cs" />
     <Compile Include="CmdFindByMFE.cs" />
     <Compile Include="CmdRecursiveMFE.cs" />
-    <Compile Include="InputParameters.cs" />
+    <Compile Include="InputParametersUtil.cs" />
     <Compile Include="MFE.cs" />
     <Compile Include="PFCmdCommandBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -247,6 +247,10 @@
     <ProjectReference Include="..\DataTypes\DataTypes.csproj">
       <Project>{d35697ef-6866-4cb1-9754-4349798d00be}</Project>
       <Name>DataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{932e37e1-b6de-4e8c-a7f9-5719340d05ed}</Project>
+      <Name>Utils</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

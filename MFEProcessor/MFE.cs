@@ -16,6 +16,7 @@ using System.Collections;
 using System.Threading.Tasks;
 
 using DataTypes;
+using Utils;
 
 namespace MFEProcessor
 {
@@ -54,12 +55,13 @@ namespace MFEProcessor
         /// 
         /// 
         /// </summary>
-        public List<DataTypes.ICompoundGroup> Execute()
+        public List<DataTypes.ICompoundGroup> Execute(MFEInputParameters mfeInputParams)
         {
             List<DataTypes.ICompoundGroup> compoundGroups = new List<DataTypes.ICompoundGroup>();
 
             try
             {
+                SaveParameters(mfeInputParams);
                 ExecuteScript(Analyses, m_analysisFiles);
                 compoundGroups = FindCompounds();
             }
@@ -70,10 +72,21 @@ namespace MFEProcessor
             return compoundGroups;
         }
 
+        private void SaveParameters(MFEInputParameters mfeInputParams) {
+
+            //Alignment Info
+            IPSetAlignmentInfo pSetAlignmentInfo = mfeInputParams.AllParameters[MFEPSetKeys.ALIGNMENT_INFO] as IPSetAlignmentInfo;
+            InputParametersUtil.SavePSet(qualAppLogic, pSetAlignmentInfo, QualDAMethod.ParamKeyAlignmentInformation);
+        }
+
         public MFEInputParameters GetParameters()
         {
-            IPSetAlignmentInfo pSetAlignment = new InputParameters().GetAlignmentParameters(qualAppLogic);
-            return new MFEInputParameters(pSetAlignment);
+            MFEInputParameters mfeInputParams = new MFEInputParameters();
+
+            IPSetAlignmentInfo pSetAlignment = InputParametersUtil.GetAlignmentParameters(qualAppLogic);
+            mfeInputParams.AllParameters.Add(MFEPSetKeys.ALIGNMENT_INFO, pSetAlignment);
+            
+            return mfeInputParams;
         }
 
         private void InitiaizeApplication()

@@ -1,6 +1,7 @@
 ﻿using Agilent.MassSpectrometry.DataAnalysis;
 
 using DataTypes;
+using Utils;
 
 namespace Agilent.OpenLab.FeatureExtractionUI
 {
@@ -76,7 +77,8 @@ namespace Agilent.OpenLab.FeatureExtractionUI
         public void UpdateInputDefaults(MFEInputParameters allParameters)
         {
             AllInputsParameters = allParameters;
-            AlignmentInfoPSet = allParameters.pSetAlignmentInfo;
+
+            AlignmentInfoPSet = AllInputsParameters.AllParameters[MFEPSetKeys.ALIGNMENT_INFO] as IPSetAlignmentInfo; // allParameters.pSetAlignmentInfo;
         }
     }
 }
