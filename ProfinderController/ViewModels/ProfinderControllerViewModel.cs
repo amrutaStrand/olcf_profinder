@@ -10,6 +10,7 @@
     using MFEProcessor;
     using Agilent.OpenLab.Framework.UI.Layout;
     using Agilent.OpenLab.Framework.UI.Common.Services;
+    using DataTypes;
     #endregion
 
     public partial class ProfinderControllerViewModel : BaseViewModel, IProfinderControllerViewModel
@@ -46,25 +47,50 @@
                 filePaths = value;
                 EventAggregator.GetEvent<SamplesAdded>().Publish(filePaths);
                 SetApplicationState("SamplesAdded");
+                InitializeMFE();
             }
+        }
+
+        private MFE mfeExecutor;
+
+        private MFE MFEExecutor
+        {
+            get { return mfeExecutor; }
+            set
+            {
+                mfeExecutor = value;
+                LoadMFEInputs();
+            }
+        }
+
+        private void InitializeMFE()
+        {
+            if(FilePaths != null && FilePaths.Count > 0)
+            {
+                MFEExecutor = new MFE(FilePaths);
+            } 
+            //else throw exception
+        }
+
+        private void LoadMFEInputs()
+        {
+            if (MFEExecutor != null)
+            {
+                MFEInputParameters mfeParams = MFEExecutor.GetParameters();
+                this.EventAggregator.GetEvent<MFEInputsLoaded>().Publish(mfeParams);
+            }
+            //else throw exception
         }
 
         private void runMFE()
         {
-
-            //List<string> sampleFiles = new List<string>();
-            //sampleFiles.Add(@"D:\Profinder\D01B.d");
-            //sampleFiles.Add(@"D:\Profinder\D02B.d");
-            MFEProcessor.MFE mfe = new MFEProcessor.MFE(FilePaths);
-
-            this.EventAggregator.GetEvent<MFEInputsLoaded>().Publish(mfe.GetParameters());
+            if (MFEExecutor == null)
+                return; //TODO - throw exception
             
-            //List<DataTypes.ICompoundGroup> compoundGroups = mfe.Execute();
+            List<DataTypes.ICompoundGroup> compoundGroups = MFEExecutor.Execute();
             
-            //ProfinderDummyDataGenerator generator = new ProfinderDummyDataGenerator();
-            //List<DataTypes.ICompoundGroup> compoundGroups = generator.GenerateDemoData(20, 20);
-            //EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(compoundGroups);
-            //SetApplicationState("MFEExecuted");
+            EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(compoundGroups);
+            SetApplicationState("MFEExecuted");
         }
 
         private void SetApplicationState(string state)
