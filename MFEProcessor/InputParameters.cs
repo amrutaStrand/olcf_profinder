@@ -18,11 +18,15 @@ namespace MFEProcessor
             cmdSetParam.Execute();
         }
 
-        public static void SetAlignmentParameters(ProfinderLogic AppLogic)
+        public IPSetAlignmentInfo GetAlignmentParameters(ProfinderLogic AppLogic)
         {
             IPSetAlignmentInfo alignmentInfo = AppLogic[QualDAMethod.ParamKeyAlignmentInformation] as IPSetAlignmentInfo;
-            alignmentInfo.RTMinutes = 0.8;
-            SavePSet(AppLogic, alignmentInfo, QualDAMethod.ParamKeyAlignmentInformation);
+            return alignmentInfo;
+
+            //alignmentInfo.RTMinutes = 0.8;
+            //SavePSet(AppLogic, alignmentInfo, QualDAMethod.ParamKeyAlignmentInformation);
         }
+
     }
+
 }

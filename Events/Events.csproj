@@ -60,18 +60,19 @@
   <ItemGroup>
     <Compile Include="CompoundSelectionChanged.cs" />
     <Compile Include="CompoundGroupsGenerated.cs" />
+    <Compile Include="MFEInputsLoaded.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SamplesAdded.cs" />
     <Compile Include="SampleSelectionChanged.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataTypes\DataTypes.csproj">
       <Project>{d35697ef-6866-4cb1-9754-4349798d00be}</Project>
       <Name>DataTypes</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

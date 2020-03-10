@@ -9,6 +9,18 @@
     Loaded="OnLoaded" 
     Unloaded="OnUnloaded">
     <Grid>
-        <Label Content="hello" />
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+            <Label  Content="RT Tolerance(mins)" Margin="10"/>
+            <TextBox x:Name="RTMinutes" Height="30" Width="60" Margin="10"
+                     Text="{Binding Path=AlignmentInfoPSet.RTMinutes, Mode=TwoWay}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Mass Tolerance(ppm)" Margin="10"/>
+                <TextBox x:Name="MassWindowPpm" Height="30" Width="60" Margin="10"
+                     Text="{Binding Path=AlignmentInfoPSet.MassWindowPpm, Mode=TwoWay}"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </UserControl>

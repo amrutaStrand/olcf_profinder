@@ -15,6 +15,8 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections;
 using System.Threading.Tasks;
 
+using DataTypes;
+
 namespace MFEProcessor
 {
     /// <summary>
@@ -24,6 +26,7 @@ namespace MFEProcessor
     {
         private List<string> m_analysisFiles;
         ProfinderLogic qualAppLogic;
+        List<Analysis> Analyses;
 
         struct StrcuctFindCpdItem
         {
@@ -42,6 +45,9 @@ namespace MFEProcessor
         public MFE(List<string> analysisFiles)
         {
             m_analysisFiles = analysisFiles;
+            InitiaizeApplication();
+            SetConfiguration();
+            Analyses = CreateAnalysis(m_analysisFiles);
         }
 
         /// <summary>
@@ -54,10 +60,6 @@ namespace MFEProcessor
 
             try
             {
-                InitiaizeApplication();
-                SetConfiguration();
-                List<Analysis>  Analyses = CreateAnalysis(m_analysisFiles);
-                SetParameters();
                 ExecuteScript(Analyses, m_analysisFiles);
                 compoundGroups = FindCompounds();
             }
@@ -68,9 +70,10 @@ namespace MFEProcessor
             return compoundGroups;
         }
 
-        private void SetParameters()
+        public MFEInputParameters GetParameters()
         {
-            InputParameters.SetAlignmentParameters(qualAppLogic);
+            IPSetAlignmentInfo pSetAlignment = new InputParameters().GetAlignmentParameters(qualAppLogic);
+            return new MFEInputParameters(pSetAlignment);
         }
 
         private void InitiaizeApplication()

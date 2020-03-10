@@ -56,11 +56,15 @@
             //sampleFiles.Add(@"D:\Profinder\D01B.d");
             //sampleFiles.Add(@"D:\Profinder\D02B.d");
             MFEProcessor.MFE mfe = new MFEProcessor.MFE(FilePaths);
-            List<DataTypes.ICompoundGroup> compoundGroups = mfe.Execute();
+
+            this.EventAggregator.GetEvent<MFEInputsLoaded>().Publish(mfe.GetParameters());
+            
+            //List<DataTypes.ICompoundGroup> compoundGroups = mfe.Execute();
+            
             //ProfinderDummyDataGenerator generator = new ProfinderDummyDataGenerator();
             //List<DataTypes.ICompoundGroup> compoundGroups = generator.GenerateDemoData(20, 20);
-            EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(compoundGroups);
-            SetApplicationState("MFEExecuted");
+            //EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(compoundGroups);
+            //SetApplicationState("MFEExecuted");
         }
 
         private void SetApplicationState(string state)

@@ -1,10 +1,14 @@
-﻿namespace Agilent.OpenLab.FeatureExtractionUI
+﻿using Agilent.MassSpectrometry.DataAnalysis;
+
+using DataTypes;
+
+namespace Agilent.OpenLab.FeatureExtractionUI
 {
     #region
 
     using Agilent.OpenLab.Framework.UI.Module;
-
     using Microsoft.Practices.Unity;
+    using System;
 
     #endregion
 
@@ -48,6 +52,28 @@
         /// </remarks>
         public IFeatureExtractionUIView View { get; set; }
 
+        private IPSetAlignmentInfo pSetAlignmentInfo;
+
+        public IPSetAlignmentInfo AlignmentInfoPSet {
+            get
+            {
+                return pSetAlignmentInfo;
+            } 
+            
+            set
+            {
+                pSetAlignmentInfo = value;
+                OnPropertyChanged("AlignmentInfoPSet");
+            }
+            
+        }
+
         #endregion
+
+
+        public void UpdateInputDefaults(MFEInputParameters allParameters)
+        {
+            AlignmentInfoPSet = allParameters.pSetAlignmentInfo;
+        }
     }
 }
