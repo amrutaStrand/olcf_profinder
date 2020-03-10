@@ -45,7 +45,6 @@
             set
             {
                 filePaths = value;
-                EventAggregator.GetEvent<SamplesAdded>().Publish(filePaths);
                 SetApplicationState("SamplesAdded");
                 InitializeMFE();
             }

@@ -21,7 +21,45 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0 5 0 5">
+                <Label Margin="5 0 5 0" >Project</Label>
+                <TextBox Text="Enter Project Name" Margin="5 0 5 0"></TextBox>
+                <Button Content="Open" Margin="5 0 5 0"></Button>
+                <Button Content="New" Margin="5 0 5 0"></Button>
+                <Button Content="Save" Margin="5 0 5 0"></Button>
+                <Button Content="Save As..." Margin="5 0 5 0"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0 5 0 5">
+                <Label Margin="5 0 5 0" >Experiment</Label>
+                <ComboBox >
+                    <ComboBoxItem Tag="Area" Content="Area" IsSelected="True"></ComboBoxItem>
+                </ComboBox>
+                <Button Content="Open" Margin="5 0 5 0"></Button>
+                <Button Content="New" Margin="5 0 5 0"></Button>
+                <Button Content="Save" Margin="5 0 5 0"></Button>
+                <Button Content="Save As..." Margin="5 0 5 0"></Button>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0 5 0 5" HorizontalAlignment="Center">
+                <Label Margin="5 0 5 0" >Samples</Label>
+                <Button Content="Add" Margin="5 0 5 0" Command="{Binding AddInputFiles}"></Button>
+                <Button Content="Remove" Margin="5 0 5 0"></Button>
+                <Button Content="Import form Acq" Margin="5 0 5 0"></Button>
+                <Button Content="Export to Acq" Margin="5 0 5 0"></Button>
+            </StackPanel>
         </Grid>
         <WindowsFormsHost Grid.Row="1" Focusable="True" Name="GridControlHost" Panel.ZIndex="1"></WindowsFormsHost>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0 5 0 5" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label Margin="5 5 5 5" >Sample Grouping</Label>
+            <Button Content="Import" Margin="5 0 5 0" Height="24"></Button>
+            <Button Content="Export" Margin="5 0 5 0" Height="24"></Button>
+            <TextBox Text="New Grouping"  Height="24"></TextBox>
+            <StackPanel Orientation="Vertical" Margin="5 0 5 0">
+                <RadioButton Content="Categorical"></RadioButton>
+                <RadioButton Content="Numerical"></RadioButton>
+            </StackPanel>
+            <Button Content="Add" Margin="5 0 5 0"></Button>
+            <Button Content="Remove" Margin="5 0 5 0"></Button>
+            <Button Content="Done" Margin="5 0 5 0" Command="{Binding SampleGroupingCompleted}"></Button>
+        </StackPanel>
     </Grid>
 </UserControl>
