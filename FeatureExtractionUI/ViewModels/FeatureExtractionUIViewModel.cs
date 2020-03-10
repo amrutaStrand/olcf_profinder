@@ -52,6 +52,8 @@ namespace Agilent.OpenLab.FeatureExtractionUI
         /// </remarks>
         public IFeatureExtractionUIView View { get; set; }
 
+        private MFEInputParameters AllInputsParameters { get; set; }
+
         private IPSetAlignmentInfo pSetAlignmentInfo;
 
         public IPSetAlignmentInfo AlignmentInfoPSet {
@@ -73,6 +75,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
 
         public void UpdateInputDefaults(MFEInputParameters allParameters)
         {
+            AllInputsParameters = allParameters;
             AlignmentInfoPSet = allParameters.pSetAlignmentInfo;
         }
     }

@@ -82,7 +82,7 @@
             //else throw exception
         }
 
-        private void runMFE()
+        private void runMFE(MFEInputParameters mfeInputParameters)
         {
             if (MFEExecutor == null)
                 return; //TODO - throw exception
@@ -101,12 +101,12 @@
             applicationStateService.ApplyApplicationStates();
         }
 
-        private void runMFEWithBusyIndicator(object unused)
+        private void runMFEWithBusyIndicator(MFEInputParameters mfeInputParameters)
         {
             var busyIndicatorService = UnityContainer.Resolve<IBusyIndicatorService>();
             using (new BusyIndicator(busyIndicatorService, "Running MFE", false))
             {
-                runMFE();
+                runMFE(mfeInputParameters);
             }
         }
 

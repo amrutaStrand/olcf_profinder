@@ -10,6 +10,9 @@
     Unloaded="OnUnloaded">
     <Grid>
         <StackPanel>
+            <Button HorizontalAlignment="Center" Height="30" Command="{Binding RunMFECommand.Command}">
+                Run MFE
+            </Button>
             <StackPanel Orientation="Horizontal">
             <Label  Content="RT Tolerance(mins)" Margin="10"/>
             <TextBox x:Name="RTMinutes" Height="30" Width="60" Margin="10"

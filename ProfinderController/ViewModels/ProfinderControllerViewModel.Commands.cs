@@ -107,7 +107,7 @@
                 Hint = "Experiment Setup",
                 KeyTip = "E"
             };
-            this.FeatureExtractionCommand = new ToggleCommand<object>(this.runMFEWithBusyIndicator)
+            this.FeatureExtractionCommand = new ToggleCommand<object>(this.OnTestCommand)//(this.runMFEWithBusyIndicator)
             {
                 Caption = "Feature Extraction",
                 Hint = "Feature Extraction",

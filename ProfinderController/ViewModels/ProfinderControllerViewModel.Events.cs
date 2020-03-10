@@ -1,4 +1,6 @@
-﻿namespace Agilent.OpenLab.ProfinderController
+﻿using Events;
+
+namespace Agilent.OpenLab.ProfinderController
 {
     /// <summary>
     /// UIModuleProjectTemplateViewModel
@@ -22,6 +24,7 @@
         {
             // This might look like the following line of code:
             // this.EventAggregator.GetEvent<SomethingHappenedEvent>().Subscribe(this.OnSomethingHappenedEvent);
+            this.EventAggregator.GetEvent<RunMFEInitiated>().Subscribe(this.runMFEWithBusyIndicator);
         }
 
         /// <summary>
@@ -34,6 +37,7 @@
         {
             // This might look like the following line of code:
             // this.EventAggregator.GetEvent<SomethingHappenedEvent>().Unsubscribe(this.OnSomethingHappenedEvent);
+            this.EventAggregator.GetEvent<RunMFEInitiated>().Unsubscribe(this.runMFEWithBusyIndicator);
         }
 
         #endregion

@@ -54,6 +54,7 @@
         {
             // This might look like the following line of code:
             // this.EventAggregator.GetEvent<SomethingHappenedEvent>().Unsubscribe(this.OnSomethingHappenedEvent);
+            this.EventAggregator.GetEvent<Events.MFEInputsLoaded>().Unsubscribe(this.UpdateInputDefaults);
         }
 
         #endregion
