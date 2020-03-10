@@ -22,9 +22,18 @@ namespace MFEProcessor
         {
             IPSetAlignmentInfo alignmentInfo = AppLogic[QualDAMethod.ParamKeyAlignmentInformation] as IPSetAlignmentInfo;
             return alignmentInfo;
+        }
 
-            //alignmentInfo.RTMinutes = 0.8;
-            //SavePSet(AppLogic, alignmentInfo, QualDAMethod.ParamKeyAlignmentInformation);
+        public IPSetAlignmentInfo GetMFEProcessingParameters(ProfinderLogic AppLogic)
+        {
+            IPSetAlignmentInfo extractionInfo = AppLogic[QualDAMethod.ParamKeyMFEProcessing] as IPSetAlignmentInfo;
+            return extractionInfo;
+        }
+        
+        public IPSetAlignmentInfo GetChargeStateParameters(ProfinderLogic AppLogic)
+        {
+            IPSetAlignmentInfo chargeStateInfo = AppLogic[QualDAMethod.ParamKeyMSChargeStateAssignment] as IPSetAlignmentInfo;
+            return chargeStateInfo;
         }
 
     }
