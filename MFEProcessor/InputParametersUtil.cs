@@ -23,16 +23,17 @@ namespace MFEProcessor
             IPSetAlignmentInfo alignmentInfo = AppLogic[QualDAMethod.ParamKeyAlignmentInformation] as IPSetAlignmentInfo;
             return alignmentInfo;
         }
-
-        public static IPSetAlignmentInfo GetMFEProcessingParameters(ProfinderLogic AppLogic)
+        
+        public static IPSetMassHunterProcessing GetMFEProcessingParameters(ProfinderLogic AppLogic)
         {
-            IPSetAlignmentInfo extractionInfo = AppLogic[QualDAMethod.ParamKeyMFEProcessing] as IPSetAlignmentInfo;
+            IPSetMassHunterProcessing extractionInfo = AppLogic[QualDAMethod.ParamKeyMFEProcessing] as IPSetMassHunterProcessing;
             return extractionInfo;
         }
-        
-        public static IPSetAlignmentInfo GetChargeStateParameters(ProfinderLogic AppLogic)
+
+        public static IPSetChargeStateAssignment GetChargeStateParameters(ProfinderLogic AppLogic)
         {
-            IPSetAlignmentInfo chargeStateInfo = AppLogic[QualDAMethod.ParamKeyMSChargeStateAssignment] as IPSetAlignmentInfo;
+            IPSetChargeStateAssignment chargeStateInfo = AppLogic[QualDAMethod.ParamKeyMSChargeStateAssignment] as IPSetChargeStateAssignment;
+
             return chargeStateInfo;
         }
 
