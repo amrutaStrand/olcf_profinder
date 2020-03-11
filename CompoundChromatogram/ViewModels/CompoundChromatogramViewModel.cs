@@ -110,6 +110,13 @@
             paneManager.MinimumPlotPaneHeight = 50;
             paneManager.MaximumAllowedRelativeLegendHeight = 0.5;
 
+
+            paneManager.AxisX.AxisStyles.MajorGridStyle.Visible = false;
+            paneManager.AxisX.AxisStyles.MinorGridStyle.Visible = false;
+            paneManager.AxisY.AxisStyles.MajorGridStyle.Visible = false;
+            paneManager.AxisY.AxisStyles.MinorGridStyle.Visible = false;
+
+
             paneManager.LegendContainerSettings.LegendMode = LegendMode.AbovePlotPane;
         }
 
