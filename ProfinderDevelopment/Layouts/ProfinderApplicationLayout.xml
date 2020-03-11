@@ -44,7 +44,7 @@
             </DockingModule>
             <DockingModule>
               <Module>Agilent.OpenLab.TICPlot</Module>
-              <Required>false</Required>
+              <Required>true</Required>
               <SupportedStates>
                 <string>SamplesAdded</string>
               </SupportedStates>
