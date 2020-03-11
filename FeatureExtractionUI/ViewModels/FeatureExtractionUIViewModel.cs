@@ -10,6 +10,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
     using Agilent.OpenLab.Framework.UI.Module;
     using Microsoft.Practices.Unity;
     using System;
+    using System.Collections.ObjectModel;
 
     #endregion
 
@@ -102,7 +103,8 @@ namespace Agilent.OpenLab.FeatureExtractionUI
                 OnPropertyChanged("ChargeStateAssignmentPSet");
             }
         }
-        private string combinedChargeState;
+
+    private string combinedChargeState;
         public string CombinedChargeState
         {
             get
@@ -122,6 +124,41 @@ namespace Agilent.OpenLab.FeatureExtractionUI
 
             }
         }
+
+        public IsotopeModelType[] valueChoices = new[] {
+                IsotopeModelType.Unspecified,
+                IsotopeModelType.Peptides,
+                IsotopeModelType.CommonOrganicMolecules,
+                IsotopeModelType.Unbaised,
+                IsotopeModelType.Glycan,
+                IsotopeModelType.Biological,
+                
+            };
+
+        public ObservableCollection<IsotopeModelItem> IsotopeModelTypes { get => new ObservableCollection<IsotopeModelItem>() { 
+            new IsotopeModelItem(){Text="Unspecified",Val=0},
+            new IsotopeModelItem(){Text="Peptides",Val=1},
+            new IsotopeModelItem(){Text="Common organic (no halogens)",Val=2},
+            new IsotopeModelItem(){Text="Unbaised",Val=3},
+            new IsotopeModelItem(){Text="Glycans",Val=4},
+            new IsotopeModelItem(){Text="Biological",Val=5},
+            };
+        }
+        private int isotopeTypeInd = 2;
+        public int IsotopeTypeInd
+        {
+            get
+            {
+                return isotopeTypeInd;
+            }
+            set
+            {
+                this.isotopeTypeInd = value;
+                OnPropertyChanged("IsotopeTypeInd");
+                ChargeStateAssignmentPSet.IsotopeModel = valueChoices[2];
+                OnPropertyChanged("ChargeStateAssignmentPSet");
+            }
+        }
         public void UpdateInputDefaults(MFEInputParameters allParameters)
         {
             AllInputsParameters = allParameters;
@@ -129,6 +166,24 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             MassHunterProcessingPSet = AllInputsParameters.AllParameters[MFEPSetKeys.MASS_HUNTER_PROCESSING] as IPSetMassHunterProcessing;
             ChargeStateAssignmentPSet = AllInputsParameters.AllParameters[MFEPSetKeys.CHARGE_STATE_ASSIGNMENT] as IPSetChargeStateAssignment;
             CombinedChargeState = ChargeStateAssignmentPSet.MinimumChargeState + " - " + ChargeStateAssignmentPSet.MinimumChargeState;
+            IsotopeTypeInd = 2;
+        }
+    }
+
+    public class IsotopeModelItem
+    {
+        private string text;
+        public string Text
+        {
+            get => text;
+            set => text = value;
+        }
+
+        private int val;
+        public int Val
+        {
+            get => val;
+            set => val = value;
         }
     }
 }

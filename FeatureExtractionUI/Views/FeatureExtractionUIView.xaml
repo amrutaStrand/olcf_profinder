@@ -2,18 +2,12 @@
     x:Class="Agilent.OpenLab.FeatureExtractionUI.FeatureExtractionUIView" 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-    xmlns:converters="clr-namespace:Agilent.OpenLab.FeatureExtractionUI.converters"
     Height="Auto" 
     Width="Auto" 
     Margin="0" 
     Focusable="True"
     Loaded="OnLoaded" 
     Unloaded="OnUnloaded">
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <converters:MultiValueConverter x:Key="ValueConverter"/>
-        </ResourceDictionary>
-    </UserControl.Resources>
     <Grid>
         <StackPanel>
             <Button HorizontalAlignment="Center" Height="30" Command="{Binding RunMFECommand.Command}">
@@ -24,6 +18,10 @@
                 <Label  Content="Charge States" Margin="10"/>
                 <TextBox x:Name="ChargeStates" Height="30" Width="60" Margin="10" Text="{Binding Path=CombinedChargeState, Mode=TwoWay}" />
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label  Content="Isotope Model" Margin="10"/>
+                <ComboBox  SelectedIndex="{Binding IsotopeTypeInd}" DisplayMemberPath="Text" ItemsSource="{Binding IsotopeModelTypes}" Height="30" Width="161" Margin="10" />
+                </StackPanel>
             <StackPanel Orientation="Horizontal">
             <Label  Content="RT Tolerance(mins)" Margin="10"/>
             <TextBox x:Name="RTMinutes" Height="30" Width="60" Margin="10"
