@@ -144,6 +144,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             new IsotopeModelItem(){Text="Biological",Val=5},
             };
         }
+
         private int isotopeTypeInd = 2;
         public int IsotopeTypeInd
         {
@@ -155,7 +156,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             {
                 this.isotopeTypeInd = value;
                 OnPropertyChanged("IsotopeTypeInd");
-                ChargeStateAssignmentPSet.IsotopeModel = valueChoices[2];
+                ChargeStateAssignmentPSet.IsotopeModel = valueChoices[value];
                 OnPropertyChanged("ChargeStateAssignmentPSet");
             }
         }
@@ -165,7 +166,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             AlignmentInfoPSet = AllInputsParameters.AllParameters[MFEPSetKeys.ALIGNMENT_INFO] as IPSetAlignmentInfo;
             MassHunterProcessingPSet = AllInputsParameters.AllParameters[MFEPSetKeys.MASS_HUNTER_PROCESSING] as IPSetMassHunterProcessing;
             ChargeStateAssignmentPSet = AllInputsParameters.AllParameters[MFEPSetKeys.CHARGE_STATE_ASSIGNMENT] as IPSetChargeStateAssignment;
-            CombinedChargeState = ChargeStateAssignmentPSet.MinimumChargeState + " - " + ChargeStateAssignmentPSet.MinimumChargeState;
+            CombinedChargeState = ChargeStateAssignmentPSet.MinimumChargeState + " - " + ChargeStateAssignmentPSet.MaximumChargeState;
             IsotopeTypeInd = 2;
         }
     }
