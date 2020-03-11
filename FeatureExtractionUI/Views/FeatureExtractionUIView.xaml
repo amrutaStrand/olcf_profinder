@@ -13,15 +13,15 @@
             <Button HorizontalAlignment="Center" Height="30" Command="{Binding RunMFECommand.Command}">
                 Run MFE
             </Button>
-            
+
             <StackPanel Orientation="Horizontal">
                 <Label  Content="Charge States" Margin="10"/>
                 <TextBox x:Name="ChargeStates" Height="30" Width="60" Margin="10" Text="{Binding Path=CombinedChargeState, Mode=TwoWay}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label  Content="Isotope Model" Margin="10"/>
-                <ComboBox  SelectedIndex="{Binding IsotopeTypeInd}" DisplayMemberPath="Text" ItemsSource="{Binding IsotopeModelTypes}" Height="30" Width="161" Margin="10" />
-                </StackPanel>
+                <ComboBox SelectedIndex="{Binding IsotopeTypeInd}" DisplayMemberPath="DisplayText" ItemsSource="{Binding IsotopeModels}" Height="30" Width="161" Margin="10" />
+            </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Label  Content="RT Tolerance(mins)" Margin="10"/>
                 <TextBox x:Name="RTMinutes" Height="30" Width="60" Margin="10"

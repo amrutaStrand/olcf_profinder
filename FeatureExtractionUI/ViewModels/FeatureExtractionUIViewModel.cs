@@ -125,11 +125,12 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             set
             {
                 pSetChargeStateAssignmentPSet = value;
+                CombinedChargeState = pSetChargeStateAssignmentPSet.MinimumChargeState + " - " + pSetChargeStateAssignmentPSet.MaximumChargeState;
                 OnPropertyChanged("ChargeStateAssignmentPSet");
             }
         }
 
-    private string combinedChargeState;
+        private string combinedChargeState;
         public string CombinedChargeState
         {
             get
@@ -150,26 +151,21 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             }
         }
 
-        // Actual choices of profinder
-        public IsotopeModelType[] valueChoices = new[] {
-                IsotopeModelType.Unspecified,
-                IsotopeModelType.Peptides,
-                IsotopeModelType.CommonOrganicMolecules,
-                IsotopeModelType.Unbaised,
-                IsotopeModelType.Glycan,
-                IsotopeModelType.Biological,
-                
-            };
-
         // Resources.resx file.
-        public ObservableCollection<IsotopeModelItem> IsotopeModelTypes { get => new ObservableCollection<IsotopeModelItem>() { 
-            new IsotopeModelItem(){Text="Unspecified",Val=0},
-            new IsotopeModelItem(){Text="Peptides",Val=1},
-            new IsotopeModelItem(){Text="Common organic (no halogens)",Val=2},
-            new IsotopeModelItem(){Text="Unbaised",Val=3},
-            new IsotopeModelItem(){Text="Glycans",Val=4},
-            new IsotopeModelItem(){Text="Biological",Val=5},
-            };
+        public ObservableCollection<IsotopeModel> IsotopeModels
+        {
+            get
+            {
+                return new ObservableCollection<IsotopeModel>()
+                        {
+                            new IsotopeModel(){ IsotopeModelTypeValue = IsotopeModelType.Unspecified, DisplayText="Unspecified"},
+                            new IsotopeModel(){ IsotopeModelTypeValue = IsotopeModelType.Peptides, DisplayText = "Peptides"},
+                            new IsotopeModel(){ IsotopeModelTypeValue=IsotopeModelType.CommonOrganicMolecules, DisplayText="Common organic (no halogens)"},
+                            new IsotopeModel(){ IsotopeModelTypeValue= IsotopeModelType.Unbaised, DisplayText="Unbaised"},
+                            new IsotopeModel(){ IsotopeModelTypeValue = IsotopeModelType.Glycan, DisplayText="Glycans"},
+                            new IsotopeModel(){ IsotopeModelTypeValue = IsotopeModelType.Biological, DisplayText="Biological"}
+                        };
+            }
         }
 
         private int isotopeTypeInd = 2;
@@ -183,7 +179,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             {
                 this.isotopeTypeInd = value;
                 OnPropertyChanged("IsotopeTypeInd");
-                ChargeStateAssignmentPSet.IsotopeModel = valueChoices[value];
+                ChargeStateAssignmentPSet.IsotopeModel = IsotopeModels[value].IsotopeModelTypeValue;
                 OnPropertyChanged("ChargeStateAssignmentPSet");
             }
         }
@@ -195,25 +191,27 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             //RTRange = MassHunterProcessingPSet.AcqTimeRange.Start + 1;
             //MZRange = MassHunterProcessingPSet.MzRange.End + 1;
             ChargeStateAssignmentPSet = AllInputsParameters.AllParameters[MFEPSetKeys.CHARGE_STATE_ASSIGNMENT] as IPSetChargeStateAssignment;
-            CombinedChargeState = ChargeStateAssignmentPSet.MinimumChargeState + " - " + ChargeStateAssignmentPSet.MaximumChargeState;
             IsotopeTypeInd = 2;
         }
     }
 
-    public class IsotopeModelItem
+    public class IsotopeModel
     {
-        private string text;
-        public string Text
+        private IsotopeModelType isotopeModelType;
+
+        public IsotopeModelType IsotopeModelTypeValue
         {
-            get => text;
-            set => text = value;
+            get { return isotopeModelType; }
+            set { isotopeModelType = value; }
         }
 
-        private int val;
-        public int Val
+        private string displayText;
+
+        public string DisplayText
         {
-            get => val;
-            set => val = value;
+            get { return displayText; }
+            set { displayText = value; }
         }
+
     }
 }
