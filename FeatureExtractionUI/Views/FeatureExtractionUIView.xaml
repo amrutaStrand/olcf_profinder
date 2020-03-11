@@ -23,21 +23,26 @@
                 <ComboBox  SelectedIndex="{Binding IsotopeTypeInd}" DisplayMemberPath="Text" ItemsSource="{Binding IsotopeModelTypes}" Height="30" Width="161" Margin="10" />
                 </StackPanel>
             <StackPanel Orientation="Horizontal">
-            <Label  Content="RT Tolerance(mins)" Margin="10"/>
-            <TextBox x:Name="RTMinutes" Height="30" Width="60" Margin="10"
-                     Text="{Binding Path=AlignmentInfoPSet.RTMinutes, Mode=TwoWay}"/>
+                <Label  Content="RT Tolerance(mins)" Margin="10"/>
+                <TextBox x:Name="RTMinutes" Height="30" Width="60" Margin="10"
+                         Text="{Binding Path=AlignmentInfoPSet.RTMinutes, Mode=TwoWay}"/>
             </StackPanel>
-
+            
             <StackPanel Orientation="Horizontal">
                 <Label Content="Mass Tolerance(ppm)" Margin="10"/>
                 <TextBox x:Name="MassWindowPpm" Height="30" Width="60" Margin="10"
                      Text="{Binding Path=AlignmentInfoPSet.MassWindowPpm, Mode=TwoWay}"/>
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <!--<StackPanel Orientation="Horizontal">
                 <Label  Content="RT Range(mins)" Margin="10"/>
                 <TextBox x:Name="RTRange" Height="30" Width="60" Margin="10"
-                     Text="{Binding Path=MassHunterProcessingPSet.AcqTimeRange, Mode=TwoWay}"/>
+                     Text="{Binding Path=RTRange, Mode=TwoWay}"/>
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Label  Content="m/z" Margin="10"/>
+                <TextBox x:Name="MZRange" Height="30" Width="60" Margin="10"
+                     Text="{Binding Path=MZRange, Mode=TwoWay}"/>
+            </StackPanel>-->
         </StackPanel>
     </Grid>
 </UserControl>

@@ -87,6 +87,31 @@ namespace Agilent.OpenLab.FeatureExtractionUI
                 OnPropertyChanged("MassHunterProcessingPSet");
             }
         }
+        //private double rtRange;
+        //public double RTRange {
+        //    get {
+        //        return rtRange;
+        //    }
+        //    set {
+        //        rtRange = value;
+        //        OnPropertyChanged("RTRange");
+        //        //MassHunterProcessingPSet.AcqTimeRange = new MinMaxRange(1, value);
+        //        //OnPropertyChanged("MassHunterProcessingPSet");
+        //    } 
+        //}
+
+        //private double mzRange;
+        //public double MZRange {
+        //    get {
+        //        return mzRange;
+        //    } 
+        //    set {
+        //        mzRange = value;
+        //        OnPropertyChanged("MZRange");
+        //        ///MassHunterProcessingPSet.MzRange = new MinMaxRange(1, value);
+        //        //OnPropertyChanged("MassHunterProcessingPSet");
+        //    } 
+        //}
         #endregion
 
         private IPSetChargeStateAssignment pSetChargeStateAssignmentPSet;
@@ -125,6 +150,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             }
         }
 
+        // Actual choices of profinder
         public IsotopeModelType[] valueChoices = new[] {
                 IsotopeModelType.Unspecified,
                 IsotopeModelType.Peptides,
@@ -135,6 +161,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
                 
             };
 
+        // Resources.resx file.
         public ObservableCollection<IsotopeModelItem> IsotopeModelTypes { get => new ObservableCollection<IsotopeModelItem>() { 
             new IsotopeModelItem(){Text="Unspecified",Val=0},
             new IsotopeModelItem(){Text="Peptides",Val=1},
@@ -165,6 +192,8 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             AllInputsParameters = allParameters;
             AlignmentInfoPSet = AllInputsParameters.AllParameters[MFEPSetKeys.ALIGNMENT_INFO] as IPSetAlignmentInfo;
             MassHunterProcessingPSet = AllInputsParameters.AllParameters[MFEPSetKeys.MASS_HUNTER_PROCESSING] as IPSetMassHunterProcessing;
+            //RTRange = MassHunterProcessingPSet.AcqTimeRange.Start + 1;
+            //MZRange = MassHunterProcessingPSet.MzRange.End + 1;
             ChargeStateAssignmentPSet = AllInputsParameters.AllParameters[MFEPSetKeys.CHARGE_STATE_ASSIGNMENT] as IPSetChargeStateAssignment;
             CombinedChargeState = ChargeStateAssignmentPSet.MinimumChargeState + " - " + ChargeStateAssignmentPSet.MaximumChargeState;
             IsotopeTypeInd = 2;
