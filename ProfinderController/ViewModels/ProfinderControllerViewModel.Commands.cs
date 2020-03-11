@@ -95,13 +95,7 @@
                 KeyTip = "B"
             };
 
-            //this.ExperimentSetupCommand = new TriggerCommand<object>(this.SetExperimentSetupState)
-            //{
-            //    Caption = "Experiment Setup",
-            //    Hint = "Experiment Setup",
-            //    KeyTip = "E"
-            //};
-            this.ExperimentSetupCommand = new TriggerCommand<object>(this.SelectFile)
+            this.ExperimentSetupCommand = new TriggerCommand<object>(this.SetExperimentSetupState)
             {
                 Caption = "Experiment Setup",
                 Hint = "Experiment Setup",
@@ -171,41 +165,40 @@
         /// </remarks>
         private void SelectFile(object unused)
         {
-            //List<string> files = new List<string>();
-            //CommonOpenFileDialog openFileDialog = new CommonOpenFileDialog();
-            //openFileDialog.IsFolderPicker = true;
-            //openFileDialog.Multiselect = true;
-            //openFileDialog.RestoreDirectory = true;
+            List<string> files = new List<string>();
+            CommonOpenFileDialog openFileDialog = new CommonOpenFileDialog();
+            openFileDialog.IsFolderPicker = true;
+            openFileDialog.Multiselect = true;
+            openFileDialog.RestoreDirectory = true;
 
 
 
 
-            ////ileDialog.Filter = "*.d";
+            //ileDialog.Filter = "*.d";
 
-            //if (openFileDialog.ShowDialog() == CommonFileDialogResult.Ok)
-            //{
-            //    var iter = openFileDialog.FileNames.GetEnumerator();
-            //    while (iter.MoveNext())
-            //    {
-            //        if (iter.Current.EndsWith(".d"))
-            //        {
-            //            files.Add(iter.Current);
-            //        }
-            //        else
-            //        {
-            //            throw new Exception("Selecter is not a \".d\" folder.");
-            //        }
-            //    }
-            //}
+            if (openFileDialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                var iter = openFileDialog.FileNames.GetEnumerator();
+                while (iter.MoveNext())
+                {
+                    if (iter.Current.EndsWith(".d"))
+                    {
+                        files.Add(iter.Current);
+                    }
+                    else
+                    {
+                        throw new Exception("Selecter is not a \".d\" folder.");
+                    }
+                }
+            }
 
-            //if (files.Count != 0 )
-            //{
-            //    if (!files.Equals(FilePaths))
-            //    {
-            //        FilePaths = files;
-            //    }
-            //}
-            SetExperimentSetupState("");
+            if (files.Count != 0)
+            {
+                if (!files.Equals(FilePaths))
+                {
+                    FilePaths = files;
+                }
+            }
         }
 
 
