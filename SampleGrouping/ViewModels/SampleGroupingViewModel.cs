@@ -7,6 +7,7 @@
     using Agilent.OpenLab.SampleGrouping.ViewModels;
     using Microsoft.Practices.Unity;
     using DataTypes;
+    using System.Collections.Generic;
     #endregion
 
     /// <summary>
@@ -29,8 +30,11 @@
         public SampleGroupingViewModel(IUnityContainer container)
             : base(container)
         {
+            this.Samples = new BindingList<ISample>();
+            this.FilePaths = new List<string>();
             this.View = this.UnityContainer.Resolve<ISampleGroupingView>();
             this.View.Model = this;
+            
             this.SubscribeEvents();
             this.InitializeCommands();
         }
@@ -57,11 +61,16 @@
         /// <summary>
         /// list of selected samples
         /// </summary>
-        public BindingList<ISample> SelectedSamples { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public BindingList<ISample> SelectedSamples { get; set  ; }
         /// <summary>
         /// focused sample
         /// </summary>
-        public ISample FocusedSample { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public ISample FocusedSample { get; set; }
+        /// <summary>
+        /// Holds List Of Files Selected
+        /// </summary>
+        public List<string> FilePaths { get; private set; }
+
 
         #endregion
     }

@@ -24,13 +24,15 @@ namespace Agilent.OpenLab.SampleGrouping.ViewModels
                 SampleGroupingHeaders.ExpOrder,
                 new TableHeader
                 {
-                    Caption = "Experiment Order",
+                    Caption = "Exp. Order",
                     Description = "The Experiment Order",
                     Name = "Exp. order",
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = false
+                    Hidden = false,
+                    ReadOnly = true
+                    
                 });
 
             this.AddHeader(
@@ -43,7 +45,8 @@ namespace Agilent.OpenLab.SampleGrouping.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = false
+                    Hidden = false,
+                    ReadOnly = true
                 });
             this.AddHeader(
                 SampleGroupingHeaders.SampleType,
@@ -55,7 +58,8 @@ namespace Agilent.OpenLab.SampleGrouping.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = false
+                    Hidden = false,
+                    ReadOnly = true
                 });
             this.AddHeader(
                 SampleGroupingHeaders.Group,
@@ -67,8 +71,9 @@ namespace Agilent.OpenLab.SampleGrouping.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Hidden = false
-                });
+                    Hidden = false,
+                    ReadOnly = false
+                }) ;
         }
         #endregion
     }

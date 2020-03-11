@@ -1,4 +1,6 @@
-﻿namespace Agilent.OpenLab.FeatureExtractionUI
+﻿using Agilent.MassSpectrometry.DataAnalysis;
+
+namespace Agilent.OpenLab.FeatureExtractionUI
 {
     partial class FeatureExtractionUIViewModel
     {
@@ -44,7 +46,7 @@
         /// </remarks>
         protected override void OnLoaded()
         {
-            // Load user settings            
+            // Load user settings 
         }
 
         /// <summary>

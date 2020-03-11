@@ -6,6 +6,7 @@
     using Agilent.OpenLab.Framework.UI.Layout.ModuleInterfaces;
     using DataTypes;
     using System.ComponentModel;
+    using System.Windows.Input;
 
     #endregion
 
@@ -29,6 +30,20 @@
         /// <remarks>
         /// </remarks>
         TriggerCommand<object> TriggerCommandB { get; }
+
+        /// <summary>
+        /// Adds input files to the samples table.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        ICommand AddInputFiles { get; }
+
+        /// <summary>
+        /// Adds input files to the samples table.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        ICommand SampleGroupingCompleted { get; }
 
         /// <summary>
         /// Gets the view.

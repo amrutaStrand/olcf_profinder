@@ -155,11 +155,8 @@
     <Reference Include="Agilent.OpenLab.UI.DataStructures">
       <HintPath>..\CompoundChromatogram\bin\Debug\Agilent.OpenLab.UI.DataStructures.dll</HintPath>
     </Reference>
-    <Reference Include="DataTypes">
-      <HintPath>..\CompoundChromatogram\bin\Debug\DataTypes.dll</HintPath>
-    </Reference>
-    <Reference Include="Events">
-      <HintPath>..\CompoundChromatogram\bin\Debug\Events.dll</HintPath>
+    <Reference Include="CoreDefinitions">
+      <HintPath>..\MFEProcessor\RequiredDLL\CoreDefinitions.dll</HintPath>
     </Reference>
     <Reference Include="InfragisticsWPF4.DataPresenter.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.DataPresenter.v14.2.dll</HintPath>
@@ -262,6 +259,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataTypes\DataTypes.csproj">
+      <Project>{d35697ef-6866-4cb1-9754-4349798d00be}</Project>
+      <Name>DataTypes</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Events\Events.csproj">
+      <Project>{22043320-4570-42b0-9d52-937437119db1}</Project>
+      <Name>Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utils\Utils.csproj">
+      <Project>{932e37e1-b6de-4e8c-a7f9-5719340d05ed}</Project>
+      <Name>Utils</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

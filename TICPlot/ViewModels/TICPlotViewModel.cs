@@ -44,7 +44,7 @@
             this.View.Model = this;
             this.SubscribeEvents();
             this.InitializeCommands();
-            EventAggregator.GetEvent<SamplesAdded>().Subscribe(UpdateData);
+            
         }
 
         #endregion
@@ -91,9 +91,14 @@
 
         #region Methods
 
-        private void UpdateData(List<string> sampleFiles)
+        private void UpdateData(List<ISample> samples)
         {
-            Data = TICPlotDataExtractor.Extract(sampleFiles);
+            var lst = new List<string>();
+            foreach(var sample in samples)
+            {
+                lst.Add(sample.FileName);
+            }
+            Data = TICPlotDataExtractor.Extract(lst);
             InitializeLayout();
             CreateGraphObjects();
         }

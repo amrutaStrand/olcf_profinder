@@ -10,6 +10,7 @@
     using MFEProcessor;
     using Agilent.OpenLab.Framework.UI.Layout;
     using Agilent.OpenLab.Framework.UI.Common.Services;
+    using DataTypes;
     #endregion
 
     public partial class ProfinderControllerViewModel : BaseViewModel, IProfinderControllerViewModel
@@ -44,21 +45,49 @@
             set
             {
                 filePaths = value;
-                EventAggregator.GetEvent<SamplesAdded>().Publish(filePaths);
                 SetApplicationState("SamplesAdded");
+                InitializeMFE();
             }
         }
 
-        private void runMFE()
-        {
+        private MFE mfeExecutor;
 
-            //List<string> sampleFiles = new List<string>();
-            //sampleFiles.Add(@"D:\Profinder\D01B.d");
-            //sampleFiles.Add(@"D:\Profinder\D02B.d");
-            MFEProcessor.MFE mfe = new MFEProcessor.MFE(FilePaths);
-            List<DataTypes.ICompoundGroup> compoundGroups = mfe.Execute();
-            //ProfinderDummyDataGenerator generator = new ProfinderDummyDataGenerator();
-            //List<DataTypes.ICompoundGroup> compoundGroups = generator.GenerateDemoData(20, 20);
+        private MFE MFEExecutor
+        {
+            get { return mfeExecutor; }
+            set
+            {
+                mfeExecutor = value;
+                LoadMFEInputs();
+            }
+        }
+
+        private void InitializeMFE()
+        {
+            if(FilePaths != null && FilePaths.Count > 0)
+            {
+                MFEExecutor = new MFE(FilePaths);
+            } 
+            //else throw exception
+        }
+
+        private void LoadMFEInputs()
+        {
+            if (MFEExecutor != null)
+            {
+                MFEInputParameters mfeParams = MFEExecutor.GetParameters();
+                this.EventAggregator.GetEvent<MFEInputsLoaded>().Publish(mfeParams);
+            }
+            //else throw exception
+        }
+
+        private void runMFE(MFEInputParameters mfeInputs)
+        {
+            if (MFEExecutor == null)
+                return; //TODO - throw exception
+            
+            List<DataTypes.ICompoundGroup> compoundGroups = MFEExecutor.Execute(mfeInputs);
+            
             EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(compoundGroups);
             SetApplicationState("MFEExecuted");
         }
@@ -71,12 +100,12 @@
             applicationStateService.ApplyApplicationStates();
         }
 
-        private void runMFEWithBusyIndicator(object unused)
+        private void runMFEWithBusyIndicator(MFEInputParameters mfeInputParameters)
         {
             var busyIndicatorService = UnityContainer.Resolve<IBusyIndicatorService>();
             using (new BusyIndicator(busyIndicatorService, "Running MFE", false))
             {
-                runMFE();
+                runMFE(mfeInputParameters);
             }
         }
 

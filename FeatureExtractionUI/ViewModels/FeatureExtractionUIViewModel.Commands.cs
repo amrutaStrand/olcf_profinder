@@ -3,6 +3,8 @@
     #region
 
     using Agilent.OpenLab.Framework.UI.Common.Commands;
+    using Events;
+    using System;
 
     #endregion
 
@@ -26,6 +28,9 @@
         /// <remarks>
         /// </remarks>
         public TriggerCommand<object> TriggerCommandB { get; private set; }
+
+        public TriggerCommand<object> RunMFECommand { get; private set; }
+
 
         #endregion
 
@@ -51,7 +56,31 @@
                 Hint = "Test Command Trigger B",
                 KeyTip = "B"
             };
+
+            this.RunMFECommand = new TriggerCommand<object>(this.OnRunMFECommand, this.CanRunMFECommand);
         }
+
+        private bool CanRunMFECommand(object arg)
+        {
+            //TODO
+            //check flag - Mfe not already running
+            //check flag - application is in correct state
+            return true;
+        }
+
+
+        ///<summary>
+        ///Event handler for Running MFE
+        ///</summary>
+        private void OnRunMFECommand(object unused)
+        {
+
+            //public event to update/save inputs
+            //publish event to run mfe
+            this.EventAggregator.GetEvent<RunMFEInitiated>().Publish(this.AllInputsParameters);
+        }
+
+        
 
         /// <summary>
         /// Event handler for test command.

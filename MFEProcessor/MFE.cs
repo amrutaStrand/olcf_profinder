@@ -15,6 +15,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections;
 using System.Threading.Tasks;
 
+using DataTypes;
+using Utils;
+
 namespace MFEProcessor
 {
     /// <summary>
@@ -24,6 +27,7 @@ namespace MFEProcessor
     {
         private List<string> m_analysisFiles;
         ProfinderLogic qualAppLogic;
+        List<Analysis> Analyses;
 
         struct StrcuctFindCpdItem
         {
@@ -42,22 +46,22 @@ namespace MFEProcessor
         public MFE(List<string> analysisFiles)
         {
             m_analysisFiles = analysisFiles;
+            InitiaizeApplication();
+            SetConfiguration();
+            Analyses = CreateAnalysis(m_analysisFiles);
         }
 
         /// <summary>
         /// 
         /// 
         /// </summary>
-        public List<DataTypes.ICompoundGroup> Execute()
+        public List<DataTypes.ICompoundGroup> Execute(MFEInputParameters mfeInputParams)
         {
             List<DataTypes.ICompoundGroup> compoundGroups = new List<DataTypes.ICompoundGroup>();
 
             try
             {
-                InitiaizeApplication();
-                SetConfiguration();
-                List<Analysis>  Analyses = CreateAnalysis(m_analysisFiles);
-                SetParameters();
+                SaveParameters(mfeInputParams);
                 ExecuteScript(Analyses, m_analysisFiles);
                 compoundGroups = FindCompounds();
             }
@@ -68,9 +72,21 @@ namespace MFEProcessor
             return compoundGroups;
         }
 
-        private void SetParameters()
+        private void SaveParameters(MFEInputParameters mfeInputParams) {
+
+            //Alignment Info
+            IPSetAlignmentInfo pSetAlignmentInfo = mfeInputParams.AllParameters[MFEPSetKeys.ALIGNMENT_INFO] as IPSetAlignmentInfo;
+            InputParametersUtil.SavePSet(qualAppLogic, pSetAlignmentInfo, QualDAMethod.ParamKeyAlignmentInformation);
+        }
+
+        public MFEInputParameters GetParameters()
         {
-            InputParameters.SetAlignmentParameters(qualAppLogic);
+            MFEInputParameters mfeInputParams = new MFEInputParameters();
+
+            IPSetAlignmentInfo pSetAlignment = InputParametersUtil.GetAlignmentParameters(qualAppLogic);
+            mfeInputParams.AllParameters.Add(MFEPSetKeys.ALIGNMENT_INFO, pSetAlignment);
+            
+            return mfeInputParams;
         }
 
         private void InitiaizeApplication()
