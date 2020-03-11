@@ -71,14 +71,64 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             
         }
 
+        private IPSetMassHunterProcessing pSetMassHunterProcessing;
+
+        public IPSetMassHunterProcessing MassHunterProcessingPSet
+        {
+            get
+            {
+                return pSetMassHunterProcessing;
+            }
+
+            set
+            {
+                pSetMassHunterProcessing = value;
+                OnPropertyChanged("MassHunterProcessingPSet");
+            }
+        }
         #endregion
 
+        private IPSetChargeStateAssignment pSetChargeStateAssignmentPSet;
+        public IPSetChargeStateAssignment ChargeStateAssignmentPSet
+        {
+            get
+            {
+                return pSetChargeStateAssignmentPSet;
+            }
 
+            set
+            {
+                pSetChargeStateAssignmentPSet = value;
+                OnPropertyChanged("ChargeStateAssignmentPSet");
+            }
+        }
+        private string combinedChargeState;
+        public string CombinedChargeState
+        {
+            get
+            {
+                if (ChargeStateAssignmentPSet == null)
+                    return string.Empty;
+                return combinedChargeState;
+            }
+            set
+            {
+                combinedChargeState = value;
+                OnPropertyChanged("CombinedChargeState");
+                string[]  states = value.Split('-');
+                ChargeStateAssignmentPSet.MinimumChargeState = long.Parse(states[0]);
+                ChargeStateAssignmentPSet.MaximumChargeState = long.Parse(states[1]);
+                OnPropertyChanged("ChargeStateAssignmentPSet");
+
+            }
+        }
         public void UpdateInputDefaults(MFEInputParameters allParameters)
         {
             AllInputsParameters = allParameters;
-
-            AlignmentInfoPSet = AllInputsParameters.AllParameters[MFEPSetKeys.ALIGNMENT_INFO] as IPSetAlignmentInfo; // allParameters.pSetAlignmentInfo;
+            AlignmentInfoPSet = AllInputsParameters.AllParameters[MFEPSetKeys.ALIGNMENT_INFO] as IPSetAlignmentInfo;
+            MassHunterProcessingPSet = AllInputsParameters.AllParameters[MFEPSetKeys.MASS_HUNTER_PROCESSING] as IPSetMassHunterProcessing;
+            ChargeStateAssignmentPSet = AllInputsParameters.AllParameters[MFEPSetKeys.CHARGE_STATE_ASSIGNMENT] as IPSetChargeStateAssignment;
+            CombinedChargeState = ChargeStateAssignmentPSet.MinimumChargeState + " - " + ChargeStateAssignmentPSet.MinimumChargeState;
         }
     }
 }

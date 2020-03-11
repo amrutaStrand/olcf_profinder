@@ -32,7 +32,7 @@ namespace MFEProcessor
 
         public static IPSetChargeStateAssignment GetChargeStateParameters(ProfinderLogic AppLogic)
         {
-            IPSetChargeStateAssignment chargeStateInfo = AppLogic[QualDAMethod.ParamKeyMSChargeStateAssignment] as IPSetChargeStateAssignment;
+            IPSetChargeStateAssignment chargeStateInfo = AppLogic[QualDAMethod.GetUsageKey(QualFunctionality.ChargeStateAssignment, QualDataType.MS)] as IPSetChargeStateAssignment;
 
             return chargeStateInfo;
         }

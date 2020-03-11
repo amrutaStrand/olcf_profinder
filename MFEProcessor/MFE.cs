@@ -74,18 +74,24 @@ namespace MFEProcessor
 
         private void SaveParameters(MFEInputParameters mfeInputParams) {
 
-            //Alignment Info
             IPSetAlignmentInfo pSetAlignmentInfo = mfeInputParams.AllParameters[MFEPSetKeys.ALIGNMENT_INFO] as IPSetAlignmentInfo;
+            IPSetChargeStateAssignment chargeStateInfo = mfeInputParams.AllParameters[MFEPSetKeys.CHARGE_STATE_ASSIGNMENT] as IPSetChargeStateAssignment;
+            IPSetMassHunterProcessing mfeProcessingInfo = mfeInputParams.AllParameters[MFEPSetKeys.MASS_HUNTER_PROCESSING] as IPSetMassHunterProcessing;
+
             InputParametersUtil.SavePSet(qualAppLogic, pSetAlignmentInfo, QualDAMethod.ParamKeyAlignmentInformation);
+            InputParametersUtil.SavePSet(qualAppLogic, chargeStateInfo, QualDAMethod.ParamKeyMSChargeStateAssignment);
+            InputParametersUtil.SavePSet(qualAppLogic, mfeProcessingInfo, QualDAMethod.ParamKeyMFEProcessing);
         }
 
         public MFEInputParameters GetParameters()
         {
             MFEInputParameters mfeInputParams = new MFEInputParameters();
-
             IPSetAlignmentInfo pSetAlignment = InputParametersUtil.GetAlignmentParameters(qualAppLogic);
             mfeInputParams.AllParameters.Add(MFEPSetKeys.ALIGNMENT_INFO, pSetAlignment);
-            
+            IPSetMassHunterProcessing extractionParams = InputParametersUtil.GetMFEProcessingParameters(qualAppLogic);
+            mfeInputParams.AllParameters.Add(MFEPSetKeys.MASS_HUNTER_PROCESSING, extractionParams);
+            IPSetChargeStateAssignment chargestateParams = InputParametersUtil.GetChargeStateParameters(qualAppLogic);
+            mfeInputParams.AllParameters.Add(MFEPSetKeys.CHARGE_STATE_ASSIGNMENT, chargestateParams);
             return mfeInputParams;
         }
 
