@@ -30,7 +30,7 @@
 
         #endregion    
 
-        List<string> filePaths = null;
+/*        List<string> filePaths = null;
         /// <summary>
         /// Holds Cef file path
         /// </summary>
@@ -45,10 +45,21 @@
             set
             {
                 filePaths = value;
+            }
+        }*/
+
+        private List<ISample> samples;
+
+        private List<ISample> Samples
+        {
+            get { return samples; }
+            set { 
+                samples = value;
                 SetApplicationState("SamplesAdded");
                 InitializeMFE();
             }
         }
+
 
         private MFE mfeExecutor;
 
@@ -64,9 +75,9 @@
 
         private void InitializeMFE()
         {
-            if(FilePaths != null && FilePaths.Count > 0)
+            if(Samples != null && Samples.Count > 0)
             {
-                MFEExecutor = new MFE(FilePaths);
+                MFEExecutor = new MFE(Samples);
             } 
             //else throw exception
         }

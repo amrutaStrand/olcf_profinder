@@ -43,12 +43,24 @@ namespace MFEProcessor
         /// 
         /// </summary>
         /// <param name="analysisFiles"></param>
-        public MFE(List<string> analysisFiles)
+        public MFE(List<DataTypes.ISample> samples)
         {
-            m_analysisFiles = analysisFiles;
+            setAnalysisFiles(samples);
             InitiaizeApplication();
             SetConfiguration();
-            Analyses = CreateAnalysis(m_analysisFiles);
+            Analyses = CreateAnalysis(samples);
+        }
+
+        private void setAnalysisFiles(List<DataTypes.ISample> samples)
+        {
+            m_analysisFiles = new List<string>();
+            if (samples == null)
+                return;
+
+            foreach(DataTypes.ISample sample in samples)
+            {
+                m_analysisFiles.Add(sample.FileName);
+            }
         }
 
         /// <summary>
@@ -111,13 +123,15 @@ namespace MFEProcessor
             Console.WriteLine("Configuration Set");
         }
 
-        private List<Analysis> CreateAnalysis(List<string> m_analysisFiles)
+        private List<Analysis> CreateAnalysis(List<DataTypes.ISample> samples)
         {
 
             var psetFileList = qualAppLogic[QualInMemoryMethod.ParamDataFileList] as PSetDataFileList;
-            foreach (string path in m_analysisFiles)
+            foreach (DataTypes.ISample sample in samples)
             {
-                psetFileList.SelectedFileName.Add(new BatchExtractorFileSelect { FileName = path });
+                List<string> sampleGroupTitles = SampleGroupingUtil.GetDefaultGroupingTitles();
+                List<string> sampleGroups = SampleGroupingUtil.GetDefaultSampleGroups(sample);
+                psetFileList.SelectedFileName.Add(new BatchExtractorFileSelect(sample.FileName, true, sampleGroups, sampleGroupTitles));
             }
             InputParametersUtil.SavePSet(qualAppLogic, psetFileList, QualInMemoryMethod.ParamDataFileList);
 

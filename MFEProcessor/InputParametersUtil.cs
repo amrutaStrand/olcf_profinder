@@ -39,4 +39,24 @@ namespace MFEProcessor
 
     }
 
+    public class SampleGroupingUtil
+    {
+        public static List<string> GetDefaultGroupingTitles()
+        {
+            List<string> defaultList = new List<string>();
+            defaultList.Add("Sample Type");
+            defaultList.Add("Group");
+
+            return defaultList;
+        }
+
+        public static List<string> GetDefaultSampleGroups(DataTypes.ISample sample)
+        {
+            List<string> defaultGroups = new List<string>();
+            defaultGroups.Add(sample.SampleType);
+            defaultGroups.Add(sample.Group);
+            return defaultGroups;
+        }
+    }
+
 }

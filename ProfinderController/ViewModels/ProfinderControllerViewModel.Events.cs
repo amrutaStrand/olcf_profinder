@@ -33,7 +33,7 @@ namespace Agilent.OpenLab.ProfinderController
 
         private void SamplesAddedEventHandler(List<ISample> samples)
         {
-            var filePaths = new List<string>();
+/*            var filePaths = new List<string>();
             foreach(ISample item in samples)
             {
                 
@@ -43,7 +43,8 @@ namespace Agilent.OpenLab.ProfinderController
             if (filePaths.Count != 0)
             {
                 this.FilePaths = filePaths;
-            }
+            }*/
+            this.Samples = samples;
         }
 
         /// <summary>

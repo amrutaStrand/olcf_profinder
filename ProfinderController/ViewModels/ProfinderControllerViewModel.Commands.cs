@@ -155,7 +155,7 @@
 
 
 
-        /// <summary>
+ /*       /// <summary>
         /// Event handler for test command.
         /// </summary>
         /// <param name="unused">
@@ -200,7 +200,7 @@
                 }
             }
         }
-
+*/
 
         #endregion
     }
