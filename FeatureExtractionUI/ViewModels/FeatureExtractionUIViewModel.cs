@@ -87,31 +87,37 @@ namespace Agilent.OpenLab.FeatureExtractionUI
                 OnPropertyChanged("MassHunterProcessingPSet");
             }
         }
-        //private double rtRange;
-        //public double RTRange {
-        //    get {
-        //        return rtRange;
-        //    }
-        //    set {
-        //        rtRange = value;
-        //        OnPropertyChanged("RTRange");
-        //        //MassHunterProcessingPSet.AcqTimeRange = new MinMaxRange(1, value);
-        //        //OnPropertyChanged("MassHunterProcessingPSet");
-        //    } 
-        //}
+        private IRange rtRange;
+        public IRange RTRange
+        {
+            get
+            {
+                return rtRange;
+            }
+            set
+            {
+                rtRange = value;
+                OnPropertyChanged("RTRange");
+                //MassHunterProcessingPSet.AcqTimeRange = new MinMaxRange(1, value);
+                //OnPropertyChanged("MassHunterProcessingPSet");
+            }
+        }
 
-        //private double mzRange;
-        //public double MZRange {
-        //    get {
-        //        return mzRange;
-        //    } 
-        //    set {
-        //        mzRange = value;
-        //        OnPropertyChanged("MZRange");
-        //        ///MassHunterProcessingPSet.MzRange = new MinMaxRange(1, value);
-        //        //OnPropertyChanged("MassHunterProcessingPSet");
-        //    } 
-        //}
+        private IRange mzRange;
+        public IRange MZRange
+        {
+            get
+            {
+                return mzRange;
+            }
+            set
+            {
+                mzRange = value;
+                OnPropertyChanged("MZRange");
+                ///MassHunterProcessingPSet.MzRange = new MinMaxRange(1, value);
+                //OnPropertyChanged("MassHunterProcessingPSet");
+            }
+        }
         #endregion
 
         private IPSetChargeStateAssignment pSetChargeStateAssignmentPSet;
@@ -202,12 +208,20 @@ namespace Agilent.OpenLab.FeatureExtractionUI
         public void UpdateInputDefaults(MFEInputParameters allParameters)
         {
             AllInputsParameters = allParameters;
-            AlignmentInfoPSet = AllInputsParameters.AllParameters[MFEPSetKeys.ALIGNMENT_INFO] as IPSetAlignmentInfo;
             MassHunterProcessingPSet = AllInputsParameters.AllParameters[MFEPSetKeys.MASS_HUNTER_PROCESSING] as IPSetMassHunterProcessing;
-            //RTRange = MassHunterProcessingPSet.AcqTimeRange.Start + 1;
-            //MZRange = MassHunterProcessingPSet.MzRange.End + 1;
+            
+            /*
+             * Extraction Parameters
+             *RTRange = MassHunterProcessingPSet.AcqTimeRange;
+             *MZRange = MassHunterProcessingPSet.MzRange;
+             * 
+             */
+
             ChargeStateAssignmentPSet = AllInputsParameters.AllParameters[MFEPSetKeys.CHARGE_STATE_ASSIGNMENT] as IPSetChargeStateAssignment;
             IsotopeTypeInd = 2;
+
+            AlignmentInfoPSet = AllInputsParameters.AllParameters[MFEPSetKeys.ALIGNMENT_INFO] as IPSetAlignmentInfo;
+
             CPDGroupFiltersPset = AllInputsParameters.AllParameters[MFEPSetKeys.MFE_CPD_GROUP_FILTERS] as IPSetCpdGroupFilters;
         }
     }
