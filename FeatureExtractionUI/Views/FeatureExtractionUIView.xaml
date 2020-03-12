@@ -10,37 +10,36 @@
     Unloaded="OnUnloaded">
     <Grid>
         <StackPanel>
-            <Button HorizontalAlignment="Center" Height="30" Command="{Binding RunMFECommand.Command}">
+            <Button HorizontalAlignment="Center" Height="30" Margin="12" Command="{Binding RunMFECommand.Command}">
                 Run MFE
             </Button>
-
             <StackPanel Orientation="Horizontal">
-                <Label  Content="Charge States" Margin="10"/>
-                <TextBox x:Name="ChargeStates" Height="30" Width="60" Margin="10" Text="{Binding Path=CombinedChargeState, Mode=TwoWay}" />
+                <Label  Content="Limit assigned charge states to range " Margin="12 10 6 6"/>
+                <TextBox x:Name="ChargeStates" Height="20" Width="60" Margin="12 10 6 6" Text="{Binding Path=CombinedChargeState, Mode=TwoWay}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label  Content="Isotope Model" Margin="10"/>
-                <ComboBox SelectedIndex="{Binding IsotopeTypeInd}" DisplayMemberPath="DisplayText" ItemsSource="{Binding IsotopeModels}" Height="30" Width="161" Margin="10" />
+                <Label  Content="Isotope Model" Margin="12 10 6 6"/>
+                <ComboBox SelectedIndex="{Binding IsotopeTypeInd}" DisplayMemberPath="DisplayText" ItemsSource="{Binding IsotopeModels}" Height="20" Width="161" Margin="12 10 6 6" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label  Content="RT Tolerance(mins)" Margin="10"/>
-                <TextBox x:Name="RTMinutes" Height="30" Width="60" Margin="10"
+                <Label  Content="RT Tolerance(mins)" Margin="12 10 6 6"/>
+                <TextBox x:Name="RTMinutes" Height="20" Width="60" Margin="12 10 6 6"
                          Text="{Binding Path=AlignmentInfoPSet.RTMinutes, Mode=TwoWay}"/>
             </StackPanel>
             
             <StackPanel Orientation="Horizontal">
-                <Label Content="Mass Tolerance(ppm)" Margin="10"/>
-                <TextBox x:Name="MassWindowPpm" Height="30" Width="60" Margin="10"
+                <Label Content="Mass Tolerance(ppm)" Margin="12 10 6 6"/>
+                <TextBox x:Name="MassWindowPpm" Height="20" Width="60" Margin="12 10 6 6"
                      Text="{Binding Path=AlignmentInfoPSet.MassWindowPpm, Mode=TwoWay}"/>
             </StackPanel>
             <!--<StackPanel Orientation="Horizontal">
-                <Label  Content="RT Range(mins)" Margin="10"/>
-                <TextBox x:Name="RTRange" Height="30" Width="60" Margin="10"
+                <Label  Content="RT Range(mins)" Margin="12 10 6 6"/>
+                <TextBox x:Name="RTRange" Height="30" Width="60" Margin="12 10 6 6"
                      Text="{Binding Path=RTRange, Mode=TwoWay}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label  Content="m/z" Margin="10"/>
-                <TextBox x:Name="MZRange" Height="30" Width="60" Margin="10"
+                <Label  Content="m/z" Margin="12 10 6 6"/>
+                <TextBox x:Name="MZRange" Height="30" Width="60" Margin="12 10 6 6"
                      Text="{Binding Path=MZRange, Mode=TwoWay}"/>
             </StackPanel>-->
         </StackPanel>
