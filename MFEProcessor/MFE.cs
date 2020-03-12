@@ -89,10 +89,12 @@ namespace MFEProcessor
             IPSetAlignmentInfo pSetAlignmentInfo = mfeInputParams.AllParameters[MFEPSetKeys.ALIGNMENT_INFO] as IPSetAlignmentInfo;
             IPSetChargeStateAssignment chargeStateInfo = mfeInputParams.AllParameters[MFEPSetKeys.CHARGE_STATE_ASSIGNMENT] as IPSetChargeStateAssignment;
             IPSetMassHunterProcessing mfeProcessingInfo = mfeInputParams.AllParameters[MFEPSetKeys.MASS_HUNTER_PROCESSING] as IPSetMassHunterProcessing;
+            PSetCpdGroupFilters filterInfo = mfeInputParams.AllParameters[MFEPSetKeys.MFE_CPD_GROUP_FILTERS] as PSetCpdGroupFilters;
 
             InputParametersUtil.SavePSet(qualAppLogic, pSetAlignmentInfo, QualDAMethod.ParamKeyAlignmentInformation);
             InputParametersUtil.SavePSet(qualAppLogic, chargeStateInfo, QualDAMethod.ParamKeyMSChargeStateAssignment);
             InputParametersUtil.SavePSet(qualAppLogic, mfeProcessingInfo, QualDAMethod.ParamKeyMFEProcessing);
+            InputParametersUtil.SavePSet(qualAppLogic, filterInfo, QualDAMethod.ParamKeyCpdGroupFilters);
         }
 
         public MFEInputParameters GetParameters()
@@ -104,6 +106,8 @@ namespace MFEProcessor
             mfeInputParams.AllParameters.Add(MFEPSetKeys.MASS_HUNTER_PROCESSING, extractionParams);
             IPSetChargeStateAssignment chargestateParams = InputParametersUtil.GetChargeStateParameters(qualAppLogic);
             mfeInputParams.AllParameters.Add(MFEPSetKeys.CHARGE_STATE_ASSIGNMENT, chargestateParams);
+            PSetCpdGroupFilters filterInfo = InputParametersUtil.GetFilterParameters(qualAppLogic);
+            mfeInputParams.AllParameters.Add(MFEPSetKeys.MFE_CPD_GROUP_FILTERS, filterInfo);
             return mfeInputParams;
         }
 

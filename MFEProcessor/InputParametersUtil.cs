@@ -37,6 +37,12 @@ namespace MFEProcessor
             return chargeStateInfo;
         }
 
+        public static PSetCpdGroupFilters GetFilterParameters(ProfinderLogic AppLogic)
+        {
+            PSetCpdGroupFilters filterInfo = AppLogic[QualDAMethod.ParamKeyCpdGroupFilters] as PSetCpdGroupFilters;
+            return filterInfo;
+        }
+
     }
 
     public class SampleGroupingUtil

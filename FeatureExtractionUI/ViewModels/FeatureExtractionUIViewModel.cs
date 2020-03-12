@@ -183,6 +183,22 @@ namespace Agilent.OpenLab.FeatureExtractionUI
                 OnPropertyChanged("ChargeStateAssignmentPSet");
             }
         }
+
+        private IPSetCpdGroupFilters cpdGroupFiltersPset;
+        public IPSetCpdGroupFilters CPDGroupFiltersPset
+        {
+            get
+            {
+                return cpdGroupFiltersPset;
+            }
+
+            set
+            {
+                cpdGroupFiltersPset = value;
+                OnPropertyChanged("CPDGroupFiltersPset");
+            }
+        }
+
         public void UpdateInputDefaults(MFEInputParameters allParameters)
         {
             AllInputsParameters = allParameters;
@@ -192,6 +208,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             //MZRange = MassHunterProcessingPSet.MzRange.End + 1;
             ChargeStateAssignmentPSet = AllInputsParameters.AllParameters[MFEPSetKeys.CHARGE_STATE_ASSIGNMENT] as IPSetChargeStateAssignment;
             IsotopeTypeInd = 2;
+            CPDGroupFiltersPset = AllInputsParameters.AllParameters[MFEPSetKeys.MFE_CPD_GROUP_FILTERS] as IPSetCpdGroupFilters;
         }
     }
 

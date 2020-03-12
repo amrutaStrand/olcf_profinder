@@ -26,11 +26,38 @@
                 <TextBox x:Name="RTMinutes" Height="20" Width="60" Margin="12 10 6 6"
                          Text="{Binding Path=AlignmentInfoPSet.RTMinutes, Mode=TwoWay}"/>
             </StackPanel>
-            
             <StackPanel Orientation="Horizontal">
                 <Label Content="Mass Tolerance(ppm)" Margin="12 10 6 6"/>
                 <TextBox x:Name="MassWindowPpm" Height="20" Width="60" Margin="12 10 6 6"
                      Text="{Binding Path=AlignmentInfoPSet.MassWindowPpm, Mode=TwoWay}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding CPDGroupFiltersPset.HeightRelativeEnabled}"  Margin="12 10 6 6" />
+                <Label  Content="Relative Height  >= " Margin="12 10 6 6"/>
+                <TextBox x:Name="rHeight" Height="20" Width="60" Margin="12 10 6 6"
+                         Text="{Binding Path=CPDGroupFiltersPset.HeightRelative, Mode=TwoWay}"/>
+                <Label  Content="%" Margin="12 10 6 6"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding CPDGroupFiltersPset.HeightAbsoluteEnabled}"  Margin="12 10 6 6" />
+                <Label Content="Absolute Height   >= " Margin="12 10 6 6"/>
+                <TextBox x:Name="aHEight" Height="20" Width="60" Margin="12 10 6 6"
+                     Text="{Binding Path=CPDGroupFiltersPset.HeightAbsolute, Mode=TwoWay}"/>
+                <Label  Content="Counts" Margin="12 10 6 6"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding CPDGroupFiltersPset.MFEScoreMinEnabled}"  Margin="12 10 6 6" />
+                <Label Content="MFE Score  >=" Margin="12 10 6 6"/>
+                <TextBox x:Name="mfeScore" Height="20" Width="60" Margin="12 10 6 6"
+                     Text="{Binding Path=CPDGroupFiltersPset.MFEScoreMin, Mode=TwoWay}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox IsChecked="{Binding CPDGroupFiltersPset.LimitToLargestNEnabledMFE}"  Margin="12 10 6 6" />
+                <Label Content="Limit to the larget" Margin="12 10 6 6"/>
+                <TextBox x:Name="limitToNMFE" Height="20" Width="60" Margin="12 10 6 6"
+                     Text="{Binding Path=CPDGroupFiltersPset.LimitToLargestNMFE, Mode=TwoWay}"/>
+                <Label  Content="Compound Groups" Margin="12 10 6 6"/>
             </StackPanel>
             <!--<StackPanel Orientation="Horizontal">
                 <Label  Content="RT Range(mins)" Margin="12 10 6 6"/>

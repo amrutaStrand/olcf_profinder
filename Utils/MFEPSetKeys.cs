@@ -11,6 +11,7 @@ namespace Utils
         public static readonly string ALIGNMENT_INFO = "PSetAlignmentInfo";
         public static readonly string CHARGE_STATE_ASSIGNMENT = "ChargeStateAssignment";
         public static readonly string MASS_HUNTER_PROCESSING = "PSetMassHunterProcessing";
+        public static readonly string MFE_CPD_GROUP_FILTERS = "PSetCpdGroupFilters";
 
     }
 }
