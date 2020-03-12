@@ -23,14 +23,10 @@ namespace MFEProcessor
         /// </summary>
         /// <param name="appManager"></param>
         /// <param name="filePaths"></param>
-        public CmdFilterCompoundGroupsMFE(ProfinderLogic appManager, List<string> filePaths) : base(appManager)
+        public CmdFilterCompoundGroupsMFE(ProfinderLogic appManager) : base(appManager)
         {
             m_psetFilters = m_AppManager[QualDAMethod.ParamKeyCpdGroupFilters] as IPSetCpdGroupFilters;
             var psetFileList = m_PFLogic[QualInMemoryMethod.ParamDataFileList] as PSetDataFileList;
-            foreach (string path in filePaths)
-            {
-                psetFileList.SelectedFileName.Add(new BatchExtractorFileSelect { FileName = path });
-            }
 
             m_sampleGroupDict = psetFileList.SelectedFileName.ToDictionary(
                 fs => fs.FileName,

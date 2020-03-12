@@ -113,6 +113,14 @@ namespace MFEProcessor
 
         private List<Analysis> CreateAnalysis(List<string> m_analysisFiles)
         {
+
+            var psetFileList = qualAppLogic[QualInMemoryMethod.ParamDataFileList] as PSetDataFileList;
+            foreach (string path in m_analysisFiles)
+            {
+                psetFileList.SelectedFileName.Add(new BatchExtractorFileSelect { FileName = path });
+            }
+            InputParametersUtil.SavePSet(qualAppLogic, psetFileList, QualInMemoryMethod.ParamDataFileList);
+
             Console.WriteLine("Creating Analysis");
             List<Analysis> Analyses = new List<Analysis>();
             if (m_analysisFiles.Count <= 0)
@@ -146,11 +154,11 @@ namespace MFEProcessor
             ExecuteCommand(qualAppLogic, cmdMFE1);
             CmdRecursiveMFE rmfe = new CmdRecursiveMFE(qualAppLogic, analyses);
             ExecuteCommand(qualAppLogic, rmfe);
-            CmdFilterCompoundGroupsMFE cgMfe = new CmdFilterCompoundGroupsMFE(qualAppLogic, m_analysisFiles);
+            CmdFilterCompoundGroupsMFE cgMfe = new CmdFilterCompoundGroupsMFE(qualAppLogic);
             ExecuteCommand(qualAppLogic, cgMfe);
             CmdFindByMFE cmdMFE2 = new CmdFindByMFE(qualAppLogic, MFEMode.RECURSIVE_STAGE_2, analyses);
             ExecuteCommand(qualAppLogic, cmdMFE2);
-            CmdFilterCompoundGroupsMFEPost cgpMfePost = new CmdFilterCompoundGroupsMFEPost(qualAppLogic, m_analysisFiles);
+            CmdFilterCompoundGroupsMFEPost cgpMfePost = new CmdFilterCompoundGroupsMFEPost(qualAppLogic);
             ExecuteCommand(qualAppLogic, cgpMfePost);
             Console.WriteLine("Algorithm Execution Completed");
         }
