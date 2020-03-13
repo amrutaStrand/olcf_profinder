@@ -21,6 +21,20 @@ namespace Agilent.OpenLab.SampleGrouping.ViewModels
         public SampleGroupingHeadersViewModel()
         {
             this.AddHeader(
+                SampleGroupingHeaders.HideOrShow,
+                new TableHeader
+                {
+                    Caption = "Hide or Show ",
+                    Description = "Hide or Show the sample by default true",
+                    Name = "Hide/Show",
+                    Width = 100,
+                    Alignment = HAlign.Center,
+                    SortOrder = SortIndicator.None,
+                    Hidden = false,
+                    ReadOnly = false
+
+                });
+            this.AddHeader(
                 SampleGroupingHeaders.ExpOrder,
                 new TableHeader
                 {
@@ -48,6 +62,21 @@ namespace Agilent.OpenLab.SampleGrouping.ViewModels
                     Hidden = false,
                     ReadOnly = true
                 });
+
+            this.AddHeader(
+                SampleGroupingHeaders.Source,
+                new TableHeader
+                {
+                    Caption = "Source",
+                    Description = "The Ion Source",
+                    Name = SampleGroupingHeaders.Source,
+                    Width = 100,
+                    Alignment = HAlign.Left,
+                    SortOrder = SortIndicator.None,
+                    Hidden = false,
+                    ReadOnly = true
+                });
+
             this.AddHeader(
                 SampleGroupingHeaders.SampleType,
                 new TableHeader
@@ -59,14 +88,14 @@ namespace Agilent.OpenLab.SampleGrouping.ViewModels
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
                     Hidden = false,
-                    ReadOnly = true
+                    ReadOnly = false
                 });
             this.AddHeader(
                 SampleGroupingHeaders.Group,
                 new TableHeader
                 {
                     Caption = "Group",
-                    Description = "The Groupe",
+                    Description = "The Group",
                     Name = SampleGroupingHeaders.Group,
                     Width = 100,
                     Alignment = HAlign.Left,

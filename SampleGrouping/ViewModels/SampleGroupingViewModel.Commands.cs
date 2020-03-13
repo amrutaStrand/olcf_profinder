@@ -1,5 +1,7 @@
 ﻿namespace Agilent.OpenLab.SampleGrouping
 {
+    using Agilent.MassSpectrometry.DataAnalysis;
+    using Agilent.MassSpectrometry.DataAnalysis.Utilities;
     #region
 
     using Agilent.OpenLab.Framework.UI.Common.Commands;
@@ -9,6 +11,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.IO;
     using System.Windows.Input;
 
     #endregion
@@ -129,7 +132,7 @@
             
             if (this.Samples.Count != 0)
             {
-                List<ISample> result = new List<ISample>();
+                List<DataTypes.ISample> result = new List<DataTypes.ISample>();
 
                 foreach (Sample sample in this.Samples)
                 {
@@ -175,16 +178,20 @@
                 {
                     int i = FilePaths.Count + 1;
                     FilePaths = files;
-                    
+                   
+
                     foreach (string file in files)
                     {
+                        var source = GetFilePolarity(file);
                         Samples.Add(new Sample
                         {
-                            ExpOrder = i ,
+                            HideOrShow = true,
+                            ExpOrder = i,
                             FileName = file,
-                            SampleType = "SampleType" + i,
+                            Source = source,
+                            SampleType = null,
                             Group = null
-                        });
+                        }) ;
                         i++;
 
                     }
@@ -197,11 +204,14 @@
                         if (!FilePaths.Contains(filename))
                         {
                             FilePaths.Add(filename);
+                            var source = GetFilePolarity(filename);
                             Samples.Add(new Sample
                             {
+                                HideOrShow = true,
                                 ExpOrder = i,
                                 FileName = filename,
-                                SampleType = "SampleType" + i,
+                                Source = source,
+                                SampleType = null,
                                 Group = null
                             });
 
@@ -214,6 +224,74 @@
             
             
             
+        }
+
+        private string GetFilePolarity(string sFileName)
+        {
+            bool bMultEC = false;
+            bool bEIorCI = false;
+            bool bAllIon = false;
+            double lowEng = double.NaN;
+            double[] hiEng = null;
+            IBDAMSScanFileInformation msfi;
+            var isGCEI = false;
+            var rv = string.Empty;
+            if (!Directory.Exists(sFileName))
+                return rv;
+
+                IDataAccess dataAccessor = new DataAccess() as IDataAccess;
+                dataAccessor.OpenDataFile(sFileName);
+                var bda = dataAccessor.BaseDataAccess;// new BDADataAccess() as IBDADataAccess;
+                                                      //  bda.OpenDataFile(, true);
+                msfi = bda.FileInformation.MSScanFileInformation;
+                isGCEI = bda.IsGCEIData();
+                //IDataAccess dataAccessor = bda as IDataAccess;
+                bool bIsAllIons = FindCpdsUtilities.HasAllIonSupport(dataAccessor, out lowEng, out hiEng, out bMultEC, out bAllIon, out bEIorCI);
+                
+                //bda.CloseDataFile();
+                dataAccessor.CloseDataFile();
+            
+
+            // Create a string like ESI+, ESI- or EI+
+            // 1. identify the ion source
+            switch (msfi.IonModes)
+            {
+                case IonizationMode.Unspecified:
+                    // ChemStation translated .D files do not specify the ionization mode
+                    if (isGCEI)
+                        rv = "EI";
+                    break;
+                case IonizationMode.Esi:
+                case IonizationMode.JetStream:
+                case IonizationMode.MsChip:
+                case IonizationMode.NanoEsi:
+                    rv = "ESI";
+                    break;
+                case IonizationMode.Apci:
+                case IonizationMode.Appi:
+                case IonizationMode.CI:
+                case IonizationMode.EI:
+                case IonizationMode.ICP:
+                case IonizationMode.Maldi:
+                    rv = msfi.IonModes.ToString().ToUpperInvariant();
+                    break;
+            }
+
+            // 2. +/- polarity
+            switch (msfi.IonPolarity)
+            {
+                case IonPolarity.Positive:
+                    rv += "+";
+                    break;
+                case IonPolarity.Negative:
+                    rv += "-";
+                    break;
+                case IonPolarity.Mixed:
+                    rv += "\u00B1"; // +/- character
+                    break;
+            }
+
+            return rv;
         }
 
         #endregion

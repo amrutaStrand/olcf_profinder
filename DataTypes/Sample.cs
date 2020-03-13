@@ -17,6 +17,12 @@ namespace DataTypes
         /// File name property
         /// </summary>
         public string FileName { get; set; }
+
+        /// <summary>
+        /// Source of the ions in sample
+        /// </summary>
+        public string Source { get; set; }
+
         /// <summary>
         /// sample type property
         /// </summary>
@@ -25,6 +31,8 @@ namespace DataTypes
         /// group property
         /// </summary>
         public string Group { get; set; }
+        public bool HideOrShow { get; set; }
+
         #endregion
     }
 }

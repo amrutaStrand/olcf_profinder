@@ -121,6 +121,30 @@
     <Reference Include="Agilent.OpenLab.UI.Controls.WinFormsControls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.UI.Controls.WinFormsControls.3.2.0.117\lib\net45\Agilent.OpenLab.UI.Controls.WinFormsControls.dll</HintPath>
     </Reference>
+    <Reference Include="BaseCommon, Version=10.0.10011.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>RequiredDLL\BaseCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="BaseDataAccess, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>RequiredDLL\BaseDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="BaseTof, Version=10.0.10011.0, Culture=neutral, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>RequiredDLL\BaseTof.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreDataAccess, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>RequiredDLL\CoreDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreDefinitions, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>RequiredDLL\CoreDefinitions.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreFindCompounds, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>RequiredDLL\CoreFindCompounds.dll</HintPath>
+    </Reference>
     <Reference Include="InfragisticsWPF4.DataPresenter.v14.2, Version=14.2.20142.2283, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL">
       <HintPath>..\packages\Agilent.OpenLAB.Framework.3rdParty.Infragistics.WPF.14.2.20142.2283\lib\net45\InfragisticsWPF4.DataPresenter.v14.2.dll</HintPath>
     </Reference>
@@ -243,6 +267,14 @@
       <Project>{22043320-4570-42b0-9d52-937437119db1}</Project>
       <Name>Events</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="RequiredDLL\BaseCommon.dll" />
+    <Content Include="RequiredDLL\BaseDataAccess.dll" />
+    <Content Include="RequiredDLL\BaseTof.dll" />
+    <Content Include="RequiredDLL\CoreDataAccess.dll" />
+    <Content Include="RequiredDLL\CoreDefinitions.dll" />
+    <Content Include="RequiredDLL\CoreFindCompounds.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

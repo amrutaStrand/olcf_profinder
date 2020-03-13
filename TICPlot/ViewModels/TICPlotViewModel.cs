@@ -96,7 +96,8 @@
             var lst = new List<string>();
             foreach(var sample in samples)
             {
-                lst.Add(sample.FileName);
+                if(sample.HideOrShow)
+                    lst.Add(sample.FileName);
             }
             Data = TICPlotDataExtractor.Extract(lst);
             InitializeLayout();
