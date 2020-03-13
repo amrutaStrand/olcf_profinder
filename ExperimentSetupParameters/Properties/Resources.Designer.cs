@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Agilent.OpenLab.FeatureExtractionUI.Properties {
+namespace Agilent.OpenLab.ExperimentSetupParameters.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Agilent.OpenLab.FeatureExtractionUI.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Agilent.OpenLab.ExperimentSetupParameters.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,20 @@ namespace Agilent.OpenLab.FeatureExtractionUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Feature Extraction Parameters.
+        ///   Looks up a localized string similar to Experiment Setup Parameters.
         /// </summary>
-        internal static string FeatureExtractionUICaption {
+        internal static string ExperimentSetupParametersCaption {
             get {
-                return ResourceManager.GetString("FeatureExtractionUICaption", resourceCulture);
+                return ResourceManager.GetString("ExperimentSetupParametersCaption", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FeatureExtractionUI.
+        ///   Looks up a localized string similar to ExperimentSetupParameters.
         /// </summary>
-        internal static string FeatureExtractionUIHint {
+        internal static string ExperimentSetupParametersHint {
             get {
-                return ResourceManager.GetString("FeatureExtractionUIHint", resourceCulture);
+                return ResourceManager.GetString("ExperimentSetupParametersHint", resourceCulture);
             }
         }
     }

@@ -12,10 +12,16 @@
         <DockingView>
           <Tag>Layout 1</Tag>
           <Modules>
-            
+            <DockingModule>
+              <Module>Agilent.OpenLab.ExperimentSetupParameters</Module>
+              <Required>false</Required>
+              <SupportedStates>
+                <string>ExperimentSetup</string>
+              </SupportedStates>
+            </DockingModule>
             <DockingModule>
               <Module>Agilent.OpenLab.SampleGrouping</Module>
-              <Required>true</Required>
+              <Required>false</Required>
               <SupportedStates>
                 <string>ExperimentSetup</string>               
               </SupportedStates>

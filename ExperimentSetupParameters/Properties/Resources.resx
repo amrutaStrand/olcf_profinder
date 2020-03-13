@@ -117,10 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="FeatureExtractionUICaption" xml:space="preserve">
-    <value>Feature Extraction Parameters</value>
+  <data name="ExperimentSetupParametersCaption" xml:space="preserve">
+    <value>Experiment Setup Parameters</value>
   </data>
-  <data name="FeatureExtractionUIHint" xml:space="preserve">
-    <value>FeatureExtractionUI</value>
+  <data name="ExperimentSetupParametersHint" xml:space="preserve">
+    <value>ExperimentSetupParameters</value>
   </data>
 </root>

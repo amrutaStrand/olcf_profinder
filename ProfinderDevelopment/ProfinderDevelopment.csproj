@@ -17,7 +17,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug39\</OutputPath>
+    <OutputPath>bin\Debug37\</OutputPath>
     <LangVersion>7.3</LangVersion>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -69,6 +69,10 @@
     <ProjectReference Include="..\Events\Events.csproj">
       <Project>{22043320-4570-42b0-9d52-937437119db1}</Project>
       <Name>Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExperimentSetupParameters\ExperimentSetupParameters.csproj">
+      <Project>{09b3507e-9d09-431c-8d66-7a45faea37ae}</Project>
+      <Name>ExperimentSetupParameters</Name>
     </ProjectReference>
     <ProjectReference Include="..\FeatureExtractionUI\FeatureExtractionUI.csproj">
       <Project>{90cbd26b-9483-4148-8ca6-07544c998d8a}</Project>
