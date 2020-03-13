@@ -32,6 +32,16 @@ namespace Agilent.OpenLab.SampleGrouping.ViewModels
         /// </summary>
         public const string Group = "Group";
 
+        /// <summary>
+        /// Source of the ions in sample
+        /// </summary>
+        public const string Source = "Source";
+
+        /// <summary>
+        /// Source of the ions in sample
+        /// </summary>
+        public const string HideOrShow = "HideOrShow";
+
 
         #endregion
 
