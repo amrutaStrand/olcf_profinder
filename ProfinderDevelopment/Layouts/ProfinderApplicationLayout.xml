@@ -1,5 +1,5 @@
 <Workspaces>
-  <Id>00000000-0000-0000-0000-000000000001</Id>
+  <Id>00000000-0000-0000-0000-000000000010</Id>
   <SingleViewWorkspace>
     <ControllerModules>
       <ControllerModule>
@@ -44,14 +44,14 @@
             </DockingModule>
             <DockingModule>
               <Module>Agilent.OpenLab.FeatureExtractionUI</Module>
-              <Required>true</Required>
+              <Required>false</Required>
               <SupportedStates>
                 <string>SamplesAdded</string>
               </SupportedStates>
             </DockingModule>
             <DockingModule>
               <Module>Agilent.OpenLab.TICPlot</Module>
-              <Required>true</Required>
+              <Required>false</Required>
               <SupportedStates>
                 <string>SamplesAdded</string>
               </SupportedStates>
