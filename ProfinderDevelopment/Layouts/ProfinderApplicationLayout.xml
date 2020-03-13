@@ -12,13 +12,7 @@
         <DockingView>
           <Tag>Layout 1</Tag>
           <Modules>
-            <DockingModule>
-              <Module>Agilent.OpenLab.FeatureExtractionUI</Module>
-              <Required>false</Required>
-              <SupportedStates>
-                <string>SamplesAdded</string>
-              </SupportedStates>
-            </DockingModule>
+            
             <DockingModule>
               <Module>Agilent.OpenLab.SampleGrouping</Module>
               <Required>true</Required>
@@ -40,6 +34,13 @@
               <SupportedStates>
                 <string>InitialState</string>
                 <string>MFEExecuted</string>
+              </SupportedStates>
+            </DockingModule>
+            <DockingModule>
+              <Module>Agilent.OpenLab.FeatureExtractionUI</Module>
+              <Required>true</Required>
+              <SupportedStates>
+                <string>SamplesAdded</string>
               </SupportedStates>
             </DockingModule>
             <DockingModule>

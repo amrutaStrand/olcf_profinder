@@ -61,7 +61,7 @@ namespace Agilent.OpenLab.SampleGrouping.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SampleGrouping.
+        ///   Looks up a localized string similar to Samples Selector.
         /// </summary>
         internal static string SampleGroupingCaption {
             get {

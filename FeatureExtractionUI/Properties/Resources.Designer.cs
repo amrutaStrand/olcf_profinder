@@ -61,7 +61,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FeatureExtractionUI.
+        ///   Looks up a localized string similar to Feature Extraction.
         /// </summary>
         internal static string FeatureExtractionUICaption {
             get {

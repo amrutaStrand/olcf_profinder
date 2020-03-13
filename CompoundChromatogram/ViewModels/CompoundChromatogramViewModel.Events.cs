@@ -93,8 +93,11 @@
                     i++;
                 }
                 UpdatePlotControlInListMode();
-            }
-            
+            }           
+        }
+
+        private void UpdatePlotControlInSampleGroupMode()
+        {
         }
 
         private void UpdatePlotControlInListMode()

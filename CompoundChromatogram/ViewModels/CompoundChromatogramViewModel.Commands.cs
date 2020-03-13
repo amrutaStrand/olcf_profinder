@@ -3,6 +3,7 @@
     #region
 
     using Agilent.OpenLab.Framework.UI.Common.Commands;
+    using Events;
 
     #endregion
 
@@ -125,6 +126,7 @@
                 UpdatePlotControlInOverlayMode();
                 ListModeCommand.IsChecked = false;
                 SampleGroupModeCommand.IsChecked = false;
+                EventAggregator.GetEvent<PlotDisplayModeChanged>().Publish("Overlay");
             }
             else
             {
@@ -132,6 +134,7 @@
                 ListModeCommand.IsChecked = true;
                 SampleGroupModeCommand.IsChecked = false;
                 OverlayModeCommand.IsChecked = false;
+                EventAggregator.GetEvent<PlotDisplayModeChanged>().Publish("List");
             }
         }
 

@@ -27,6 +27,7 @@
         /// </summary>
         private bool unhandledSomethingEventMonitored;
         Color[] colorArray = ColorConstants.COLOR_ARRAY;
+        List<MsSpectrumGraphObject> msSpectrumGraphObjects;
 
         #endregion
 
@@ -57,7 +58,16 @@
         {
             // This might look like the following line of code:
             this.EventAggregator.GetEvent<CompoundSelectionChanged>().Subscribe(this.CompoundSelectionChanged);
+            this.EventAggregator.GetEvent<PlotDisplayModeChanged>().Subscribe(this.ActivateMode);
 
+        }
+
+        private void ActivateMode(string mode)
+        {
+            if (mode.Equals("Overlay"))
+                UpdatePlotControlInOverlayMode();
+            else
+                UpdatePlotControlInListMode();
         }
 
         private void CompoundSelectionChanged(ICompoundGroup compoundGroupObject)
@@ -66,7 +76,7 @@
             if (compoundGroupObject == null) return;
 
             IDictionary<string, ICompound> sampleWiseCompounds = compoundGroupObject.SampleWiseDataDictionary;
-            List<MsSpectrumGraphObject> msSpectrumGraphObjects = new List<MsSpectrumGraphObject>();
+            msSpectrumGraphObjects = new List<MsSpectrumGraphObject>();
 
             IEnumerator<ICompound> ce = sampleWiseCompounds.Values.GetEnumerator ();
             int colorCounter = 0;
@@ -79,9 +89,7 @@
 
                 msSpectrumGraphObjects.Add(mso);
             }
-            updatePlotControl(msSpectrumGraphObjects);
-
-
+            UpdatePlotControlInListMode();
         }
 
         /// <summary>
@@ -95,6 +103,60 @@
             // This might look like the following line of code:
             this.EventAggregator.GetEvent<CompoundSelectionChanged>().Unsubscribe(this.CompoundSelectionChanged);
 
+        }
+
+        private void UpdatePlotControlInListMode()
+        {
+            this.PlotControl.RemoveAllItems();
+            if (msSpectrumGraphObjects == null || msSpectrumGraphObjects.Count <= 0) return;
+
+            int numberOfRows = msSpectrumGraphObjects.Count;
+            int numberOfColumns = 1;
+
+            int numberOfRowsToShow = numberOfRows;
+            if (numberOfRows > 3)
+                numberOfRowsToShow = 3;
+
+            this.PlotControl.Initialize(numberOfRows, numberOfColumns, numberOfRowsToShow, numberOfColumns);
+
+            UpdatePlotProperties();
+
+            IEnumerator<MsSpectrumGraphObject> enumerator = msSpectrumGraphObjects.GetEnumerator();
+            int horizontalCounter = 0;
+            while (enumerator.MoveNext())
+            {
+                this.PlotControl.AddItem(horizontalCounter++, 0, enumerator.Current);
+
+            }
+        }
+
+        private void UpdatePlotControlInOverlayMode()
+        {
+            this.PlotControl.RemoveAllItems();
+            if (msSpectrumGraphObjects == null || msSpectrumGraphObjects.Count <= 0) return;
+
+            this.PlotControl.Initialize(1, 1);
+
+            UpdatePlotProperties();
+
+            IEnumerator<MsSpectrumGraphObject> enumerator = msSpectrumGraphObjects.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                this.PlotControl.AddItem(0, 0, enumerator.Current);
+
+            }
+        }
+
+        private void UpdatePlotProperties()
+        {
+            this.PlotControl.GraphManager.ShowLegend = true;
+            this.PlotControl.GraphManager.ShowSignalHints = true;
+            this.PlotControl.ControlSettings.PaneSelectionMode = PaneSelectionMode.None;
+            plotControl.GraphManager.LinkXAxis = true;
+            foreach (var paneManager in this.plotControl.GraphManager.PaneManagers())
+            {
+                this.InitializePaneProperties(paneManager);
+            }
         }
 
 
