@@ -27,6 +27,7 @@
         /// parameters used to track unhandled events
         /// </summary>
         private bool unhandledSomethingEventMonitored;
+        private List<ChromatogramGraphObject> chromatogramObjects;
 
         #endregion
 
@@ -78,7 +79,7 @@
             this.PlotControl.RemoveAllItems();
             if (obj != null)
             {
-                List<ChromatogramGraphObject> chromatogramObjects = new List<ChromatogramGraphObject>();
+                chromatogramObjects = new List<ChromatogramGraphObject>();
                 var samplesDict = obj.SampleWiseDataDictionary;
                 int i = 0;
                 foreach (string samplename in samplesDict.Keys)
@@ -89,24 +90,22 @@
                             this.CreateChromatogramGraphObject(
                                 samplename, color, samplesDict[samplename]));
 
-
-
                     i++;
                 }
-                updatePlotControl(chromatogramObjects);
+                UpdatePlotControlInListMode();
             }
-           
-            
-
             
         }
 
-        private void updatePlotControl(List<ChromatogramGraphObject> msSpectrumGraphObjects)
+        private void UpdatePlotControlInListMode()
         {
-            this.PlotControl.RemoveAllItems();
-            if (msSpectrumGraphObjects.Count <= 0) return;
+            if (chromatogramObjects == null)
+                return;
 
-            int numberOfRows = msSpectrumGraphObjects.Count;
+            this.PlotControl.RemoveAllItems();
+            if (chromatogramObjects.Count <= 0) return;
+
+            int numberOfRows = chromatogramObjects.Count;
             int numberOfColumns = 1;
 
             int numberOfRowsToShow = numberOfRows;
@@ -114,30 +113,50 @@
                 numberOfRowsToShow = 3;
 
             this.PlotControl.Initialize(numberOfRows, numberOfColumns, numberOfRowsToShow, numberOfColumns);
+
+            UpdatePlotProperties();
+
+            IEnumerator<ChromatogramGraphObject> enumerator = chromatogramObjects.GetEnumerator();
+            int horizontalCounter = 0;
+            while (enumerator.MoveNext())
+            {
+                this.PlotControl.AddItem(horizontalCounter++, 0, enumerator.Current);
+            }
+        }
+
+        private void UpdatePlotControlInOverlayMode()
+        {
+            if (chromatogramObjects == null)
+                return;
+
+            this.PlotControl.RemoveAllItems();
+            if (chromatogramObjects.Count <= 0) return;
+
+            this.PlotControl.Initialize(1, 1);
+
+            UpdatePlotProperties();
+
+            IEnumerator<ChromatogramGraphObject> enumerator = chromatogramObjects.GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                this.PlotControl.AddItem(0, 0, enumerator.Current);
+            }
+        }
+
+        private void UpdatePlotProperties()
+        {
             this.PlotControl.GraphManager.ShowLegend = true;
             this.PlotControl.GraphManager.ShowSignalHints = true;
             this.PlotControl.ControlSettings.PaneSelectionMode = PaneSelectionMode.None;
 
-            var objectTransformation = new FullScaleRelativeObjectTransform();
-            PlotControl.GraphManager.SetObjectTransform(objectTransformation);
-
             plotControl.GraphManager.LinkXAxis = true;
-            plotControl.GraphManager.LinkYAxis = true;
 
             foreach (var paneManager in this.plotControl.GraphManager.PaneManagers())
             {
                 this.InitializePaneProperties(paneManager);
             }
-
-            IEnumerator<ChromatogramGraphObject> enumerator = msSpectrumGraphObjects.GetEnumerator();
-            int horizontalCounter = 0;
-            while (enumerator.MoveNext())
-            {
-                this.PlotControl.AddItem(horizontalCounter++, 0, enumerator.Current);
-
-            }
-
         }
+
 
 
         /// <summary>

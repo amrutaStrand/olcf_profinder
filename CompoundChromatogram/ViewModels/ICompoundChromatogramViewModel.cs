@@ -23,6 +23,27 @@
         ToggleCommand<object> ToggleCommandA { get; }
 
         /// <summary>
+        /// Gets the list mode toggle command.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        ToggleCommand<object> ListModeCommand { get; }
+
+        /// <summary>
+        /// Gets the sample group mode toggle command.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        ToggleCommand<object> SampleGroupModeCommand { get; }
+
+        /// <summary>
+        /// Gets the overlay mode toggle command.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        ToggleCommand<object> OverlayModeCommand { get; }
+
+        /// <summary>
         /// Gets the trigger command B.
         /// </summary>
         /// <remarks>

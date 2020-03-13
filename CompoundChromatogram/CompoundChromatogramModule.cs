@@ -50,7 +50,7 @@
             var menuDefinition = new MenuDefinition(this, string.Empty);
             var tabDefinition = new MenuTabDefinition(this.Caption, "T");
             menuDefinition.Add(tabDefinition);
-            var groupDefinition = new MenuGroupDefinition(this, this.Caption);
+            var groupDefinition = new MenuGroupDefinition(this, "Diaplay Mode");
             tabDefinition.Add(groupDefinition);
 
             // register module specific menu definition
@@ -63,11 +63,14 @@
             {
                 var viewModel = this.Container.Resolve<ICompoundChromatogramViewModel>();
                 groupManager.AddCommandTool(
-                    viewModel.ToggleCommandA,
+                    viewModel.ListModeCommand, "List",
                     this.GetImageFromImageFile("Images/TestImage.png"));
                 groupManager.AddCommandTool(
-                    viewModel.TriggerCommandB,
+                    viewModel.SampleGroupModeCommand, "Group",
                     this.GetImageFromImageFile("Images/TestImage.png"));
+                groupManager.AddCommandTool(
+                   viewModel.OverlayModeCommand, "Overlay",
+                   this.GetImageFromImageFile("Images/TestImage.png"));
             }
         }
 

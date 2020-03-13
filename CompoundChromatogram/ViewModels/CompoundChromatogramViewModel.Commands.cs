@@ -21,6 +21,27 @@
         public ToggleCommand<object> ToggleCommandA { get; private set; }
 
         /// <summary>
+        /// Gets the list mode command.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        public ToggleCommand<object> ListModeCommand { get; private set; }
+
+        /// <summary>
+        /// Gets the sample group mode command.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        public ToggleCommand<object> SampleGroupModeCommand { get; private set; }
+
+        /// <summary>
+        /// Gets the overlay mode command.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        public ToggleCommand<object> OverlayModeCommand { get; private set; }
+
+        /// <summary>
         /// Gets the trigger command B.
         /// </summary>
         /// <remarks>
@@ -45,12 +66,35 @@
                 KeyTip = "A"
             };
 
+            this.ListModeCommand = new ToggleCommand<object>(this.ActivateMode)
+            {
+                Caption = "List Mode",
+                Hint = "Activate the list mode on the plots.",
+                KeyTip = "L"
+            };
+
+            this.SampleGroupModeCommand = new ToggleCommand<object>(this.ActivateMode)
+            {
+                Caption = "Sample Group Mode",
+                Hint = "Activate the sample group mode on the plots.",
+                KeyTip = "G"
+            };
+
+            this.OverlayModeCommand = new ToggleCommand<object>(this.ActivateMode)
+            {
+                Caption = "Overlay Mode",
+                Hint = "Activate the overlay mode on the plots.",
+                KeyTip = "O"
+            };
+
             this.TriggerCommandB = new TriggerCommand<object>(this.OnTestCommand)
             {
                 Caption = "Trigger B",
                 Hint = "Test Command Trigger B",
                 KeyTip = "B"
             };
+
+            this.ListModeCommand.IsChecked = true;
         }
 
         /// <summary>
@@ -63,6 +107,32 @@
         /// </remarks>
         private void OnTestCommand(object unused)
         {
+        }
+
+        /// <summary>
+        /// Event handler for mode change commands.
+        /// </summary>
+        /// <param name="param">
+        /// The command parameter. 
+        /// </param>
+        /// <remarks>
+        /// </remarks>
+        private void ActivateMode(object param)
+        {
+            string mode = (string)param;
+            if (mode.Equals("Overlay") && OverlayModeCommand.IsChecked)
+            {
+                UpdatePlotControlInOverlayMode();
+                ListModeCommand.IsChecked = false;
+                SampleGroupModeCommand.IsChecked = false;
+            }
+            else
+            {
+                UpdatePlotControlInListMode();
+                ListModeCommand.IsChecked = true;
+                SampleGroupModeCommand.IsChecked = false;
+                OverlayModeCommand.IsChecked = false;
+            }
         }
 
         #endregion

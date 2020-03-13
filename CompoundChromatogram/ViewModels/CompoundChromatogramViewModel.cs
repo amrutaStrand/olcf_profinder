@@ -75,6 +75,11 @@
         }
 
         /// <summary>
+        /// Gets or sets the display mode of the plots.
+        /// </summary>
+        public string DisplayMode { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="paneManager"></param>

@@ -175,7 +175,7 @@ namespace Agilent.OpenLab.CompoundChromatogram
 
                             Color color = pen.Color;
 
-                            Color fillColor = Color.FromArgb(color.R + 3 * (255 - color.R) / 4, color.G + 3 * (255 - color.G) / 4, color.B + 3 * (255 - color.B) / 4);
+                            Color fillColor = Color.FromArgb(10, color.R + 3 * (255 - color.R) / 4, color.G + 3 * (255 - color.G) / 4, color.B + 3 * (255 - color.B) / 4);
                             Pen tPen = new Pen(fillColor);
 
                             graphics.FillPolygon(tPen.Brush, plotPoints1.ToArray());
