@@ -87,37 +87,37 @@ namespace Agilent.OpenLab.FeatureExtractionUI
                 OnPropertyChanged("MassHunterProcessingPSet");
             }
         }
-        private IRange rtRange;
-        public IRange RTRange
-        {
-            get
-            {
-                return rtRange;
-            }
-            set
-            {
-                rtRange = value;
-                OnPropertyChanged("RTRange");
-                //MassHunterProcessingPSet.AcqTimeRange = new MinMaxRange(1, value);
-                //OnPropertyChanged("MassHunterProcessingPSet");
-            }
-        }
+        //private IRange rtRange;
+        //public IRange RTRange
+        //{
+        //    get
+        //    {
+        //        return rtRange;
+        //    }
+        //    set
+        //    {
+        //        rtRange = value;
+        //        OnPropertyChanged("RTRange");
+        //        //MassHunterProcessingPSet.AcqTimeRange = new MinMaxRange(1, value);
+        //        //OnPropertyChanged("MassHunterProcessingPSet");
+        //    }
+        //}
 
-        private IRange mzRange;
-        public IRange MZRange
-        {
-            get
-            {
-                return mzRange;
-            }
-            set
-            {
-                mzRange = value;
-                OnPropertyChanged("MZRange");
-                ///MassHunterProcessingPSet.MzRange = new MinMaxRange(1, value);
-                //OnPropertyChanged("MassHunterProcessingPSet");
-            }
-        }
+        //private IRange mzRange;
+        //public IRange MZRange
+        //{
+        //    get
+        //    {
+        //        return mzRange;
+        //    }
+        //    set
+        //    {
+        //        mzRange = value;
+        //        OnPropertyChanged("MZRange");
+        //        ///MassHunterProcessingPSet.MzRange = new MinMaxRange(1, value);
+        //        //OnPropertyChanged("MassHunterProcessingPSet");
+        //    }
+        //}
         #endregion
 
         private IPSetChargeStateAssignment pSetChargeStateAssignmentPSet;

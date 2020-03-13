@@ -52,14 +52,22 @@
             </StackPanel>
             
             <StackPanel Orientation="Horizontal">
-                <Label  Content="RT Tolerance(mins)" Margin="12 10 6 6"/>
-                <TextBox x:Name="RTMinutes" Height="20" Width="60" Margin="12 10 6 6"
+                <Label  Content="RT Tolerance   = +/-" Margin="12 10 6 6"/>
+                <TextBox x:Name="RTPercent" Height="20" Width="60" Margin="2 10 6 6"
+                         Text="{Binding Path=AlignmentInfoPSet.RTPercent, Mode=TwoWay}"/>
+                <Label  Content="% +" Margin="2 10 6 6"/>
+                <TextBox x:Name="RTMinutes" Height="20" Width="60" Margin="2 10 6 6"
                          Text="{Binding Path=AlignmentInfoPSet.RTMinutes, Mode=TwoWay}"/>
+                <Label  Content="mins" Margin="2 10 6 6"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Label Content="Mass Tolerance(ppm)" Margin="12 10 6 6"/>
-                <TextBox x:Name="MassWindowPpm" Height="20" Width="60" Margin="12 10 6 6"
+                <Label Content="Mass Tolerance  = +/-" Margin="12 10 6 6"/>
+                <TextBox x:Name="MassWindowPpm" Height="20" Width="60" Margin="2 10 6 6"
                      Text="{Binding Path=AlignmentInfoPSet.MassWindowPpm, Mode=TwoWay}"/>
+                <Label  Content="ppm +" Margin="2 10 6 6"/>
+                <TextBox x:Name="MassWindowDa" Height="20" Width="60" Margin="2 10 6 6"
+                     Text="{Binding Path=AlignmentInfoPSet.MassWindowDa, Mode=TwoWay}"/>
+                <Label  Content="mDa" Margin="2 10 6 6"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
