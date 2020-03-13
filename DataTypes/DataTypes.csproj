@@ -60,6 +60,7 @@
     <Compile Include="Chromatogram.cs" />
     <Compile Include="Compound.cs" />
     <Compile Include="CompoundGroup.cs" />
+    <Compile Include="ExperimentContext.cs" />
     <Compile Include="IChromatogram.cs" />
     <Compile Include="ICompound.cs" />
     <Compile Include="ICompoundGroup.cs" />
