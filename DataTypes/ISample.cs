@@ -9,6 +9,12 @@ namespace DataTypes
     public interface ISample
     {
         #region Properties
+
+        /// <summary>
+        /// Check box to show or hide the sample
+        /// </summary>
+        bool HideOrShow { get; set; }
+
         /// <summary>
         /// Experiment order property
         /// </summary>
@@ -28,6 +34,11 @@ namespace DataTypes
         /// Group property
         /// </summary>
         string Group { get; set; }
+
+        /// <summary>
+        /// Source of the ion in sample
+        /// </summary>
+        string Source { get; set; }
 
 
         #endregion

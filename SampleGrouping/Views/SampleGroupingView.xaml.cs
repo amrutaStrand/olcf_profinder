@@ -36,6 +36,7 @@
             this.ultraGrid.AfterRowActivate += this.OnAfterRowActivate;
             this.ultraGrid.InitializeLayout += this.OnInitializeLayout;
             this.ultraGrid.AfterSelectChange += this.AfterSelectChange;
+            this.ultraGrid.ExitEditModeOnLeave = true;
             this.ultraGrid.Enabled = true;
             this.ultraGrid.TextEditor.Enabled = true;
             
@@ -45,6 +46,7 @@
             // initialize the grid host control
             this.GridControlHost.Child = this.ultraGrid;
             this.GridControlHost.GotFocus += this.OnGridControlGotFocus;
+            
             this.GridControlHost.Margin = new Thickness(0, 0, 0, 0);
 
             // activate grid validation

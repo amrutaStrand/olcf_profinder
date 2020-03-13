@@ -59,7 +59,8 @@ namespace MFEProcessor
 
             foreach(DataTypes.ISample sample in samples)
             {
-                m_analysisFiles.Add(sample.FileName);
+                if(sample.HideOrShow)
+                    m_analysisFiles.Add(sample.FileName);
             }
         }
 
@@ -130,12 +131,16 @@ namespace MFEProcessor
         private List<Analysis> CreateAnalysis(List<DataTypes.ISample> samples)
         {
 
-            var psetFileList = qualAppLogic[QualInMemoryMethod.ParamDataFileList] as PSetDataFileList;
+            var psetFileList = new  PSetDataFileList();
             foreach (DataTypes.ISample sample in samples)
             {
-                List<string> sampleGroupTitles = SampleGroupingUtil.GetDefaultGroupingTitles();
-                List<string> sampleGroups = SampleGroupingUtil.GetDefaultSampleGroups(sample);
-                psetFileList.SelectedFileName.Add(new BatchExtractorFileSelect(sample.FileName, true, sampleGroups, sampleGroupTitles));
+                if (sample.HideOrShow)
+                {
+                    List<string> sampleGroupTitles = SampleGroupingUtil.GetDefaultGroupingTitles();
+                    List<string> sampleGroups = SampleGroupingUtil.GetDefaultSampleGroups(sample);
+                    psetFileList.SelectedFileName.Add(new BatchExtractorFileSelect(sample.FileName, sample.HideOrShow, sampleGroups, sampleGroupTitles));
+                }
+                   
             }
             InputParametersUtil.SavePSet(qualAppLogic, psetFileList, QualInMemoryMethod.ParamDataFileList);
 
