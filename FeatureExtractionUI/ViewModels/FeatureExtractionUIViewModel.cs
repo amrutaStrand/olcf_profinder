@@ -119,7 +119,27 @@ namespace Agilent.OpenLab.FeatureExtractionUI
         //    }
         //}
         #endregion
-
+        private int _isSuccess;
+        public int PeakFilterStatus {
+            get 
+            {
+                return _isSuccess;
+            } 
+            set 
+            {
+                _isSuccess = value;
+                OnPropertyChanged("PeakFilterStatus");
+                if (value == 4)
+                {
+                    MassHunterProcessingPSet.PeakFilterType = PeakFilterType.SignalToNoiseThreshold;
+                }
+                else if (value == 8)
+                {
+                    MassHunterProcessingPSet.PeakFilterType = PeakFilterType.PeakHeightAbsThreshold;
+                }
+                OnPropertyChanged("MassHunterProcessingPSet");
+            }
+        }
         private IPSetChargeStateAssignment pSetChargeStateAssignmentPSet;
         public IPSetChargeStateAssignment ChargeStateAssignmentPSet
         {
@@ -209,7 +229,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
         {
             AllInputsParameters = allParameters;
             MassHunterProcessingPSet = AllInputsParameters.AllParameters[MFEPSetKeys.MASS_HUNTER_PROCESSING] as IPSetMassHunterProcessing;
-            
+            PeakFilterStatus = 8;
             /*
              * Extraction Parameters
              *RTRange = MassHunterProcessingPSet.AcqTimeRange;
