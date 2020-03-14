@@ -86,7 +86,15 @@ namespace Agilent.OpenLab.CompoundChromatogram
             {
                 SmoothingMode smoothingMode = graphics.SmoothingMode;
                 graphics.SmoothingMode = SmoothingMode.AntiAlias;
-                Pen pen = (!this.Selected || ((renderMode != PaneRenderMode.Quality) || (renderTarget != RenderTarget.Screen))) ? new Pen(this.DisplaySettings.Color) : new Pen(this.DisplaySettings.Color);
+                //Pen pen = (!this.Selected || ((renderMode != PaneRenderMode.Quality) || (renderTarget != RenderTarget.Screen))) ? new Pen(this.DisplaySettings.Color) : new Pen(this.DisplaySettings.Color);
+
+                Color color = DisplaySettings.Color;
+                Color displayColor = Color.FromArgb(color.R, color.G, color.B);
+                Pen pen = new Pen(displayColor);
+                DisplaySettings.Color = displayColor;
+                Color fillColor = Color.FromArgb(color.A, color.R + 3 * (255 - color.R) / 4, color.G + 3 * (255 - color.G) / 4, color.B + 3 * (255 - color.B) / 4);
+                Pen fillPen = new Pen(fillColor);
+
                 double num = base.ActiveTransformationHandler.InverseTransformX(coordinateConverter.ControlToPhysicalX(2)) - base.ActiveTransformationHandler.InverseTransformX(coordinateConverter.ControlToPhysicalX(1));
                 int num2 = 1;
                 IEquidistantDataEx signal = this.SignalData as IEquidistantDataEx;
@@ -173,12 +181,7 @@ namespace Agilent.OpenLab.CompoundChromatogram
                             plotPoints1.Add(end);
                             plotPoints1.Add(start);
 
-                            Color color = pen.Color;
-
-                            Color fillColor = Color.FromArgb(10, color.R + 3 * (255 - color.R) / 4, color.G + 3 * (255 - color.G) / 4, color.B + 3 * (255 - color.B) / 4);
-                            Pen tPen = new Pen(fillColor);
-
-                            graphics.FillPolygon(tPen.Brush, plotPoints1.ToArray());
+                            graphics.FillPolygon(fillPen.Brush, plotPoints1.ToArray());
                         }
                     }
                 }

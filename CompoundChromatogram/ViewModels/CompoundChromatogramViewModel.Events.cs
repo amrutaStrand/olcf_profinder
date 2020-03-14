@@ -27,7 +27,7 @@
         /// parameters used to track unhandled events
         /// </summary>
         private bool unhandledSomethingEventMonitored;
-        private List<ChromatogramGraphObject> chromatogramObjects;
+        private IDictionary<string, ICompound> sampleWiseDataDictionary;
 
         #endregion
 
@@ -79,19 +79,9 @@
             this.PlotControl.RemoveAllItems();
             if (obj != null)
             {
-                chromatogramObjects = new List<ChromatogramGraphObject>();
-                var samplesDict = obj.SampleWiseDataDictionary;
-                int i = 0;
-                foreach (string samplename in samplesDict.Keys)
-                {
-                    Color color = colorArray[i % colorArray.Length];
-
-                    chromatogramObjects.Add(
-                            this.CreateChromatogramGraphObject(
-                                samplename, color, samplesDict[samplename]));
-
-                    i++;
-                }
+                
+                sampleWiseDataDictionary = obj.SampleWiseDataDictionary;
+                
                 UpdatePlotControlInListMode();
             }           
         }
@@ -102,11 +92,22 @@
 
         private void UpdatePlotControlInListMode()
         {
-            if (chromatogramObjects == null)
+            if (sampleWiseDataDictionary == null || sampleWiseDataDictionary.Count == 0)
                 return;
+            
+            List<ChromatogramGraphObject> chromatogramObjects = new List<ChromatogramGraphObject>();
 
-            this.PlotControl.RemoveAllItems();
-            if (chromatogramObjects.Count <= 0) return;
+            int i = 0;
+            foreach (string samplename in sampleWiseDataDictionary.Keys)
+            {
+                Color color = colorArray[i % colorArray.Length];
+
+                chromatogramObjects.Add(
+                        this.CreateChromatogramGraphObject(
+                            samplename, color, sampleWiseDataDictionary[samplename]));
+
+                i++;
+            }
 
             int numberOfRows = chromatogramObjects.Count;
             int numberOfColumns = 1;
@@ -115,6 +116,7 @@
             if (numberOfRows > 3)
                 numberOfRowsToShow = 3;
 
+            this.PlotControl.RemoveAllItems();
             this.PlotControl.Initialize(numberOfRows, numberOfColumns, numberOfRowsToShow, numberOfColumns);
 
             UpdatePlotProperties();
@@ -129,12 +131,26 @@
 
         private void UpdatePlotControlInOverlayMode()
         {
-            if (chromatogramObjects == null)
+            if (sampleWiseDataDictionary == null || sampleWiseDataDictionary.Count == 0)
                 return;
 
-            this.PlotControl.RemoveAllItems();
-            if (chromatogramObjects.Count <= 0) return;
+            
+            List<ChromatogramGraphObject> chromatogramObjects = new List<ChromatogramGraphObject>();
 
+            int i = 0;
+            foreach (string samplename in sampleWiseDataDictionary.Keys)
+            {
+                Color color = colorArray[i % colorArray.Length];
+                color = Color.FromArgb(10, color.R, color.G, color.B);
+
+                chromatogramObjects.Add(
+                        this.CreateChromatogramGraphObject(
+                            samplename, color, sampleWiseDataDictionary[samplename]));
+
+                i++;
+            }
+
+            this.PlotControl.RemoveAllItems();
             this.PlotControl.Initialize(1, 1);
 
             UpdatePlotProperties();
