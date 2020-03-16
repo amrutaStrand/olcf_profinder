@@ -21,49 +21,49 @@
                     Run MFE
                 </Button>
                 <!--<StackPanel Orientation="Horizontal">
-                <Label  Content="RT Range(mins)" Margin="12 10 6 6"/>
-                <TextBox x:Name="RTRange" Height="30" Width="60" Margin="12 10 6 6"
+                <Label  Content="RT Range(mins)" Margin="12 6 6 6"/>
+                <TextBox x:Name="RTRange" Height="30" Width="60" Margin="12 6 6 6"
                      Text="{Binding Path=RTRange, Mode=TwoWay}"/>
             </StackPanel>-->
-                <TextBlock Text="Feature Extraction Parameters" Margin="12 10 6 6" FontSize="18" FontWeight="Bold"/>
+                <TextBlock Text="Feature Extraction Parameters" Margin="12 6 6 6" FontSize="14"/>
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="Extraction Threshold" Margin="12 10 6 6"/>
+                    <Label Content="Extraction Threshold" Margin="12 6 6 6"/>
                 <TextBox x:Name="pcSpectra" Height="20" Width="60" Margin="2 5 6 6"
                                 Text="{Binding Path=MassHunterProcessingPSet.PeakHeightAbsThreshold, Mode=TwoWay}"/>
             </StackPanel>
                 
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
-                    <Label  Content="Isotope Model" Margin="12 10 6 6"/>
-                    <ComboBox SelectedIndex="{Binding IsotopeTypeInd}" DisplayMemberPath="DisplayText" ItemsSource="{Binding IsotopeModels}" Height="20" Width="161" Margin="12 10 6 6" />
+                    <Label  Content="Isotope Model" Margin="12 6 6 6"/>
+                    <ComboBox SelectedIndex="{Binding IsotopeTypeInd}" DisplayMemberPath="DisplayText" ItemsSource="{Binding IsotopeModels}" Height="20" Width="161" Margin="12 6 6 6" />
                 </StackPanel>
             </StackPanel>
 
 
                         
                 <StackPanel Orientation="Horizontal">
-                    <Label  Content="Charge states" Margin="12 10 6 6"/>
-                    <TextBox x:Name="ChargeStates" Height="20" Width="60" Margin="12 10 6 6" Text="{Binding Path=CombinedChargeState, Mode=TwoWay}" />
+                    <Label  Content="Charge states" Margin="12 6 6 6"/>
+                    <TextBox x:Name="ChargeStates" Height="20" Width="60" Margin="12 6 6 6" Text="{Binding Path=CombinedChargeState, Mode=TwoWay}" />
                 </StackPanel>
-                <TextBlock Text="Species Grouping " Margin="12 10 6 6" FontSize="18" FontWeight="Bold"/>
+                <TextBlock Text="Species Grouping " Margin="12 6 6 6" FontSize="14"/>
                 <StackPanel Orientation="Horizontal">
                     
-                    <Label  Content="Report single-ion features with z=1 " Margin="12 10 6 6"/>
-                    <CheckBox IsChecked="{Binding ChargeStateAssignmentPSet.TreatUnknownAsSinglyCharged}"  Margin="12 10 6 6" />
+                    <Label  Content="Report single-ion features with z=1 " Margin="12 6 6 6"/>
+                    <CheckBox IsChecked="{Binding ChargeStateAssignmentPSet.TreatUnknownAsSinglyCharged}"  Margin="12 6 6 6" />
                 </StackPanel>
-                <TextBlock Text="Alignment" Margin="12 10 6 6" FontSize="18" FontWeight="Bold"/>
+                <TextBlock Text="Alignment" Margin="12 6 6 6" FontSize="14"/>
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
-                    <Label  Content="RT Tolerance   +/-" Margin="12 10 6 6"/>
-                    <TextBox x:Name="RTPercent" Height="20" Width="60" Margin="2 10 6 6"
+                    <Label  Content="RT Tolerance   +/-" Margin="12 6 6 6"/>
+                    <TextBox x:Name="RTPercent" Height="20" Width="60" Margin="2 6 6 6"
                                     Text="{Binding Path=AlignmentInfoPSet.RTMinutes, Mode=TwoWay}"/>
-                    <Label  Content="mins" Margin="2 10 6 6"/>
+                    <Label  Content="mins" Margin="2 6 6 6"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label Content="Mass Tolerance  +/-" Margin="12 10 6 6"/>
-                    <TextBox x:Name="MassWindowPpm" Height="20" Width="60" Margin="2 10 6 6"
+                    <Label Content="Mass Tolerance  +/-" Margin="12 6 6 6"/>
+                    <TextBox x:Name="MassWindowPpm" Height="20" Width="60" Margin="2 6 6 6"
                                 Text="{Binding Path=AlignmentInfoPSet.MassWindowPpm, Mode=TwoWay}"/>
-                    <Label  Content="ppm" Margin="2 10 6 6"/>
+                    <Label  Content="ppm" Margin="2 6 6 6"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
