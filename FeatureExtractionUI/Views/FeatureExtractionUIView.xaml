@@ -20,11 +20,11 @@
                 <Button HorizontalAlignment="Center" Height="30" Margin="12" Command="{Binding RunMFECommand.Command}">
                     Run MFE
                 </Button>
-                <!--<StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
                 <Label  Content="RT Range(mins)" Margin="12 6 6 6"/>
                 <TextBox x:Name="RTRange" Height="30" Width="60" Margin="12 6 6 6"
-                     Text="{Binding Path=RTRange, Mode=TwoWay}"/>
-            </StackPanel>-->
+                     Text="{Binding Path=CombinedRTRange, Mode=TwoWay}"/>
+            </StackPanel>
                 <TextBlock Text="Feature Extraction Parameters" Margin="12 6 6 6" FontSize="14"/>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Extraction Threshold" Margin="12 6 6 6"/>
@@ -55,7 +55,7 @@
             <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <Label  Content="RT Tolerance   +/-" Margin="12 6 6 6"/>
-                    <TextBox x:Name="RTPercent" Height="20" Width="60" Margin="2 6 6 6"
+                    <TextBox x:Name="RTTolerance" Height="20" Width="60" Margin="2 6 6 6"
                                     Text="{Binding Path=AlignmentInfoPSet.RTMinutes, Mode=TwoWay}"/>
                     <Label  Content="mins" Margin="2 6 6 6"/>
                 </StackPanel>

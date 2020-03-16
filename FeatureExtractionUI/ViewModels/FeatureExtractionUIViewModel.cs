@@ -5,6 +5,7 @@ using Utils;
 
 namespace Agilent.OpenLab.FeatureExtractionUI
 {
+    using Agilent.MassSpectrometry.MIDAC;
     #region
 
     using Agilent.OpenLab.Framework.UI.Module;
@@ -85,23 +86,37 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             {
                 pSetMassHunterProcessing = value;
                 OnPropertyChanged("MassHunterProcessingPSet");
+                CombinedRTRange = MassHunterProcessingPSet.AcqTimeRange.Start + " - " + MassHunterProcessingPSet.AcqTimeRange.End;
+                OnPropertyChanged("CombinedRTRange");
             }
         }
-        //private IRange rtRange;
-        //public IRange RTRange
-        //{
-        //    get
-        //    {
-        //        return rtRange;
-        //    }
-        //    set
-        //    {
-        //        rtRange = value;
-        //        OnPropertyChanged("RTRange");
-        //        //MassHunterProcessingPSet.AcqTimeRange = new MinMaxRange(1, value);
-        //        //OnPropertyChanged("MassHunterProcessingPSet");
-        //    }
-        //}
+        private string rtRange;
+        public string CombinedRTRange
+        {
+            get
+            {
+                if (MassHunterProcessingPSet == null)
+                    return string.Empty;
+                return rtRange;
+            }
+            set
+            {
+                rtRange = value;
+                OnPropertyChanged("CombinedRTRange");
+                string[] range_t = value.Split('-');
+                double minRange = double.Parse(range_t[0].Trim());
+                double maxRange = double.Parse(range_t[1].Trim());
+                if(minRange > 0.0 && maxRange > 0.0)
+                {
+                    IRange range = new MinMaxRange(minRange, maxRange);
+                    range.DataValueType = DataValueType.AcqTime;
+                    range.DataUnit = DataUnit.Minutes;
+                    MassHunterProcessingPSet.AcqTimeRange = range;
+                    OnPropertyChanged("MassHunterProcessingPSet");
+                }
+                
+            }
+        }
 
         //private IRange mzRange;
         //public IRange MZRange
@@ -232,11 +247,11 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             PeakFilterStatus = 8;
             /*
              * Extraction Parameters
-             *RTRange = MassHunterProcessingPSet.AcqTimeRange;
+             *
              *MZRange = MassHunterProcessingPSet.MzRange;
              * 
              */
-
+            
             ChargeStateAssignmentPSet = AllInputsParameters.AllParameters[MFEPSetKeys.CHARGE_STATE_ASSIGNMENT] as IPSetChargeStateAssignment;
             IsotopeTypeInd = 2;
 
