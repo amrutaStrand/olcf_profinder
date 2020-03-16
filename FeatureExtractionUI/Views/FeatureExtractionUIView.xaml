@@ -24,163 +24,49 @@
                 <Label  Content="RT Range(mins)" Margin="12 10 6 6"/>
                 <TextBox x:Name="RTRange" Height="30" Width="60" Margin="12 10 6 6"
                      Text="{Binding Path=RTRange, Mode=TwoWay}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Label  Content="m/z" Margin="12 10 6 6"/>
-                <TextBox x:Name="MZRange" Height="30" Width="60" Margin="12 10 6 6"
-                     Text="{Binding Path=MZRange, Mode=TwoWay}"/>
             </StackPanel>-->
-                <GroupBox Margin="10,10,10,10" FontSize="16" FontWeight="Bold"
-                  Background="White">
-                    <GroupBox.Header>
-                        Peak Filters
-                    </GroupBox.Header>
-
-                    <TextBlock FontSize="12" FontWeight="Regular">
-                    <StackPanel Orientation="Vertical">
-                        <RadioButton Margin="12 10 6 6" GroupName="peakFilters" IsChecked="{Binding Path=PeakFilterStatus, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=4}">
-                            <RadioButton.Content>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="Use peaks with signal-to-noise-ratio  >=" Margin="2 10 6 6"/>
-                                    <TextBox x:Name="pSpectra" Height="20" Width="60" Margin="2 10 6 6"
-                                 Text="{Binding Path=MassHunterProcessingPSet.SnrThreshold, Mode=TwoWay}"/>
-                                    <Label  Content="Profile spectra only" Margin="2 10 6 6"/>
-                                </StackPanel>
-                            </RadioButton.Content>
-                        </RadioButton>
-                        <RadioButton Margin="12 5 6 6" GroupName="peakFilters" IsChecked="{Binding Path=PeakFilterStatus, Converter={StaticResource radioBoolToIntConverter}, ConverterParameter=8}">
-                            <RadioButton.Content>
-                                <StackPanel Orientation="Horizontal">
-                                    <Label Content="Use peaks with height  >=" Margin="2 5 6 6"/>
-                                    <TextBox x:Name="pcSpectra" Height="20" Width="60" Margin="2 5 6 6"
-                                    Text="{Binding Path=MassHunterProcessingPSet.PeakHeightAbsThreshold, Mode=TwoWay}"/>
-                                    <Label  Content="Profile and centroid spectra" Margin="2 5 6 6"/>
-                                </StackPanel>
-                            </RadioButton.Content>
-                        </RadioButton>
-                    </StackPanel>
-                    </TextBlock>
-                </GroupBox>
-                <GroupBox Margin="10,10,10,10" FontSize="16" FontWeight="Bold"
-                  Background="White">
-                    <GroupBox.Header>
-                        Isotope Grouping
-                    </GroupBox.Header>
-
-                    <TextBlock FontSize="12" FontWeight="Regular">
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <Label  Content="Isotope Model" Margin="12 10 6 6"/>
-                            <ComboBox SelectedIndex="{Binding IsotopeTypeInd}" DisplayMemberPath="DisplayText" ItemsSource="{Binding IsotopeModels}" Height="20" Width="161" Margin="12 10 6 6" />
-                        </StackPanel>
-                    </StackPanel>
-                    </TextBlock>
-                </GroupBox>
-                <GroupBox Margin="10,10,10,10" FontSize="16" FontWeight="Bold"
-                  Background="White">
-                    <GroupBox.Header>
-                        Charge state
-                    </GroupBox.Header>
-
-                    <TextBlock FontSize="12" FontWeight="Regular">
-                    <StackPanel Orientation="Vertical">
-                        
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox IsChecked="{Binding ChargeStateAssignmentPSet.LimitMaxChargeState}"  Margin="12 10 6 6" />
-                            <Label  Content="Limit assigned charge states to range " Margin="12 10 6 6"/>
-                            <TextBox x:Name="ChargeStates" Height="20" Width="60" Margin="12 10 6 6" Text="{Binding Path=CombinedChargeState, Mode=TwoWay}" />
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox IsChecked="{Binding ChargeStateAssignmentPSet.TreatUnknownAsSinglyCharged}"  Margin="12 10 6 6" />
-                            <Label  Content="Report single ions or single-ion features with charge states " Margin="12 10 6 6"/>
-                        </StackPanel>
-                    </StackPanel>
-                    </TextBlock>
-                </GroupBox>
-
-
-                <GroupBox Margin="10,10,10,10" FontSize="16" FontWeight="Bold"
-                  Background="White">
-                    <GroupBox.Header>
-                        Alignment Parameters
-                    </GroupBox.Header>
-
-                    <TextBlock FontSize="12" FontWeight="Regular">
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <Label  Content="RT Tolerance   = +/-" Margin="12 10 6 6"/>
-                            <TextBox x:Name="RTPercent" Height="20" Width="60" Margin="2 10 6 6"
-                                     Text="{Binding Path=AlignmentInfoPSet.RTPercent, Mode=TwoWay}"/>
-                            <Label  Content="% +" Margin="2 10 6 6"/>
-                            <TextBox x:Name="RTMinutes" Height="20" Width="60" Margin="2 10 6 6"
-                                     Text="{Binding Path=AlignmentInfoPSet.RTMinutes, Mode=TwoWay}"/>
-                            <Label  Content="mins" Margin="2 10 6 6"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <Label Content="Mass Tolerance  = +/-" Margin="12 10 6 6"/>
-                            <TextBox x:Name="MassWindowPpm" Height="20" Width="60" Margin="2 10 6 6"
-                                 Text="{Binding Path=AlignmentInfoPSet.MassWindowPpm, Mode=TwoWay}"/>
-                            <Label  Content="ppm +" Margin="2 10 6 6"/>
-                            <TextBox x:Name="MassWindowDa" Height="20" Width="60" Margin="2 10 6 6"
-                                 Text="{Binding Path=AlignmentInfoPSet.MassWindowDa, Mode=TwoWay}"/>
-                            <Label  Content="mDa" Margin="2 10 6 6"/>
-                        </StackPanel>
-                    </StackPanel>
-                    </TextBlock>
-                </GroupBox>
-
-
-                <GroupBox Margin="10,10,10,10" FontSize="16" FontWeight="Bold"
-                  Background="White">
-                    <GroupBox.Header>
-                        MFE Filters
-                    </GroupBox.Header>
-
-                    <TextBlock FontSize="12" FontWeight="Regular">
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox IsChecked="{Binding CPDGroupFiltersPset.HeightRelativeEnabled}"  Margin="12 10 6 6" />
-                            <Label  Content="Relative Height  >= " Margin="12 10 6 6"/>
-                            <TextBox x:Name="rHeight" Height="20" Width="60" Margin="12 10 6 6"
-                                     Text="{Binding Path=CPDGroupFiltersPset.HeightRelative, Mode=TwoWay}"/>
-                            <Label  Content="%" Margin="12 10 6 6"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox IsChecked="{Binding CPDGroupFiltersPset.HeightAbsoluteEnabled}"  Margin="12 10 6 6" />
-                            <Label Content="Absolute Height   >= " Margin="12 10 6 6"/>
-                            <TextBox x:Name="aHEight" Height="20" Width="60" Margin="12 10 6 6"
-                                 Text="{Binding Path=CPDGroupFiltersPset.HeightAbsolute, Mode=TwoWay}"/>
-                            <Label  Content="Counts" Margin="12 10 6 6"/>
-                        </StackPanel>
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox IsChecked="{Binding CPDGroupFiltersPset.MFEScoreMinEnabled}"  Margin="12 10 6 6" />
-                            <Label Content="MFE Score  >=" Margin="12 10 6 6"/>
-                            <TextBox x:Name="mfeScore" Height="20" Width="60" Margin="12 10 6 6"
-                                 Text="{Binding Path=CPDGroupFiltersPset.MFEScoreMin, Mode=TwoWay}"/>
-                        </StackPanel>
-                    </StackPanel>
-                    </TextBlock>
-                </GroupBox>
-
-                <GroupBox Margin="10,10,10,10" FontSize="16" FontWeight="Bold"
-                  Background="White">
-                    <GroupBox.Header>
-                        Global Filters
-                    </GroupBox.Header>
-
-                    <TextBlock FontSize="12" FontWeight="Regular">
-                    <StackPanel Orientation="Vertical">
-                        <StackPanel Orientation="Horizontal">
-                            <CheckBox IsChecked="{Binding CPDGroupFiltersPset.LimitToLargestNEnabledMFE}"  Margin="12 10 6 6" />
-                            <Label Content="Limit to the larget" Margin="12 10 6 6"/>
-                            <TextBox x:Name="limitToNMFE" Height="20" Width="60" Margin="12 10 6 6"
-                                 Text="{Binding Path=CPDGroupFiltersPset.LimitToLargestNMFE, Mode=TwoWay}"/>
-                            <Label  Content="Compound Groups" Margin="12 10 6 6"/>
-                        </StackPanel>
-                    </StackPanel>
-                    </TextBlock>
-                </GroupBox>
+                <TextBlock Text="Feature Extraction Parameters" Margin="12 10 6 6" FontSize="18" FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Extraction Threshold" Margin="12 10 6 6"/>
+                <TextBox x:Name="pcSpectra" Height="20" Width="60" Margin="2 5 6 6"
+                                Text="{Binding Path=MassHunterProcessingPSet.PeakHeightAbsThreshold, Mode=TwoWay}"/>
             </StackPanel>
+                
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Label  Content="Isotope Model" Margin="12 10 6 6"/>
+                    <ComboBox SelectedIndex="{Binding IsotopeTypeInd}" DisplayMemberPath="DisplayText" ItemsSource="{Binding IsotopeModels}" Height="20" Width="161" Margin="12 10 6 6" />
+                </StackPanel>
+            </StackPanel>
+
+
+                        
+                <StackPanel Orientation="Horizontal">
+                    <Label  Content="Charge states" Margin="12 10 6 6"/>
+                    <TextBox x:Name="ChargeStates" Height="20" Width="60" Margin="12 10 6 6" Text="{Binding Path=CombinedChargeState, Mode=TwoWay}" />
+                </StackPanel>
+                <TextBlock Text="Species Grouping " Margin="12 10 6 6" FontSize="18" FontWeight="Bold"/>
+                <StackPanel Orientation="Horizontal">
+                    
+                    <Label  Content="Report single-ion features with z=1 " Margin="12 10 6 6"/>
+                    <CheckBox IsChecked="{Binding ChargeStateAssignmentPSet.TreatUnknownAsSinglyCharged}"  Margin="12 10 6 6" />
+                </StackPanel>
+                <TextBlock Text="Alignment" Margin="12 10 6 6" FontSize="18" FontWeight="Bold"/>
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <Label  Content="RT Tolerance   +/-" Margin="12 10 6 6"/>
+                    <TextBox x:Name="RTPercent" Height="20" Width="60" Margin="2 10 6 6"
+                                    Text="{Binding Path=AlignmentInfoPSet.RTMinutes, Mode=TwoWay}"/>
+                    <Label  Content="mins" Margin="2 10 6 6"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Mass Tolerance  +/-" Margin="12 10 6 6"/>
+                    <TextBox x:Name="MassWindowPpm" Height="20" Width="60" Margin="2 10 6 6"
+                                Text="{Binding Path=AlignmentInfoPSet.MassWindowPpm, Mode=TwoWay}"/>
+                    <Label  Content="ppm" Margin="2 10 6 6"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
         </Grid>
     </ScrollViewer>
    
