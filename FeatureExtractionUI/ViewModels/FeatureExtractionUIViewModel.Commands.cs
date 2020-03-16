@@ -5,6 +5,7 @@
     using Agilent.OpenLab.Framework.UI.Common.Commands;
     using Events;
     using System;
+    using System.Windows;
 
     #endregion
 
@@ -76,6 +77,15 @@
         {
 
             //public event to update/save inputs
+
+            //Validate inputs
+            string invalidErrorMsg = this.ValidateAllInputs();
+            if (invalidErrorMsg != null && invalidErrorMsg.Length > 0)
+            {
+                MessageBox.Show(invalidErrorMsg);
+                return;
+            }
+
             //publish event to run mfe
             this.EventAggregator.GetEvent<RunMFEInitiated>().Publish(this.AllInputsParameters);
         }

@@ -11,6 +11,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
     using Agilent.OpenLab.Framework.UI.Module;
     using Microsoft.Practices.Unity;
     using System;
+    using System.Collections;
     using System.Collections.ObjectModel;
 
     #endregion
@@ -258,6 +259,50 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             AlignmentInfoPSet = AllInputsParameters.AllParameters[MFEPSetKeys.ALIGNMENT_INFO] as IPSetAlignmentInfo;
 
             CPDGroupFiltersPset = AllInputsParameters.AllParameters[MFEPSetKeys.MFE_CPD_GROUP_FILTERS] as IPSetCpdGroupFilters;
+        }
+
+        private string ValidateAllInputs()
+        {
+            string errorMsg = GetValidationMessageRecursive(MassHunterProcessingPSet);
+            if (errorMsg != null && errorMsg.Trim().Length > 0) return errorMsg;
+
+            errorMsg = GetValidationMessageRecursive(ChargeStateAssignmentPSet);
+            if (errorMsg != null && errorMsg.Trim().Length > 0) return errorMsg;
+
+            errorMsg = GetValidationMessageRecursive(AlignmentInfoPSet);
+            if (errorMsg != null && errorMsg.Trim().Length > 0) return errorMsg;
+
+            return null;
+        }
+
+        private string GetValidationMessageRecursive(object parameterObject)
+        {
+            if (parameterObject is IParameterSet)
+            {
+                IParameterSet paramSet = parameterObject as IParameterSet;
+                IEnumerator enumerator = paramSet.GetEnumerator();
+
+                while (enumerator.MoveNext())
+                {
+                    if (enumerator.Current is IParameter)
+                    {
+                        string childMsg = GetValidationMessageRecursive(enumerator.Current);
+                        if (childMsg != null && childMsg.Trim().Length > 0)
+                            return childMsg;
+                    }
+                }
+
+            } else if (parameterObject is IParameter)
+            {
+                IParameter param = parameterObject as IParameter;
+                if (!param.Validate())
+                {
+                    string errorMsg = param.ValidationMessage;
+                    if (errorMsg != null && errorMsg.Trim().Length > 0) return errorMsg;
+                }
+
+            }
+            return null;
         }
     }
 
