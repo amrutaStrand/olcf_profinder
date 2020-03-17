@@ -157,6 +157,10 @@
     </Reference>
     <Reference Include="BaseCommon, Version=9.0.0.0, Culture=neutral, PublicKeyToken=null" />
     <Reference Include="BaseDataAccess, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="BaseMsUtils, Version=9.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\MFEProcessor\RequiredDLL\BaseMsUtils.dll</HintPath>
+    </Reference>
     <Reference Include="CoreDefinitions">
       <HintPath>..\MFEProcessor\RequiredDLL\CoreDefinitions.dll</HintPath>
     </Reference>
