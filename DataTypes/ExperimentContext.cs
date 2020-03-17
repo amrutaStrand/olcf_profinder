@@ -22,6 +22,7 @@ namespace DataTypes
         /// </summary>
         public List<ICompoundGroup> CompoundGroups { get; set; }
         public MFEInputParameters MFEInputParameters { get; set; }
+        public Dictionary<string, TICData> SamplewiseTICData { get; set; }
 
 
         /// <summary>

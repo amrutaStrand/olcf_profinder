@@ -105,6 +105,7 @@
                         lst.Add(sample.FileName);
                 }
                 Data = TICPlotDataExtractor.Extract(lst);
+                this.ExperimentContext.SamplewiseTICData = Data;
                 InitializeLayout();
                 CreateGraphObjects();
             }
