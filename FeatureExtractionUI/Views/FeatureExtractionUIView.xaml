@@ -20,19 +20,21 @@
                 <Button HorizontalAlignment="Center" Height="30" Margin="12" Command="{Binding RunMFECommand.Command}">
                     Run MFE
                 </Button>
-                <StackPanel Orientation="Horizontal">
-                <Label  Content="RT Range(mins)" Margin="12 6 6 6"/>
-                <TextBox x:Name="RTRange" Height="30" Width="60" Margin="12 6 6 6"
-                     Text="{Binding Path=CombinedRTRange, Mode=TwoWay}"/>
-            </StackPanel>
+                
                 <TextBlock Text="Feature Extraction Parameters" Margin="12 6 6 6" FontSize="14"/>
                 <StackPanel Orientation="Horizontal">
                     <Label Content="Extraction Threshold" Margin="12 6 6 6"/>
                 <TextBox x:Name="pcSpectra" Height="20" Width="60" Margin="2 5 6 6"
                                 Text="{Binding Path=MassHunterProcessingPSet.PeakHeightAbsThreshold, Mode=TwoWay}"/>
             </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label  Content="RT Range(mins)" Margin="12 6 6 6"/>
+                    <TextBox x:Name="RTRange" Height="30" Width="60" Margin="12 6 6 6"
+                     Text="{Binding Path=CombinedRTRange, Mode=TwoWay}"/>
+                </StackPanel>
                 
-            <StackPanel Orientation="Vertical">
+                    
+                <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <Label  Content="Isotope Model" Margin="12 6 6 6"/>
                     <ComboBox SelectedIndex="{Binding IsotopeTypeInd}" DisplayMemberPath="DisplayText" ItemsSource="{Binding IsotopeModels}" Height="20" Width="161" Margin="12 6 6 6" />
@@ -50,6 +52,20 @@
                     
                     <Label  Content="Report single-ion features with z=1 " Margin="12 6 6 6"/>
                     <CheckBox IsChecked="{Binding ChargeStateAssignmentPSet.TreatUnknownAsSinglyCharged}"  Margin="12 6 6 6" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="12 6 6 6">
+                    <StackPanel Orientation="Vertical" Margin="12 6 6 6">
+                        <TextBlock Text="Positive Ions" />
+                        <ListView ItemsSource="{Binding PositiveIonSpecies}" Width="60" Height="120"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="12 6 6 6">
+                        <TextBlock Text="Negative Ions" />
+                        <ListView ItemsSource="{Binding NegativeIonSpecies}" Width="80" Height="120"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="12 6 6 6">
+                        <TextBlock Text="Neutral Ions" />
+                        <ListView ItemsSource="{Binding NeutralIonSpecies}" Width="60" Height="120"/>
+                    </StackPanel>
                 </StackPanel>
                 <TextBlock Text="Alignment" Margin="12 6 6 6" FontSize="14"/>
             <StackPanel Orientation="Vertical">
