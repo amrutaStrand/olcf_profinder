@@ -107,7 +107,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             set
             {
                 _positiveIonSpecies = value;
-                OnPropertyChanged("PositiveIons");
+                OnPropertyChanged("PositiveIonSpecies");
             }
         }
 
@@ -121,7 +121,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             set
             {
                 _negativeIonSpecies = value;
-                OnPropertyChanged("NegativeIons");
+                OnPropertyChanged("NegativeIonSpecies");
             }
         }
 
