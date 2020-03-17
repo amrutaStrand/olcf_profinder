@@ -2,6 +2,6 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
-    <StartProgram>E:\gitlab repos\olcf_profinder\ProfinderDevelopment\bin\Debug39\Agilent.OpenLab.ProfinderApplication.exe</StartProgram>
+    <StartProgram>E:\gitlab repos\olcf_profinder\ProfinderDevelopment\bin\Debug40\Agilent.OpenLab.ProfinderApplication.exe</StartProgram>
   </PropertyGroup>
 </Project>

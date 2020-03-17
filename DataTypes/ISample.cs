@@ -40,6 +40,18 @@ namespace DataTypes
         /// </summary>
         string Source { get; set; }
 
+        /// <summary>
+        /// returns list of grouping titles 
+        /// </summary>
+        /// <returns></returns>
+        List<string> GetDefaultGroupingTitles();
+
+
+        /// <summary>
+        /// returns list of values for respective group titles.
+        /// </summary>
+        /// <returns></returns>
+        List<string> GetDefaultSampleGroups();
 
         #endregion
     }

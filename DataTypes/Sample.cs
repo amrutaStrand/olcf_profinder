@@ -33,6 +33,23 @@ namespace DataTypes
         public string Group { get; set; }
         public bool HideOrShow { get; set; }
 
+        public List<string> GetDefaultGroupingTitles()
+        {
+            List<string> defaultList = new List<string>();
+            defaultList.Add("Sample Type");
+            defaultList.Add("Group");
+
+            return defaultList;
+        }
+
+        public List<string> GetDefaultSampleGroups()
+        {
+            List<string> defaultGroups = new List<string>();
+            defaultGroups.Add(this.SampleType);
+            defaultGroups.Add(this.Group);
+            return defaultGroups;
+        }
+
         #endregion
     }
 }

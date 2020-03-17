@@ -35,6 +35,7 @@
             this.CompoundGroups = new BindingList<ICompoundGroupItem>();
             this.View = this.UnityContainer.Resolve<ICompoundGroupsTableView>();
             this.View.Model = this;
+            this.ExperimentContext = this.UnityContainer.Resolve<IExperimentContext>();
             this.SubscribeEvents();
             this.InitializeCommands();
         }
@@ -86,6 +87,9 @@
                 fireSelectionChanged(selectedCompoundGroups);
             }
         }
+
+
+        private IExperimentContext ExperimentContext { get; set; }
 
         private void fireSelectionChanged(BindingList<ICompoundGroupItem> selectedCompounds)
         {

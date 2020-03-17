@@ -10,6 +10,7 @@
 
     using Microsoft.Practices.Prism.Modularity;
     using Microsoft.Practices.Unity;
+    using DataTypes;
 
     #endregion
 
@@ -108,6 +109,7 @@
             this.Container.RegisterType
                 <IProfinderControllerViewModel, ProfinderControllerViewModel>(
                     new ContainerControlledLifetimeManager());
+            this.Container.RegisterType<IExperimentContext, ExperimentContext>(new ContainerControlledLifetimeManager());
             this.RegisterViewModel(this.Container.Resolve<IProfinderControllerViewModel>());
         }
 

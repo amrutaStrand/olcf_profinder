@@ -23,6 +23,8 @@
         public ProfinderControllerViewModel(IUnityContainer container)
             : base(container)
         {
+            
+            this.ExperimentContext = this.UnityContainer.Resolve<IExperimentContext>();
             this.InitializeCommands();
             this.SubscribeEvents();
             SetApplicationState("InitialState");
@@ -53,7 +55,7 @@
         private List<ISample> Samples
         {
             get { return samples; }
-            set { 
+            set {
                 samples = value;
                 SetApplicationState("SamplesAdded");
                 InitializeMFE();
@@ -72,6 +74,10 @@
                 LoadMFEInputs();
             }
         }
+
+        private IExperimentContext ExperimentContext { get; set; }
+
+    
 
         private void InitializeMFE()
         {
@@ -98,8 +104,8 @@
                 return; //TODO - throw exception
             
             List<DataTypes.ICompoundGroup> compoundGroups = MFEExecutor.Execute(mfeInputs);
-            
-            EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(compoundGroups);
+            this.ExperimentContext.CompoundGroups = compoundGroups;
+            EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(true);
             SetApplicationState("MFEExecuted");
         }
 
@@ -111,13 +117,17 @@
             applicationStateService.ApplyApplicationStates();
         }
 
-        private void runMFEWithBusyIndicator(MFEInputParameters mfeInputParameters)
+        private void runMFEWithBusyIndicator(bool isContextUpdated)
         {
-            var busyIndicatorService = UnityContainer.Resolve<IBusyIndicatorService>();
-            using (new BusyIndicator(busyIndicatorService, "Running MFE", false))
+            if (isContextUpdated)
             {
-                runMFE(mfeInputParameters);
+                var busyIndicatorService = UnityContainer.Resolve<IBusyIndicatorService>();
+                using (new BusyIndicator(busyIndicatorService, "Running MFE", false))
+                {
+                    runMFE(this.ExperimentContext.MFEInputParameters);
+                }
             }
+            
         }
 
     }

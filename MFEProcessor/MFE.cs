@@ -136,8 +136,8 @@ namespace MFEProcessor
             {
                 if (sample.HideOrShow)
                 {
-                    List<string> sampleGroupTitles = SampleGroupingUtil.GetDefaultGroupingTitles();
-                    List<string> sampleGroups = SampleGroupingUtil.GetDefaultSampleGroups(sample);
+                    List<string> sampleGroupTitles = sample.GetDefaultGroupingTitles();
+                    List<string> sampleGroups = sample.GetDefaultSampleGroups();
                     psetFileList.SelectedFileName.Add(new BatchExtractorFileSelect(sample.FileName, sample.HideOrShow, sampleGroups, sampleGroupTitles));
                 }
                    

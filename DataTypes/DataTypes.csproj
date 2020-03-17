@@ -64,6 +64,7 @@
     <Compile Include="IChromatogram.cs" />
     <Compile Include="ICompound.cs" />
     <Compile Include="ICompoundGroup.cs" />
+    <Compile Include="IExperimentContext.cs" />
     <Compile Include="IPeak.cs" />
     <Compile Include="ISample.cs" />
     <Compile Include="ISpectrum.cs" />

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Events
 {
-    public class RunMFEInitiated : CompositePresentationEvent<MFEInputParameters>
+    public class RunMFEInitiated : CompositePresentationEvent<bool>
     {
     }
 }

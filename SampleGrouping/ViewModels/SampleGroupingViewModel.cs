@@ -34,7 +34,7 @@
             this.FilePaths = new List<string>();
             this.View = this.UnityContainer.Resolve<ISampleGroupingView>();
             this.View.Model = this;
-            
+            this.ExperimentContext = this.UnityContainer.Resolve<IExperimentContext>();
             this.SubscribeEvents();
             this.InitializeCommands();
         }
@@ -61,7 +61,7 @@
         /// <summary>
         /// list of selected samples
         /// </summary>
-        public BindingList<ISample> SelectedSamples { get; set  ; }
+        public BindingList<ISample> SelectedSamples { get; set; }
         /// <summary>
         /// focused sample
         /// </summary>
@@ -72,6 +72,10 @@
         public List<string> FilePaths { get; private set; }
 
 
+        #endregion
+
+        #region Private Properties
+        private IExperimentContext ExperimentContext;
         #endregion
     }
 }

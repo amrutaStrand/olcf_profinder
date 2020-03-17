@@ -56,7 +56,7 @@ namespace Agilent.OpenLab.TICPlot
         {
             // This might look like the following line of code:
             // this.EventAggregator.GetEvent<SomethingHappenedEvent>().Unsubscribe(this.OnSomethingHappenedEvent);
-            EventAggregator.GetEvent<SamplesAdded>().Subscribe(UpdateData);
+            EventAggregator.GetEvent<SamplesAdded>().Unsubscribe(UpdateData);
         }
 
         #endregion

@@ -138,7 +138,8 @@
                 {
                     result.Add(sample);
                 }
-                this.EventAggregator.GetEvent<SamplesAdded>().Publish(result);
+                this.ExperimentContext.Samples = result;
+                this.EventAggregator.GetEvent<SamplesAdded>().Publish(true);
             }
             
         }
@@ -150,6 +151,7 @@
             openFileDialog.IsFolderPicker = true;
             openFileDialog.Multiselect = true;
             openFileDialog.RestoreDirectory = true;
+            openFileDialog.AllowNonFileSystemItems = true;
 
 
 
