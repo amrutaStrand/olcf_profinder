@@ -87,127 +87,20 @@
             }           
         }
 
-        private void UpdatePlotControlInSampleGroupMode()
+        private void InitializePlotControl(int numberOfRows = 1, int numberOfColumns = 1)
         {
-            if (sampleWiseDataDictionary == null || sampleWiseDataDictionary.Count == 0)
-                return;
-
-            Dictionary<string, string> sampleGrouping = ExperimentContext.GetGrouping();
-            List<string> groups = new List<string>();
-
-            List<ChromatogramGraphObject> chromatogramObjects = new List<ChromatogramGraphObject>();
-
-            int i = 0;
-            foreach (string samplename in sampleWiseDataDictionary.Keys)
-            {
-                string group = sampleGrouping[samplename];
-                if (!groups.Contains(group))
-                    groups.Add(group);
-                i = groups.IndexOf(group);
-                Color color = colorArray[i % colorArray.Length];
-
-                chromatogramObjects.Add(
-                        this.CreateChromatogramGraphObject(
-                            samplename, color, sampleWiseDataDictionary[samplename]));
-            }
-            int numberOfRows = chromatogramObjects.Count;
-            int numberOfColumns = 1;
+            this.PlotControl.RemoveAllItems();
 
             int numberOfRowsToShow = numberOfRows;
             if (numberOfRows > NUM_ROWS_TO_SHOW)
                 numberOfRowsToShow = NUM_ROWS_TO_SHOW;
 
-            this.PlotControl.RemoveAllItems();
             this.PlotControl.Initialize(numberOfRows, numberOfColumns, numberOfRowsToShow, numberOfColumns);
 
-            UpdatePlotProperties();
-
-            IEnumerator<ChromatogramGraphObject> enumerator = chromatogramObjects.GetEnumerator();
-            int horizontalCounter = 0;
-            while (enumerator.MoveNext())
-            {
-                this.PlotControl.AddItem(horizontalCounter++, 0, enumerator.Current);
-            }
-        }
-
-        private void UpdatePlotControlInListMode()
-        {
-            if (sampleWiseDataDictionary == null || sampleWiseDataDictionary.Count == 0)
-                return;
-            
-            List<ChromatogramGraphObject> chromatogramObjects = new List<ChromatogramGraphObject>();
-
-            int i = 0;
-            foreach (string samplename in sampleWiseDataDictionary.Keys)
-            {
-                Color color = colorArray[i % colorArray.Length];
-
-                chromatogramObjects.Add(
-                        this.CreateChromatogramGraphObject(
-                            samplename, color, sampleWiseDataDictionary[samplename]));
-
-                i++;
-            }
-
-            int numberOfRows = chromatogramObjects.Count;
-            int numberOfColumns = 1;
-
-            int numberOfRowsToShow = numberOfRows;
-            if (numberOfRows > NUM_ROWS_TO_SHOW)
-                numberOfRowsToShow = NUM_ROWS_TO_SHOW;
-
-            this.PlotControl.RemoveAllItems();
-            this.PlotControl.Initialize(numberOfRows, numberOfColumns, numberOfRowsToShow, numberOfColumns);
-
-            UpdatePlotProperties();
-
-            IEnumerator<ChromatogramGraphObject> enumerator = chromatogramObjects.GetEnumerator();
-            int horizontalCounter = 0;
-            while (enumerator.MoveNext())
-            {
-                this.PlotControl.AddItem(horizontalCounter++, 0, enumerator.Current);
-            }
-        }
-
-        private void UpdatePlotControlInOverlayMode()
-        {
-            if (sampleWiseDataDictionary == null || sampleWiseDataDictionary.Count == 0)
-                return;
-
-            
-            List<ChromatogramGraphObject> chromatogramObjects = new List<ChromatogramGraphObject>();
-
-            int i = 0;
-            foreach (string samplename in sampleWiseDataDictionary.Keys)
-            {
-                Color color = colorArray[i % colorArray.Length];
-                color = Color.FromArgb(10, color.R, color.G, color.B);
-
-                chromatogramObjects.Add(
-                        this.CreateChromatogramGraphObject(
-                            samplename, color, sampleWiseDataDictionary[samplename]));
-
-                i++;
-            }
-
-            this.PlotControl.RemoveAllItems();
-            this.PlotControl.Initialize(1, 1);
-
-            UpdatePlotProperties();
-
-            IEnumerator<ChromatogramGraphObject> enumerator = chromatogramObjects.GetEnumerator();
-            while (enumerator.MoveNext())
-            {
-                this.PlotControl.AddItem(0, 0, enumerator.Current);
-            }
-        }
-
-        private void UpdatePlotProperties()
-        {
+            // Initialize Properties
             this.PlotControl.GraphManager.ShowLegend = true;
             this.PlotControl.GraphManager.ShowSignalHints = true;
             this.PlotControl.ControlSettings.PaneSelectionMode = PaneSelectionMode.None;
-
             plotControl.GraphManager.LinkXAxis = true;
 
             foreach (var paneManager in this.plotControl.GraphManager.PaneManagers())
@@ -216,6 +109,104 @@
             }
         }
 
+        private void UpdatePlotControlInListMode()
+        {
+            if (sampleWiseDataDictionary == null || sampleWiseDataDictionary.Count == 0)
+                return;
+
+            InitializePlotControl(sampleWiseDataDictionary.Count, 1);
+
+            int i = 0;
+            foreach (string samplename in sampleWiseDataDictionary.Keys)
+            {
+                Color color = colorArray[i % colorArray.Length];
+                ChromatogramGraphObject chromatogramGraphObject = CreateChromatogramGraphObject(
+                            samplename, color, sampleWiseDataDictionary[samplename]);
+
+                this.PlotControl.AddItem(i++, 0, chromatogramGraphObject);
+            }
+        }
+
+        private void UpdatePlotControlInOverlayMode()
+        {
+            if (sampleWiseDataDictionary == null || sampleWiseDataDictionary.Count == 0)
+                return;
+
+            InitializePlotControl(1, 1);
+
+            int i = 0;
+            foreach (string samplename in sampleWiseDataDictionary.Keys)
+            {
+                Color color = colorArray[i % colorArray.Length];
+                ChromatogramGraphObject chromatogramGraphObject = CreateChromatogramGraphObject(
+                            samplename, color, sampleWiseDataDictionary[samplename]);
+
+                this.PlotControl.AddItem(0, 0, chromatogramGraphObject);
+                i++;
+            }
+        }
+
+        private void UpdatePlotControlInGroupOverlayMode()
+        {
+            if (sampleWiseDataDictionary == null || sampleWiseDataDictionary.Count == 0)
+                return;
+
+            Dictionary<string, string> sampleGrouping = ExperimentContext.GetGrouping();
+            List<string> groups = new List<string>();
+
+            foreach (string samplename in sampleWiseDataDictionary.Keys)
+            {
+                string group = sampleGrouping[samplename];
+                if (!groups.Contains(group))
+                    groups.Add(group);
+            }
+
+            InitializePlotControl(groups.Count, 1);
+
+            int i = 0;
+            foreach (string samplename in sampleWiseDataDictionary.Keys)
+            {
+                Color color = colorArray[i % colorArray.Length];
+                ChromatogramGraphObject chromatogramGraphObject = CreateChromatogramGraphObject(
+                            samplename, color, sampleWiseDataDictionary[samplename]);
+
+                string group = sampleGrouping[samplename];
+                this.PlotControl.AddItem(groups.IndexOf(group), 0, chromatogramGraphObject);
+                i++;
+            }
+
+        }
+
+        private void UpdatePlotControlInSampleGroupMode()
+        {
+            if (sampleWiseDataDictionary == null || sampleWiseDataDictionary.Count == 0)
+                return;
+
+            Dictionary<string, string> sampleGrouping = ExperimentContext.GetGrouping();
+            List<string> groups = new List<string>();
+
+            foreach (string samplename in sampleWiseDataDictionary.Keys)
+            {
+                string group = sampleGrouping[samplename];
+                if (!groups.Contains(group))
+                    groups.Add(group);
+            }
+
+            InitializePlotControl(sampleWiseDataDictionary.Count, 1);
+
+            int horizontalCounter = 0;
+            foreach (string samplename in sampleWiseDataDictionary.Keys)
+            {
+                string group = sampleGrouping[samplename];
+                int index = groups.IndexOf(group);
+                Color color = colorArray[index % colorArray.Length];
+
+                ChromatogramGraphObject chromatogramGraphObject = CreateChromatogramGraphObject(
+                            samplename, color, sampleWiseDataDictionary[samplename]);
+
+                this.PlotControl.AddItem(horizontalCounter++, 0, chromatogramGraphObject);
+            }
+        }
 
 
         /// <summary>

@@ -27,6 +27,7 @@
     /// </remarks>
     public partial class TICPlotViewModel : BaseViewModel, ITICPlotViewModel
     {
+        private int NUM_ROWS_TO_SHOW = PlotConstants.NUM_OF_PANES_TO_SHOW;
         #region Constructors and Destructors
 
         /// <summary>
@@ -123,8 +124,8 @@
             if (Data != null)
                 numRows = Data.Count;
             int numRowsToShow = numRows;
-            if (numRowsToShow > 3)
-                numRowsToShow = 3;
+            if (numRowsToShow > NUM_ROWS_TO_SHOW)
+                numRowsToShow = NUM_ROWS_TO_SHOW;
             this.PlotControl.Initialize(numRows, 1, numRowsToShow, 1);
             this.PlotControl.GraphManager.ShowLegend = true;
             this.PlotControl.GraphManager.ShowSignalHints = true;

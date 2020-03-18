@@ -83,7 +83,7 @@
 
             this.SampleGroupModeCommand = new ToggleCommand<object>(this.ActivateMode)
             {
-                Caption = "Sample Group Mode",
+                Caption = "Color by Sample Group",
                 Hint = "Activate the color by sample group mode on the plots.",
                 KeyTip = "G"
             };
@@ -97,7 +97,7 @@
 
             this.GroupOverlayModeCommand = new ToggleCommand<object>(this.ActivateMode)
             {
-                Caption = "Overlay Mode",
+                Caption = "Sample Group Overlay Mode",
                 Hint = "Activate the sample group overlay mode on the plots.",
                 KeyTip = "O"
             };
@@ -140,6 +140,7 @@
                 UpdatePlotControlInOverlayMode();
                 ListModeCommand.IsChecked = false;
                 SampleGroupModeCommand.IsChecked = false;
+                GroupOverlayModeCommand.IsChecked = false;
                 EventAggregator.GetEvent<PlotDisplayModeChanged>().Publish("Overlay");
             }
             else if (mode.Equals("Group") && SampleGroupModeCommand.IsChecked)
@@ -147,7 +148,16 @@
                 UpdatePlotControlInSampleGroupMode();
                 ListModeCommand.IsChecked = false;
                 OverlayModeCommand.IsChecked = false;
+                GroupOverlayModeCommand.IsChecked = false;
                 EventAggregator.GetEvent<PlotDisplayModeChanged>().Publish("Group");
+            }
+            else if (mode.Equals("GroupOverlay") && GroupOverlayModeCommand.IsChecked)
+            {
+                UpdatePlotControlInGroupOverlayMode();
+                ListModeCommand.IsChecked = false;
+                OverlayModeCommand.IsChecked = false;
+                SampleGroupModeCommand.IsChecked = false;
+                EventAggregator.GetEvent<PlotDisplayModeChanged>().Publish("GroupOverlay");
             }
             else
             {
@@ -155,6 +165,7 @@
                 ListModeCommand.IsChecked = true;
                 SampleGroupModeCommand.IsChecked = false;
                 OverlayModeCommand.IsChecked = false;
+                GroupOverlayModeCommand.IsChecked = false;
                 EventAggregator.GetEvent<PlotDisplayModeChanged>().Publish("List");
             }
         }

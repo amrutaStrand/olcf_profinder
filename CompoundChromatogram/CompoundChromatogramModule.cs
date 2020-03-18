@@ -66,13 +66,13 @@
                     viewModel.ListModeCommand, "List",
                     this.GetImageFromImageFile("Images/TestImage.png"));
                 groupManager.AddCommandTool(
-                    viewModel.SampleGroupModeCommand, "Group",
-                    this.GetImageFromImageFile("Images/TestImage.png"));
-                groupManager.AddCommandTool(
                    viewModel.OverlayModeCommand, "Overlay",
                    this.GetImageFromImageFile("Images/TestImage.png"));
                 groupManager.AddCommandTool(
-                    viewModel.SampleGroupModeCommand, "GroupOverlay",
+                    viewModel.GroupOverlayModeCommand, "GroupOverlay",
+                    this.GetImageFromImageFile("Images/TestImage.png"));
+                groupManager.AddCommandTool(
+                    viewModel.SampleGroupModeCommand, "Group",
                     this.GetImageFromImageFile("Images/TestImage.png"));
             }
         }
