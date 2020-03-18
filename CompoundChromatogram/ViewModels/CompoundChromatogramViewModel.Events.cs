@@ -28,6 +28,7 @@
         /// </summary>
         private bool unhandledSomethingEventMonitored;
         private IDictionary<string, ICompound> sampleWiseDataDictionary;
+        private int NUM_ROWS_TO_SHOW = PlotConstants.NUM_OF_PANES_TO_SHOW;
 
         #endregion
 
@@ -88,6 +89,45 @@
 
         private void UpdatePlotControlInSampleGroupMode()
         {
+            if (sampleWiseDataDictionary == null || sampleWiseDataDictionary.Count == 0)
+                return;
+
+            Dictionary<string, string> sampleGrouping = ExperimentContext.GetGrouping();
+            List<string> groups = new List<string>();
+
+            List<ChromatogramGraphObject> chromatogramObjects = new List<ChromatogramGraphObject>();
+
+            int i = 0;
+            foreach (string samplename in sampleWiseDataDictionary.Keys)
+            {
+                string group = sampleGrouping[samplename];
+                if (!groups.Contains(group))
+                    groups.Add(group);
+                i = groups.IndexOf(group);
+                Color color = colorArray[i % colorArray.Length];
+
+                chromatogramObjects.Add(
+                        this.CreateChromatogramGraphObject(
+                            samplename, color, sampleWiseDataDictionary[samplename]));
+            }
+            int numberOfRows = chromatogramObjects.Count;
+            int numberOfColumns = 1;
+
+            int numberOfRowsToShow = numberOfRows;
+            if (numberOfRows > NUM_ROWS_TO_SHOW)
+                numberOfRowsToShow = NUM_ROWS_TO_SHOW;
+
+            this.PlotControl.RemoveAllItems();
+            this.PlotControl.Initialize(numberOfRows, numberOfColumns, numberOfRowsToShow, numberOfColumns);
+
+            UpdatePlotProperties();
+
+            IEnumerator<ChromatogramGraphObject> enumerator = chromatogramObjects.GetEnumerator();
+            int horizontalCounter = 0;
+            while (enumerator.MoveNext())
+            {
+                this.PlotControl.AddItem(horizontalCounter++, 0, enumerator.Current);
+            }
         }
 
         private void UpdatePlotControlInListMode()
@@ -113,8 +153,8 @@
             int numberOfColumns = 1;
 
             int numberOfRowsToShow = numberOfRows;
-            if (numberOfRows > 3)
-                numberOfRowsToShow = 3;
+            if (numberOfRows > NUM_ROWS_TO_SHOW)
+                numberOfRowsToShow = NUM_ROWS_TO_SHOW;
 
             this.PlotControl.RemoveAllItems();
             this.PlotControl.Initialize(numberOfRows, numberOfColumns, numberOfRowsToShow, numberOfColumns);

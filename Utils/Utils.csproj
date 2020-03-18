@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ColorConstants.cs" />
     <Compile Include="MFEPSetKeys.cs" />
+    <Compile Include="PlotConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

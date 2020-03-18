@@ -26,12 +26,21 @@ namespace DataTypes
 
 
         /// <summary>
-        /// 
+        /// Returns map of samplename to sample group
         /// </summary>
         /// <returns></returns>
         public Dictionary<string, string> GetGrouping()
         {
-            return null;
+            if (Samples == null)
+                return null;
+            Dictionary<string, string> grouping = new Dictionary<string, string>();
+            
+            foreach(Sample sample in Samples)
+            {
+                grouping.Add(sample.FileName, sample.Group);
+            }
+
+            return grouping;
         }
 
     }

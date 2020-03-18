@@ -8,7 +8,7 @@
 
     using Agilent.OpenLab.UI.Controls.AgtPlotControl.GraphicElements;
     using Agilent.OpenLab.UI.Controls.AgtPlotControl.GraphicObjects;
-
+    using DataTypes;
     using Microsoft.Practices.Unity;
 
     #endregion
@@ -40,6 +40,7 @@
         {
             this.View = this.UnityContainer.Resolve<ICompoundChromatogramView>();
             this.View.Model = this;
+            this.ExperimentContext = this.UnityContainer.Resolve<IExperimentContext>();
             this.SubscribeEvents();
             this.InitializeCommands();
         }
@@ -73,6 +74,8 @@
                 return this.plotControl;
             }
         }
+
+        private IExperimentContext ExperimentContext { get; set; }
 
         /// <summary>
         /// Gets or sets the display mode of the plots.

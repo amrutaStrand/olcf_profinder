@@ -44,6 +44,13 @@
         ToggleCommand<object> OverlayModeCommand { get; }
 
         /// <summary>
+        /// Gets the sample group overlay toggle command.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        ToggleCommand<object> GroupOverlayModeCommand { get; }
+
+        /// <summary>
         /// Gets the trigger command B.
         /// </summary>
         /// <remarks>

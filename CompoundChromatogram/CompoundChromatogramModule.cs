@@ -71,6 +71,9 @@
                 groupManager.AddCommandTool(
                    viewModel.OverlayModeCommand, "Overlay",
                    this.GetImageFromImageFile("Images/TestImage.png"));
+                groupManager.AddCommandTool(
+                    viewModel.SampleGroupModeCommand, "GroupOverlay",
+                    this.GetImageFromImageFile("Images/TestImage.png"));
             }
         }
 

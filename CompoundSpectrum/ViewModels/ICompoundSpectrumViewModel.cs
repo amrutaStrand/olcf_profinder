@@ -5,6 +5,7 @@
     using Agilent.OpenLab.Framework.UI.Common.Commands;
     using Agilent.OpenLab.Framework.UI.Layout.ModuleInterfaces;
     using Agilent.OpenLab.UI.Controls.AgtPlotControl;
+    using DataTypes;
 
 
     #endregion
@@ -39,6 +40,7 @@
         /// 
         /// </summary>
         AgtPlotControl PlotControl { get; }
+
         #endregion
     }
 }

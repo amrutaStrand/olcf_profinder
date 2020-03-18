@@ -77,8 +77,7 @@
 
         private IExperimentContext ExperimentContext { get; set; }
 
-    
-
+   
         private void InitializeMFE()
         {
             if(Samples != null && Samples.Count > 0)
@@ -115,6 +114,17 @@
             applicationStateService.ResetApplicationStates();
             applicationStateService.SetApplicationState(state, true, ApplicationStateUpdateMode.Immediate);
             applicationStateService.ApplyApplicationStates();
+            var layoutAutomationService = new LayoutAutomationService(UnityContainer);
+            if (state.Equals("SamplesAdded"))
+            {
+                layoutAutomationService.ShowModuleByAssemblyName("Agilent.OpenLab.FeatureExtractionUI");
+                layoutAutomationService.ShowModuleByAssemblyName("Agilent.OpenLab.TICPlot");
+            }
+            else if (state.Equals("ExperimentSetup"))
+            {
+                layoutAutomationService.ShowModuleByAssemblyName("Agilent.OpenLab.ExperimentSetupParameters");
+                layoutAutomationService.ShowModuleByAssemblyName("Agilent.OpenLab.SampleGrouping");
+            }
         }
 
         private void runMFEWithBusyIndicator(bool isContextUpdated)

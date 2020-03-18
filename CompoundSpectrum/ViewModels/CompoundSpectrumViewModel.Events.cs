@@ -27,7 +27,8 @@
         /// </summary>
         private bool unhandledSomethingEventMonitored;
         Color[] colorArray = ColorConstants.COLOR_ARRAY;
-        List<MsSpectrumGraphObject> msSpectrumGraphObjects;
+        IDictionary<string, ICompound> sampleWiseCompounds;
+        private int NUM_ROWS_TO_SHOW = PlotConstants.NUM_OF_PANES_TO_SHOW;
 
         #endregion
 
@@ -66,6 +67,8 @@
         {
             if (mode.Equals("Overlay"))
                 UpdatePlotControlInOverlayMode();
+            else if (mode.Equals("Group"))
+                UpdatePlotControlInSampleGroupMode();
             else
                 UpdatePlotControlInListMode();
         }
@@ -75,20 +78,7 @@
             this.PlotControl.RemoveAllItems();
             if (compoundGroupObject == null) return;
 
-            IDictionary<string, ICompound> sampleWiseCompounds = compoundGroupObject.SampleWiseDataDictionary;
-            msSpectrumGraphObjects = new List<MsSpectrumGraphObject>();
-
-            IEnumerator<ICompound> ce = sampleWiseCompounds.Values.GetEnumerator ();
-            int colorCounter = 0;
-            int colorArraySize = colorArray.Length;
-            while (ce.MoveNext())
-            {
-                Color color = colorArray[colorCounter];
-                colorCounter = (colorCounter + 1) % colorArraySize;
-                MsSpectrumGraphObject mso = GetMsSpectrumGraphObject(ce.Current, color);
-
-                msSpectrumGraphObjects.Add(mso);
-            }
+            sampleWiseCompounds = compoundGroupObject.SampleWiseDataDictionary;
             UpdatePlotControlInListMode();
         }
 
@@ -105,17 +95,72 @@
 
         }
 
+        private void UpdatePlotControlInSampleGroupMode()
+        {
+            if (sampleWiseCompounds == null || sampleWiseCompounds.Count == 0)
+                return;
+
+            Dictionary<string, string> sampleGrouping = ExperimentContext.GetGrouping();
+            List<string> groups = new List<string>();
+
+            List<MsSpectrumGraphObject> msSpectrumGraphObjects = new List<MsSpectrumGraphObject>();
+
+            int i = 0;
+            foreach (string samplename in sampleWiseCompounds.Keys)
+            {
+                string group = sampleGrouping[samplename];
+                if (!groups.Contains(group))
+                    groups.Add(group);
+                i = groups.IndexOf(group);
+                Color color = colorArray[i % colorArray.Length];
+
+                msSpectrumGraphObjects.Add(GetMsSpectrumGraphObject(sampleWiseCompounds[samplename], color));                     
+            }
+            int numberOfRows = msSpectrumGraphObjects.Count;
+            int numberOfColumns = 1;
+
+            int numberOfRowsToShow = numberOfRows;
+            if (numberOfRows > NUM_ROWS_TO_SHOW)
+                numberOfRowsToShow = NUM_ROWS_TO_SHOW;
+
+            this.PlotControl.RemoveAllItems();
+            this.PlotControl.Initialize(numberOfRows, numberOfColumns, numberOfRowsToShow, numberOfColumns);
+
+            UpdatePlotProperties();
+
+            IEnumerator<MsSpectrumGraphObject> enumerator = msSpectrumGraphObjects.GetEnumerator();
+            int horizontalCounter = 0;
+            while (enumerator.MoveNext())
+            {
+                this.PlotControl.AddItem(horizontalCounter++, 0, enumerator.Current);
+            }
+        }
+
         private void UpdatePlotControlInListMode()
         {
+            if (sampleWiseCompounds == null || sampleWiseCompounds.Count == 0)
+                return;
+
+            List<MsSpectrumGraphObject> msSpectrumGraphObjects = new List<MsSpectrumGraphObject>();
+
+            int i = 0;
+            foreach (string samplename in sampleWiseCompounds.Keys)
+            {
+                Color color = colorArray[i % colorArray.Length];
+
+                msSpectrumGraphObjects.Add(GetMsSpectrumGraphObject(sampleWiseCompounds[samplename], color));
+
+                i++;
+            }
+
             this.PlotControl.RemoveAllItems();
-            if (msSpectrumGraphObjects == null || msSpectrumGraphObjects.Count <= 0) return;
 
             int numberOfRows = msSpectrumGraphObjects.Count;
             int numberOfColumns = 1;
 
             int numberOfRowsToShow = numberOfRows;
-            if (numberOfRows > 3)
-                numberOfRowsToShow = 3;
+            if (numberOfRows > NUM_ROWS_TO_SHOW)
+                numberOfRowsToShow = NUM_ROWS_TO_SHOW;
 
             this.PlotControl.Initialize(numberOfRows, numberOfColumns, numberOfRowsToShow, numberOfColumns);
 
@@ -132,9 +177,22 @@
 
         private void UpdatePlotControlInOverlayMode()
         {
-            this.PlotControl.RemoveAllItems();
-            if (msSpectrumGraphObjects == null || msSpectrumGraphObjects.Count <= 0) return;
+            if (sampleWiseCompounds == null || sampleWiseCompounds.Count == 0)
+                return;
 
+            List<MsSpectrumGraphObject> msSpectrumGraphObjects = new List<MsSpectrumGraphObject>();
+
+            int i = 0;
+            foreach (string samplename in sampleWiseCompounds.Keys)
+            {
+                Color color = colorArray[i % colorArray.Length];
+
+                msSpectrumGraphObjects.Add(GetMsSpectrumGraphObject(sampleWiseCompounds[samplename], color));
+
+                i++;
+            }
+
+            this.PlotControl.RemoveAllItems();
             this.PlotControl.Initialize(1, 1);
 
             UpdatePlotProperties();
@@ -193,7 +251,6 @@
             while (enumerator.MoveNext())
             {
                 this.PlotControl.AddItem(horizontalCounter++, 0, enumerator.Current);
-
             }
 
         }

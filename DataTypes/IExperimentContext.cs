@@ -10,5 +10,7 @@ namespace DataTypes
         MFEInputParameters MFEInputParameters { get; set; }
 
         Dictionary<string,TICData> SamplewiseTICData { get; set; }
+
+        Dictionary<string, string> GetGrouping();
     }
 }

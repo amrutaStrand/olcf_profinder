@@ -43,6 +43,13 @@
         public ToggleCommand<object> OverlayModeCommand { get; private set; }
 
         /// <summary>
+        /// Gets the sample group overlay mode command.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        public ToggleCommand<object> GroupOverlayModeCommand { get; private set; }
+
+        /// <summary>
         /// Gets the trigger command B.
         /// </summary>
         /// <remarks>
@@ -77,7 +84,7 @@
             this.SampleGroupModeCommand = new ToggleCommand<object>(this.ActivateMode)
             {
                 Caption = "Sample Group Mode",
-                Hint = "Activate the sample group mode on the plots.",
+                Hint = "Activate the color by sample group mode on the plots.",
                 KeyTip = "G"
             };
 
@@ -85,6 +92,13 @@
             {
                 Caption = "Overlay Mode",
                 Hint = "Activate the overlay mode on the plots.",
+                KeyTip = "O"
+            };
+
+            this.GroupOverlayModeCommand = new ToggleCommand<object>(this.ActivateMode)
+            {
+                Caption = "Overlay Mode",
+                Hint = "Activate the sample group overlay mode on the plots.",
                 KeyTip = "O"
             };
 
@@ -127,6 +141,13 @@
                 ListModeCommand.IsChecked = false;
                 SampleGroupModeCommand.IsChecked = false;
                 EventAggregator.GetEvent<PlotDisplayModeChanged>().Publish("Overlay");
+            }
+            else if (mode.Equals("Group") && SampleGroupModeCommand.IsChecked)
+            {
+                UpdatePlotControlInSampleGroupMode();
+                ListModeCommand.IsChecked = false;
+                OverlayModeCommand.IsChecked = false;
+                EventAggregator.GetEvent<PlotDisplayModeChanged>().Publish("Group");
             }
             else
             {
