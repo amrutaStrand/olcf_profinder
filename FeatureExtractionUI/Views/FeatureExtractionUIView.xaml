@@ -54,17 +54,146 @@
                     <CheckBox IsChecked="{Binding ChargeStateAssignmentPSet.TreatUnknownAsSinglyCharged}"  Margin="12 6 6 6" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="12 6 6 6">
-                    <StackPanel Orientation="Vertical" Margin="12 6 6 6">
+                    <StackPanel Orientation="Vertical" Margin="0 6 0 0">
                         <TextBlock Text="Positive Ions" />
                         <ListView ItemsSource="{Binding PositiveIonSpecies}" Width="60" Height="120"/>
                     </StackPanel>
-                    <StackPanel Orientation="Vertical" Margin="12 6 6 6">
+                    <StackPanel Orientation="Vertical" Margin="0 20 6 6">
+                        <StackPanel Orientation="Vertical" Margin="0 0 18 6">
+                            <Border CornerRadius="25"
+                            Width="25"
+                            Margin="3"
+                            Padding="2"
+                            Background="AliceBlue"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE1FD;" />
+                            </Border>
+                            <Border CornerRadius="25"
+                            Width="25"
+                            Margin="3"
+                            Padding="2"
+                            Background="AliceBlue"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE110;" />
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="0 8 18 6">
+                            <Border CornerRadius="25"
+                            Width="25"
+                            Margin="3"
+                            Padding="2"
+                            Background="AliceBlue"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE109;" />
+                            </Border>
+                            <Border CornerRadius="20"
+                            Width="25"
+                            Margin="3"
+                            Padding="2"
+                            Background="AliceBlue"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE108;" />
+                            </Border>
+                        </StackPanel>
+                        
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0 6 6 0">
                         <TextBlock Text="Negative Ions" />
                         <ListView ItemsSource="{Binding NegativeIonSpecies}" Width="80" Height="120"/>
                     </StackPanel>
-                    <StackPanel Orientation="Vertical" Margin="12 6 6 6">
+                    <StackPanel Orientation="Vertical" Margin="0 20 6 0">
+                        <StackPanel Orientation="Vertical" Margin="0 0 18 0">
+                            <Border CornerRadius="25"
+                            Width="25"
+                            Margin="3"
+                            Padding="2"
+                            Background="AliceBlue"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE1FD;" />
+                            </Border>
+                            <Border CornerRadius="25"
+                            Width="25"
+                            Margin="3"
+                            Padding="2"
+                            Background="AliceBlue"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE110;" />
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="0 8 18 6">
+                            <Border CornerRadius="25"
+                            Width="25"
+                            Margin="3"
+                            Padding="2"
+                            Background="AliceBlue"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE109;" />
+                            </Border>
+                            <Border CornerRadius="20"
+                            Width="25"
+                            Margin="3"
+                            Padding="2"
+                            Background="AliceBlue"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE108;" />
+                            </Border>
+                        </StackPanel>
+
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0 6 6 6">
                         <TextBlock Text="Neutral Ions" />
                         <ListView ItemsSource="{Binding NeutralIonSpecies}" Width="60" Height="120"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Margin="0 20 6 0">
+                        <StackPanel Orientation="Vertical" Margin="0 0 18 0">
+                            <Border CornerRadius="25"
+                            Width="25"
+                            Margin="3"
+                            Padding="2"
+                            Background="AliceBlue"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE1FD;" />
+                            </Border>
+                            <Border CornerRadius="25"
+                            Width="25"
+                            Margin="3"
+                            Padding="2"
+                            Background="AliceBlue"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE110;" />
+                            </Border>
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical" Margin="0 8 18 6">
+                            <Border CornerRadius="25"
+                            Width="25"
+                            Margin="3"
+                            Padding="2"
+                            Background="AliceBlue"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE109;" />
+                            </Border>
+                            <Border CornerRadius="20"
+                            Width="25"
+                            Margin="3"
+                            Padding="2"
+                            Background="AliceBlue"
+                            BorderBrush="Black"
+                            BorderThickness="1">
+                                <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE108;" />
+                            </Border>
+                        </StackPanel>
+
                     </StackPanel>
                 </StackPanel>
                 <TextBlock Text="Alignment" Margin="12 6 6 6" FontSize="14"/>

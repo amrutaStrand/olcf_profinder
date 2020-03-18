@@ -31,20 +31,10 @@ namespace Agilent.OpenLab.ProfinderController
             this.EventAggregator.GetEvent<SamplesAdded>().Subscribe(this.SamplesAddedEventHandler);
         }
 
-        private void SamplesAddedEventHandler(List<ISample> samples)
+        private void SamplesAddedEventHandler(bool isContextUpdated)
         {
-/*            var filePaths = new List<string>();
-            foreach(ISample item in samples)
-            {
-                
-                filePaths.Add(item.FileName);
-
-            }
-            if (filePaths.Count != 0)
-            {
-                this.FilePaths = filePaths;
-            }*/
-            this.Samples = samples;
+            if(isContextUpdated)
+                this.Samples = this.ExperimentContext.Samples;
         }
 
         /// <summary>

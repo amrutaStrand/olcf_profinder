@@ -9,25 +9,27 @@ namespace DataTypes
     /// <summary>
     /// 
     /// </summary>
-    public class ExperimentContext
+    public class ExperimentContext : IExperimentContext
     {
         /// <summary>
         /// 
         /// </summary>
-        List<ISample> Samples { set; get; }
+        public List<ISample> Samples { set; get; }
 
 
         /// <summary>
         /// 
         /// </summary>
-        List<ICompoundGroup> CompoundGroups { get; set; }
+        public List<ICompoundGroup> CompoundGroups { get; set; }
+        public MFEInputParameters MFEInputParameters { get; set; }
+        public Dictionary<string, TICData> SamplewiseTICData { get; set; }
 
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        Dictionary<string, string> GetGrouping()
+        public Dictionary<string, string> GetGrouping()
         {
             return null;
         }

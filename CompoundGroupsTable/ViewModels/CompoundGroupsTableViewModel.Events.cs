@@ -49,16 +49,21 @@
             this.EventAggregator.GetEvent<CompoundGroupsGenerated>().Subscribe(this.CompoundsGenerated);
         }
 
-        private void CompoundsGenerated(List<ICompoundGroup> obj)
+        private void CompoundsGenerated(bool isContextUpdated)
         {
-            CompoundGroups.Clear();
-            IEnumerator<ICompoundGroup> enumerator = obj.GetEnumerator();
-            while(enumerator.MoveNext())
-                CompoundGroups.Add(new CompoundGroupItem(enumerator.Current));
+            if (isContextUpdated)
+            {
+                var compoundGroups = this.ExperimentContext.CompoundGroups;
+                CompoundGroups.Clear();
+                IEnumerator<ICompoundGroup> enumerator = compoundGroups.GetEnumerator();
+                while (enumerator.MoveNext())
+                    CompoundGroups.Add(new CompoundGroupItem(enumerator.Current));
 
-            View.UltraGrid.Selected.Rows.Clear();
-            if (View.UltraGrid.Rows.Count > 0)
-                View.UltraGrid.Selected.Rows.Add(View.UltraGrid.Rows[0]);
+                View.UltraGrid.Selected.Rows.Clear();
+                if (View.UltraGrid.Rows.Count > 0)
+                    View.UltraGrid.Selected.Rows.Add(View.UltraGrid.Rows[0]);
+            }
+            
 
 
         }

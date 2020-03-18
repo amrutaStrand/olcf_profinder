@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Events
 {
-    public class SamplesAdded : CompositePresentationEvent<List<ISample>>
+    public class SamplesAdded : CompositePresentationEvent<bool>
     {
     }
 }

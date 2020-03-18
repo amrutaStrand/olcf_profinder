@@ -42,6 +42,7 @@
         {
             this.View = this.UnityContainer.Resolve<ITICPlotView>();
             this.View.Model = this;
+            this.ExperimentContext = this.UnityContainer.Resolve<IExperimentContext>();
             this.SubscribeEvents();
             this.InitializeCommands();
             
@@ -65,6 +66,8 @@
         ///     The plot control.
         /// </summary>
         private AgtPlotControl plotControl;
+
+        private IExperimentContext ExperimentContext { get; set; }
 
         /// <summary>
         ///     Gets PlotControl.
@@ -91,17 +94,22 @@
 
         #region Methods
 
-        private void UpdateData(List<ISample> samples)
+        private void UpdateData(bool isContextUpdated)
         {
-            var lst = new List<string>();
-            foreach(var sample in samples)
+            if(isContextUpdated)
             {
-                if(sample.HideOrShow)
-                    lst.Add(sample.FileName);
+                var lst = new List<string>();
+                foreach (var sample in this.ExperimentContext.Samples)
+                {
+                    if (sample.HideOrShow)
+                        lst.Add(sample.FileName);
+                }
+                Data = TICPlotDataExtractor.Extract(lst);
+                this.ExperimentContext.SamplewiseTICData = Data;
+                InitializeLayout();
+                CreateGraphObjects();
             }
-            Data = TICPlotDataExtractor.Extract(lst);
-            InitializeLayout();
-            CreateGraphObjects();
+            
         }
 
         /// <summary>

@@ -87,7 +87,8 @@
             }
 
             //publish event to run mfe
-            this.EventAggregator.GetEvent<RunMFEInitiated>().Publish(this.AllInputsParameters);
+            this.ExperimentContext.MFEInputParameters = this.AllInputsParameters;
+            this.EventAggregator.GetEvent<RunMFEInitiated>().Publish(true);
         }
 
         

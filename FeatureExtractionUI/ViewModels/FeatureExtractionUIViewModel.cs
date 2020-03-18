@@ -39,6 +39,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
         {
             this.View = this.UnityContainer.Resolve<IFeatureExtractionUIView>();
             this.View.Model = this;
+            this.ExperimentContext = this.UnityContainer.Resolve<IExperimentContext>();
             this.SubscribeEvents();
             this.InitializeCommands();
         }
@@ -107,7 +108,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             set
             {
                 _positiveIonSpecies = value;
-                OnPropertyChanged("PositiveIons");
+                OnPropertyChanged("PositiveIonSpecies");
             }
         }
 
@@ -121,7 +122,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             set
             {
                 _negativeIonSpecies = value;
-                OnPropertyChanged("NegativeIons");
+                OnPropertyChanged("NegativeIonSpecies");
             }
         }
 
@@ -169,6 +170,24 @@ namespace Agilent.OpenLab.FeatureExtractionUI
 
             }
         }
+
+        private IExperimentContext ExperimentContext { get; set; }
+
+        //private IRange rtRange;
+        //public IRange RTRange
+        //{
+        //    get
+        //    {
+        //        return rtRange;
+        //    }
+        //    set
+        //    {
+        //        rtRange = value;
+        //        OnPropertyChanged("RTRange");
+        //        //MassHunterProcessingPSet.AcqTimeRange = new MinMaxRange(1, value);
+        //        //OnPropertyChanged("MassHunterProcessingPSet");
+        //    }
+        //}
 
         //private IRange mzRange;
         //public IRange MZRange

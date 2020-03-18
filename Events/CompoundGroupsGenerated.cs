@@ -7,7 +7,7 @@
     /// <summary>
     ///     The loaded songs changed event.
     /// </summary>
-    public class CompoundGroupsGenerated : CompositePresentationEvent<List<ICompoundGroup>>
+    public class CompoundGroupsGenerated : CompositePresentationEvent<bool>
     {
     }
 }
