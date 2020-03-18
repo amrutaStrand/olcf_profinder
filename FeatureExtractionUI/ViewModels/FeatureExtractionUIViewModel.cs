@@ -150,11 +150,14 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             }
             set
             {
-                rtRange = value;
-                OnPropertyChanged("CombinedRTRange");
+                
+                
                 string[] range_t = value.Split('-');
+                if (range_t.Length != 2) return;
                 double minRange = double.Parse(range_t[0].Trim());
                 double maxRange = double.Parse(range_t[1].Trim());
+                rtRange = value;
+                OnPropertyChanged("CombinedRTRange");
                 if (minRange > 0.0 && maxRange > 0.0)
                 {
                     IRange range = new MinMaxRange(minRange, maxRange);
@@ -337,13 +340,13 @@ namespace Agilent.OpenLab.FeatureExtractionUI
         private string ValidateAllInputs()
         {
             string errorMsg = GetValidationMessageRecursive(MassHunterProcessingPSet);
-            if (errorMsg != null && errorMsg.Trim().Length > 0) return errorMsg;
+            if (errorMsg != null) return errorMsg;
 
             errorMsg = GetValidationMessageRecursive(ChargeStateAssignmentPSet);
-            if (errorMsg != null && errorMsg.Trim().Length > 0) return errorMsg;
+            if (errorMsg != null) return errorMsg;
 
             errorMsg = GetValidationMessageRecursive(AlignmentInfoPSet);
-            if (errorMsg != null && errorMsg.Trim().Length > 0) return errorMsg;
+            if (errorMsg != null) return errorMsg;
 
             return null;
         }
@@ -361,17 +364,21 @@ namespace Agilent.OpenLab.FeatureExtractionUI
                     {
                         string childMsg = GetValidationMessageRecursive(enumerator.Current);
                         if (childMsg != null && childMsg.Trim().Length > 0)
+                        {
                             return childMsg;
+                        }
                     }
                 }
 
-            } else if (parameterObject is IParameter)
+            }
+            else if (parameterObject is IParameter)
             {
                 IParameter param = parameterObject as IParameter;
                 if (!param.Validate())
                 {
                     string errorMsg = param.ValidationMessage;
-                    if (errorMsg != null && errorMsg.Trim().Length > 0) return errorMsg;
+                    if (errorMsg != null && errorMsg.Trim().Length > 0) 
+                        return param.UsageKey + ": " +  errorMsg;
                 }
 
             }
