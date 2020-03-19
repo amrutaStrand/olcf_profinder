@@ -11,10 +11,12 @@
     using Agilent.OpenLab.Framework.UI.Layout;
     using Agilent.OpenLab.Framework.UI.Common.Services;
     using DataTypes;
+    using Agilent.OpenLab.Framework.UI.Common.Controls.Workflow;
     #endregion
 
     public partial class ProfinderControllerViewModel : BaseViewModel, IProfinderControllerViewModel
     {
+        //IWorkflowNavigatorViewModel workflowNavigatorViewModel;
         #region Constructors and Destructors
         /// <summary>
         ///   Initializes a new instance of the <see cref = "ProfinderControllerViewModel" /> class.
@@ -28,6 +30,8 @@
             this.InitializeCommands();
             this.SubscribeEvents();
             SetApplicationState("InitialState");
+            //workflowNavigatorViewModel = this.UnityContainer.Resolve<IApplicationLayoutService>().WorkspaceLayoutService.ActiveWorkflowNavigatorViewModel;
+            //workflowNavigatorViewModel.ActivateFirstPhase();
         }
 
         #endregion    
@@ -57,7 +61,8 @@
             get { return samples; }
             set {
                 samples = value;
-                SetApplicationState("SamplesAdded");
+                //SetApplicationState("SamplesAdded");
+                ActivateNextWorkflowPhase();
                 InitializeMFE();
             }
         }
@@ -105,7 +110,24 @@
             List<DataTypes.ICompoundGroup> compoundGroups = MFEExecutor.Execute(mfeInputs);
             this.ExperimentContext.CompoundGroups = compoundGroups;
             EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(true);
-            SetApplicationState("MFEExecuted");
+            //SetApplicationState("MFEExecuted");
+            ActivateNextWorkflowPhase();
+        }
+
+        private void ActivateNextWorkflowPhase()
+        {
+            var workflowNavigatorViewModel = this.UnityContainer.Resolve<IApplicationLayoutService>().WorkspaceLayoutService.ActiveWorkflowNavigatorViewModel;
+            var phases = workflowNavigatorViewModel.WorkflowPhases.GetEnumerator();
+            while (phases.MoveNext())
+            {
+                IWorkflowPhaseViewModel phase = phases.Current;
+                if (phase.IsSelected)
+                {
+                    phases.MoveNext();
+                    workflowNavigatorViewModel.ActivatePhase(phases.Current);
+                    return;
+                }
+            }
         }
 
         private void SetApplicationState(string state)
@@ -124,7 +146,7 @@
             {
                 layoutAutomationService.ShowModuleByAssemblyName("Agilent.OpenLab.ExperimentSetupParameters");
                 layoutAutomationService.ShowModuleByAssemblyName("Agilent.OpenLab.SampleGrouping");
-            }
+            }           
         }
 
         private void runMFEWithBusyIndicator(bool isContextUpdated)

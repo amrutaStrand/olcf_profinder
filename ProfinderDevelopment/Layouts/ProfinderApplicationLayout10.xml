@@ -8,6 +8,21 @@
     </ControllerModules>
     <NavigationView>
       
+      <!--<ModuleStateSubViewMappings>
+        <ModuleStateSubViewMapping>
+          <ModuleState>ExperimentSetup</ModuleState>
+          <SubViewTag>SetupLayout</SubViewTag>
+        </ModuleStateSubViewMapping>
+        <ModuleStateSubViewMapping>
+          <ModuleState>SamplesAdded</ModuleState>
+          <SubViewTag>MFELayout</SubViewTag>
+        </ModuleStateSubViewMapping>
+        <ModuleStateSubViewMapping>
+          <ModuleState>MFEExecuted</ModuleState>
+          <SubViewTag>ResultsLayout</SubViewTag>
+        </ModuleStateSubViewMapping>
+      </ModuleStateSubViewMappings>-->
+
       <SubViewNavigationType>WorkflowControlled</SubViewNavigationType>
         <SubViews>
           <DockingView>

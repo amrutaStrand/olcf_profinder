@@ -77,5 +77,32 @@ namespace Agilent.OpenLab.ProfinderApplication.Properties {
                 return ResourceManager.GetString("AuthenticationFailedMessage", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Experiment Setup.
+        /// </summary>
+        internal static string ExperimentSetupPhaseCaption {
+            get {
+                return ResourceManager.GetString("ExperimentSetupPhaseCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feature Extraction.
+        /// </summary>
+        internal static string MFEPhaseCaption {
+            get {
+                return ResourceManager.GetString("MFEPhaseCaption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Results.
+        /// </summary>
+        internal static string ResultsPhaseCaption {
+            get {
+                return ResourceManager.GetString("ResultsPhaseCaption", resourceCulture);
+            }
+        }
     }
 }

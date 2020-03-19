@@ -123,4 +123,13 @@
   <data name="AuthenticationFailedMessage" xml:space="preserve">
     <value>Failed to authenticate. Please check your project privileges with your administrator.</value>
   </data>
+  <data name="ExperimentSetupPhaseCaption" xml:space="preserve">
+    <value>Experiment Setup</value>
+  </data>
+  <data name="MFEPhaseCaption" xml:space="preserve">
+    <value>Feature Extraction</value>
+  </data>
+  <data name="ResultsPhaseCaption" xml:space="preserve">
+    <value>Results</value>
+  </data>
 </root>

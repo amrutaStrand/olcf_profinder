@@ -15,10 +15,11 @@ namespace Agilent.OpenLab.ProfinderApplication
     using Agilent.OpenLab.Framework.Common.Utilities;
     using Agilent.OpenLab.Framework.Infrastructure.Services.Interfaces;
     using Agilent.OpenLab.Framework.UI.ApplicationContext;
+    using Agilent.OpenLab.Framework.UI.Common;
     using Agilent.OpenLab.Framework.UI.Common.ApplicationPath;
     using Agilent.OpenLab.Framework.UI.Common.Help;
     using Agilent.OpenLab.Framework.UI.Layout.MenuInterfaces;
-
+    using Agilent.OpenLab.ProfinderApplication.Properties;
     using Microsoft.Practices.Unity;
 
     #endregion
@@ -86,6 +87,9 @@ namespace Agilent.OpenLab.ProfinderApplication
         {
             // TODO: remove or implement
             base.RegisterSubViewDetails();
+            SubViewDetailsProvider.RegisterSubViewCaption("SetupLayout", CustomResources.ExperimentSetupPhaseCaption);
+            SubViewDetailsProvider.RegisterSubViewCaption("MFELayout", CustomResources.MFEPhaseCaption);
+            SubViewDetailsProvider.RegisterSubViewCaption("ResultsLayout", CustomResources.ResultsPhaseCaption);
         }
 
         #endregion

@@ -36,6 +36,7 @@
   <ItemGroup>
     <Content Include="Layouts\ProfinderApplication.workspace00.xml" />
     <Content Include="Layouts\ProfinderApplication.workspace01.xml" />
+    <Content Include="Layouts\ProfinderApplication.workspace10.xml" />
     <Content Include="Layouts\ProfinderApplicationLayout.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -44,6 +45,7 @@
     </Content>
     <Content Include="Layouts\ProfinderApplicationLayout00.xml" />
     <Content Include="Layouts\ProfinderApplicationLayout01.xml" />
+    <Content Include="Layouts\ProfinderApplicationLayout10.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ComoundTable\ComoundTable.csproj">
