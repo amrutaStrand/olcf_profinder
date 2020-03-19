@@ -102,6 +102,7 @@
             this.PlotControl.GraphManager.ShowSignalHints = true;
             this.PlotControl.ControlSettings.PaneSelectionMode = PaneSelectionMode.None;
             plotControl.GraphManager.LinkXAxis = true;
+            plotControl.GraphManager.LinkYAxis = true;
 
             foreach (var paneManager in this.plotControl.GraphManager.PaneManagers())
             {
