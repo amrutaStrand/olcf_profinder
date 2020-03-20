@@ -24,14 +24,15 @@ namespace Agilent.OpenLab.SampleGrouping.ViewModels
                 SampleGroupingHeaders.HideOrShow,
                 new TableHeader
                 {
-                    Caption = "Hide or Show ",
+                    Caption = "Select ",
                     Description = "Hide or Show the sample by default true",
-                    Name = "Hide/Show",
+                    Name = "Select",
                     Width = 100,
                     Alignment = HAlign.Center,
                     SortOrder = SortIndicator.None,
                     Hidden = false,
-                    ReadOnly = false
+                    ReadOnly = false,
+                   
 
                 });
             this.AddHeader(
@@ -56,7 +57,7 @@ namespace Agilent.OpenLab.SampleGrouping.ViewModels
                     Caption = "File Name",
                     Description = "The file name",
                     Name = "File Name",
-                    Width = 100,
+                    Width = 200,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
                     Hidden = false,

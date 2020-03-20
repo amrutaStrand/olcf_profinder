@@ -46,7 +46,6 @@
             // initialize the grid host control
             this.GridControlHost.Child = this.ultraGrid;
             this.GridControlHost.GotFocus += this.OnGridControlGotFocus;
-            
             this.GridControlHost.Margin = new Thickness(0, 0, 0, 0);
 
             // activate grid validation
