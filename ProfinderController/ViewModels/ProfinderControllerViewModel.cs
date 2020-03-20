@@ -16,7 +16,7 @@
 
     public partial class ProfinderControllerViewModel : BaseViewModel, IProfinderControllerViewModel
     {
-        //IWorkflowNavigatorViewModel workflowNavigatorViewModel;
+        IWorkflowNavigatorViewModel workflowNavigatorViewModel;
         #region Constructors and Destructors
         /// <summary>
         ///   Initializes a new instance of the <see cref = "ProfinderControllerViewModel" /> class.
@@ -29,7 +29,7 @@
             this.ExperimentContext = this.UnityContainer.Resolve<IExperimentContext>();
             this.InitializeCommands();
             this.SubscribeEvents();
-            SetApplicationState("InitialState");
+            //SetApplicationState("InitialState");
             //workflowNavigatorViewModel = this.UnityContainer.Resolve<IApplicationLayoutService>().WorkspaceLayoutService.ActiveWorkflowNavigatorViewModel;
             //workflowNavigatorViewModel.ActivateFirstPhase();
         }
@@ -82,7 +82,16 @@
 
         private IExperimentContext ExperimentContext { get; set; }
 
-   
+        /// <summary>
+        /// 
+        /// </summary>
+        public override void OnContentRendered()
+        {
+            workflowNavigatorViewModel = this.UnityContainer.Resolve<IApplicationLayoutService>().WorkspaceLayoutService.ActiveWorkflowNavigatorViewModel;
+            workflowNavigatorViewModel.ActivateFirstPhase();
+        }
+
+
         private void InitializeMFE()
         {
             if(Samples != null && Samples.Count > 0)
@@ -116,15 +125,17 @@
 
         private void ActivateNextWorkflowPhase()
         {
-            var workflowNavigatorViewModel = this.UnityContainer.Resolve<IApplicationLayoutService>().WorkspaceLayoutService.ActiveWorkflowNavigatorViewModel;
+            //var workflowNavigatorViewModel = this.UnityContainer.Resolve<IApplicationLayoutService>().WorkspaceLayoutService.ActiveWorkflowNavigatorViewModel;
             var phases = workflowNavigatorViewModel.WorkflowPhases.GetEnumerator();
             while (phases.MoveNext())
             {
                 IWorkflowPhaseViewModel phase = phases.Current;
                 if (phase.IsSelected)
                 {
-                    phases.MoveNext();
-                    workflowNavigatorViewModel.ActivatePhase(phases.Current);
+                    if (phases.MoveNext())
+                        workflowNavigatorViewModel.ActivatePhase(phases.Current);
+                    else
+                        workflowNavigatorViewModel.ActivateFirstPhase();
                     return;
                 }
             }
