@@ -280,6 +280,12 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ColorBySampleGroup.png" />
+    <Resource Include="Images\ListMode.png" />
+    <Resource Include="Images\OverlayMode.png" />
+    <Resource Include="Images\SampleGroup.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

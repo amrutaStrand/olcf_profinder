@@ -139,6 +139,7 @@
             foreach (string samplename in sampleWiseDataDictionary.Keys)
             {
                 Color color = colorArray[i % colorArray.Length];
+                color = Color.FromArgb(10, color.R, color.G, color.B);
                 ChromatogramGraphObject chromatogramGraphObject = CreateChromatogramGraphObject(
                             samplename, color, sampleWiseDataDictionary[samplename]);
 
@@ -168,6 +169,7 @@
             foreach (string samplename in sampleWiseDataDictionary.Keys)
             {
                 Color color = colorArray[i % colorArray.Length];
+                color = Color.FromArgb(10, color.R, color.G, color.B);
                 ChromatogramGraphObject chromatogramGraphObject = CreateChromatogramGraphObject(
                             samplename, color, sampleWiseDataDictionary[samplename]);
 
