@@ -253,7 +253,7 @@
                         //string.Format("Max. Abundance: {0:0}", spectrumData.Data.YValues.Max()),
                     });
             spectrumGraphObject.MassOfPrecursorIon = GetMassOfMostAbundantIon(spectrumData);
-            spectrumGraphObject.DisplaySettings.ShowPrecursorIonAnnotation = true;
+            spectrumGraphObject.DisplaySettings.ShowPrecursorIonAnnotation = false;
             spectrumGraphObject.DisplaySettings.PenSizeFocusedIon = 2f;
             spectrumGraphObject.DisplaySettings.PenSizeDefaultIon = 1f;
 

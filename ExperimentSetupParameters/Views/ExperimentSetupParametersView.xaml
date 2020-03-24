@@ -7,7 +7,24 @@
     Margin="0" 
     Focusable="True"
     Loaded="OnLoaded" 
-    Unloaded="OnUnloaded">
-    <Grid>                  
+    Unloaded="OnUnloaded"
+    Padding="10px">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Experiment Layout" FontSize="18"></TextBlock>
+            
+            <StackPanel Orientation="Vertical" Margin="5 10 5 10">
+                <RadioButton GroupName="ExperimentCount" Content="Single Experiment" IsChecked="True" Margin ="1"></RadioButton>
+                <RadioButton GroupName="ExperimentCount" Content="Multiple Experiment" Margin="1"></RadioButton>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="5 10 5 10">
+                <RadioButton GroupName="GroupCount" Content="One Group" Margin ="1" IsChecked="True"></RadioButton>
+                <RadioButton GroupName="GroupCount" Content="Two Group" Margin="1"></RadioButton>
+                <RadioButton GroupName="GroupCount" Content=">=2 groups" Margin="1"></RadioButton>
+            </StackPanel>
+
+
+        </StackPanel>
     </Grid>
 </UserControl>
