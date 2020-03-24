@@ -61,12 +61,6 @@
                     <StackPanel Orientation="Vertical" Margin="0 6 0 0">
                         <TextBlock Text="Positive Ions" />
                         <ListView ItemsSource="{Binding PositiveIonSpecies}" helpers:ListViewHelper.SelectedItems="{Binding SelectedPositiveIons}" Width="60" Height="120" SelectionMode="Multiple">
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="SelectionChanged">
-                                    <i:InvokeCommandAction Command="{Binding SelectItemsCommand}" 
-                                            />
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Ionspecies}" />

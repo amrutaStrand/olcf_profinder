@@ -100,7 +100,14 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             {
                 pSetMassHunterProcessing = value;
                 OnPropertyChanged("MassHunterProcessingPSet");
-                CombinedRTRange = MassHunterProcessingPSet.AcqTimeRange.Start + " - " + MassHunterProcessingPSet.AcqTimeRange.End;
+                if(MassHunterProcessingPSet.AcqTimeRange.Start == 0.0 && MassHunterProcessingPSet.AcqTimeRange.End == 0.0)
+                {
+                    CombinedRTRange = "0.5-15.0";
+                }else
+                {
+                    CombinedRTRange = MassHunterProcessingPSet.AcqTimeRange.Start + " - " + MassHunterProcessingPSet.AcqTimeRange.End;
+                }
+                
                 OnPropertyChanged("CombinedRTRange");
                 if(PositiveIonSpecies == null || PositiveIonSpecies.Count == 0)
                     PositiveIonSpecies = GetFormulae('+');
@@ -257,7 +264,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
                 OnPropertyChanged("MassHunterProcessingPSet");
             }
         }
-        private string rtRange;
+        private string rtRange = "0.5-15.0";
         public string CombinedRTRange
         {
             get
@@ -268,8 +275,6 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             }
             set
             {
-                
-                
                 string[] range_t = value.Split('-');
                 if (range_t.Length != 2) return;
                 double minRange = double.Parse(range_t[0].Trim());
