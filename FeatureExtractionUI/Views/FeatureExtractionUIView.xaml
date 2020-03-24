@@ -2,6 +2,9 @@
     x:Class="Agilent.OpenLab.FeatureExtractionUI.FeatureExtractionUIView" 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:helpers="clr-namespace:Agilent.OpenLab.FeatureExtractionUI.Helpers"
     xmlns:converters="clr-namespace:Agilent.OpenLab.FeatureExtractionUI.converters"
     Height="Auto" 
     Width="Auto" 
@@ -53,10 +56,41 @@
                     <Label  Content="Report single-ion features with z=1 " Margin="12 6 6 6"/>
                     <CheckBox IsChecked="{Binding ChargeStateAssignmentPSet.TreatUnknownAsSinglyCharged}"  Margin="12 6 6 6" />
                 </StackPanel>
+
                 <StackPanel Orientation="Horizontal" Margin="12 6 6 6">
                     <StackPanel Orientation="Vertical" Margin="0 6 0 0">
                         <TextBlock Text="Positive Ions" />
-                        <ListView ItemsSource="{Binding PositiveIonSpecies}" Width="60" Height="120"/>
+                        <ListView ItemsSource="{Binding PositiveIonSpecies}" helpers:ListViewHelper.SelectedItems="{Binding SelectedPositiveIons}" Width="60" Height="120" SelectionMode="Multiple">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding SelectItemsCommand}" 
+                                            />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Ionspecies}" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="IsSelected" Value="{Binding Selected}"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="true">
+                                            <Setter Property="Background" Value="AliceBlue" />
+                                            <Setter Property="BorderBrush" Value="Black" />
+                                        </Trigger>
+                                        <MultiTrigger>
+                                            <MultiTrigger.Conditions>
+                                                <Condition Property="IsSelected" Value="true" />
+                                                <Condition Property="Selector.IsSelectionActive" Value="true" />
+                                            </MultiTrigger.Conditions>
+                                        </MultiTrigger>
+                                    </Style.Triggers>
+                                    
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="0 20 6 6">
                         <StackPanel Orientation="Vertical" Margin="0 0 18 6">
@@ -103,7 +137,31 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="0 6 6 0">
                         <TextBlock Text="Negative Ions" />
-                        <ListView ItemsSource="{Binding NegativeIonSpecies}" Width="80" Height="120"/>
+                        <ListView ItemsSource="{Binding NegativeIonSpecies}" helpers:ListViewHelper.SelectedItems="{Binding SelectedNegativeIonSpecies}" Width="60" Height="120" SelectionMode="Multiple">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Ionspecies}" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="IsSelected" Value="{Binding Selected}"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="true">
+                                            <Setter Property="Background" Value="AliceBlue" />
+                                            <Setter Property="BorderBrush" Value="Black" />
+                                        </Trigger>
+                                        <MultiTrigger>
+                                            <MultiTrigger.Conditions>
+                                                <Condition Property="IsSelected" Value="true" />
+                                                <Condition Property="Selector.IsSelectionActive" Value="true" />
+                                            </MultiTrigger.Conditions>
+                                        </MultiTrigger>
+                                    </Style.Triggers>
+
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="0 20 6 0">
                         <StackPanel Orientation="Vertical" Margin="0 0 18 0">
@@ -150,7 +208,32 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="0 6 6 6">
                         <TextBlock Text="Neutral Ions" />
-                        <ListView ItemsSource="{Binding NeutralIonSpecies}" Width="60" Height="120"/>
+                        <ListView ItemsSource="{Binding NeutralIonSpecies}" helpers:ListViewHelper.SelectedItems="{Binding SelectedNeutralIonSpecies}" Width="60" Height="120" SelectionMode="Multiple">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Ionspecies}" />
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="IsSelected" Value="{Binding Selected}"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="true">
+                                            <Setter Property="Background" Value="AliceBlue" />
+                                            <Setter Property="BorderBrush" Value="Black" />
+                                        </Trigger>
+                                        <MultiTrigger>
+                                            <MultiTrigger.Conditions>
+                                                <Condition Property="IsSelected" Value="true" />
+                                                <Condition Property="Selector.IsSelectionActive" Value="true" />
+                                            </MultiTrigger.Conditions>
+                                        </MultiTrigger>
+                                    </Style.Triggers>
+
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                        </ListView>
+                        <!--<ListView ItemsSource="{Binding NeutralIonSpecies}" Width="60" Height="120"/>-->
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="0 20 6 0">
                         <StackPanel Orientation="Vertical" Margin="0 0 18 0">

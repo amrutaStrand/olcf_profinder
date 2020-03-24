@@ -9,6 +9,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
     #region
 
     using Agilent.OpenLab.Framework.UI.Module;
+    using Microsoft.Practices.Prism.Commands;
     using Microsoft.Practices.Unity;
     using System;
     using System.Collections;
@@ -42,6 +43,14 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             this.ExperimentContext = this.UnityContainer.Resolve<IExperimentContext>();
             this.SubscribeEvents();
             this.InitializeCommands();
+            RegionChangedCmd = new DelegateCommand<SelectionChangedEventArgs>(RegionChangedCmdExecuted);
+        }
+
+        public void RegionChangedCmdExecuted(SelectionChangedEventArgs e)
+        {
+            // e parameter is null     if you use <i:InvokeCommandAction>
+            // e parameter is NOT null if you use <prism:InvokeCommandAction>
+            Console.WriteLine("hello"+ e.SelectedItems);
         }
 
         #endregion
@@ -61,6 +70,8 @@ namespace Agilent.OpenLab.FeatureExtractionUI
         private MFEInputParameters AllInputsParameters { get; set; }
 
         private IPSetAlignmentInfo pSetAlignmentInfo;
+
+        public System.Windows.Input.ICommand RegionChangedCmd { get; }
 
         public IPSetAlignmentInfo AlignmentInfoPSet {
             get
@@ -91,15 +102,20 @@ namespace Agilent.OpenLab.FeatureExtractionUI
                 OnPropertyChanged("MassHunterProcessingPSet");
                 CombinedRTRange = MassHunterProcessingPSet.AcqTimeRange.Start + " - " + MassHunterProcessingPSet.AcqTimeRange.End;
                 OnPropertyChanged("CombinedRTRange");
-
-                PositiveIonSpecies = GetFormulae('+');
-                NegativeIonSpecies = GetFormulae('-');
+                if(PositiveIonSpecies == null || PositiveIonSpecies.Count == 0)
+                    PositiveIonSpecies = GetFormulae('+');
+                //selectedPositiveIons = new ObservableCollection<string> { PositiveIonSpecies[0] };
+                if (NegativeIonSpecies == null || NegativeIonSpecies.Count == 0)
+                    NegativeIonSpecies = GetFormulae('-');
+                //NegativeIonSpecies = GetFormulae('-');
                 NeutralIonSpecies = GetFormulae('*');
+                if (NeutralIonSpecies == null || NeutralIonSpecies.Count == 0)
+                    NeutralIonSpecies = GetFormulae('*');
             }
         }
 
-        private List<string> _positiveIonSpecies;
-        public List<string> PositiveIonSpecies
+        private ObservableCollection<IonSpeciesDefinition> _positiveIonSpecies;
+        public ObservableCollection<IonSpeciesDefinition> PositiveIonSpecies
         {
             get
             {
@@ -108,12 +124,83 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             set
             {
                 _positiveIonSpecies = value;
+                SelectedPositiveIons = new ObservableCollection<IonSpeciesDefinition>();
+                foreach (IonSpeciesDefinition isd in value) {
+                    if(isd.Selected)
+                        SelectedPositiveIons.Add(isd);
+                }
+                OnPropertyChanged("SelectedPositiveIons");
                 OnPropertyChanged("PositiveIonSpecies");
             }
         }
 
-        private List<string> _negativeIonSpecies;
-        public List<string> NegativeIonSpecies
+        private void UpdateActiveIons(ObservableCollection<IonSpeciesDefinition> value, char mode)
+        {
+            if(value.Count == 0)
+            {
+                return;
+            }
+            IEnumerator<ISpeciesDefinition> ps = GetEnumerator(mode);
+            while (ps.MoveNext())
+            {
+                if (ps.Current is ISpeciesDefinition)
+                {
+                    ISpeciesDefinition speciesDefinition = ps.Current as ISpeciesDefinition;
+                    Console.WriteLine(speciesDefinition.ModifierFormula + "   " + speciesDefinition.ShorthandSpeciesFormula);
+                    foreach(IonSpeciesDefinition isd in value)
+                    {
+                        if (isd.Ionspecies == speciesDefinition.ModifierFormula + "" + mode || isd.Ionspecies == speciesDefinition.NeutralLoss)
+                        {
+                            speciesDefinition.Active = true;
+                        }
+                        else
+                        {
+                            speciesDefinition.Active = false;
+                        }
+                    }
+                    
+                    
+                }
+                Console.WriteLine(ps);
+            }
+        }
+
+        private IEnumerator<ISpeciesDefinition> GetEnumerator(char mode)
+        {
+            IEnumerator<ISpeciesDefinition> ps = null;
+            if (mode == '+')
+            {
+                ps = MassHunterProcessingPSet.PositiveSpeciesDefinitions.GetEnumerator();
+            }
+            else if (mode == '-')
+            {
+                ps = MassHunterProcessingPSet.NegativeSpeciesDefinitions.GetEnumerator();
+            }
+            else
+            {
+                ps = MassHunterProcessingPSet.NeutralSpeciesDefinitions.GetEnumerator();
+            }
+            return ps;
+        }
+
+        ObservableCollection<IonSpeciesDefinition> selectedPositiveIons = new ObservableCollection<IonSpeciesDefinition>();
+        public ObservableCollection<IonSpeciesDefinition> SelectedPositiveIons
+        {
+            get { 
+                return selectedPositiveIons;
+            }
+            set
+            {
+                selectedPositiveIons = value;
+                
+                OnPropertyChanged("SelectedPositiveIons");
+                UpdateActiveIons(value, '+');
+                OnPropertyChanged("MassHunterProcessingPSet");
+            }
+        }
+
+        private ObservableCollection<IonSpeciesDefinition> _negativeIonSpecies;
+        public ObservableCollection<IonSpeciesDefinition> NegativeIonSpecies
         {
             get
             {
@@ -123,11 +210,27 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             {
                 _negativeIonSpecies = value;
                 OnPropertyChanged("NegativeIonSpecies");
+
             }
         }
 
-        private List<string> _neutralIonSpecies;
-        public List<string> NeutralIonSpecies
+        ObservableCollection<IonSpeciesDefinition> selectedNegativeIonSpecies = new ObservableCollection<IonSpeciesDefinition>();
+        public ObservableCollection<IonSpeciesDefinition> SelectedNegativeIonSpecies
+        {
+            get {
+                return selectedNegativeIonSpecies;
+            }
+            set
+            {
+                selectedNegativeIonSpecies = value;
+                OnPropertyChanged("SelectedNegativeIonSpecies");
+                UpdateActiveIons(value, '-');
+                OnPropertyChanged("MassHunterProcessingPSet");
+            }
+        }
+
+        ObservableCollection<IonSpeciesDefinition> _neutralIonSpecies;
+        public ObservableCollection<IonSpeciesDefinition> NeutralIonSpecies
         {
             get
             {
@@ -139,7 +242,21 @@ namespace Agilent.OpenLab.FeatureExtractionUI
                 OnPropertyChanged("NeutralIonSpecies");
             }
         }
-
+        
+        ObservableCollection<IonSpeciesDefinition> selectedNeutralIonSpecies = new ObservableCollection<IonSpeciesDefinition>();
+        public ObservableCollection<IonSpeciesDefinition> SelectedNeutralIonSpecies
+        {
+            get { 
+                return selectedNeutralIonSpecies;
+            }
+            set
+            {
+                selectedNeutralIonSpecies = value;
+                OnPropertyChanged("SelectedNeutralIonSpecies");
+                UpdateActiveIons(value, '*');
+                OnPropertyChanged("MassHunterProcessingPSet");
+            }
+        }
         private string rtRange;
         public string CombinedRTRange
         {
@@ -315,7 +432,6 @@ namespace Agilent.OpenLab.FeatureExtractionUI
         {
             AllInputsParameters = allParameters;
             MassHunterProcessingPSet = AllInputsParameters.AllParameters[MFEPSetKeys.MASS_HUNTER_PROCESSING] as IPSetMassHunterProcessing;
-            
             PeakFilterStatus = 8;
             ChargeStateAssignmentPSet = AllInputsParameters.AllParameters[MFEPSetKeys.CHARGE_STATE_ASSIGNMENT] as IPSetChargeStateAssignment;
             IsotopeTypeInd = 2;
@@ -324,21 +440,10 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             CPDGroupFiltersPset = AllInputsParameters.AllParameters[MFEPSetKeys.MFE_CPD_GROUP_FILTERS] as IPSetCpdGroupFilters;
         }
 
-        private List<string> GetFormulae(char mode)
+        private ObservableCollection<IonSpeciesDefinition> GetFormulae(char mode)
         {
-            List<string> formulae = new List<string>();
-            IEnumerator<ISpeciesDefinition> ps = null;
-            if (mode == '+')
-            {
-                ps = MassHunterProcessingPSet.PositiveSpeciesDefinitions.GetEnumerator();
-            } else if(mode == '-')
-            {
-                ps = MassHunterProcessingPSet.NegativeSpeciesDefinitions.GetEnumerator();
-            }
-            else
-            {
-                ps = MassHunterProcessingPSet.NeutralSpeciesDefinitions.GetEnumerator();
-            }
+            ObservableCollection<IonSpeciesDefinition> formulae = new ObservableCollection<IonSpeciesDefinition>();
+            IEnumerator<ISpeciesDefinition> ps = GetEnumerator(mode);
              
             while (ps.MoveNext())
             {
@@ -347,9 +452,9 @@ namespace Agilent.OpenLab.FeatureExtractionUI
                     ISpeciesDefinition speciesDefinition = ps.Current as ISpeciesDefinition;
                     Console.WriteLine(speciesDefinition.ModifierFormula + "   " +speciesDefinition.ShorthandSpeciesFormula);
                     if (speciesDefinition.ModifierFormula.Trim().Length > 0)
-                        formulae.Add(speciesDefinition.ModifierFormula + "" + mode);
+                        formulae.Add(new IonSpeciesDefinition() {Ionspecies=speciesDefinition.ModifierFormula+""+mode, Selected=speciesDefinition.Active });
                     else
-                        formulae.Add(speciesDefinition.NeutralLoss);
+                        formulae.Add(new IonSpeciesDefinition() { Ionspecies = speciesDefinition.NeutralLoss, Selected = speciesDefinition.Active });
                 }
                 Console.WriteLine(ps.Current);
             }
@@ -418,6 +523,26 @@ namespace Agilent.OpenLab.FeatureExtractionUI
         private string displayText;
 
         public string DisplayText
+        {
+            get { return displayText; }
+            set { displayText = value; }
+        }
+
+    }
+
+    public class IonSpeciesDefinition
+    {
+        private string isotopeModelType;
+
+        public string Ionspecies
+        {
+            get { return isotopeModelType; }
+            set { isotopeModelType = value; }
+        }
+
+        private Boolean displayText;
+
+        public Boolean Selected
         {
             get { return displayText; }
             set { displayText = value; }
