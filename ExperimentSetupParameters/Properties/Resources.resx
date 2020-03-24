@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ExperimentSetupParametersCaption" xml:space="preserve">
-    <value>Experiment Setup Parameters</value>
+    <value>Parameters</value>
   </data>
   <data name="ExperimentSetupParametersHint" xml:space="preserve">
     <value>ExperimentSetupParameters</value>

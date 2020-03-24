@@ -61,7 +61,7 @@ namespace Agilent.OpenLab.ExperimentSetupParameters.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Experiment Setup Parameters.
+        ///   Looks up a localized string similar to Parameters.
         /// </summary>
         internal static string ExperimentSetupParametersCaption {
             get {
