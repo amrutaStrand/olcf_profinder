@@ -3,8 +3,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-    xmlns:prism="http://prismlibrary.com/"
-    xmlns:helpers="clr-namespace:Agilent.OpenLab.FeatureExtractionUI.Helpers"
     xmlns:converters="clr-namespace:Agilent.OpenLab.FeatureExtractionUI.converters"
     Height="Auto" 
     Width="Auto" 
@@ -60,10 +58,10 @@
                 <StackPanel Orientation="Horizontal" Margin="12 6 6 6">
                     <StackPanel Orientation="Vertical" Margin="0 6 0 0">
                         <TextBlock Text="Positive Ions" />
-                        <ListView x:Name="PositiveIonListView" ItemsSource="{Binding PositiveIonSpecies}" helpers:ListViewHelper.SelectedItems="{Binding SelectedPositiveIons}" Width="60" Height="120" SelectionMode="Multiple">
+                        <ListView x:Name="PositiveIonListView" ItemsSource="{Binding PositiveIonSpecies}" Width="60" Height="120" SelectionMode="Multiple">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="SelectionChanged">
-                                    <i:InvokeCommandAction Command="{Binding RegionChangedCmd}"
+                                    <i:InvokeCommandAction Command="{Binding SelectPositiveIonsCommand}"
                                         CommandParameter="{Binding ElementName=PositiveIonListView, Path=SelectedItems}"
                                           />
                                 </i:EventTrigger>
@@ -78,7 +76,7 @@
                                     <Setter Property="IsSelected" Value="{Binding Selected}"/>
                                     <Style.Triggers>
                                         <Trigger Property="IsSelected" Value="true">
-                                            <Setter Property="Background" Value="AliceBlue" />
+                                            <Setter Property="Background" Value="LightGray" />
                                             <Setter Property="BorderBrush" Value="Black" />
                                         </Trigger>
                                         <MultiTrigger>
@@ -86,6 +84,7 @@
                                                 <Condition Property="IsSelected" Value="true" />
                                                 <Condition Property="Selector.IsSelectionActive" Value="true" />
                                             </MultiTrigger.Conditions>
+                                            <Setter Property="Background" Value="Red"/>
                                         </MultiTrigger>
                                     </Style.Triggers>
                                     
@@ -138,7 +137,14 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="0 6 6 0">
                         <TextBlock Text="Negative Ions" />
-                        <ListView ItemsSource="{Binding NegativeIonSpecies}" helpers:ListViewHelper.SelectedItems="{Binding SelectedNegativeIonSpecies}" Width="60" Height="120" SelectionMode="Multiple">
+                        <ListView ItemsSource="{Binding NegativeIonSpecies}"  Width="60" Height="120" Name="NegativeIonListView"  SelectionMode="Multiple">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding SelectNegativeIonsCommand}"
+                                        CommandParameter="{Binding ElementName=NegativeIonListView, Path=SelectedItems}"
+                                          />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Ionspecies}" />
@@ -209,7 +215,14 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="0 6 6 6">
                         <TextBlock Text="Neutral Ions" />
-                        <ListView ItemsSource="{Binding NeutralIonSpecies}" helpers:ListViewHelper.SelectedItems="{Binding SelectedNeutralIonSpecies}" Width="60" Height="120" SelectionMode="Multiple">
+                        <ListView ItemsSource="{Binding NeutralIonSpecies}" Name="NeutralIonListView" Width="60" Height="120" SelectionMode="Multiple">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding SelectNeutralIonsCommand}"
+                                        CommandParameter="{Binding ElementName=NeutralIonListView, Path=SelectedItems}"
+                                          />
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding Ionspecies}" />
