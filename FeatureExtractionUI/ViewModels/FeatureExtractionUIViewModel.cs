@@ -2,6 +2,7 @@
 
 using DataTypes;
 using Utils;
+using System.Windows.Controls;
 
 namespace Agilent.OpenLab.FeatureExtractionUI
 {
@@ -43,14 +44,21 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             this.ExperimentContext = this.UnityContainer.Resolve<IExperimentContext>();
             this.SubscribeEvents();
             this.InitializeCommands();
-            RegionChangedCmd = new DelegateCommand<SelectionChangedEventArgs>(RegionChangedCmdExecuted);
+            RegionChangedCmd = new DelegateCommand<object>(RegionChangedCmdExecuted);
         }
 
-        public void RegionChangedCmdExecuted(SelectionChangedEventArgs e)
+        public void RegionChangedCmdExecuted(object commandParams)
         {
             // e parameter is null     if you use <i:InvokeCommandAction>
             // e parameter is NOT null if you use <prism:InvokeCommandAction>
-            Console.WriteLine("hello"+ e.SelectedItems);
+
+            IList selectedItems = (IList)commandParams;
+
+            foreach(object item in selectedItems){
+                IonSpeciesDefinition ionSpeciesDefinitionItem = (IonSpeciesDefinition)item;
+            }
+
+            //Console.WriteLine("hello"+ commandParams);
         }
 
         #endregion
