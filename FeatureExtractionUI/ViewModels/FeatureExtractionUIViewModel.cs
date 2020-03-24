@@ -36,6 +36,9 @@ namespace Agilent.OpenLab.FeatureExtractionUI
         /// </param>
         /// <remarks>
         /// </remarks>
+        public System.Windows.Input.ICommand SelectPositiveIonsCommand { get; }
+        public System.Windows.Input.ICommand SelectNegativeIonsCommand { get; }
+        public System.Windows.Input.ICommand SelectNeutralIonsCommand { get; }
         public FeatureExtractionUIViewModel(IUnityContainer container)
             : base(container)
         {
@@ -44,21 +47,35 @@ namespace Agilent.OpenLab.FeatureExtractionUI
             this.ExperimentContext = this.UnityContainer.Resolve<IExperimentContext>();
             this.SubscribeEvents();
             this.InitializeCommands();
-            RegionChangedCmd = new DelegateCommand<object>(RegionChangedCmdExecuted);
+            SelectPositiveIonsCommand = new DelegateCommand<object>(SelectPositiveIonsCommandExecuted);
+            SelectNegativeIonsCommand = new DelegateCommand<object>(SelectNegativeIonsCommandExecuted);
+            SelectNeutralIonsCommand = new DelegateCommand<object>(SelectNeutralIonsCommandExecuted);
         }
 
-        public void RegionChangedCmdExecuted(object commandParams)
+        private void SelectNeutralIonsCommandExecuted(object commandParams)
         {
-            // e parameter is null     if you use <i:InvokeCommandAction>
-            // e parameter is NOT null if you use <prism:InvokeCommandAction>
+            SelectedNeutralIonSpecies = getNewSelectedIons(commandParams);
+        }
 
+        private void SelectNegativeIonsCommandExecuted(object commandParams)
+        {
+            SelectedNegativeIonSpecies = getNewSelectedIons(commandParams);
+        }
+
+        public void SelectPositiveIonsCommandExecuted(object commandParams)
+        {
+            SelectedPositiveIons = getNewSelectedIons(commandParams); 
+        }
+
+        private ObservableCollection<IonSpeciesDefinition> getNewSelectedIons(object commandParams)
+        {
             IList selectedItems = (IList)commandParams;
-
-            foreach(object item in selectedItems){
-                IonSpeciesDefinition ionSpeciesDefinitionItem = (IonSpeciesDefinition)item;
+            ObservableCollection<IonSpeciesDefinition> newSet = new ObservableCollection<IonSpeciesDefinition>() { };
+            foreach (object item in selectedItems)
+            {
+                newSet.Add((IonSpeciesDefinition)item);
             }
-
-            //Console.WriteLine("hello"+ commandParams);
+            return newSet;
         }
 
         #endregion
@@ -79,7 +96,7 @@ namespace Agilent.OpenLab.FeatureExtractionUI
 
         private IPSetAlignmentInfo pSetAlignmentInfo;
 
-        public System.Windows.Input.ICommand RegionChangedCmd { get; }
+       
 
         public IPSetAlignmentInfo AlignmentInfoPSet {
             get
@@ -162,19 +179,16 @@ namespace Agilent.OpenLab.FeatureExtractionUI
                 {
                     ISpeciesDefinition speciesDefinition = ps.Current as ISpeciesDefinition;
                     Console.WriteLine(speciesDefinition.ModifierFormula + "   " + speciesDefinition.ShorthandSpeciesFormula);
-                    foreach(IonSpeciesDefinition isd in value)
+                    Boolean isActive = false;
+                    foreach (IonSpeciesDefinition isd in value)
                     {
                         if (isd.Ionspecies == speciesDefinition.ModifierFormula + "" + mode || isd.Ionspecies == speciesDefinition.NeutralLoss)
                         {
-                            speciesDefinition.Active = true;
-                        }
-                        else
-                        {
-                            speciesDefinition.Active = false;
+                            isActive = true;
                         }
                     }
-                    
-                    
+                    speciesDefinition.Active = isActive;
+
                 }
                 Console.WriteLine(ps);
             }
