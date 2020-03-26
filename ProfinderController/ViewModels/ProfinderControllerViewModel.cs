@@ -94,11 +94,7 @@
 
         private void InitializeMFE()
         {
-            if(Samples != null && Samples.Count > 0)
-            {
-                MFEExecutor = new MFE(Samples);
-            } 
-            //else throw exception
+            MFEExecutor = new MFE(Samples);
         }
 
         private void LoadMFEInputs()
@@ -108,19 +104,28 @@
                 MFEInputParameters mfeParams = MFEExecutor.GetParameters();
                 this.EventAggregator.GetEvent<MFEInputsLoaded>().Publish(mfeParams);
             }
-            //else throw exception
+            else
+                throw new Exception("MFE executor instance not found.");
         }
 
         private void runMFE(MFEInputParameters mfeInputs)
         {
             if (MFEExecutor == null)
-                return; //TODO - throw exception
-            
-            List<DataTypes.ICompoundGroup> compoundGroups = MFEExecutor.Execute(mfeInputs);
-            this.ExperimentContext.CompoundGroups = compoundGroups;
-            EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(true);
-            //SetApplicationState("MFEExecuted");
-            ActivateNextWorkflowPhase();
+                throw new Exception("MFE executor instance not found.");
+
+            try
+            {
+                List<DataTypes.ICompoundGroup> compoundGroups = MFEExecutor.Execute(mfeInputs);
+                this.ExperimentContext.CompoundGroups = compoundGroups;
+                EventAggregator.GetEvent<CompoundGroupsGenerated>().Publish(true);
+                //SetApplicationState("MFEExecuted");
+                ActivateNextWorkflowPhase();
+
+            } catch (Exception e) {
+                Console.WriteLine(e.StackTrace);
+                throw new Exception("MFE execution failed. " + e.Message);
+            }
+
         }
 
         private void ActivateNextWorkflowPhase()
