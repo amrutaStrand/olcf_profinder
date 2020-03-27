@@ -93,12 +93,12 @@
                         </ListView>
                     </StackPanel>
                     <StackPanel Orientation="Vertical" Margin="0 20 6 6">
-                        <StackPanel Orientation="Vertical" Margin="0 0 18 6">
+                        <StackPanel Orientation="Vertical" Margin="0 0 18 6" IsEnabled="False">
                             <Border CornerRadius="25"
                             Width="25"
                             Margin="3"
                             Padding="2"
-                            Background="AliceBlue"
+                            Background="LightGray"
                             BorderBrush="Black"
                             BorderThickness="1">
                                 <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE1FD;" />
@@ -107,18 +107,18 @@
                             Width="25"
                             Margin="3"
                             Padding="2"
-                            Background="AliceBlue"
+                            Background="LightGray"
                             BorderBrush="Black"
                             BorderThickness="1">
                                 <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE110;" />
                             </Border>
                         </StackPanel>
-                        <StackPanel Orientation="Vertical" Margin="0 8 18 6">
+                        <StackPanel Orientation="Vertical" Margin="0 8 18 6" IsEnabled="False">
                             <Border CornerRadius="25"
                             Width="25"
                             Margin="3"
                             Padding="2"
-                            Background="AliceBlue"
+                            Background="LightGray"
                             BorderBrush="Black"
                             BorderThickness="1">
                                 <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE109;" />
@@ -127,7 +127,7 @@
                             Width="25"
                             Margin="3"
                             Padding="2"
-                            Background="AliceBlue"
+                            Background="LightGray"
                             BorderBrush="Black"
                             BorderThickness="1">
                                 <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE108;" />
@@ -135,7 +135,7 @@
                         </StackPanel>
                         
                     </StackPanel>
-                    <StackPanel Orientation="Vertical" Margin="0 6 6 0">
+                    <StackPanel Orientation="Vertical" Margin="0 6 6 0" IsEnabled="False">
                         <TextBlock Text="Negative Ions" />
                         <ListView ItemsSource="{Binding NegativeIonSpecies}"  Width="60" Height="120" Name="NegativeIonListView"  SelectionMode="Multiple">
                             <i:Interaction.Triggers>
@@ -176,7 +176,7 @@
                             Width="25"
                             Margin="3"
                             Padding="2"
-                            Background="AliceBlue"
+                            Background="LightGray"
                             BorderBrush="Black"
                             BorderThickness="1">
                                 <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE1FD;" />
@@ -185,7 +185,7 @@
                             Width="25"
                             Margin="3"
                             Padding="2"
-                            Background="AliceBlue"
+                            Background="LightGray"
                             BorderBrush="Black"
                             BorderThickness="1">
                                 <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE110;" />
@@ -196,7 +196,7 @@
                             Width="25"
                             Margin="3"
                             Padding="2"
-                            Background="AliceBlue"
+                            Background="LightGray"
                             BorderBrush="Black"
                             BorderThickness="1">
                                 <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE109;" />
@@ -205,7 +205,7 @@
                             Width="25"
                             Margin="3"
                             Padding="2"
-                            Background="AliceBlue"
+                            Background="LightGray"
                             BorderBrush="Black"
                             BorderThickness="1">
                                 <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE108;" />
@@ -255,7 +255,7 @@
                             Width="25"
                             Margin="3"
                             Padding="2"
-                            Background="AliceBlue"
+                            Background="LightGray"
                             BorderBrush="Black"
                             BorderThickness="1">
                                 <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE1FD;" />
@@ -264,18 +264,18 @@
                             Width="25"
                             Margin="3"
                             Padding="2"
-                            Background="AliceBlue"
+                            Background="LightGray"
                             BorderBrush="Black"
                             BorderThickness="1">
                                 <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE110;" />
                             </Border>
                         </StackPanel>
-                        <StackPanel Orientation="Vertical" Margin="0 8 18 6">
+                        <StackPanel Orientation="Vertical" Margin="0 8 18 6" IsEnabled="False">
                             <Border CornerRadius="25"
                             Width="25"
                             Margin="3"
                             Padding="2"
-                            Background="AliceBlue"
+                            Background="LightGray"
                             BorderBrush="Black"
                             BorderThickness="1">
                                 <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE109;" />
@@ -284,7 +284,7 @@
                             Width="25"
                             Margin="3"
                             Padding="2"
-                            Background="AliceBlue"
+                            Background="LightGray"
                             BorderBrush="Black"
                             BorderThickness="1">
                                 <TextBlock HorizontalAlignment="Center" FontFamily="Segoe UI Symbol" Text="&#xE108;" />
