@@ -92,9 +92,6 @@
             paneManager.AxisX.AxisTitle.Brush = GraphicToolsRepository.DefaultAxisTitleBrush;
             paneManager.AxisX.AxisStyles.Extent = 20;
 
-            //            paneManager.AxisX.AxisStyles.TickLabelFont = new Font("Arial", 10, FontStyle.Regular, GraphicsUnit.Point);
-            //            paneManager.AxisY.AxisStyles.TickLabelFont = new Font("Arial", 10, FontStyle.Regular, GraphicsUnit.Pixel);
-
             paneManager.AxisY.AxisStyles.TickLabelFont = GraphicToolsRepository.FontArial8;
             paneManager.AxisY.AxisTitle.SetTitle("Counts");
             paneManager.AxisY.AxisTitle.IsVisible = true;
@@ -104,7 +101,7 @@
             paneManager.AxisY.AxisTitle.Brush = GraphicToolsRepository.DefaultAxisTitleBrush;
             paneManager.AxisY.AxisStyles.Extent = 30;
             paneManager.BoundingBoxExpansion = new BoundingBoxExpansion(
-                5, 5, 5, 5, BoundingBoxExpansion.ExpansionMode.Relative);
+                10, 10, 5, 5, BoundingBoxExpansion.ExpansionMode.Relative);
 
             paneManager.HorizontalAxisScalingAnchorPoint = AnchorPoint.Max;
             paneManager.VerticalAxisScalingAnchorPoint = AnchorPoint.Min;
@@ -118,7 +115,6 @@
             paneManager.AxisX.AxisStyles.MinorGridStyle.Visible = false;
             paneManager.AxisY.AxisStyles.MajorGridStyle.Visible = false;
             paneManager.AxisY.AxisStyles.MinorGridStyle.Visible = false;
-
 
             paneManager.LegendContainerSettings.LegendMode = LegendMode.AbovePlotPane;
         }

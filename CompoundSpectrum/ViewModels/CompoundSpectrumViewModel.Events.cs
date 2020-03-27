@@ -259,7 +259,7 @@
 
             // spectrumGraphObject.DisplaySettings.DefaultIonAnnotationFont = GraphicToolsRepository.FontArial10;
             // spectrumGraphObject.DisplaySettings.FocusedIonAnnotationFont = GraphicToolsRepository.FontArial12Bold;
-            spectrumGraphObject.DisplaySettings.IonAnnotationFormatString = "{0:0.000}";
+            spectrumGraphObject.DisplaySettings.IonAnnotationFormatString = "{0:0.0000}";
             spectrumGraphObject.DisplaySettings.IonAnnotationLabelingMode = IonAnnotationLabelingMode.Always;
             spectrumGraphObject.DisplaySettings.IonAnnotationLabelsMayOverlapIons = true;
             spectrumGraphObject.DisplaySettings.MaximumNumberOfVisibleIonAnnotationLabels = 20;
