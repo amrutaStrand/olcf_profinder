@@ -45,6 +45,9 @@ namespace MFEProcessor
         /// <param name="analysisFiles"></param>
         public MFE(List<DataTypes.ISample> samples)
         {
+            if (samples == null || samples.Count <= 0)
+                throw new Exception("Failed to create MFE Instance. (No samples provided)");
+
             setAnalysisFiles(samples);
             InitiaizeApplication();
             SetConfiguration();
@@ -80,6 +83,7 @@ namespace MFEProcessor
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.StackTrace);
                 throw e;
             }
             return compoundGroups;
