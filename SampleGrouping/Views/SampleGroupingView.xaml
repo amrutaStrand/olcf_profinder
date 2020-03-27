@@ -30,22 +30,22 @@
                 <Label Margin="0 0 5 0" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Project</Label>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" Margin="0 5 0 5">
-                    <TextBox Text="Enter Project Name" Margin="5 0 5 0" Width="200" VerticalAlignment="Center"></TextBox>
-                    <Button Content="Open" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
-                    <Button Content="New" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
-                    <Button Content="Save" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
-                    <Button Content="Save As..." Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
+                    <TextBox Text="Enter Project Name" IsEnabled="False" Margin="5 0 5 0" Width="200" VerticalAlignment="Center"></TextBox>
+                    <Button Content="Open" IsEnabled="False" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
+                    <Button Content="New" IsEnabled="False" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
+                    <Button Content="Save" IsEnabled="False" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
+                    <Button Content="Save As..." IsEnabled="False" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
                 </StackPanel>
                 <Label Margin="0 0 5 0" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">Experiment</Label>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1" Margin="0 5 0 5">
-                    <ComboBox Width="200" Margin="5 0 5 0" VerticalAlignment="Center">
+                    <ComboBox Width="200" IsEnabled="False" Margin="5 0 5 0" VerticalAlignment="Center">
                         <ComboBoxItem Tag="Area" Content="Area" IsSelected="True"></ComboBoxItem>
                     </ComboBox>
-                    <Button Content="Open" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
-                    <Button Content="New" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
-                    <Button Content="Save" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
-                    <Button Content="Save As..." Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
+                    <Button Content="Open" IsEnabled="False" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
+                    <Button Content="New" IsEnabled="False" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
+                    <Button Content="Save" IsEnabled="False" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
+                    <Button Content="Save As..." IsEnabled="False" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
                 </StackPanel>
             </Grid>
             
@@ -62,24 +62,31 @@
             <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Margin="0 5 0 5" HorizontalAlignment="Center">
                 <Label Margin="0 0 5 0" VerticalAlignment="Center">Samples</Label>
                 <Button Content="Add" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center" Command="{Binding AddInputFiles}"></Button>
-                <Button Content="Remove" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
-                <Button Content="Import form Acq" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
-                <Button Content="Export to Acq" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
+                <Button Content="Remove" IsEnabled="False" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
+                <Button Content="Import form Acq" IsEnabled="False" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
+                <Button Content="Export to Acq" IsEnabled="False" Margin="5 0 5 0" MinWidth="50" VerticalAlignment="Center"></Button>
             </StackPanel>
             <WindowsFormsHost Grid.Column="0" Grid.Row="1" Focusable="True" Name="GridControlHost" ></WindowsFormsHost>
         </Grid>
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0 5 0 5" VerticalAlignment="Center">
-            <Label Margin="0 5 5 5" VerticalAlignment="Center">Sample Grouping</Label>
-            <Button Content="Import" Margin="5 0 5 0" MinWidth="50" MaxHeight="24" VerticalAlignment="Center"></Button>
-            <Button Content="Export" Margin="5 0 100 0" MinWidth="50" MaxHeight="24" VerticalAlignment="Center"></Button>
-            <TextBox Text="New Grouping"  Height="24" Width="200" Margin="5 0 5 0" VerticalAlignment="Center"></TextBox>
-            <StackPanel Orientation="Vertical" Margin="5 0 5 0">
-                <RadioButton Content="Categorical" Margin ="1"></RadioButton>
-                <RadioButton Content="Numerical" Margin="1"></RadioButton>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" Margin="0 5 0 5"  VerticalAlignment="Center">
+                <Label Margin="0 5 5 5" VerticalAlignment="Center">Sample Grouping</Label>
+                <Button Content="Import" IsEnabled="False" Margin="5 0 5 0" MinWidth="50" MaxHeight="24" VerticalAlignment="Center"></Button>
+                <Button Content="Export" IsEnabled="False" Margin="5 0 100 0" MinWidth="50" MaxHeight="24" VerticalAlignment="Center"></Button>
+                <TextBox Text="New Grouping" IsEnabled="False"  Height="24" Width="200" Margin="5 0 5 0" VerticalAlignment="Center"></TextBox>
+                <StackPanel Orientation="Vertical" Margin="5 0 5 0">
+                    <RadioButton IsEnabled="False" Content="Categorical" Margin ="1" IsChecked="True"></RadioButton>
+                    <RadioButton IsEnabled="False" Content="Numerical" Margin="1"></RadioButton>
+                </StackPanel>
+                <Button Content="Add" IsEnabled="False" Margin="5 0 5 0" MinWidth="50" MaxHeight="24" VerticalAlignment="Center"></Button>
+                <Button Content="Remove" IsEnabled="False" Margin="5 0 5 0" MinWidth="50" MaxHeight="24" VerticalAlignment="Center"></Button>
             </StackPanel>
-            <Button Content="Add" Margin="5 0 5 0" MinWidth="50" MaxHeight="24" VerticalAlignment="Center"></Button>
-            <Button Content="Remove" Margin="5 0 5 0" MinWidth="50" MaxHeight="24" VerticalAlignment="Center"></Button>
-            <Button Content="Done" Margin="5 0 5 0" MinWidth="50" MaxHeight="24" VerticalAlignment="Center" Command="{Binding SampleGroupingCompleted}"></Button>
-        </StackPanel>
+            <Button Content="Done" HorizontalAlignment="Right" Grid.Column="1" Margin="5 0 5 0" MinWidth="50" MaxHeight="24" VerticalAlignment="Center" Command="{Binding SampleGroupingCompleted}"></Button>
+        </Grid>
+        
     </Grid>
 </UserControl>
