@@ -116,7 +116,7 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Format = "F3",
+                    Format = "F4",
                     Hidden = false
                 });
             this.AddHeader(
@@ -142,7 +142,7 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Format = "F3",
+                    Format = "F4",
                     Hidden = false
                 });
             this.AddHeader(
@@ -155,7 +155,7 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
                     Width = 100,
                     Alignment = HAlign.Left,
                     SortOrder = SortIndicator.None,
-                    Format = "F3",
+                    Format = "F4",
                     Hidden = false
                 });
 
