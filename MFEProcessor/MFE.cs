@@ -460,7 +460,7 @@ namespace MFEProcessor
             for (int i = 0; i < data.Count; i++)
             {
                 DataTypes.IPeak peak = new DataTypes.Peak();
-                peak.X = Math.Round(xyStore.GetX(i), 1);
+                peak.X = Math.Round(xyStore.GetX(i), 4);
                 peak.Y = xyStore.GetY(i) / 100000;
                 //peak.Name = vals.ElementAt(ind) as string;
                 peaks.Add(peak);
