@@ -9,5 +9,6 @@ namespace Utils
     public class PlotConstants
     {
         public static int NUM_OF_PANES_TO_SHOW = 4;
+        public static int OVERLAY_OPACITY = 10;
     }
 }
