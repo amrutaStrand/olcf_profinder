@@ -6,6 +6,7 @@
     using System.Windows.Media.Imaging;
 
     using Agilent.OpenLab.CompoundGroupsTable.Properties;
+    using DataTypes;
 
     #endregion
 
@@ -20,6 +21,10 @@
         {
             get
             {
+                if (ExperimentContext.CompoundGroups != null)
+                {
+                    return Resources.CompoundGroupsTableCaption + "(" +ExperimentContext.CompoundGroups.Count + ")";
+                }
                 return Resources.CompoundGroupsTableCaption;
             }
         }

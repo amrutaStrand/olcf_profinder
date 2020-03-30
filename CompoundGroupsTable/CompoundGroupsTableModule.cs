@@ -10,7 +10,7 @@
 
     using Microsoft.Practices.Prism.Regions;
     using Microsoft.Practices.Unity;
-
+    using DataTypes;
     #endregion
 
     /// <summary>
@@ -20,6 +20,7 @@
     /// </remarks>
     public partial class CompoundGroupsTableModule : BaseUIModule
     {
+        private IExperimentContext ExperimentContext;
         #region Constructors and Destructors
 
         /// <summary>
@@ -33,6 +34,7 @@
         public CompoundGroupsTableModule(IUnityContainer container)
             : base(container)
         {
+            this.ExperimentContext = this.Container.Resolve<IExperimentContext>();
         }
 
         #endregion
