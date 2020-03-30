@@ -12,6 +12,7 @@
     using Agilent.OpenLab.Framework.UI.Common.Services;
     using DataTypes;
     using Agilent.OpenLab.Framework.UI.Common.Controls.Workflow;
+    using System.Windows;
     #endregion
 
     public partial class ProfinderControllerViewModel : BaseViewModel, IProfinderControllerViewModel
@@ -94,18 +95,32 @@
 
         private void InitializeMFE()
         {
-            MFEExecutor = new MFE(Samples);
+            try
+            {
+                MFEExecutor = new MFE(Samples);
+            }catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void LoadMFEInputs()
         {
-            if (MFEExecutor != null)
+            try
             {
-                MFEInputParameters mfeParams = MFEExecutor.GetParameters();
-                this.EventAggregator.GetEvent<MFEInputsLoaded>().Publish(mfeParams);
+                if (MFEExecutor != null)
+                {
+                    MFEInputParameters mfeParams = MFEExecutor.GetParameters();
+                    this.EventAggregator.GetEvent<MFEInputsLoaded>().Publish(mfeParams);
+                }
+                else
+                    throw new Exception("MFE executor instance not found.");
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show(ex.Message);
             }
-            else
-                throw new Exception("MFE executor instance not found.");
         }
 
         private void runMFE(MFEInputParameters mfeInputs)
@@ -167,13 +182,20 @@
 
         private void runMFEWithBusyIndicator(bool isContextUpdated)
         {
-            if (isContextUpdated)
+            try
             {
-                var busyIndicatorService = UnityContainer.Resolve<IBusyIndicatorService>();
-                using (new BusyIndicator(busyIndicatorService, "Running MFE", false))
+                if (isContextUpdated)
                 {
-                    runMFE(this.ExperimentContext.MFEInputParameters);
+                    var busyIndicatorService = UnityContainer.Resolve<IBusyIndicatorService>();
+                    using (new BusyIndicator(busyIndicatorService, "Running MFE", false))
+                    {
+                        runMFE(this.ExperimentContext.MFEInputParameters);
+                    }
                 }
+            } catch (Exception ex)
+            {
+                Console.WriteLine(ex.StackTrace);
+                MessageBox.Show(ex.Message);
             }
             
         }
