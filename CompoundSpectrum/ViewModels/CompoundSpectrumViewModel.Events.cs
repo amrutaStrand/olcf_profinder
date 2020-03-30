@@ -33,7 +33,7 @@
         private int OVERLAY_OPACITY = PlotConstants.OVERLAY_OPACITY;
 
         private List<PlotItem> PlotItems;
-        private List<string> Groups;
+        private Dictionary<string, Color> GroupColors;
 
         #endregion
 
@@ -80,13 +80,26 @@
             UpdatePlotControl();
         }
 
+        private Dictionary<string, Color> GetGroupColors()
+        {
+            Dictionary<string, string> sampleGrouping = ExperimentContext.GetGrouping();
+            List<string> groups = new List<string>(sampleGrouping.Values.Distinct());
+            Dictionary<string, Color> groupColors = new Dictionary<string, Color>();
+            for (int i = 0; i < groups.Count; i++)
+            {
+                string group = groups[i];
+                groupColors[group] = colorArray[i % colorArray.Length];
+            }
+            return groupColors;
+        }
+
         private void CompoundSelectionChanged(ICompoundGroup compoundGroupObject)
         {
             if (compoundGroupObject == null) return;
 
             IDictionary<string, ICompound> sampleWiseDataDictionary = compoundGroupObject.SampleWiseDataDictionary;
             Dictionary<string, string> sampleGrouping = ExperimentContext.GetGrouping();
-            Groups = new List<string>(sampleGrouping.Values).Distinct().ToList();
+            GroupColors = GetGroupColors();
             PlotItems = new List<PlotItem>();
             foreach (string sampleName in sampleWiseDataDictionary.Keys)
                 PlotItems.Add(new PlotItem(sampleName, sampleGrouping[sampleName], sampleWiseDataDictionary[sampleName]));
@@ -97,19 +110,25 @@
 
         private void UpdatePlotItems()
         {
+            List<string> groups = PlotItems.Select(p => p.Group).Distinct().ToList();
             for (int i = 0; i < PlotItems.Count; i++)
             {
                 PlotItem plotItem = PlotItems[i];
-                int groupIndex = Groups.IndexOf(plotItem.Group);
+                int groupIndex = groups.IndexOf(plotItem.Group);
                 plotItem.Color = colorArray[i];
+                plotItem.Legend = null;
                 if (ColorBySampleGroupFlag)
-                    plotItem.Color = colorArray[groupIndex];
+                    plotItem.Color = GroupColors[plotItem.Group];
 
                 plotItem.HorizontalPosition = i;
                 if (DisplayMode.Equals("Overlay"))
                     plotItem.HorizontalPosition = 0;
                 if (DisplayMode.Equals("GroupOverlay"))
+                {
                     plotItem.HorizontalPosition = groupIndex;
+                    if (ColorBySampleGroupFlag)
+                        plotItem.Legend = plotItem.Group;
+                }
             }
         }
 
@@ -118,7 +137,7 @@
             if (DisplayMode.Equals("List"))
                 return PlotItems.Count;
             if (DisplayMode.Equals("GroupOverlay"))
-                return Groups.Count;
+                return PlotItems.Select(p => p.Group).Distinct().Count();
             return 1;
         }
 
@@ -129,7 +148,7 @@
             InitializePlotControl(num_panes, 1);
             foreach (PlotItem plotItem in PlotItems)
             {
-                MsSpectrumGraphObject msSpectrumGraphObject = GetMsSpectrumGraphObject(plotItem.Compound, plotItem.Color);
+                MsSpectrumGraphObject msSpectrumGraphObject = GetMsSpectrumGraphObject(plotItem.Compound, plotItem.Color, plotItem.Legend);
                 this.PlotControl.AddItem(plotItem.HorizontalPosition, 0, msSpectrumGraphObject);
             }
         }
@@ -191,20 +210,19 @@
         }
 
 
-        static MsSpectrumGraphObject GetMsSpectrumGraphObject(ICompound compound, Color color)
+        static MsSpectrumGraphObject GetMsSpectrumGraphObject(ICompound compound, Color color, string legend)
         {
             string spectrumName = compound.FileName;
             SpectrumData spectrumData = getSpectrumData(compound);
             var spectrumGraphObject = new MsSpectrumGraphObject(spectrumData);
 
             spectrumGraphObject.DisplaySettings.Color = color;
-            spectrumGraphObject.CreateLegendObject(
-                new List<string>
-                    {
-                        spectrumData.Name
-                        //,string.Format("{0};  #Datapoints = {1}", spectrumName, spectrumData.Data.XValues.Length),
-                        //string.Format("Max. Abundance: {0:0}", spectrumData.Data.YValues.Max()),
-                    });
+
+            if (legend != null)
+                spectrumGraphObject.CreateLegendObject(legend);     
+            else
+                spectrumGraphObject.CreateLegendObject(new List<string>{ spectrumData.Name });
+
             spectrumGraphObject.MassOfPrecursorIon = GetMassOfMostAbundantIon(spectrumData);
             spectrumGraphObject.DisplaySettings.ShowPrecursorIonAnnotation = false;
             spectrumGraphObject.DisplaySettings.PenSizeFocusedIon = 2f;

@@ -110,6 +110,7 @@
             {
                 PlotItem plotItem = PlotItems[i];
                 int groupIndex = groups.IndexOf(plotItem.Group);
+                plotItem.Legend = null;
                 plotItem.Color = colorArray[i];
                 if (ColorBySampleGroupFlag)                    
                     plotItem.Color = GroupColors[plotItem.Group];
@@ -126,6 +127,8 @@
                     plotItem.HorizontalPosition = groupIndex;
                     Color color = plotItem.Color;
                     plotItem.Color = Color.FromArgb(OVERLAY_OPACITY, color.R, color.G, color.B);
+                    if (ColorBySampleGroupFlag)
+                        plotItem.Legend = plotItem.Group;
                 }
             }
         }
@@ -170,7 +173,7 @@
             foreach(PlotItem plotItem in PlotItems)
             {
                 ChromatogramGraphObject chromatogramGraphObject = CreateChromatogramGraphObject(
-                            plotItem.Name, plotItem.Color, plotItem.Compound);
+                            plotItem.Legend, plotItem.Color, plotItem.Compound);
 
                 this.PlotControl.AddItem(plotItem.HorizontalPosition, 0, chromatogramGraphObject);
             }
@@ -203,10 +206,10 @@
             chromatogramObject.DisplaySettings.Color = color;
             chromatogramObject.Hint = string.Format("Datapoints: {0}", compound.Chromatogram.Data.Count);
             chromatogramObject.HintTitle = compound.Chromatogram.Title;
-            chromatogramObject.CreateLegendObject(signalName);
-            chromatogramObject.CreateLegendObject(new List<string> { chromatogramObject.HintTitle
-                //,signalName, chromatogramObject.Hint
-            });
+            if (signalName != null)
+                chromatogramObject.CreateLegendObject(signalName);
+            else
+                chromatogramObject.CreateLegendObject(new List<string> { chromatogramObject.HintTitle});
 
             return chromatogramObject;
         }

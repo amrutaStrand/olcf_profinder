@@ -21,5 +21,6 @@ namespace Agilent.OpenLab.CompoundSpectrum.ViewModels
         public ICompound Compound { get; set; }
         public Color Color { get; set; }
         public int HorizontalPosition { get; set; }
+        public string Legend { get; set; }
     }
 }
