@@ -30,7 +30,7 @@
         private int OVERLAY_OPACITY = PlotConstants.OVERLAY_OPACITY;
 
         private List<PlotItem> PlotItems;
-        private List<string> Groups;
+        private Dictionary<string, Color> GroupColors;
 
         #endregion
 
@@ -73,15 +73,28 @@
         {
             // This might look like the following line of code:
             this.EventAggregator.GetEvent<CompoundSelectionChanged>().Unsubscribe(this.CompoundSelectionChanged);
-
         }
+
+        private Dictionary<string, Color> GetGroupColors()
+        {
+            Dictionary<string, string> sampleGrouping = ExperimentContext.GetGrouping();
+            List<string> groups = new List<string>(sampleGrouping.Values.Distinct());
+            Dictionary<string, Color> groupColors = new Dictionary<string, Color>();
+            for(int i=0; i<groups.Count; i++)
+            {
+                string group = groups[i];
+                groupColors[group] = colorArray[i % colorArray.Length];
+            }
+            return groupColors;
+        }
+
         private void CompoundSelectionChanged(ICompoundGroup obj)
         {
             if (obj != null)
             {             
                 IDictionary<string, ICompound> sampleWiseDataDictionary = obj.SampleWiseDataDictionary;
                 Dictionary<string, string> sampleGrouping = ExperimentContext.GetGrouping();
-                Groups = new List<string>(sampleGrouping.Values).Distinct().ToList();
+                GroupColors = GetGroupColors();
                 PlotItems = new List<PlotItem>();
                 foreach (string sampleName in sampleWiseDataDictionary.Keys)
                     PlotItems.Add(new PlotItem(sampleName, sampleGrouping[sampleName], sampleWiseDataDictionary[sampleName]));
@@ -92,13 +105,14 @@
 
         private void UpdatePlotItems()
         {
-            for(int i=0; i<PlotItems.Count; i++)
+            List<string> groups = PlotItems.Select(p => p.Group).Distinct().ToList();
+            for (int i=0; i<PlotItems.Count; i++)
             {
                 PlotItem plotItem = PlotItems[i];
-                int groupIndex = Groups.IndexOf(plotItem.Group);
+                int groupIndex = groups.IndexOf(plotItem.Group);
                 plotItem.Color = colorArray[i];
                 if (ColorBySampleGroupFlag)                    
-                    plotItem.Color = colorArray[groupIndex];
+                    plotItem.Color = GroupColors[plotItem.Group];
 
                 plotItem.HorizontalPosition = i;
                 if (DisplayMode.Equals("Overlay"))
@@ -144,7 +158,7 @@
             if (DisplayMode.Equals("List"))
                 return PlotItems.Count;
             if (DisplayMode.Equals("GroupOverlay"))
-                return Groups.Count;
+                return PlotItems.Select(p => p.Group).Distinct().Count();
             return 1;
         }
 
