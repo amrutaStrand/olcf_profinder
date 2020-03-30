@@ -217,6 +217,7 @@
     <Compile Include="ViewModels\ICompoundSpectrumViewModel.cs" />
     <Compile Include="ViewModels\CompoundSpectrumViewModel.cs" />
     <Compile Include="ViewModels\CompoundSpectrumViewModel.Infrastructure.cs" />
+    <Compile Include="ViewModels\PlotItem.cs" />
     <Compile Include="Views\ICompoundSpectrumView.cs" />
     <Compile Include="Views\CompoundSpectrumView.xaml.cs">
       <DependentUpon>CompoundSpectrumView.xaml</DependentUpon>

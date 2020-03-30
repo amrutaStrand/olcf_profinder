@@ -219,6 +219,7 @@
     <Compile Include="ViewModels\ICompoundChromatogramViewModel.cs" />
     <Compile Include="ViewModels\CompoundChromatogramViewModel.cs" />
     <Compile Include="ViewModels\CompoundChromatogramViewModel.Infrastructure.cs" />
+    <Compile Include="ViewModels\PlotItem.cs" />
     <Compile Include="Views\ICompoundChromatogramView.cs" />
     <Compile Include="Views\CompoundChromatogramView.xaml.cs">
       <DependentUpon>CompoundChromatogramView.xaml</DependentUpon>

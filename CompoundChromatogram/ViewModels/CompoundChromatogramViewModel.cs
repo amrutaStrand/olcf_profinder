@@ -83,6 +83,11 @@
         public string DisplayMode { get; set; }
 
         /// <summary>
+        /// Gets or sets the color by sample group flag.
+        /// </summary>
+        public bool ColorBySampleGroupFlag { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="paneManager"></param>

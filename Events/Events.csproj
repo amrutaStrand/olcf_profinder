@@ -58,6 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorBySampleGroupFlagChanged.cs" />
     <Compile Include="CompoundSelectionChanged.cs" />
     <Compile Include="CompoundGroupsGenerated.cs" />
     <Compile Include="MFEInputsLoaded.cs" />

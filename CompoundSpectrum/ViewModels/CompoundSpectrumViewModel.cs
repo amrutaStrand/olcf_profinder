@@ -78,6 +78,16 @@
         private IExperimentContext ExperimentContext { get; set; }
 
         /// <summary>
+        /// Gets or sets the display mode of the plots.
+        /// </summary>
+        public string DisplayMode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the color by sample group flag.
+        /// </summary>
+        public bool ColorBySampleGroupFlag { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="paneManager"></param>

@@ -50,7 +50,7 @@
             var menuDefinition = new MenuDefinition(this, string.Empty);
             var tabDefinition = new MenuTabDefinition(this.Caption, "T");
             menuDefinition.Add(tabDefinition);
-            var groupDefinition = new MenuGroupDefinition(this, "Diaplay Mode");
+            var groupDefinition = new MenuGroupDefinition(this, "Display Mode");
             tabDefinition.Add(groupDefinition);
 
             // register module specific menu definition

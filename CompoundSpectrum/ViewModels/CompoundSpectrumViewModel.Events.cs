@@ -14,6 +14,7 @@
     using Agilent.OpenLab.UI.Controls.GraphObjects;
     using Agilent.OpenLab.UI.Controls.AgtPlotControl.Basic;
     using Agilent.OpenLab.UI.Controls.AgtPlotControl.ObjectTransformation;
+    using Agilent.OpenLab.CompoundSpectrum.ViewModels;
 
     /// <summary>
     /// CompoundSpectrumViewModel
@@ -26,9 +27,13 @@
         /// parameters used to track unhandled events
         /// </summary>
         private bool unhandledSomethingEventMonitored;
-        Color[] colorArray = ColorConstants.COLOR_ARRAY;
-        IDictionary<string, ICompound> sampleWiseCompounds;
+
+        private Color[] colorArray = ColorConstants.COLOR_ARRAY;
         private int NUM_ROWS_TO_SHOW = PlotConstants.NUM_OF_PANES_TO_SHOW;
+        private int OVERLAY_OPACITY = PlotConstants.OVERLAY_OPACITY;
+
+        private List<PlotItem> PlotItems;
+        private List<string> Groups;
 
         #endregion
 
@@ -60,28 +65,73 @@
             // This might look like the following line of code:
             this.EventAggregator.GetEvent<CompoundSelectionChanged>().Subscribe(this.CompoundSelectionChanged);
             this.EventAggregator.GetEvent<PlotDisplayModeChanged>().Subscribe(this.ActivateMode);
+            this.EventAggregator.GetEvent<ColorBySampleGroupFlagChanged>().Subscribe(this.HandleColorBySampleGroupFlag);
+        }
 
+        private void HandleColorBySampleGroupFlag(bool isChecked)
+        {
+            ColorBySampleGroupFlag = isChecked;
+            UpdatePlotControl();
         }
 
         private void ActivateMode(string mode)
         {
-            if (mode.Equals("Overlay"))
-                UpdatePlotControlInOverlayMode();
-            else if (mode.Equals("Group"))
-                UpdatePlotControlInSampleGroupMode();
-            else if (mode.Equals("GroupOverlay"))
-                UpdatePlotControlInGroupOverlayMode();
-            else
-                UpdatePlotControlInListMode();
+            DisplayMode = mode;
+            UpdatePlotControl();
         }
 
         private void CompoundSelectionChanged(ICompoundGroup compoundGroupObject)
         {
-            this.PlotControl.RemoveAllItems();
             if (compoundGroupObject == null) return;
 
-            sampleWiseCompounds = compoundGroupObject.SampleWiseDataDictionary;
-            UpdatePlotControlInListMode();
+            IDictionary<string, ICompound> sampleWiseDataDictionary = compoundGroupObject.SampleWiseDataDictionary;
+            Dictionary<string, string> sampleGrouping = ExperimentContext.GetGrouping();
+            Groups = new List<string>(sampleGrouping.Values).Distinct().ToList();
+            PlotItems = new List<PlotItem>();
+            foreach (string sampleName in sampleWiseDataDictionary.Keys)
+                PlotItems.Add(new PlotItem(sampleName, sampleGrouping[sampleName], sampleWiseDataDictionary[sampleName]));
+
+            DisplayMode = "List";
+            UpdatePlotControl();
+        }
+
+        private void UpdatePlotItems()
+        {
+            for (int i = 0; i < PlotItems.Count; i++)
+            {
+                PlotItem plotItem = PlotItems[i];
+                int groupIndex = Groups.IndexOf(plotItem.Group);
+                plotItem.Color = colorArray[i];
+                if (ColorBySampleGroupFlag)
+                    plotItem.Color = colorArray[groupIndex];
+
+                plotItem.HorizontalPosition = i;
+                if (DisplayMode.Equals("Overlay"))
+                    plotItem.HorizontalPosition = 0;
+                if (DisplayMode.Equals("GroupOverlay"))
+                    plotItem.HorizontalPosition = groupIndex;
+            }
+        }
+
+        private int GetNumberOfPanes()
+        {
+            if (DisplayMode.Equals("List"))
+                return PlotItems.Count;
+            if (DisplayMode.Equals("GroupOverlay"))
+                return Groups.Count;
+            return 1;
+        }
+
+        private void UpdatePlotControl()
+        {
+            UpdatePlotItems();
+            int num_panes = GetNumberOfPanes();
+            InitializePlotControl(num_panes, 1);
+            foreach (PlotItem plotItem in PlotItems)
+            {
+                MsSpectrumGraphObject msSpectrumGraphObject = GetMsSpectrumGraphObject(plotItem.Compound, plotItem.Color);
+                this.PlotControl.AddItem(plotItem.HorizontalPosition, 0, msSpectrumGraphObject);
+            }
         }
 
         /// <summary>
@@ -118,104 +168,7 @@
             {
                 this.InitializePaneProperties(paneManager);
             }
-        }
-
-        private void UpdatePlotControlInListMode()
-        {
-            if (sampleWiseCompounds == null || sampleWiseCompounds.Count == 0)
-                return;
-
-            InitializePlotControl(sampleWiseCompounds.Count, 1);
-
-            int i = 0;
-            foreach (string samplename in sampleWiseCompounds.Keys)
-            {
-                Color color = colorArray[i % colorArray.Length];
-                MsSpectrumGraphObject msSpectrumGraphObject = GetMsSpectrumGraphObject(sampleWiseCompounds[samplename], color);
-
-                this.PlotControl.AddItem(i++, 0, msSpectrumGraphObject);
-            }
-        }
-
-        private void UpdatePlotControlInOverlayMode()
-        {
-            if (sampleWiseCompounds == null || sampleWiseCompounds.Count == 0)
-                return;
-
-            InitializePlotControl(1, 1);
-
-            int i = 0;
-            foreach (string samplename in sampleWiseCompounds.Keys)
-            {
-                Color color = colorArray[i % colorArray.Length];
-                MsSpectrumGraphObject msSpectrumGraphObject = GetMsSpectrumGraphObject(sampleWiseCompounds[samplename], color);
-
-                this.PlotControl.AddItem(0, 0, msSpectrumGraphObject);
-                i++;
-            }
-        }
-
-        private void UpdatePlotControlInGroupOverlayMode()
-        {
-            if (sampleWiseCompounds == null || sampleWiseCompounds.Count == 0)
-                return;
-
-            Dictionary<string, string> sampleGrouping = ExperimentContext.GetGrouping();
-            List<string> groups = new List<string>();
-
-            foreach(string samplename in sampleWiseCompounds.Keys)
-            {
-                string group = sampleGrouping[samplename];
-                if (!groups.Contains(group))
-                    groups.Add(group);
-            }
-
-            InitializePlotControl(groups.Count, 1);
-
-            int i = 0;
-            foreach (string samplename in sampleWiseCompounds.Keys)
-            {
-                Color color = colorArray[i % colorArray.Length];
-                MsSpectrumGraphObject msSpectrumGraphObject = GetMsSpectrumGraphObject(sampleWiseCompounds[samplename], color);
-
-                string group = sampleGrouping[samplename];
-                this.PlotControl.AddItem(groups.IndexOf(group), 0, msSpectrumGraphObject);
-                i++;
-            }      
-
-        }
-
-        private void UpdatePlotControlInSampleGroupMode()
-        {
-            if (sampleWiseCompounds == null || sampleWiseCompounds.Count == 0)
-                return;
-
-            Dictionary<string, string> sampleGrouping = ExperimentContext.GetGrouping();
-            List<string> groups = new List<string>();
-
-            foreach (string samplename in sampleWiseCompounds.Keys)
-            {
-                string group = sampleGrouping[samplename];
-                if (!groups.Contains(group))
-                    groups.Add(group);
-            }
-
-            InitializePlotControl(sampleWiseCompounds.Count, 1);
-
-            int horizontalCounter = 0;
-            foreach (string samplename in sampleWiseCompounds.Keys)
-            {
-                string group = sampleGrouping[samplename];
-                int index = groups.IndexOf(group);
-                Color color = colorArray[index % colorArray.Length];
-
-                MsSpectrumGraphObject msSpectrumGraphObject = GetMsSpectrumGraphObject(sampleWiseCompounds[samplename], color);
-
-                this.PlotControl.AddItem(horizontalCounter++, 0, msSpectrumGraphObject);
-            }
-        }
-
-       
+        }       
 
         /// <summary>
         /// The get mass of most abundant ion.
