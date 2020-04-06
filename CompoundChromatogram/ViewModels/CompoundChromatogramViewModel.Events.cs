@@ -109,8 +109,13 @@
             for (int i=0; i<PlotItems.Count; i++)
             {
                 PlotItem plotItem = PlotItems[i];
-                string group = plotItem.Group ?? "";
-                int groupIndex = groups.IndexOf(group);
+                string group = "";
+                int groupIndex = 0;
+                if (plotItem.Group != null)
+                {
+                    group = plotItem.Group;
+                    groupIndex = groups.IndexOf(group);
+                }
                 plotItem.Legend = null;
                 plotItem.Color = colorArray[i];
                 if (ColorBySampleGroupFlag)                    
