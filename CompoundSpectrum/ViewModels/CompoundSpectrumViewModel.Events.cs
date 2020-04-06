@@ -87,7 +87,7 @@
             Dictionary<string, Color> groupColors = new Dictionary<string, Color>();
             for (int i = 0; i < groups.Count; i++)
             {
-                string group = groups[i];
+                string group = groups[i] ?? "";
                 groupColors[group] = colorArray[i % colorArray.Length];
             }
             return groupColors;
@@ -114,11 +114,12 @@
             for (int i = 0; i < PlotItems.Count; i++)
             {
                 PlotItem plotItem = PlotItems[i];
-                int groupIndex = groups.IndexOf(plotItem.Group);
+                string group = plotItem.Group ?? "";
+                int groupIndex = groups.IndexOf(group);
                 plotItem.Color = colorArray[i];
                 plotItem.Legend = null;
                 if (ColorBySampleGroupFlag)
-                    plotItem.Color = GroupColors[plotItem.Group];
+                    plotItem.Color = GroupColors[group];
 
                 plotItem.HorizontalPosition = i;
                 if (DisplayMode.Equals("Overlay"))
@@ -127,7 +128,7 @@
                 {
                     plotItem.HorizontalPosition = groupIndex;
                     if (ColorBySampleGroupFlag)
-                        plotItem.Legend = plotItem.Group;
+                        plotItem.Legend = group;
                 }
             }
         }
@@ -218,9 +219,9 @@
 
             spectrumGraphObject.DisplaySettings.Color = color;
 
-            if (legend != null)
-                spectrumGraphObject.CreateLegendObject(legend);     
-            else
+            //if (legend != null)
+            //    spectrumGraphObject.CreateLegendObject(legend);     
+            //else
                 spectrumGraphObject.CreateLegendObject(new List<string>{ spectrumData.Name });
 
             spectrumGraphObject.MassOfPrecursorIon = GetMassOfMostAbundantIon(spectrumData);

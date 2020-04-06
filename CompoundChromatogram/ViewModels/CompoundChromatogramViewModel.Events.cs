@@ -82,7 +82,7 @@
             Dictionary<string, Color> groupColors = new Dictionary<string, Color>();
             for(int i=0; i<groups.Count; i++)
             {
-                string group = groups[i];
+                string group = groups[i] ?? "";
                 groupColors[group] = colorArray[i % colorArray.Length];
             }
             return groupColors;
@@ -109,11 +109,12 @@
             for (int i=0; i<PlotItems.Count; i++)
             {
                 PlotItem plotItem = PlotItems[i];
-                int groupIndex = groups.IndexOf(plotItem.Group);
+                string group = plotItem.Group ?? "";
+                int groupIndex = groups.IndexOf(group);
                 plotItem.Legend = null;
                 plotItem.Color = colorArray[i];
                 if (ColorBySampleGroupFlag)                    
-                    plotItem.Color = GroupColors[plotItem.Group];
+                    plotItem.Color = GroupColors[group];
 
                 plotItem.HorizontalPosition = i;
                 if (DisplayMode.Equals("Overlay"))
@@ -128,7 +129,7 @@
                     Color color = plotItem.Color;
                     plotItem.Color = Color.FromArgb(OVERLAY_OPACITY, color.R, color.G, color.B);
                     if (ColorBySampleGroupFlag)
-                        plotItem.Legend = plotItem.Group;
+                        plotItem.Legend = group;
                 }
             }
         }
@@ -206,9 +207,9 @@
             chromatogramObject.DisplaySettings.Color = color;
             chromatogramObject.Hint = string.Format("Datapoints: {0}", compound.Chromatogram.Data.Count);
             chromatogramObject.HintTitle = compound.Chromatogram.Title;
-            if (signalName != null)
-                chromatogramObject.CreateLegendObject(signalName);
-            else
+            //if (signalName != null)
+            //    chromatogramObject.CreateLegendObject(signalName);
+            //else
                 chromatogramObject.CreateLegendObject(new List<string> { chromatogramObject.HintTitle});
 
             return chromatogramObject;
