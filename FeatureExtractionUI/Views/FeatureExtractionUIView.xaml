@@ -38,7 +38,7 @@
                 <StackPanel Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
                     <Label  Content="Isotope Model" Margin="12 6 6 6"/>
-                    <ComboBox SelectedIndex="{Binding IsotopeTypeInd}" DisplayMemberPath="DisplayText" ItemsSource="{Binding IsotopeModels}" Height="20" Width="161" Margin="12 6 6 6" />
+                    <ComboBox Name="SelectIsotopeModel" SelectedIndex="{Binding IsotopeTypeInd}" DisplayMemberPath="DisplayText" ItemsSource="{Binding IsotopeModels}" Height="20" Width="161" Margin="12 6 6 6" />
                 </StackPanel>
             </StackPanel>
 
@@ -52,7 +52,7 @@
                 <StackPanel Orientation="Horizontal">
                     
                     <Label  Content="Report single-ion features with z=1 " Margin="12 6 6 6"/>
-                    <CheckBox IsChecked="{Binding ChargeStateAssignmentPSet.TreatUnknownAsSinglyCharged}"  Margin="12 6 6 6" />
+                    <CheckBox x:Name="ReportSingleIonFeatures" IsChecked="{Binding ChargeStateAssignmentPSet.TreatUnknownAsSinglyCharged}"  Margin="12 6 6 6" />
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal" Margin="12 6 6 6">
