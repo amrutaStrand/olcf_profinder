@@ -3,6 +3,7 @@
     #region
 
     using Agilent.OpenLab.Framework.UI.Common.Commands;
+    using System.Windows.Forms;
 
     #endregion
 
@@ -26,6 +27,13 @@
         /// <remarks>
         /// </remarks>
         public TriggerCommand<object> TriggerCommandB { get; private set; }
+
+        /// <summary>
+        /// Gets the trigger command B.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        public TriggerCommand<object> ExportCommand { get; private set; }
 
         #endregion
 
@@ -51,6 +59,13 @@
                 Hint = "Test Command Trigger B",
                 KeyTip = "B"
             };
+
+            this.ExportCommand = new TriggerCommand<object>(this.ExportData)
+            {
+                Caption = "Export Data",
+                Hint = "Export Table data to a csv file.",
+                KeyTip = "E"
+            };
         }
 
         /// <summary>
@@ -63,6 +78,18 @@
         /// </remarks>
         private void OnTestCommand(object unused)
         {
+        }
+
+        private void ExportData(object unused)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                ExportToCsv(filePath);
+            }
+
         }
 
         #endregion

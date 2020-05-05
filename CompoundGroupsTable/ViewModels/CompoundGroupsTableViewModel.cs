@@ -9,6 +9,10 @@
     using Microsoft.Practices.Unity;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.IO;
+    using System.Reflection;
+    using System.Text;
+    using System.Windows;
 
     #endregion
 
@@ -102,6 +106,20 @@
             }
             EventAggregator.GetEvent<CompoundSelectionChanged>().Publish(obj);
         }
+
+        private void ExportToCsv(string filepath)
+        {
+            List<string> lines = new List<string>();
+            string delimeter = ",";
+            lines.Add(CompoundGroupItem.GetHeader(delimeter));
+            foreach(CompoundGroupItem item in CompoundGroups)
+                lines.Add(item.ToString(delimeter));
+            
+            File.WriteAllLines(filepath, lines, Encoding.UTF8);
+            MessageBox.Show("Data exported to " + filepath);
+        }
         #endregion
     }
+
+    
 }

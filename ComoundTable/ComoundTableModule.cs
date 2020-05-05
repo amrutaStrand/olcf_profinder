@@ -63,10 +63,7 @@
             {
                 var viewModel = this.Container.Resolve<IComoundTableViewModel>();
                 groupManager.AddCommandTool(
-                    viewModel.ToggleCommandA,
-                    this.GetImageFromImageFile("Images/TestImage.png"));
-                groupManager.AddCommandTool(
-                    viewModel.TriggerCommandB,
+                    viewModel.ExportCommand,
                     this.GetImageFromImageFile("Images/TestImage.png"));
             }
         }

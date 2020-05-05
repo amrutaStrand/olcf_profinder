@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Agilent.OpenLab.UI.Controls.WinFormsControls;
@@ -88,6 +89,53 @@ namespace Agilent.OpenLab.CompoundGroupsTable.ViewModels
         /// The target mass
         /// </summary>
         public double TargetMass { get { return CompoundGroupInfo.TargetMass; } }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public string ToString(string delimeter)
+        {
+            string[] values = new string[]
+            {
+                Group,
+                RTTgt.ToString(),
+                RTMed.ToString(),
+                Found.ToString(),
+                Missed.ToString(),
+                ScoreMFEMax.ToString(),
+                HeightMed.ToString(),
+                MassAvg.ToString(),
+                RTAvg.ToString(),
+                MassMedian.ToString(),
+                TargetMass.ToString()
+            };
+            return String.Join(delimeter, values);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="delimeter"></param>
+        /// <returns></returns>
+        public static string GetHeader(string delimeter)
+        {
+            string[] values = new string[]
+            {
+                "Group",
+                "RTTgt",
+                "RTMed",
+                "Found",
+                "Missed",
+                "ScoreMFEMax",
+                "HeightMed",
+                "MassAvg",
+                "RTAvg",
+                "MassMedian",
+                "TargetMass"
+            };
+            return String.Join(delimeter, values);
+        }
 
         #endregion
     }

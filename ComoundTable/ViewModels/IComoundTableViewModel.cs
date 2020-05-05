@@ -31,6 +31,13 @@
         TriggerCommand<object> TriggerCommandB { get; }
 
         /// <summary>
+        /// Gets the trigger command B.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        TriggerCommand<object> ExportCommand { get; }
+
+        /// <summary>
         /// Gets the view.
         /// </summary>
         IComoundTableView View { get; }

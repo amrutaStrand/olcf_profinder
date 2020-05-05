@@ -74,6 +74,10 @@
                 groupManager.AddCommandTool(
                     viewModel.SampleGroupModeCommand, "Group",
                     this.GetImageFromImageFile("Images/ColorBySampleGroup.png"));
+                groupManager.AddCommandTool(
+                    viewModel.ExportCommand,
+                    this.GetImageFromImageFile("Images/TestImage.png"),
+                    this.GetImageFromImageFile("Images/TestImage.png"));
             }
         }
 

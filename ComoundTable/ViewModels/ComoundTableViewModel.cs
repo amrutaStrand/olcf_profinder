@@ -6,8 +6,12 @@
     using DataTypes;
     using Events;
     using Microsoft.Practices.Unity;
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.IO;
+    using System.Text;
+    using System.Windows;
 
     #endregion
 
@@ -100,8 +104,51 @@
             //this.EventAggregator.GetEvent<CompoundSelectionChanged>().Publish(selected);
         }
 
+        private string GetHeader(string delimeter)
+        {
+            string[] props = new string[]
+            {
+                "FileName",
+                "Mass",
+                "RT",
+                "Area",
+                "Volume",
+                "Saturated",
+                "Width",
+                "Ions",
+                "ZCount",
+            };
+            return String.Join(delimeter, props);
+        }
 
+        private string GetCompoundString(ICompound compound, string delimeter)
+        {
+            string[] props = new string[]
+            {
+                compound.FileName,
+                compound.Mass.ToString(),
+                compound.RT.ToString(),
+                compound.Area.ToString(),
+                compound.Volume.ToString(),
+                compound.Saturated.ToString(),
+                compound.Width.ToString(),
+                compound.Ions.ToString(),
+                compound.ZCount.ToString(),
+            };
+            return String.Join(delimeter, props);
+        }
 
+        private void ExportToCsv(string filepath)
+        {
+            List<string> lines = new List<string>();
+            string delimeter = ",";
+            lines.Add(GetHeader(delimeter));
+            foreach (ICompound item in Compounds)
+                lines.Add(GetCompoundString(item, delimeter));
+
+            File.WriteAllLines(filepath, lines, Encoding.UTF8);
+            MessageBox.Show("Data exported to " + filepath);
+        }
 
         #endregion
     }

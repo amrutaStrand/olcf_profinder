@@ -5,11 +5,13 @@
     using Agilent.OpenLab.Framework.UI.Module;
     using Agilent.OpenLab.UI.Controls.AgtPlotControl;
     using Agilent.OpenLab.UI.Controls.AgtPlotControl.Basic;
-
+    using Agilent.OpenLab.UI.Controls.AgtPlotControl.Export;
     using Agilent.OpenLab.UI.Controls.AgtPlotControl.GraphicElements;
     using Agilent.OpenLab.UI.Controls.AgtPlotControl.GraphicObjects;
     using DataTypes;
     using Microsoft.Practices.Unity;
+    using System.Drawing.Imaging;
+    using System.Windows;
 
     #endregion
 
@@ -97,7 +99,7 @@
 
             paneManager.AxisX.AxisStyles.TickLabelFont = GraphicToolsRepository.FontArial8;
             paneManager.AxisX.AxisTitle.SetTitle("m/z");
-            paneManager.AxisX.AxisTitle.Alignment = HorizontalAlignment.Center;
+            paneManager.AxisX.AxisTitle.Alignment = UI.Controls.AgtPlotControl.GraphicElements.HorizontalAlignment.Center;
             paneManager.AxisX.AxisTitle.Font = GraphicToolsRepository.FontArial8;
             paneManager.AxisX.AxisTitle.Brush = GraphicToolsRepository.DefaultAxisTitleBrush;
             paneManager.AxisX.AxisStyles.Extent = 20;
@@ -105,7 +107,7 @@
             paneManager.AxisY.AxisStyles.TickLabelFont = GraphicToolsRepository.FontArial8;
             paneManager.AxisY.AxisTitle.SetTitle("Counts");
             paneManager.AxisY.AxisTitle.IsVisible = true;
-            paneManager.AxisY.AxisTitle.Alignment = HorizontalAlignment.Center;
+            paneManager.AxisY.AxisTitle.Alignment = UI.Controls.AgtPlotControl.GraphicElements.HorizontalAlignment.Center;
             paneManager.AxisY.AxisStyles.SeparateExponent = true;
             paneManager.AxisY.AxisTitle.Font = GraphicToolsRepository.FontArial8;
             paneManager.AxisY.AxisTitle.Brush = GraphicToolsRepository.DefaultAxisTitleBrush;
@@ -127,6 +129,14 @@
             paneManager.AxisY.AxisStyles.MinorGridStyle.Visible = false;
 
             paneManager.LegendContainerSettings.LegendMode = LegendMode.AbovePlotPane;
+        }
+
+        private void ExportToPng(string filepath)
+        {
+            var paneExportSource = new PaneExportSourceAll() { SkipEmptyPanes = true };
+            var bitmap = PlotControlExportUtilities.ExportToBitmap(this.plotControl, paneExportSource);
+            PlotControlExportUtilities.BitmapToFile(bitmap, filepath, ImageFormat.Png);
+            MessageBox.Show("Image exported to " + filepath);
         }
 
         #endregion

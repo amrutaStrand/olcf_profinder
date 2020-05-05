@@ -4,6 +4,7 @@
 
     using Agilent.OpenLab.Framework.UI.Common.Commands;
     using Events;
+    using System.Windows.Forms;
 
     #endregion
 
@@ -48,6 +49,13 @@
         /// <remarks>
         /// </remarks>
         public ToggleCommand<object> GroupOverlayModeCommand { get; private set; }
+
+        /// <summary>
+        /// Gets the trigger command B.
+        /// </summary>
+        /// <remarks>
+        /// </remarks>
+        public TriggerCommand<object> ExportCommand { get; private set; }
 
         /// <summary>
         /// Gets the trigger command B.
@@ -104,6 +112,13 @@
                 KeyTip = "O"
             };
 
+            this.ExportCommand = new TriggerCommand<object>(this.ExportData)
+            {
+                Caption = "Export Data",
+                Hint = "Export Table data to a png file.",
+                KeyTip = "E"
+            };
+
             this.TriggerCommandB = new TriggerCommand<object>(this.OnTestCommand)
             {
                 Caption = "Trigger B",
@@ -123,6 +138,18 @@
         /// </remarks>
         private void OnTestCommand(object unused)
         {
+        }
+
+        private void ExportData(object unused)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                ExportToPng(filePath);
+            }
+
         }
 
         /// <summary>
