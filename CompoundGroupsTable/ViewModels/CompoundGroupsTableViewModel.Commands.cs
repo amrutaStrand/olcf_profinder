@@ -85,11 +85,13 @@
         /// </summary>
         public void ExportData()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            SaveFileDialog fileDialog = new SaveFileDialog();
+            fileDialog.DefaultExt = "csv";
+            fileDialog.Filter = "CSV files (*.csv)|*.csv";
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                string filePath = openFileDialog.FileName;
+                string filePath = fileDialog.FileName;
                 ExportToCsv(filePath);
             }
 

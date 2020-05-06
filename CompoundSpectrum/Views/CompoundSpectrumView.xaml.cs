@@ -6,6 +6,7 @@
     using Agilent.OpenLab.UI.Controls.AgtPlotControl;
     using System;
     using System.ComponentModel;
+    using System.Windows.Forms;
 
 
     #endregion
@@ -97,6 +98,7 @@
                 this.PlotControl.GotFocus += this.OnPlotControlGotFocus;
                 this.plotControlHost.Margin = new Thickness(0, 0, 0, 0);
                 this.viewInitialized = true;
+                this.PlotControl.ContextMenu = this.GetContextMenu();
             }
         }
 
@@ -119,6 +121,20 @@
             }
 
             this.viewInitialized = false;
+        }
+
+        private ContextMenu GetContextMenu()
+        {
+            MenuItem[] menuItems = new MenuItem[]
+            {
+                new MenuItem("Export Data", OnExportClick)
+            };
+            return new ContextMenu(menuItems);
+        }
+
+        private void OnExportClick(object sender, EventArgs e)
+        {
+            Model.ExportData();
         }
 
         /// <summary>

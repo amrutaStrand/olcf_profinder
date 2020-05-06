@@ -60,7 +60,7 @@
                 KeyTip = "B"
             };
 
-            this.ExportCommand = new TriggerCommand<object>(this.ExportData)
+            this.ExportCommand = new TriggerCommand<object>(obj => this.ExportData())
             {
                 Caption = "Export Data",
                 Hint = "Export Table data to a png file.",
@@ -80,13 +80,18 @@
         {
         }
 
-        private void ExportData(object unused)
+        /// <summary>
+        /// 
+        /// </summary>
+        public void ExportData()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
+            SaveFileDialog fileDialog = new SaveFileDialog();
+            fileDialog.DefaultExt = "png";
+            fileDialog.Filter = "PNG files (*.png)|*.png";
 
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-                string filePath = openFileDialog.FileName;
+                string filePath = fileDialog.FileName;
                 ExportToPng(filePath);
             }
 

@@ -48,6 +48,11 @@
         /// </summary>
         AgtPlotControl PlotControl { get; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        void ExportData();
+
         #endregion
     }
 }
