@@ -60,7 +60,7 @@
                 KeyTip = "B"
             };
 
-            this.ExportCommand = new TriggerCommand<object>(this.ExportData)
+            this.ExportCommand = new TriggerCommand<object>(obj => this.ExportData())
             {
                 Caption = "Export Data",
                 Hint = "Export Table data to a csv file.",
@@ -80,7 +80,10 @@
         {
         }
 
-        private void ExportData(object unused)
+        /// <summary>
+        /// Exports data in a csv format to the selected file. 
+        /// </summary>
+        public void ExportData()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
 

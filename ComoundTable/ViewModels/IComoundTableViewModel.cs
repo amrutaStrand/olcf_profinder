@@ -57,6 +57,10 @@
         /// </summary>
         ICompound FocusedCompound { get; set; }
 
+        /// <summary>
+        /// Exports data to a selected file.
+        /// </summary>
+        void ExportData();
 
         #endregion
     }

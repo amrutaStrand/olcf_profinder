@@ -9,6 +9,12 @@
     Loaded="OnLoaded" 
     Unloaded="OnUnloaded">
     <Grid>
-        <WindowsFormsHost Focusable="True" Name="GridControlHost" Panel.ZIndex="1"></WindowsFormsHost>
+        <WindowsFormsHost Focusable="True" Name="GridControlHost" Panel.ZIndex="1">
+            <WindowsFormsHost.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Export" />
+                </ContextMenu>
+            </WindowsFormsHost.ContextMenu>
+        </WindowsFormsHost>
     </Grid>
 </UserControl>

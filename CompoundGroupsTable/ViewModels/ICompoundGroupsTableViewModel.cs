@@ -57,6 +57,11 @@
         /// </summary>
         ICompoundGroupItem FocusedCompoundGroup { get; set; }
 
+        /// <summary>
+        /// Method to export data to a selected file.
+        /// </summary>
+        void ExportData();
+
         #endregion
     }
 }

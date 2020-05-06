@@ -10,6 +10,7 @@
     using System;
     using DataTypes;
     using System.ComponentModel;
+    using System.Windows.Forms;
 
     #endregion
 
@@ -36,6 +37,7 @@
             this.ultraGrid.AfterRowActivate += this.OnAfterRowActivate;
             this.ultraGrid.InitializeLayout += this.OnInitializeLayout;
             this.ultraGrid.AfterSelectChange += this.AfterSelectChange;
+            this.ultraGrid.ContextMenu = this.GetContextMenu();
 
             // initialize the grid host control
             this.GridControlHost.Child = this.ultraGrid;
@@ -86,6 +88,20 @@
         #endregion
 
         #region Methods
+
+        private ContextMenu GetContextMenu()
+        {
+            MenuItem[] menuItems = new MenuItem[]
+            {
+                new MenuItem("Export Data", OnExportClick)
+            };
+            return new ContextMenu(menuItems);
+        }
+
+        private void OnExportClick(object sender, EventArgs e)
+        {
+            Model.ExportData();
+        }
 
         /// <summary>
         /// Called when [loaded].

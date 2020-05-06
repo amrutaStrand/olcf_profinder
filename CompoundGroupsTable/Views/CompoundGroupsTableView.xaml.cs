@@ -10,6 +10,7 @@
     using Agilent.OpenLab.UI.Controls.WinFormsControls;
     using DataTypes;
     using Infragistics.Win.UltraWinGrid;
+    using System.Windows.Forms;
 
 
     #endregion
@@ -38,6 +39,8 @@
             this.ultraGrid.InitializeLayout += this.OnInitializeLayout;
             this.ultraGrid.AfterSelectChange += this.AfterSelectChange;
 
+            this.ultraGrid.ContextMenu = GetContextMenu();
+
             // initialize the grid host control
             this.GridControlHost.Child = this.ultraGrid;
             this.GridControlHost.GotFocus += this.OnGridControlGotFocus;
@@ -46,6 +49,20 @@
             // activate grid validation
             this.gridValidationManager = new GridValueValidationManager(this.ultraGrid);
 
+        }
+
+        private ContextMenu GetContextMenu()
+        {
+            MenuItem[] menuItems = new MenuItem[] 
+            {
+                new MenuItem("Export Data", OnExportClick)
+            };
+            return new ContextMenu(menuItems);
+        }
+
+        private void OnExportClick(object sender, EventArgs e)
+        {
+            Model.ExportData();
         }
 
         private void OnInitializeLayout(object sender, InitializeLayoutEventArgs e)
