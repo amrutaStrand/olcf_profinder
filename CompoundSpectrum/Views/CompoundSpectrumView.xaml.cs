@@ -125,11 +125,12 @@
 
         private ContextMenu GetContextMenu()
         {
-            MenuItem[] menuItems = new MenuItem[]
-            {
-                new MenuItem("Export Data", OnExportClick)
-            };
-            return new ContextMenu(menuItems);
+            MenuItem menuItem = new MenuItem("Export Data", OnExportClick);
+            menuItem.Name = "CompoundSpectrumExport";
+            MenuItem[] menuItems = new MenuItem[] { menuItem };
+            ContextMenu contextMenu = new ContextMenu(menuItems);
+            contextMenu.Name = "CompoundSpectrumContextMenu";
+            return contextMenu;
         }
 
         private void OnExportClick(object sender, EventArgs e)
