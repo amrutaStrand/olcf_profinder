@@ -40,9 +40,9 @@
             this.ultraGrid.ContextMenu = this.GetContextMenu();
 
             // initialize the grid host control
-            //this.GridControlHost.Child = this.ultraGrid;
-            //this.GridControlHost.GotFocus += this.OnGridControlGotFocus;
-            //this.GridControlHost.Margin = new Thickness(0, 0, 0, 0);
+            this.GridControlHost.Child = this.ultraGrid;
+            this.GridControlHost.GotFocus += this.OnGridControlGotFocus;
+            this.GridControlHost.Margin = new Thickness(0, 0, 0, 0);
 
             // activate grid validation
             this.gridValidationManager = new GridValueValidationManager(this.ultraGrid);
@@ -151,7 +151,7 @@
         /// </param>
         private void OnGridControlGotFocus(object sender, EventArgs e)
         {
-            //this.GridControlHost.Focus();
+            this.GridControlHost.Focus();
         }
 
         /// <summary>
@@ -182,7 +182,7 @@
         {
             this.ultraGrid.AfterRowActivate -= this.OnAfterRowActivate;
             this.ultraGrid.InitializeLayout -= this.OnInitializeLayout;
-            //this.GridControlHost.GotFocus -= this.OnGridControlGotFocus;
+            this.GridControlHost.GotFocus -= this.OnGridControlGotFocus;
         }
 
         private void AfterSelectChange(object sender, AfterSelectChangeEventArgs e)
