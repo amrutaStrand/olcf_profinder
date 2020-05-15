@@ -26,7 +26,7 @@ namespace Agilent.OpenLab.ProfinderApplication
     /// <summary>
     ///     The app.
     /// </summary>
-    public partial class App:Application
+    public partial class App
     {
         #region Fields
 

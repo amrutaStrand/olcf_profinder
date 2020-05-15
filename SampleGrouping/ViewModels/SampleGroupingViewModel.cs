@@ -8,7 +8,6 @@
     using Microsoft.Practices.Unity;
     using DataTypes;
     using System.Collections.Generic;
-    using System.Data;
     #endregion
 
     /// <summary>
@@ -63,12 +62,6 @@
         /// list of selected samples
         /// </summary>
         public BindingList<ISample> SelectedSamples { get; set; }
-
-        private DataTable sampleDataTable;
-        /// <summary>
-        /// Data Table for xamgrid input
-        /// </summary>
-        public DataTable SampleDataTable { get { return sampleDataTable; } set { sampleDataTable = value; OnPropertyChanged("SampleDataTable"); } }
         /// <summary>
         /// focused sample
         /// </summary>
