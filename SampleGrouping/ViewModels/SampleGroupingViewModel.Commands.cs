@@ -2,6 +2,7 @@
 {
     using Agilent.MassSpectrometry.DataAnalysis;
     using Agilent.MassSpectrometry.DataAnalysis.Utilities;
+    using Agilent.OpenLab.Framework.DataAccess.CoreTypes;
     #region
 
     using Agilent.OpenLab.Framework.UI.Common.Commands;
@@ -11,6 +12,7 @@
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Data;
     using System.IO;
     using System.Windows.Input;
 
@@ -180,11 +182,18 @@
                 {
                     int i = FilePaths.Count + 1;
                     FilePaths = files;
-                   
-
+                    DataTable dataTable = new DataTable();
+                    dataTable.Columns.Add("Selected", typeof(bool));
+                    dataTable.Columns.Add("Exp. Order", typeof(int));
+                    dataTable.Columns.Add("File Name", typeof(string));
+                    dataTable.Columns.Add("Source", typeof(string));
+                    dataTable.Columns.Add("Sample Type", typeof(string));
+                    dataTable.Columns.Add("Group", typeof(string));
+                    
                     foreach (string file in files)
                     {
                         var source = GetFilePolarity(file);
+                        dataTable.Rows.Add(true, i, file, source, null, null);
                         Samples.Add(new Sample
                         {
                             HideOrShow = true,
@@ -195,18 +204,27 @@
                             Group = null
                         }) ;
                         i++;
-
+                        this.SampleDataTable = dataTable;
                     }
                 }
                 else
                 {
                     int i = FilePaths.Count + 1;
+                    DataTable dataTable = new DataTable();
+                    dataTable.Columns.Add("Selected", typeof(bool));
+                    dataTable.Columns.Add("Exp. Order", typeof(int));
+                    dataTable.Columns.Add("File Name", typeof(string));
+                    dataTable.Columns.Add("Source", typeof(string));
+                    dataTable.Columns.Add("Sample Type", typeof(string));
+                    dataTable.Columns.Add("Group", typeof(string));
+
                     foreach (string filename in files)
                     {
                         if (!FilePaths.Contains(filename))
                         {
                             FilePaths.Add(filename);
                             var source = GetFilePolarity(filename);
+                            dataTable.Rows.Add(true, i, filename, source, null, null);
                             Samples.Add(new Sample
                             {
                                 HideOrShow = true,
@@ -221,6 +239,8 @@
                         }
                             
                     }
+                    this.SampleDataTable = dataTable;
+
                 }
             }
             
@@ -258,23 +278,23 @@
             // 1. identify the ion source
             switch (msfi.IonModes)
             {
-                case IonizationMode.Unspecified:
+                case MassSpectrometry.DataAnalysis.IonizationMode.Unspecified:
                     // ChemStation translated .D files do not specify the ionization mode
                     if (isGCEI)
                         rv = "EI";
                     break;
-                case IonizationMode.Esi:
-                case IonizationMode.JetStream:
-                case IonizationMode.MsChip:
-                case IonizationMode.NanoEsi:
+                case MassSpectrometry.DataAnalysis.IonizationMode.Esi:
+                case MassSpectrometry.DataAnalysis.IonizationMode.JetStream:
+                case MassSpectrometry.DataAnalysis.IonizationMode.MsChip:
+                case MassSpectrometry.DataAnalysis.IonizationMode.NanoEsi:
                     rv = "ESI";
                     break;
-                case IonizationMode.Apci:
-                case IonizationMode.Appi:
-                case IonizationMode.CI:
-                case IonizationMode.EI:
-                case IonizationMode.ICP:
-                case IonizationMode.Maldi:
+                case MassSpectrometry.DataAnalysis.IonizationMode.Apci:
+                case MassSpectrometry.DataAnalysis.IonizationMode.Appi:
+                case MassSpectrometry.DataAnalysis.IonizationMode.CI:
+                case MassSpectrometry.DataAnalysis.IonizationMode.EI:
+                case MassSpectrometry.DataAnalysis.IonizationMode.ICP:
+                case MassSpectrometry.DataAnalysis.IonizationMode.Maldi:
                     rv = msfi.IonModes.ToString().ToUpperInvariant();
                     break;
             }
@@ -282,13 +302,13 @@
             // 2. +/- polarity
             switch (msfi.IonPolarity)
             {
-                case IonPolarity.Positive:
+                case MassSpectrometry.DataAnalysis.IonPolarity.Positive:
                     rv += "+";
                     break;
-                case IonPolarity.Negative:
+                case MassSpectrometry.DataAnalysis.IonPolarity.Negative:
                     rv += "-";
                     break;
-                case IonPolarity.Mixed:
+                case MassSpectrometry.DataAnalysis.IonPolarity.Mixed:
                     rv += "\u00B1"; // +/- character
                     break;
             }
