@@ -2,6 +2,8 @@
     x:Class="Agilent.OpenLab.ComoundTable.ComoundTableView" 
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:igDP="http://infragistics.com/DataPresenter"
+    xmlns:igWPF="http://schemas.infragistics.com/xaml/wpf"
     Height="Auto" 
     Width="Auto" 
     Margin="0" 
@@ -9,6 +11,7 @@
     Loaded="OnLoaded" 
     Unloaded="OnUnloaded">
     <Grid>
-        <WindowsFormsHost Focusable="True" Name="GridControlHost" Panel.ZIndex="1"></WindowsFormsHost>
+        <!--<WindowsFormsHost Focusable="True" Name="GridControlHost" Panel.ZIndex="1"></WindowsFormsHost>-->
+        <igWPF:XamDataGrid DataSource="{Binding Compounds}" SelectedDataItems="{Binding SelectedCompounds}" />
     </Grid>
 </UserControl>
