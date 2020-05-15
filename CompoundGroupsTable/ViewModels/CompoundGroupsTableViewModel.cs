@@ -69,11 +69,21 @@
         public BindingList<ICompoundGroupItem> CompoundGroups { get; private set; }
 
         BindingList<ICompoundGroupItem> selectedCompoundGroups;
+        ICompoundGroupItem activeCompoundGroup;
 
         /// <summary>
         ///     Gets or sets the focused compound.
         /// </summary>
-        public ICompoundGroupItem FocusedCompoundGroup { get; set; }
+        public ICompoundGroupItem FocusedCompoundGroup 
+        { 
+            get { return activeCompoundGroup; }
+            set
+            {
+                activeCompoundGroup = value;
+                if (activeCompoundGroup != null)
+                    EventAggregator.GetEvent<CompoundSelectionChanged>().Publish(activeCompoundGroup.CompoundGroupInfo);
+            }
+        }
 
         /// <summary>
         /// To add the SelectedCompounds
